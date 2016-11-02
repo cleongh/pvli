@@ -5,6 +5,9 @@ date: 31/10/2016
 vim: spelllang=es
 ...
 
+<!-- Yo dividiría el contenido en más diapositivas. Creo que diapósitivas cortas
+con un párrafo son más placenteras de leer que diapositivas largar con muchos
+párrafos. -->
 
 # Introducción
 
@@ -30,6 +33,10 @@ Podemos ver la definición de URI en la RFC de *Tim Berners-Lee* [RFC 3986: Unif
 
 Los URNs (Uniform Resource Name) sólo identifican (ej. el nombre de una persona); las URLs también localizan (ej. nos llamamos usando la dirección en la que vivimos).
 
+<!-- Aclararía que las URNs son también un subconjunto de las URIs. Aunque no
+hemos hablado de ellas antes y convendría introducirlas en la diapositiva
+anterior. -->
+
 ---
 
 
@@ -47,7 +54,6 @@ Ejemplos:
 ---
 
 
-
 Cómo se crea una URI:
 
 ![Partes de una URI](imgs/uri.png)
@@ -59,7 +65,12 @@ Los estados de Phaser son la unidad mínima que maneja el framework para crear u
 
 Piensa en un State como en un capítulo de un libro. Pero *sólo un State está activo al mismo tiempo*. Podemos cambiar entre estados, pero sólo uno puede estar activo.
 
-Es decir no podemos declarar un player state, o un Power Up state. Eso son entidades no states.
+<!-- Explicaría más la confusión. Supongo que se quiere hacer hincapié en
+que los estados no representan individuos. Haría explícito que esta es la
+confusión que se quiere evitar. Creo que toda la explicación que sigue está
+muy bien. -->
+
+Es decir no podemos declarar un player state, o un Power Up state. Eso son entidades, no states.
 
 Los states no tiene propiedades de visualización. Los States no son objetos renderizables. Son los objetos del State los que son renderizables.
 
@@ -78,12 +89,13 @@ Un State es un objeto de JavaScript que contiene una serie de métodos ya defini
 
 Un estado es válido si hay, al menos, uno de estos métodos: **preload**, **create**, **update** o **render**. Si no existe alguno de estos métodos, Phaser no carga el State.
 
+<!-- Esto es contradictorio. Creo que se ha querido decir que "si no existe
+ninguno de estos métodos, Phaser no carga el state". -->
+
 La gestión del State la realiza el **StateManager**. El StateManager es el encargado de gestionar los states. Si no se va a usar un método no es necesario re-declararlo.
 
 ---
 
-
-<!-- imagen dle flujo de las llamadas a State -->
 
 ![Flujo de ejecución de los métodos de un State](imgs/TimelinePhaser.png){height=50%}
 
@@ -94,7 +106,6 @@ La gestión del State la realiza el **StateManager**. El StateManager es el enca
 Además, Phaser proporciona una serie de propiedades que podemos utilizar en nuestro juego,
 mayoritariamente, estas propiedades son formas de acceder a los subsistemas de Phaser:
 
-<!--  ponemos algunas propiedades -->
 * **game**: La instancia de juego de Phaser.
 * **add**: La factoría de GameObject.
 * **camera**: La cámara.
@@ -127,9 +138,11 @@ mayoritariamente, estas propiedades son formas de acceder a los subsistemas de P
 
     <script type="text/javascript">
     window.onload = function() {
+        // El objeto pasado al final del constructor representa el estado
+        // en el que se iniciará el juego.
         var game = new Phaser.Game(800, 600, Phaser.AUTO, '', {
-          preload: preload,
-          create: create
+          preload: preload, // carga los recursos del estado.
+          create: create    // configura la escena.
         });
 ```
 
@@ -154,6 +167,11 @@ mayoritariamente, estas propiedades son formas de acceder a los subsistemas de P
 
 Ejemplo de states:
 
+<!-- En mi opinión, este ejemplo es demasiado complicado. Hemos establecido
+que los estados del juego son objetos, no funciones pero sin embargo utilizamos
+la versión de `add` que acepta una función. Yo lo dejaría en simples
+objetos. -->
+
 ```js
 var boot = function(game){
 	console.log("Comenzando el juego", "color:white; background:red");
@@ -175,6 +193,8 @@ boot.prototype = {
 
 ---
 
+<!-- Este objeto es muy confuso puesto que se llama como uno de los métodos
+del estado. Intentaría buscar un sinónimo. -->
 
 ```js
 var preload = function(game){}
@@ -202,6 +222,10 @@ preload.prototype = {
 
 ¿Cómo cargamos esto en la página Web?
 
+<!-- No hemos definido el estado gameTitle y el elemento del DOM "game" no
+existe. Faltaría hacer un `start` sobre el estado inicial o el setup se habría
+hecho para nada. -->
+
 ```html
     	<script src="phaser.min.js"></script>
     	<script src="src/boot.js"></script>
@@ -218,6 +242,12 @@ preload.prototype = {
 ```
 
 #Localización de los recursos
+
+<!-- Es de vital importancia que los alumnos aprendan a configurar un servidor
+local de donde obtener los recursos. Esta parece la sección ideal puesto que
+esto será lo que pase la mayor parte de las veces: que los recursos estarán en
+su propio servidor. Explicar CORS es conveniente una vez nos aseguremos que
+podemos cargar nuestros propios recursos. -->
 
 ---
 
@@ -258,7 +288,14 @@ function preload() {
 
 #Carga de recursos en memoria
 
+<!-- Sería conveniente hacer referencia a la caché. Sobre todo porque
+después nos referiremos a ella durante la liberación de recursos. -->
+
 ---
+
+<!-- Convendría recordar que esta función es la misma función `preload`
+del ejemplo anterior. O proveer de nuevos ejemplos de estados completos.
+Personalmente me inclino más por esta última opción. -->
 
 Una vez que tenemos el origen de los recursos podemos cargarlos en memoria.
 Se le añade una _key_ (clave o nombre) al recurso para poder identificarlo.
@@ -294,6 +331,9 @@ podemos cargar diferentes recursos como: imágenes, archivos JSON, atlas de text
 
 La función **onLoadComplete** nos informa de la finalización de la carga.
 
+<!-- Creo que esto es una señal, no una función. De todas formas, convendría
+aclarar en qué contexto hay que usarlo y proveer un ejemplo preciso. -->
+
 ```js
 onLoadComplete: function() {
   this.ready = true;
@@ -302,11 +342,14 @@ onLoadComplete: function() {
 
 **isLoading** nos informa de que aún estamos cargando recursos.
 
+<!-- De nuevo, habría que especificar el contexto. En este caso el tipo al
+que pertenece la propiedad. -->
+
 #Liberación de recursos
 
 ---
 
-Si cambiamos de stat y no vamos a volver al mismo, es muy probable que haya recursos que ya no utilizaremos
+Si cambiamos de state y no vamos a volver al mismo, es muy probable que haya recursos que ya no utilizaremos
 nunca. En este caso podemos eliminarlos de la caché. Hay que usar la key asignada en la carga.
 
 ```js
@@ -314,7 +357,10 @@ cache.removeImage(key)
 cache.removeXML(key)
 ```
 
-#Sprites en phaser
+<!-- Aqué el contexto es muy relevante puesto que no hemos explicado la caché.
+Hay que indicar que `cache` es una propiedad del objeto juego. -->
+
+#Sprites en Phaser
 
 ---
 
@@ -341,6 +387,7 @@ Sirven para optimizar recursos:
 ---
 
 Sirve también para crear animaciones por frames.
+
 
 ```js
 function preload() {
