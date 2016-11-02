@@ -106,7 +106,7 @@ Tema 5: Carga de recursos <!-- con Phaser -->
     - Carga en memoria
     - Uso y liberación de recursos
 <!-- - Spritesheets texturas (contar texturas? multitexturas phaser) -->
-- 04/11 (Carlos)
+- 04/11 (Salva y Carlos)
     - Práctica 1
 
 <!-- - Cargador de recursos para el juego -->
@@ -121,13 +121,13 @@ Tema 6: Gestión de entidades (I)
 <!-- <1!-- TODO [Carlos, 11-09-2016 14:38]: El 14 es fiesta --1> -->
 <!-- (no sprites) esto tiene que venir antes de sprites -->
 
-- 07/11 (Belén)
+- 07/11 (Ismael)
     - Imágenes
     - Creación y destrucción de entidades
-- 08/11 (Belén)
+- 08/11 (Carlos)
     - Groups en Phaser
     - Sprite pools 
-- 11/11 (Belén)
+- 11/11 (Ismael)
     - Práctica 2: Batallas RPG en el navegador
 
 <!-- (spritepools no tiene que estar separada de grupos) -->
@@ -136,17 +136,17 @@ Tema 6: Gestión de entidades (I)
 
 Tema 6: Gestión de entidades (II)
 
-- 14/11 (Belén)
+- 14/11 (Ismael)
     - Tiles 
     - Creación de tiles ([`tiled`](http://www.mapeditor.org/))
 <!-- (prio 0) -->
  <!-- [0] -->
-- 15/11 (Belén)
+- 15/11 (Carlos)
     - Texto 
     <!-- (prio 100) -->
     - Fuentes de mapa de bits
     - Fuentes Web y fuentes del sistema
-- 18/11 (Belén)
+- 18/11 (Carlos)
     - Trabajo en Práctica 2
 
 # 21-25 de noviembre
