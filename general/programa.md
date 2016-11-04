@@ -7,6 +7,7 @@ vim: spelllang=es
 
 # 26-30 de septiembre
 
+
 Tema 1: Programación de aplicaciones en HTML5
 
 - 26/9 (Ismael y Carlos)
@@ -122,13 +123,11 @@ Tema 6: Gestión de entidades (I)
 <!-- (no sprites) esto tiene que venir antes de sprites -->
 
 - 07/11 (Ismael)
-    - Imágenes
-    - Creación y destrucción de entidades
+    - Entidades de Phaser
 - 08/11 (Carlos)
-    - Groups en Phaser
-    - Sprite pools 
+    - Pooling con grupos de entidades
 - 11/11 (Ismael)
-    - Práctica 2: Batallas RPG en el navegador
+    - Práctica 2: Escena espacial
 
 <!-- (spritepools no tiene que estar separada de grupos) -->
 
@@ -143,7 +142,6 @@ Tema 6: Gestión de entidades (II)
  <!-- [0] -->
 - 15/11 (Carlos)
     - Texto 
-    <!-- (prio 100) -->
     - Fuentes de mapa de bits
     - Fuentes Web y fuentes del sistema
 - 18/11 (Carlos)
@@ -153,14 +151,13 @@ Tema 6: Gestión de entidades (II)
 
 Tema 6: Gestión de entidades (III)
 
-- 21/11 (Ismael)
+- 21/11 (Salva e Ismael)
     - Audio
     - Web Audio
     - Música y sonidos
-- 22/11 (Carlos)
+- 22/11 (Salva y Carlos)
     - Audio en Phaser
-    - Explicación juego arcade?
-- 25/11 (Ismael)
+- 25/11 (Salva y Ismael)
     - Ejercicio con Web Audio
     - Trabajo en Práctica 2
 
