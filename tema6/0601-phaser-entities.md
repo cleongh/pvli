@@ -3,7 +3,8 @@
 
 <!-- Explicar la sandbox más en detenimiento. Hablar de las tabs y de cómo
 vamos a enseñar en el código la parte más relevante. -->
-Los ejemplos de esta lección pueden probarse en la sandbox de Phaser...
+Los ejemplos de esta lección pueden probarse en la [sandbox de
+Phaser](https://phaser.io/sandbox)
 
 
 
@@ -18,7 +19,8 @@ de aquí. Algo como correr el servidor en local y cambiar el logo de Phaser por
 uno propio. -->
 
 
-Una vez hayas copiado la plantilla, lanza el siguiente comando:
+Una vez hayas copiado la plantilla y ejecutado `npm install` en la raíz, lanza
+el siguiente comando:
 
 ```bash
 $ node ./node_modules/gulp/bin/gulp run
@@ -67,13 +69,45 @@ juego. Por ejemplo, como parte de la creación de un estado:
 <!-- Contar positin (y contar Point), anchor, alpha, blendMode, angle, scale.
 Recuerda que aparte de la Sandbox, puedes tirar de las demos de Phaser. -->
 
+Phaser tiene objetos para representar puntos o vectores centrados en (0, 0).
+
+```js
+var myPoint = new Phaser.Point(); // (0, 0)
+var myPointXY = new Phaser.Point(10, 10); // (10, 10)
+```
+
+
+
+Las imágenes rendean texturas, y les podemos decir desde dónde queremos rendear
+la textura en relación al origen de la imagen, con `anchor`.
+
+
+También se puede elegir el *blending* con `blendMode` (¡mirad el API!).
+
 
 ### Métodos relevantes de las imágenes
 
 
-<!-- Contar crop -->
+
+Una imagen puede ser "recortada" con `crop`, de forma que sólo se vea un trozo de la misma
+
+```js
+image = game.add.image(0, 0, 'phaser');
+image.crop(new Phaser.Rectangle(0, 0, 10, 10));
+```
 
 
+
+Cuando la imagen se recorta, realmente no se pierde información. De hecho, el
+recorte se puede cambiar dinámicamente:
+
+```js
+// en la pestaña update
+function update() {
+    v += 0.1;
+    image.crop(new Phaser.Rectangle(0, 0, v, v));
+}
+```
 
 ## El mundo
 
@@ -103,10 +137,22 @@ En Phaser existe sólo un mundo, que se crea automáticamente cuando creamos el
 juego y al que se puede acceder a través del atributo [`world`](
 https://phaser.io/docs/2.6.2/Phaser.Game.html#world) del objeto de juego.
 
+```js
+// en la pestaña create
+game.world.setBounds(0, 0, 1920, 1200);
+```
+
+
 
 También se crea una cámara, a la que podemos acceder a través del atributo
 [`camera`](https://phaser.io/docs/2.6.2/Phaser.Game.html#camera) del objeto de
 juego o del mundo.
+
+```js
+// en la pestaña create
+var card = game.add.sprite(200, 200, 'card');
+game.camera.follow(card);
+```
 
 
 Este mundo tiene un tamaño inicial igual al tamaño indicado al construir el
@@ -198,15 +244,59 @@ https://phaser.io/sandbox/xMDkDhBs
 
 ### Atributos relevantes de los sprites
 
+
+Todos los `Sprite` son también `Image`. Por tanto, tienen todos los atributos
+de `Image`
+
+
+Más adelante veremos más atributos de los `Sprite`, como `animations`, `body`
+(para físicas) y `children` (para agrupar)
+
 <!-- Contar que tienen todos los de image además de algunos de ciclo de vida
 que veremos en el tema 6.2, children, animations y body -->
 
 
 ### Métodos relevantes de los sprites
 
-<!-- Contar overlap, addChild y removeChild -->
 
 
+
+`addChild` y `removeChild` añaden y eliminan, respectivamente, un hijo.
+
+
+Un "hijo" es otra entidad cuyas propiedades van unidas y son relativas a las
+del padre.
+
+
+Por ejemplo, si el `Sprite` `A` tiene un hijo `B` y movemos `A`, `B` se moverá
+junto a `A` automáticamente.
+
+
+```js
+function create() {
+    var c = new Martian('phaser'); // Martian es un Sprite
+    c.y = 80;
+    var c2 = new Martian('phaser');
+    c.addChild(c2); // hacemos que c2 sea hijo de c
+    c2.y = 10; // relativo a c, en total corresponde a 90
+    game.world.addChild(c);
+}
+```
+
+
+
+`overlap` comprueba si un `Sprite` colisiona con otro:
+
+
+```js
+function update() {
+    // si `c` y `c2` se solapan
+    if(c.overlap(c2)) {
+        // cambiamos la coordenada 'y' de `c2`
+        c2.y = 100;
+    }
+}
+```
 
 ## Transformaciones
 
@@ -227,14 +317,54 @@ https://phaser.io/docs/2.6.2/Phaser.Sprite.html#x) e [`y`](
 https://phaser.io/docs/2.6.2/Phaser.Sprite.html#y).
 
 
-<!-- Un ejemplo moviendo al marciano. Conviene que sobreescriban update
-y que NO sea la escena la que mueve el sprite. -->
+
+En el caso de `Sprite`, es conveniente mover al elemento habiendo creado una
+clase que herede de `Sprite` y modificar `x` e `y` dentro de su `update`:
+
+
+```js
+function Martian(name) {
+    Phaser.Sprite.call(this, game, 0, 0, name);
+}
+
+Martian.prototype = Object.create(Phaser.Sprite.prototype);
+Martian.constructor = Martian;
+
+Martian.prototype.update = function() {
+    this.x += 1;
+    this.y += 1;
+};
+
+function create() {
+    game.world.addChild(new Martian('phaser'));
+}
+```
+https://phaser.io/sandbox/iuezaSHd
 
 
 ### Rotación
 
 
-<!-- Contar el atributo angle y ejemplo rotando al marciano. -->
+`angle` controla la rotación de un Sprite, en grados ([-180...180])^[también
+existe `rotation`, para hacer la rotación de radianes y es ligeramente más
+rápido.].
+
+
+Valores negativos del ángulo son rotación antihoraria, y valores positivos,
+horaria.
+
+
+
+Cualquier valor >360 equivale a restar 360 al ángulo (`angle = 450` es igual
+que `angle = 90`).
+
+
+```js
+Martian.prototype.update = function() {
+    // El marciano da vueltas sin parar
+    this.angle++;
+};
+```
 
 ### Escalado
 
@@ -242,6 +372,32 @@ y que NO sea la escena la que mueve el sprite. -->
 <!-- Contar el atributo y ejemplo escalando al marciano. Contar escalado
 negativo para hacer mirroring. -->
 
+
+`width` y `height` controlan la anchura y altura, respectivamente. Con ellos se
+pueden escalar objetos.
+
+
+```js
+Martian.prototype.resizeMe = function() {
+    this.width = 3;
+    this.height = 5;
+};
+```
+
+
+Podemos hacer *mirroring*, con consiste en hacer una versión especular de la
+imagen, escalando de forma negativa.
+
+
+En el siguiente código, el `Sprite` se encoge tanto que se acaba dando la
+vuelta.
+
+
+```js
+Martian.prototype.update = function() {
+    this.width--;
+};
+```
 
 
 ## La jerarquía del mundo
@@ -252,7 +408,7 @@ contener otras entidades formando así una jerarquía en forma de árbol.
 
 
 La relación entre una entidad y sus entidades hijas es la de **pertenencia al
-sistema de coordenadas**.
+sistema de coordenadas** (recordad `addChild`).
 
 
 Es decir, si la entidad `Moon` se añade a la entidad `Earth`, significa que
@@ -268,3 +424,5 @@ de coordenadas de `Earth` y no del mundo.
 
 
 <!-- Como ejemplo, un sistema Planeta-Satélite sería perfecto aquí. -->
+
+Podéis ver un [ejemplo](https://phaser.io/sandbox/OcqMXMhi)
