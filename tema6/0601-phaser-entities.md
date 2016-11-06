@@ -1,22 +1,15 @@
 # Entidades de Phaser
 
 
-<!-- Explicar la sandbox más en detenimiento. Hablar de las tabs y de cómo
-vamos a enseñar en el código la parte más relevante. -->
 Los ejemplos de esta lección pueden probarse en la [sandbox de
 Phaser](https://phaser.io/sandbox)
 
 
-
-<!-- Hay que advertir que hay un bug en la documentación de Phaser más actual
-que oculta algunas propiedades. Mirar 2.5 y 2.4 también. -->
-
+(Atención: hay un bug en la documentación de Phaser, y algunas propiedades
+están ocultas. Podéis buscar en las versiones 2.5 y 2.4 también).
 
 
 ## El servidor local
-<!-- Quedamos en que esto lo mandábamos como ejercicio obligatorio y lo quitamos
-de aquí. Algo como correr el servidor en local y cambiar el logo de Phaser por
-uno propio. -->
 
 
 Una vez hayas copiado la plantilla y ejecutado `npm install` en la raíz, lanza
@@ -66,9 +59,6 @@ juego. Por ejemplo, como parte de la creación de un estado:
 ### Atributos relevantes de las imágenes
 
 
-<!-- Contar positin (y contar Point), anchor, alpha, blendMode, angle, scale.
-Recuerda que aparte de la Sandbox, puedes tirar de las demos de Phaser. -->
-
 Phaser tiene objetos para representar puntos o vectores centrados en (0, 0).
 
 ```js
@@ -109,7 +99,12 @@ function update() {
 }
 ```
 
+
+
+
 ## El mundo
+
+
 
 
 En Phaser, la factoría de objetos se llama añadir (`add`) por una razón:
@@ -252,8 +247,6 @@ de `Image`
 Más adelante veremos más atributos de los `Sprite`, como `animations`, `body`
 (para físicas) y `children` (para agrupar)
 
-<!-- Contar que tienen todos los de image además de algunos de ciclo de vida
-que veremos en el tema 6.2, children, animations y body -->
 
 
 ### Métodos relevantes de los sprites
@@ -297,6 +290,7 @@ function update() {
     }
 }
 ```
+
 
 ## Transformaciones
 
@@ -345,9 +339,11 @@ https://phaser.io/sandbox/iuezaSHd
 ### Rotación
 
 
-`angle` controla la rotación de un Sprite, en grados ([-180...180])^[también
-existe `rotation`, para hacer la rotación de radianes y es ligeramente más
-rápido.].
+`angle` controla la rotación de un Sprite, en grados ([-180...180])
+
+
+También existe `rotation`, para hacer la rotación de radianes y es ligeramente más
+rápido.
 
 
 Valores negativos del ángulo son rotación antihoraria, y valores positivos,
@@ -366,11 +362,8 @@ Martian.prototype.update = function() {
 };
 ```
 
+
 ### Escalado
-
-
-<!-- Contar el atributo y ejemplo escalando al marciano. Contar escalado
-negativo para hacer mirroring. -->
 
 
 `width` y `height` controlan la anchura y altura, respectivamente. Con ellos se
@@ -423,6 +416,5 @@ También significa que si transformaremos `Moon`, lo haremos respecto del sistem
 de coordenadas de `Earth` y no del mundo.
 
 
-<!-- Como ejemplo, un sistema Planeta-Satélite sería perfecto aquí. -->
-
-Podéis ver un [ejemplo](https://phaser.io/sandbox/OcqMXMhi)
+Podéis ver un [ejemplo](https://phaser.io/sandbox/OcqMXMhi) en el que las
+entidades se agrupan según una jerarquía.
