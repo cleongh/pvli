@@ -416,5 +416,7 @@ También significa que si transformaremos `Moon`, lo haremos respecto del sistem
 de coordenadas de `Earth` y no del mundo.
 
 
-Podéis ver un [ejemplo](https://phaser.io/sandbox/OcqMXMhi) en el que las
+Podéis ver un [ejemplo](https://phaser.io/sandbox/edit/lWlACykr) en el que las
 entidades se agrupan según una jerarquía.
+
+
