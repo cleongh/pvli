@@ -5,21 +5,18 @@ date: 31/10/2016
 vim: spelllang=es
 ...
 
-<!-- Yo dividiría el contenido en más diapositivas. Creo que diapósitivas cortas
-con un párrafo son más placenteras de leer que diapositivas largar con muchos
-párrafos. -->
 
 # Introducción
 
 ## Qué es Phaser
 
-**Phaser** es un framework que nos permite construir juegos en HTML5 para equipos de escritorio y dispositivos móviles. Es bastante nuevo, pero tiene involucrada una apasionada comunidad en el proceso de desarrollo, por lo que crece rápidamente
+**Phaser** es un framework que nos permite construir juegos en HTML5 para equipos de escritorio y dispositivos móviles. Es bastante nuevo, pero tiene involucrada una apasionada comunidad en el proceso de desarrollo, por lo que crece rápidamente.
 
 El juego se renderiza sobre un *Canvas*, luego no está directamente pensado par ser ejecutado en Node, aunque podemos *"apañarlo"*.
 
 ##URLs vs URIs
 
-Las URIs son un superconjunto de las URLs.
+Las URIs son un superconjunto de las URLs. Hay dos tipos de URIs: URLs y URNs.
 
 ![URL vs URI](imgs/URIvsURL.png){height=400px width=400px}
 
@@ -31,7 +28,7 @@ Podemos ver la definición de URI en la RFC de *Tim Berners-Lee* [RFC 3986: Unif
 
 "El nombre de Uniform Resource Locator (URL) es un subconjunto de URIs que además de identificar el recurso, proveen al mismo de una semántica de localización"
 
-Los URNs (Uniform Resource Name) sólo identifican (ej. el nombre de una persona); las URLs también localizan (ej. nos llamamos usando la dirección en la que vivimos).
+"Los URNs (Uniform Resource Name) es un subconjunto de URIs que sólo identifican (ej. el nombre de una persona); las URLs también localizan (ej. nos llamamos usando la dirección en la que vivimos).
 
 <!-- Aclararía que las URNs son también un subconjunto de las URIs. Aunque no
 hemos hablado de ellas antes y convendría introducirlas en la diapositiva
@@ -59,16 +56,16 @@ Cómo se crea una URI:
 ![Partes de una URI](imgs/uri.png)
 
 
-## Game States
+# Game States
 
-Los estados de Phaser son la unidad mínima que maneja el framework para crear una escena de juego. Podríamos decir que es equivalente a la *Scene* de Unity.
-
-Piensa en un State como en un capítulo de un libro. Pero *sólo un State está activo al mismo tiempo*. Podemos cambiar entre estados, pero sólo uno puede estar activo.
+Los estados de Phaser son la unidad mínima que maneja el framework para crear una escena de juego. Podríamos decir que es equivalente a la *Scene* de Unity, pPero a diferencia 
+de Unity *sólo un State está activo al mismo tiempo*. Piensa en una State como el capítulo de un libro. Podemos cambiar entre estados/capítulos, pero sólo uno puede estar activo/sólo podemos leer un capitulo del libro.
 
 <!-- Explicaría más la confusión. Supongo que se quiere hacer hincapié en
 que los estados no representan individuos. Haría explícito que esta es la
 confusión que se quiere evitar. Creo que toda la explicación que sigue está
 muy bien. -->
+---
 
 Es decir no podemos declarar un player state, o un Power Up state. Eso son entidades, no states.
 
@@ -87,12 +84,13 @@ Los States sirven para controlar el flujo de juego.
 Un State es un objeto de JavaScript que contiene una serie de métodos ya definidos.
 
 
-Un estado es válido si hay, al menos, uno de estos métodos: **preload**, **create**, **update** o **render**. Si no existe alguno de estos métodos, Phaser no carga el State.
+Un estado es válido si se ha definido al menos uno de estos métodos: **preload**, **create**, **update** o **render**. Si no se hubiese definido ninguno, el estado se considera "no válido" y Phaser no lo carga.
 
 <!-- Esto es contradictorio. Creo que se ha querido decir que "si no existe
 ninguno de estos métodos, Phaser no carga el state". -->
 
-La gestión del State la realiza el **StateManager**. El StateManager es el encargado de gestionar los states. Si no se va a usar un método no es necesario re-declararlo.
+La gestión del State la realiza el **StateManager**, que es el encargado de gestionar los states. 
+Si no se va a usar un método no es necesario re-declararlo.
 
 ---
 
@@ -172,6 +170,8 @@ que los estados del juego son objetos, no funciones pero sin embargo utilizamos
 la versión de `add` que acepta una función. Yo lo dejaría en simples
 objetos. -->
 
+<!-- ISMA: No entiendo a que te refieres con el comentarios que has puesto -->
+
 ```js
 var boot = function(game){
 	console.log("Comenzando el juego", "color:white; background:red");
@@ -179,13 +179,16 @@ var boot = function(game){
   
 boot.prototype = {
 	preload: function(){
+        //precargo el loading que voy a usar en la siguiente escena
         this.game.load.image("loading","assets/loading.png");
 	},
   	create: function(){
 		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		this.scale.pageAlignHorizontally = true;
 		this.scale.setScreenSize();
-		this.game.state.start("Preload");
+        //Cambio de escena
+		this.game.state.start("game_level");
+
 	}
 }
 ```
@@ -197,12 +200,14 @@ boot.prototype = {
 del estado. Intentaría buscar un sinónimo. -->
 
 ```js
-var preload = function(game){}
-preload.prototype = {
+var pantalla_carga = function(game){}
+pantalla_carga.prototype = {
 	preload: function(){
-        var loadingBar = this.add.sprite(160,240,"loading");
+        //muestro la imagen de loading
+        var loadingBar = this.add.sprite(160,240,"loading");
         loadingBar.anchor.setTo(0.5,0.5);
-        this.load.setPreloadSprite(loadingBar);
+   
+        //Cargo los recursos
 		this.game.load.spritesheet("numbers","assets/numbers.png",100,100);
 		this.game.load.image("gametitle","assets/gametitle.png");
 		this.game.load.image("play","assets/play.png");
@@ -210,9 +215,6 @@ preload.prototype = {
 		this.game.load.image("lower","assets/lower.png");
 		this.game.load.image("gameover","assets/gameover.png");
 	},
-  	create: function(){
-		this.game.state.start("GameTitle");
-	}
 }
 ```
 
@@ -226,17 +228,22 @@ preload.prototype = {
 existe. Faltaría hacer un `start` sobre el estado inicial o el setup se habría
 hecho para nada. -->
 
+<!-- ISMA: en un ejemplo de phaser en la MDN viene con "game" puesto en el DOM
+así que supuse que lo creaba phaser si no estaba definido: https://developer.mozilla.org/es/docs/Games/Workflows/HTML5_Gamedev_Phaser_Device_Orientation
+-->
+
 ```html
     	<script src="phaser.min.js"></script>
-    	<script src="src/boot.js"></script>
-		<script src="src/preload.js"></script>
-		<script src="src/gametitle.js"></script>
+    	        <script src="src/boot.js"></script>
+		<script src="src/game_level.js"></script>
 		<script>
 			window.onload = function() {
 				var game = new Phaser.Game(320, 480, Phaser.CANVAS, "game");
-				game.state.add("Boot",boot);
-				game.state.add("Preload",preload);
-				game.state.add("GameTitle",gameTitle);
+				game.state.add("boot",boot);
+				game.state.add("pantalla_carga",pantalla_carga);
+
+				this.game.state.start("boot");
+	
 			};    
 		</script>
 ```
@@ -286,6 +293,7 @@ function preload() {
 }
 ```
 
+
 #Carga de recursos en memoria
 
 <!-- Sería conveniente hacer referencia a la caché. Sobre todo porque
@@ -323,24 +331,67 @@ function preload() {
 }
 ```
 
+Estos recursos se guardan en la cache. La cache no se descarga hasta que no lo indiquemos. La cache no está asociada a ningun state concreto.
 
 ---
 
 
 podemos cargar diferentes recursos como: imágenes, archivos JSON, atlas de texturas, video, sonido, tilemaps...
 
-La función **onLoadComplete** nos informa de la finalización de la carga.
+El evento **onLoadStart** nos informa del inicio de la carga.
 
+El evento **onLoadComplete** nos informa de la finalización de la carga.
+
+boolean **isLoading** nos informa de que aún estamos cargando recursos.
 <!-- Creo que esto es una señal, no una función. De todas formas, convendría
 aclarar en qué contexto hay que usarlo y proveer un ejemplo preciso. -->
 
+---
+
+Ejemplo de uso de onLoadStart y onLoadComplete
+
+
 ```js
-onLoadComplete: function() {
-  this.ready = true;
-}
+splash.prototype = {
+    
+    preload: function(){
+        this.game.load.image("background","img/phaser.png");
+        this.game.load.spritesheet("button_ok","img/button_sprite_sheet.png",193, 71);
+    },
+    
+    create: function(){
+        this._background = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY,"background");
+        this._background.anchor.setTo(0.5,0.5);
+         
+        this._button = this.game.add.button(this.game.world.centerX,this.game.world.centerY-90, "button_ok", this.onButtonClick,this,2,1,0); 
+        this.game.load.onLoadStart.add(this.loadStart, this);
+        this.game.load.onLoadComplete.add(this.loadCompleted,this);
+        
+        
+    },
 ```
 
-**isLoading** nos informa de que aún estamos cargando recursos.
+---
+
+```js
+    // Cuando el boton se pulsa.
+    onButtonClick: function(){
+        // Cargamos los recursos de la siguiente escena y forzamos el inicio de la carga
+        this.game.load.image("sonic","img/sonic_havok_sanity.png");   
+        this.game.load.start();
+    },
+    
+    
+    loadCompleted: function(){
+        //Cuando los recursos son cargados cambiamos de escena.
+        this.game.state.start("level");
+    },
+    
+    loadStart: function(){
+        console.log("Empieza la carga ");
+    }
+```
+
 
 <!-- De nuevo, habría que especificar el contexto. En este caso el tipo al
 que pertenece la propiedad. -->
@@ -352,17 +403,22 @@ que pertenece la propiedad. -->
 Si cambiamos de state y no vamos a volver al mismo, es muy probable que haya recursos que ya no utilizaremos
 nunca. En este caso podemos eliminarlos de la caché. Hay que usar la key asignada en la carga.
 
+
 ```js
 cache.removeImage(key)
 cache.removeXML(key)
 ```
+Lo habitual es que se use en el ShutDown que es el método al que nos llamarán cuando se destruya el state
+al cambiar de estado. Pero se podria querer liberar recursos en otras ocasiones.
 
-<!-- Aqué el contexto es muy relevante puesto que no hemos explicado la caché.
+<!-- Aquí el contexto es muy relevante puesto que no hemos explicado la caché.
 Hay que indicar que `cache` es una propiedad del objeto juego. -->
+
+<!--ISMA: Esto lo explique de palabra y les dije que lo habitual sería eliminarlo en el shutdown: añado la explicación a los apuntes-->
 
 #Sprites en Phaser
 
----
+--
 
 Son las imágenes 2D que sirven para visualizar los objetos en un juego 2D.  En Phaser se instancian así:
 
@@ -391,8 +447,8 @@ Sirve también para crear animaciones por frames.
 
 ```js
 function preload() {
-    //  37x45 is the size of each frame
-    //  Hay 18 frames in the PNG
+    //  37x45 dimensiones del sprite
+    //  Número de sprites
     game.load.spritesheet(
       'mummy',
       'assets/sprites/metalslug_mummy37x45.png',
@@ -402,8 +458,11 @@ function preload() {
 
 function create() {
     var mummy = game.add.sprite(300, 200, 'mummy');
-    var walk = mummy.animations.add('walk'); //[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ...]
-    mummy.animations.play('walk', 30, true);
+    var walk = mummy.animations.add('walk'); 
+	//podemos definir los sprites que formará la animación
+	// a continuación del nombre de la animación
+	//como sigue: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ...]
+    mummy.animations.play('walk', 30, true);//30 son la velocidad de cuadro de la animación.
 }
 ```
 

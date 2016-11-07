@@ -125,11 +125,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <section><section id="introducción" class="titleslide slide level1"><h1>Introducción</h1></section><section id="qué-es-phaser" class="slide level2">
 <h1>Qué es Phaser</h1>
-<p><strong>Phaser</strong> es un framework que nos permite construir juegos en HTML5 para equipos de escritorio y dispositivos móviles. Es bastante nuevo, pero tiene involucrada una apasionada comunidad en el proceso de desarrollo, por lo que crece rápidamente</p>
+<p><strong>Phaser</strong> es un framework que nos permite construir juegos en HTML5 para equipos de escritorio y dispositivos móviles. Es bastante nuevo, pero tiene involucrada una apasionada comunidad en el proceso de desarrollo, por lo que crece rápidamente.</p>
 <p>El juego se renderiza sobre un <em>Canvas</em>, luego no está directamente pensado par ser ejecutado en Node, aunque podemos <em>&quot;apañarlo&quot;</em>.</p>
 </section><section id="urls-vs-uris" class="slide level2">
-<h1>URLS vs URIS</h1>
-<p>Las URIS son un superconjunto de las URLs.</p>
+<h1>URLs vs URIs</h1>
+<p>Las URIs son un superconjunto de las URLs. Hay dos tipos de URIs: URLs y URNs.</p>
 <figure>
 <img src="imgs/URIvsURL.png" alt="URL vs URI" width="400" height="400" /><figcaption>URL vs URI</figcaption>
 </figure>
@@ -138,16 +138,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Podemos ver la definición de URI en la RFC de <em>Tim Berners-Lee</em> <a href="https://tools.ietf.org/html/rfc3986">RFC 3986: Uniform Resource Identifier (URI)</a></p>
 <p>&quot;Uniform Resources Identifier (URI) es una secuencia compacta de caracteres que identifica un recurso abstracto o físico&quot;.</p>
 <p>&quot;El nombre de Uniform Resource Locator (URL) es un subconjunto de URIs que además de identificar el recurso, proveen al mismo de una semántica de localización&quot;</p>
-<p>Los URNs (Uniform Resource Name) sólo identifica (el nombre de una persona) las URLs también localizan (nos llamamos usando la dirección en la que vivimos).</p>
+<p>&quot;Los URNs (Uniform Resource Name) es un subconjunto de URIs que sólo identifican (ej. el nombre de una persona); las URLs también localizan (ej. nos llamamos usando la dirección en la que vivimos).</p>
+<!-- Aclararía que las URNs son también un subconjunto de las URIs. Aunque no
+hemos hablado de ellas antes y convendría introducirlas en la diapositiva
+anterior. -->
 </section><section class="slide level2">
 
 <p>El directorio especial ../ indica el directorio padre del que se lanzó la aplicación. El directorio ./ indica el directorio de lanzamiento de la aplicación.</p>
 <p>Ejemplos:</p>
 <ul>
-<li class="fragment">ftp://rediris.com/resourcea : URL and URN</li>
-<li class="fragment">+34555555555 URN</li>
-<li class="fragment">urn:isbn:0451450523 URN</li>
-<li class="fragment">http://es.wikipedia.org/wiki/Wikipedia:Portada URN and URL</li>
+<li class="fragment">ftp://rediris.com/resourcea - URL y URN</li>
+<li class="fragment">+34555555555 - URN</li>
+<li class="fragment">urn:isbn:0451450523 - URN</li>
+<li class="fragment">http://es.wikipedia.org/wiki/Wikipedia:Portada URN y URL</li>
 </ul>
 </section><section class="slide level2">
 
@@ -155,13 +158,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <figure>
 <img src="imgs/uri.png" alt="Partes de una URI" /><figcaption>Partes de una URI</figcaption>
 </figure>
-</section><section id="game-states" class="slide level2">
-<h1>Game States</h1>
-<p>Los estados de Phaser son la unidad mínima que maneja el framework para crear una escena de juego. Podríamos decir que es equivalente a la <em>Scene</em> de Unity.</p>
-<p>Piensa en un State como en un capítulo de un libro. Pero <em>sólo un Stat está activo al mismo tiempo</em>. Podemos cambiar entre estados, pero sólo uno puede estar activo.</p>
-<p>Es decir no podemos declarar un player Stat, o un Power Up state. Eso son entidades no stats.</p>
-<p>Los stats no tiene propiedades de visualización. Los Stats no son objetos renderizables. Son los objetos del Stat los que son renderizables.</p>
-<p>Los Stats sirven para controlar el flujo de juego.</p>
+</section></section>
+<section><section id="game-states" class="titleslide slide level1"><h1>Game States</h1></section><section class="slide level2">
+
+<p>Es decir no podemos declarar un player state, o un Power Up state. Eso son entidades, no states.</p>
+<p>Los states no tiene propiedades de visualización. Los States no son objetos renderizables. Son los objetos del State los que son renderizables.</p>
+<p>Los States sirven para controlar el flujo de juego.</p>
 </section><section class="slide level2">
 
 <figure>
@@ -169,25 +171,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </figure>
 </section><section id="estructura-de-un-state" class="slide level2">
 <h1>Estructura de un State</h1>
-<p>Un State es un objeto de Javascript que contiene una serie de métodos ya definidos.</p>
-<p>Un estado es válido si hay, al menos uno de estos métodos: <strong>preload</strong>, <strong>create</strong>, <strong>update</strong> o <strong>render</strong>. Si no existe alguno de estos métodos, Phaser no carga el State.</p>
-<p>La gestión del State la realiza el <strong>StateManager</strong>. El StateManager es el encargado de gestionar los states. Si no se va a usar un método no es necesario re-declararlo.</p>
+<p>Un State es un objeto de JavaScript que contiene una serie de métodos ya definidos.</p>
+<p>Un estado es válido si se ha definido al menos uno de estos métodos: <strong>preload</strong>, <strong>create</strong>, <strong>update</strong> o <strong>render</strong>. Si no se hubiese definido ninguno, el estado se considera &quot;no válido&quot; y Phaser no lo carga.</p>
+<!-- Esto es contradictorio. Creo que se ha querido decir que "si no existe
+ninguno de estos métodos, Phaser no carga el state". -->
+<p>La gestión del State la realiza el <strong>StateManager</strong>, que es el encargado de gestionar los states. Si no se va a usar un método no es necesario re-declararlo.</p>
 </section><section class="slide level2">
 
-<!-- imagen dle flujo de las llamadas a State -->
 <figure>
 <img src="imgs/TimelinePhaser.png" alt="Flujo de ejecución de los métodos de un State" style="height:50.0%" /><figcaption>Flujo de ejecución de los métodos de un State</figcaption>
 </figure>
 </section><section class="slide level2">
 
 <p>Además, Phaser proporciona una serie de propiedades que podemos utilizar en nuestro juego, mayoritariamente, estas propiedades son formas de acceder a los subsistemas de Phaser:</p>
-<!--  ponemos algunas propiedades -->
 <ul>
 <li class="fragment"><strong>game</strong>: La instancia de juego de Phaser.</li>
 <li class="fragment"><strong>add</strong>: La factoría de GameObject.</li>
 <li class="fragment"><strong>camera</strong>: La cámara.</li>
 <li class="fragment"><strong>input</strong>: La entrada de Phaser.</li>
-<li class="fragment"><strong>load</strong>: el cargador de load.</li>
+<li class="fragment"><strong>load</strong>: el cargador de recursos.</li>
 </ul>
 </section><section class="slide level2">
 
@@ -212,15 +214,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
     <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;</span>
     <span class="va">window</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span>
-
-        <span class="kw">var</span> game <span class="op">=</span> <span class="kw">new</span> <span class="va">Phaser</span>.<span class="at">Game</span>(<span class="dv">800</span><span class="op">,</span> <span class="dv">600</span><span class="op">,</span> <span class="va">Phaser</span>.<span class="at">AUTO</span><span class="op">,</span> <span class="st">&#39;&#39;</span><span class="op">,</span> <span class="op">{</span> <span class="dt">preload</span><span class="op">:</span> preload<span class="op">,</span> <span class="dt">create</span><span class="op">:</span> create <span class="op">}</span>)<span class="op">;</span></code></pre></div>
+        <span class="co">// El objeto pasado al final del constructor representa el estado</span>
+        <span class="co">// en el que se iniciará el juego.</span>
+        <span class="kw">var</span> game <span class="op">=</span> <span class="kw">new</span> <span class="va">Phaser</span>.<span class="at">Game</span>(<span class="dv">800</span><span class="op">,</span> <span class="dv">600</span><span class="op">,</span> <span class="va">Phaser</span>.<span class="at">AUTO</span><span class="op">,</span> <span class="st">&#39;&#39;</span><span class="op">,</span> <span class="op">{</span>
+          <span class="dt">preload</span><span class="op">:</span> preload<span class="op">,</span> <span class="co">// carga los recursos del estado.</span>
+          <span class="dt">create</span><span class="op">:</span> create    <span class="co">// configura la escena.</span>
+        <span class="op">}</span>)<span class="op">;</span></code></pre></div>
 </section><section class="slide level2">
 
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">
-        <span class="kw">function</span> <span class="at">preload</span> () <span class="op">{</span><span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&#39;logo&#39;</span><span class="op">,</span> <span class="st">&#39;phaser.png&#39;</span>)<span class="op">;}</span>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">        <span class="kw">function</span> <span class="at">preload</span> () <span class="op">{</span>
+          <span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&#39;logo&#39;</span><span class="op">,</span> <span class="st">&#39;phaser.png&#39;</span>)<span class="op">;</span>
+        <span class="op">}</span>
 
         <span class="kw">function</span> <span class="at">create</span> () <span class="op">{</span>
-            <span class="kw">var</span> logo <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="va">game</span>.<span class="va">world</span>.<span class="at">centerX</span><span class="op">,</span> <span class="va">game</span>.<span class="va">world</span>.<span class="at">centerY</span><span class="op">,</span> <span class="st">&#39;logo&#39;</span>)<span class="op">;</span>
+            <span class="kw">var</span> logo <span class="op">=</span>
+              <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="va">game</span>.<span class="va">world</span>.<span class="at">centerX</span><span class="op">,</span> <span class="va">game</span>.<span class="va">world</span>.<span class="at">centerY</span><span class="op">,</span> <span class="st">&#39;logo&#39;</span>)<span class="op">;</span>
             <span class="va">logo</span>.<span class="va">anchor</span>.<span class="at">setTo</span>(<span class="fl">0.5</span><span class="op">,</span> <span class="fl">0.5</span>)<span class="op">;</span>
         <span class="op">}</span>}<span class="op">;</span>
     <span class="op">&lt;</span><span class="ss">/script&gt;</span>
@@ -229,29 +237,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section class="slide level2">
 
 <p>Ejemplo de states:</p>
+<!-- En mi opinión, este ejemplo es demasiado complicado. Hemos establecido
+que los estados del juego son objetos, no funciones pero sin embargo utilizamos
+la versión de `add` que acepta una función. Yo lo dejaría en simples
+objetos. -->
+<!-- ISMA: No entiendo a que te refieres con el comentarios que has puesto -->
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> boot <span class="op">=</span> <span class="kw">function</span>(game)<span class="op">{</span>
     <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Comenzando el juego&quot;</span><span class="op">,</span> <span class="st">&quot;color:white; background:red&quot;</span>)<span class="op">;</span>
 <span class="op">};</span>
   
 <span class="va">boot</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{</span>
     <span class="dt">preload</span><span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span>
-          <span class="va">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&quot;loading&quot;</span><span class="op">,</span><span class="st">&quot;assets/loading.png&quot;</span>)<span class="op">;</span> 
+        <span class="co">//precargo el loading que voy a usar en la siguiente escena</span>
+        <span class="va">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&quot;loading&quot;</span><span class="op">,</span><span class="st">&quot;assets/loading.png&quot;</span>)<span class="op">;</span>
     <span class="op">},</span>
     <span class="dt">create</span><span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span>
         <span class="kw">this</span>.<span class="va">scale</span>.<span class="at">scaleMode</span> <span class="op">=</span> <span class="va">Phaser</span>.<span class="va">ScaleManager</span>.<span class="at">SHOW_ALL</span><span class="op">;</span>
         <span class="kw">this</span>.<span class="va">scale</span>.<span class="at">pageAlignHorizontally</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span>
         <span class="kw">this</span>.<span class="va">scale</span>.<span class="at">setScreenSize</span>()<span class="op">;</span>
-        <span class="kw">this</span>.<span class="va">game</span>.<span class="va">state</span>.<span class="at">start</span>(<span class="st">&quot;Preload&quot;</span>)<span class="op">;</span>
+        <span class="co">//Cambio de escena</span>
+        <span class="kw">this</span>.<span class="va">game</span>.<span class="va">state</span>.<span class="at">start</span>(<span class="st">&quot;game_level&quot;</span>)<span class="op">;</span>
+
     <span class="op">}</span>
 <span class="op">}</span></code></pre></div>
 </section><section class="slide level2">
 
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> preload <span class="op">=</span> <span class="kw">function</span>(game)<span class="op">{}</span>
-<span class="va">preload</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{</span>
-    <span class="dt">preload</span><span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span> 
-          var loadingBar <span class="op">=</span> <span class="kw">this</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">160</span><span class="op">,</span><span class="dv">240</span><span class="op">,</span><span class="st">&quot;loading&quot;</span>)<span class="op">;</span>
-          <span class="va">loadingBar</span>.<span class="va">anchor</span>.<span class="at">setTo</span>(<span class="fl">0.5</span><span class="op">,</span><span class="fl">0.5</span>)<span class="op">;</span>
-          <span class="va">this</span>.<span class="va">load</span>.<span class="at">setPreloadSprite</span>(loadingBar)<span class="op">;</span>
+<!-- Este objeto es muy confuso puesto que se llama como uno de los métodos
+del estado. Intentaría buscar un sinónimo. -->
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> pantalla_carga <span class="op">=</span> <span class="kw">function</span>(game)<span class="op">{}</span>
+<span class="va">pantalla_carga</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{</span>
+    <span class="dt">preload</span><span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span>
+        <span class="co">//muestro la imagen de loading</span>
+        <span class="kw">var</span> loadingBar <span class="op">=</span> <span class="kw">this</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">160</span><span class="op">,</span><span class="dv">240</span><span class="op">,</span><span class="st">&quot;loading&quot;</span>)<span class="op">;</span>
+        <span class="va">loadingBar</span>.<span class="va">anchor</span>.<span class="at">setTo</span>(<span class="fl">0.5</span><span class="op">,</span><span class="fl">0.5</span>)<span class="op">;</span>
+   
+        <span class="co">//Cargo los recursos</span>
         <span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">spritesheet</span>(<span class="st">&quot;numbers&quot;</span><span class="op">,</span><span class="st">&quot;assets/numbers.png&quot;</span><span class="op">,</span><span class="dv">100</span><span class="op">,</span><span class="dv">100</span>)<span class="op">;</span>
         <span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&quot;gametitle&quot;</span><span class="op">,</span><span class="st">&quot;assets/gametitle.png&quot;</span>)<span class="op">;</span>
         <span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&quot;play&quot;</span><span class="op">,</span><span class="st">&quot;assets/play.png&quot;</span>)<span class="op">;</span>
@@ -259,23 +279,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         <span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&quot;lower&quot;</span><span class="op">,</span><span class="st">&quot;assets/lower.png&quot;</span>)<span class="op">;</span>
         <span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&quot;gameover&quot;</span><span class="op">,</span><span class="st">&quot;assets/gameover.png&quot;</span>)<span class="op">;</span>
     <span class="op">},</span>
-    <span class="dt">create</span><span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span>
-        <span class="kw">this</span>.<span class="va">game</span>.<span class="va">state</span>.<span class="at">start</span>(<span class="st">&quot;GameTitle&quot;</span>)<span class="op">;</span>
-    <span class="op">}</span>
 <span class="op">}</span></code></pre></div>
 </section><section class="slide level2">
 
 <p>¿Cómo cargamos esto en la página Web?</p>
+<!-- No hemos definido el estado gameTitle y el elemento del DOM "game" no
+existe. Faltaría hacer un `start` sobre el estado inicial o el setup se habría
+hecho para nada. -->
+<!-- ISMA: en un ejemplo de phaser en la MDN viene con "game" puesto en el DOM
+así que supuse que lo creaba phaser si no estaba definido: https://developer.mozilla.org/es/docs/Games/Workflows/HTML5_Gamedev_Phaser_Device_Orientation
+-->
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">        <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;phaser.min.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
-        <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;src/boot.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
-        <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;src/preload.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
-        <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;src/gametitle.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+                <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;src/boot.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+        <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;src/game_level.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
         <span class="kw">&lt;script&gt;</span>
             <span class="va">window</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span>
                 <span class="kw">var</span> game <span class="op">=</span> <span class="kw">new</span> <span class="va">Phaser</span>.<span class="at">Game</span>(<span class="dv">320</span><span class="op">,</span> <span class="dv">480</span><span class="op">,</span> <span class="va">Phaser</span>.<span class="at">CANVAS</span><span class="op">,</span> <span class="st">&quot;game&quot;</span>)<span class="op">;</span>
-                <span class="va">game</span>.<span class="va">state</span>.<span class="at">add</span>(<span class="st">&quot;Boot&quot;</span><span class="op">,</span>boot)<span class="op">;</span>
-                <span class="va">game</span>.<span class="va">state</span>.<span class="at">add</span>(<span class="st">&quot;Preload&quot;</span><span class="op">,</span>preload)<span class="op">;</span>
-                <span class="va">game</span>.<span class="va">state</span>.<span class="at">add</span>(<span class="st">&quot;GameTitle&quot;</span><span class="op">,</span>gameTitle)<span class="op">;</span>
+                <span class="va">game</span>.<span class="va">state</span>.<span class="at">add</span>(<span class="st">&quot;boot&quot;</span><span class="op">,</span>boot)<span class="op">;</span>
+                <span class="va">game</span>.<span class="va">state</span>.<span class="at">add</span>(<span class="st">&quot;pantalla_carga&quot;</span><span class="op">,</span>pantalla_carga)<span class="op">;</span>
+
+                <span class="kw">this</span>.<span class="va">game</span>.<span class="va">state</span>.<span class="at">start</span>(<span class="st">&quot;boot&quot;</span>)<span class="op">;</span>
+    
             <span class="op">};</span>    
         <span class="op">&lt;</span><span class="ss">/script&gt;</span></code></pre></div>
 </section></section>
@@ -283,7 +307,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <p>Para localizar los recursos podemos usar <strong>baseURL</strong> y <em>crossOrigin</em> del subsistema load.</p>
 <p><strong>BaseURL</strong> es el lugar donde están los recursos. Si los recursos no están en el mismo sitio que el código podemos establecer aquí la url base para no tener que escribirla constantemente en el método de carga concreto.</p>
-<p><strong>Cross-origin resource sharing (CORS)</strong> es un mecanismo de control y restricción de recursos en una página web cuando un recurso es solicitado por otro dominio. CORS define la forma en la que el navegador debe interactuar con el servidor.</p>
+<p><strong>Cross-origin resource sharing (CORS)</strong> es el mecanismo de control y restricción de recursos que emplean los navegadores cuando un recurso es solicitado por otro dominio. CORS define la forma en la que el navegador debe interactuar con el servidor.</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes">MDN de Cross Origin</a></p>
 </section><section class="slide level2">
 
@@ -291,12 +315,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>use-credentials</strong> significa que para acceder al recurso hay que tener credenciales.</p>
 <p>Algunos ejemplos:</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">preload</span>() <span class="op">{</span>
-
     <span class="va">game</span>.<span class="va">load</span>.<span class="at">baseURL</span> <span class="op">=</span> <span class="st">&#39;http://examples.phaser.io/assets/&#39;</span><span class="op">;</span>
     <span class="va">game</span>.<span class="va">load</span>.<span class="at">crossOrigin</span> <span class="op">=</span> <span class="st">&#39;anonymous&#39;</span><span class="op">;</span>
 <span class="op">}</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">preload</span>() <span class="op">{</span>
-
     <span class="va">game</span>.<span class="va">stage</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;#85b5e1&#39;</span><span class="op">;</span>
 
     <span class="va">game</span>.<span class="va">load</span>.<span class="at">baseURL</span> <span class="op">=</span> <span class="st">&#39;http://examples.phaser.io/assets/&#39;</span><span class="op">;</span>
@@ -305,19 +327,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section></section>
 <section><section id="carga-de-recursos-en-memoria" class="titleslide slide level1"><h1>Carga de recursos en memoria</h1></section><section class="slide level2">
 
-<p>Una vez que tenemos el origen de los recursos podemos cargarlos en memoria. Se le añade un nombre al recurso para poder identificarlo.</p>
+<!-- Convendría recordar que esta función es la misma función `preload`
+del ejemplo anterior. O proveer de nuevos ejemplos de estados completos.
+Personalmente me inclino más por esta última opción. -->
+<p>Una vez que tenemos el origen de los recursos podemos cargarlos en memoria. Se le añade una <em>key</em> (clave o nombre) al recurso para poder identificarlo.</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">preload</span>() <span class="op">{</span>
-
     <span class="va">game</span>.<span class="va">load</span>.<span class="at">baseURL</span> <span class="op">=</span> <span class="st">&#39;http://examples.phaser.io/assets/&#39;</span><span class="op">;</span>
     <span class="va">game</span>.<span class="va">load</span>.<span class="at">crossOrigin</span> <span class="op">=</span> <span class="st">&#39;anonymous&#39;</span><span class="op">;</span>
 
     <span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&#39;phaser&#39;</span><span class="op">,</span> <span class="st">&#39;sprites/phaser-dude.png&#39;</span>)<span class="op">;</span>
-
 <span class="op">}</span></code></pre></div>
 </section><section class="slide level2">
 
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">preload</span>() <span class="op">{</span>
-
     <span class="va">game</span>.<span class="va">stage</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;#85b5e1&#39;</span><span class="op">;</span>
 
     <span class="va">game</span>.<span class="va">load</span>.<span class="at">baseURL</span> <span class="op">=</span> <span class="st">&#39;http://examples.phaser.io/assets/&#39;</span><span class="op">;</span>
@@ -325,55 +347,93 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
     <span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&#39;player&#39;</span><span class="op">,</span> <span class="st">&#39;sprites/phaser-dude.png&#39;</span>)<span class="op">;</span>
     <span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&#39;platform&#39;</span><span class="op">,</span> <span class="st">&#39;sprites/platform.png&#39;</span>)<span class="op">;</span>
-
 <span class="op">}</span></code></pre></div>
+<p>Estos recursos se guardan en la cache. La cache no se descarga hasta que no lo indiquemos. La cache no está asociada a ningun state concreto.</p>
 </section><section class="slide level2">
 
-<p>podemos cargar diferentes recursos como: imágenes, archicos JSON, Atlas de textura, video, sonido, tilemaps...</p>
-<p>La función <strong>onLoadComplete</strong> nos informa de la finalización de la carga.</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">onLoadComplete<span class="op">:</span> <span class="kw">function</span>() <span class="op">{</span>
+<p>podemos cargar diferentes recursos como: imágenes, archivos JSON, atlas de texturas, video, sonido, tilemaps...</p>
+<p>El evento <strong>onLoadStart</strong> nos informa del inicio de la carga.</p>
+<p>El evento <strong>onLoadComplete</strong> nos informa de la finalización de la carga.</p>
+<p>boolean <strong>isLoading</strong> nos informa de que aún estamos cargando recursos. <!-- Creo que esto es una señal, no una función. De todas formas, convendría
+aclarar en qué contexto hay que usarlo y proveer un ejemplo preciso. --></p>
+</section><section class="slide level2">
 
-  <span class="kw">this</span>.<span class="at">ready</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span>
+<p>Ejemplo de uso de onLoadStart y onLoadComplete</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">splash</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{</span>
+    
+    <span class="dt">preload</span><span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span>
+        <span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&quot;background&quot;</span><span class="op">,</span><span class="st">&quot;img/phaser.png&quot;</span>)<span class="op">;</span>
+        <span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">spritesheet</span>(<span class="st">&quot;button_ok&quot;</span><span class="op">,</span><span class="st">&quot;img/button_sprite_sheet.png&quot;</span><span class="op">,</span><span class="dv">193</span><span class="op">,</span> <span class="dv">71</span>)<span class="op">;</span>
+    <span class="op">},</span>
+    
+    <span class="dt">create</span><span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span>
+        <span class="kw">this</span>.<span class="at">_background</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="kw">this</span>.<span class="va">game</span>.<span class="va">world</span>.<span class="at">centerX</span><span class="op">,</span> <span class="kw">this</span>.<span class="va">game</span>.<span class="va">world</span>.<span class="at">centerY</span><span class="op">,</span><span class="st">&quot;background&quot;</span>)<span class="op">;</span>
+        <span class="kw">this</span>.<span class="va">_background</span>.<span class="va">anchor</span>.<span class="at">setTo</span>(<span class="fl">0.5</span><span class="op">,</span><span class="fl">0.5</span>)<span class="op">;</span>
+         
+        <span class="kw">this</span>.<span class="at">_button</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">game</span>.<span class="va">add</span>.<span class="at">button</span>(<span class="kw">this</span>.<span class="va">game</span>.<span class="va">world</span>.<span class="at">centerX</span><span class="op">,</span><span class="kw">this</span>.<span class="va">game</span>.<span class="va">world</span>.<span class="at">centerY</span><span class="dv">-90</span><span class="op">,</span> <span class="st">&quot;button_ok&quot;</span><span class="op">,</span> <span class="kw">this</span>.<span class="at">onButtonClick</span><span class="op">,</span><span class="kw">this</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">0</span>)<span class="op">;</span> 
+        <span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="va">onLoadStart</span>.<span class="at">add</span>(<span class="kw">this</span>.<span class="at">loadStart</span><span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span>
+        <span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="va">onLoadComplete</span>.<span class="at">add</span>(<span class="kw">this</span>.<span class="at">loadCompleted</span><span class="op">,</span><span class="kw">this</span>)<span class="op">;</span>
+        
+        
+    <span class="op">},</span></code></pre></div>
+</section><section class="slide level2">
 
-<span class="op">}</span></code></pre></div>
-<p><strong>isLoading</strong> nos informa de que aún estamos cargando recursos.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    <span class="co">// Cuando el boton se pulsa.</span>
+    onButtonClick<span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span>
+        <span class="co">// Cargamos los recursos de la siguiente escena y forzamos el inicio de la carga</span>
+        <span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&quot;sonic&quot;</span><span class="op">,</span><span class="st">&quot;img/sonic_havok_sanity.png&quot;</span>)<span class="op">;</span>   
+        <span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">start</span>()<span class="op">;</span>
+    <span class="op">},</span>
+    
+    
+    loadCompleted<span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span>
+        <span class="co">//Cuando los recursos son cargados cambiamos de escena.</span>
+        <span class="kw">this</span>.<span class="va">game</span>.<span class="va">state</span>.<span class="at">start</span>(<span class="st">&quot;level&quot;</span>)<span class="op">;</span>
+    <span class="op">},</span>
+    
+    loadStart<span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span>
+        <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Empieza la carga &quot;</span>)<span class="op">;</span>
+    <span class="op">}</span></code></pre></div>
+<!-- De nuevo, habría que especificar el contexto. En este caso el tipo al
+que pertenece la propiedad. -->
 </section></section>
 <section><section id="liberación-de-recursos" class="titleslide slide level1"><h1>Liberación de recursos</h1></section><section class="slide level2">
 
-<p>Si cambiamos de stat y no vamos a volver al mismo, es muy probable que haya recursos que ya no utilizaremos nunca. En este caso podemos eliminarlos de la cache. Hay que usar la key asignada en la carga.</p>
+<p>Si cambiamos de state y no vamos a volver al mismo, es muy probable que haya recursos que ya no utilizaremos nunca. En este caso podemos eliminarlos de la caché. Hay que usar la key asignada en la carga.</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">cache</span>.<span class="at">removeImage</span>(key)
 <span class="va">cache</span>.<span class="at">removeXML</span>(key)</code></pre></div>
+<p>Lo habitual es que se use en el ShutDown que es el método al que nos llamarán cuando se destruya el state al cambiar de estado. Pero se podria querer liberar recursos en otras ocasiones.</p>
+<!-- Aquí el contexto es muy relevante puesto que no hemos explicado la caché.
+Hay que indicar que `cache` es una propiedad del objeto juego. -->
+<!--ISMA: Esto lo explique de palabra y les dije que lo habitual sería eliminarlo en el shutdown: añado la explicación a los apuntes-->
 </section></section>
-<section><section id="sprites-en-phaser" class="titleslide slide level1"><h1>Sprites en phaser</h1></section><section class="slide level2">
-
-<p>Son las imágenes 2D que sirven para visualizar los objetos en un juego 2D. En Phaser se instancia así:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">player <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="st">&#39;player&#39;</span>)<span class="op">;</span></code></pre></div>
-<figure>
-<img src="imgs/mariosprite.jpg" alt="Sprite" style="height:75.0%" /><figcaption>Sprite</figcaption>
-</figure>
-<p>Hay que usar la key que se le puso en la carga. El objeto obviamente debe estar cargado ne moeria.</p>
-</section></section>
-<section><section id="spritesheet-o-atlas-de-sprites." class="titleslide slide level1"><h1>Spritesheet o Atlas de Sprites.</h1></section><section class="slide level2">
+<section><section id="sprites-en-phaser" class="titleslide slide level1"><h1>Sprites en Phaser</h1></section></section>
+<section><section id="spritesheet-o-atlas-de-sprites." class="titleslide slide level1"><h1>Spritesheet o atlas de sprites.</h1></section><section class="slide level2">
 
 <figure>
 <img src="imgs/mario_spritesheet.gif" alt="Spritesheet o Atlas de Sprites" width="400" height="300" /><figcaption>Spritesheet o Atlas de Sprites</figcaption>
 </figure>
-<p>Sirven para optimizar recursos, accesos al servidor (No es lo mismo traerse una imagen grande con muchas imágenes pequeñas que mucuhas imagenes pequeñas individuales) además de que es más eficiente en memoria.</p>
+<p>Sirven para optimizar recursos: * Reduce el número de accesos al servidor (no es lo mismo traerse una imagen grande con muchas imágenes pequeñas que muchas imágenes pequeñas individuales). * Es más eficiente en memoria.</p>
 </section><section class="slide level2">
 
 <p>Sirve también para crear animaciones por frames.</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">preload</span>() <span class="op">{</span>
-
-    <span class="co">//  37x45 is the size of each frame</span>
-    <span class="co">//  Hay 18 frames in the PNG</span>
-    <span class="va">game</span>.<span class="va">load</span>.<span class="at">spritesheet</span>(<span class="st">&#39;mummy&#39;</span><span class="op">,</span> <span class="st">&#39;assets/sprites/metalslug_mummy37x45.png&#39;</span><span class="op">,</span> <span class="dv">37</span><span class="op">,</span> <span class="dv">45</span><span class="op">,</span> <span class="dv">18</span>)<span class="op">;</span>
+    <span class="co">//  37x45 dimensiones del sprite</span>
+    <span class="co">//  Número de sprites</span>
+    <span class="va">game</span>.<span class="va">load</span>.<span class="at">spritesheet</span>(
+      <span class="st">&#39;mummy&#39;</span><span class="op">,</span>
+      <span class="st">&#39;assets/sprites/metalslug_mummy37x45.png&#39;</span><span class="op">,</span>
+      <span class="dv">37</span><span class="op">,</span> <span class="dv">45</span><span class="op">,</span> <span class="dv">18</span>
+    )<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="kw">function</span> <span class="at">create</span>() <span class="op">{</span>
-
     <span class="kw">var</span> mummy <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">300</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="st">&#39;mummy&#39;</span>)<span class="op">;</span>
-    <span class="kw">var</span> walk <span class="op">=</span> <span class="va">mummy</span>.<span class="va">animations</span>.<span class="at">add</span>(<span class="st">&#39;walk&#39;</span>)<span class="op">;</span> <span class="co">//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ...]</span>
-    <span class="va">mummy</span>.<span class="va">animations</span>.<span class="at">play</span>(<span class="st">&#39;walk&#39;</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span>
+    <span class="kw">var</span> walk <span class="op">=</span> <span class="va">mummy</span>.<span class="va">animations</span>.<span class="at">add</span>(<span class="st">&#39;walk&#39;</span>)<span class="op">;</span> 
+    <span class="co">//podemos definir los sprites que formará la animación</span>
+    <span class="co">// a continuación del nombre de la animación</span>
+    <span class="co">//como sigue: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ...]</span>
+    <span class="va">mummy</span>.<span class="va">animations</span>.<span class="at">play</span>(<span class="st">&#39;walk&#39;</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span><span class="co">//30 son la velocidad de cuadro de la animación.</span>
 <span class="op">}</span></code></pre></div>
 </section><section class="slide level2">
 
