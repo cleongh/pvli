@@ -13,7 +13,6 @@ puedes encontrar más, libres para uso no comercial, en [spriters-resource.com](
 https://www.spriters-resource.com/)
 
 
-
 ## El efecto de los objetos sobre el rendimiento
 
 
@@ -21,7 +20,7 @@ En general, cuantas más entidades gestione un juego, más deterioro del
 rendimiento.
 
 
-No es difícil degradar el rendimiento de un juego símplemente arrojando
+No es difícil degradar el rendimiento de un juego simplemente arrojando
 nuevas entidades a la escena. No es necesario ni modificarlas.
 
 https://phaser.io/sandbox/dlqdIWMn
@@ -29,10 +28,10 @@ https://phaser.io/sandbox/dlqdIWMn
 
 El único factor que afecta al rendimiento es el **tiempo de procesamiento entre
 frames**. El problema es que el tiempo de procesamiento puede incrementarse
-de un sin fín de formas.
+de un sinfín de formas.
 
 
-La cración de entidades, su destrucción y el pintado de las mismas afecta al
+La creación de entidades, su destrucción y el pintado de las mismas afecta al
 rendimiento porque crear, destruir y recorrer la lista de entidades a pintar
 **toma tiempo**.
 
@@ -41,10 +40,15 @@ Si el tiempo entre frame y frame excede los 16.6 ms, el [_frame rate_](
 https://en.wikipedia.org/wiki/Frame_rate) disminuirá por debajo de 60 fps.
 
 
-<!-- Tiempo con framerate alto. -->
+En la pestaña "Rendering", podemos activar la opción "FPS Meter" en Chrome.
 
 
-<!-- Tiempo con framerate bajo. -->
+Además, en la pestaña "Profiles", podemos guardar una ejecución del programa y
+veremos qué funciones se ejecutan y cuánto tiempo tardan en hacerlo. 
+
+
+Hacer *profiling* es fundamental para ver cuál es el impacto **real** (y no
+sólo en teoría) de las partes de nuestro código. 
 
 
 ### El recolector de basura
@@ -58,18 +62,21 @@ usarlo.
 ¿Qué pasa con los objetos que ya no se usan? La respuesta es que son recogidos
 por el [recolector de basura](
 https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) y
-destruídos de forma que la memoria que ocupan queda disponible de nuevo.
+destruidos de forma que la memoria que ocupan queda disponible de nuevo.
 
 
-<!-- Visualización del recolector de basura. -->
+
+Para ver cómo funciona, activamos las opciones de desarrollo (en este caso, en
+Chrome), y en la pestaña "Timeline" grabamos mientras ejecutamos un juego.
+
 
 
 El recolector de basura es conveniente porque nos evita tener que liberar
-la memoria manualmente, previniendo que un objeto sea destruído accidentalmente
+la memoria manualmente, previniendo que un objeto sea destruido accidentalmente
 cuando aún tenemos que usarlo.
 
 
-Sin embargo, introduce un problema de impredicibilidad, dado que no sabemos
+Sin embargo, introduce un problema de impredecibilidad, dado que no sabemos
 **ni cuándo sucederá ni cuánto tardará**.
 
 
@@ -90,27 +97,25 @@ https://en.wikipedia.org/wiki/Object_pool_pattern)** o depósito de objetos.
 La idea es sencilla: primero crearemos un _pool_ (depósito) de objetos estimando
 los que vayamos a utilizar durante el programa.
 
-
-<!-- Ejemplo gráfico del pool. -->
+![Pool de objetos](imgs/pool.svg)
 
 
 Cuando necesitemos un objeto, **en lugar de crearlo, se lo pediremos al
 _pool_** y luego lo usaremos normalmente.
 
+![Coger un objeto del pool](imgs/takepool.svg)
 
-<!-- Ejemplo de tomar objeto. -->
 
 
-Una vez terminemos de usar el objeto, **cuando ya no lo necesitesmos, lo
+Una vez terminemos de usar el objeto, **cuando ya no lo necesitemos, lo
 devolveremos al _pool_**.
 
-
-<!-- Ejemplo de devolver objeto. -->
+![Devolver el objeto al pool](imgs/storepool.svg)
 
 
 Cuando necesitemos otro, volveremos a pedirlo al _pool_ de objetos. A lo largo
 de la ejecución del programa, los depósitos de objetos pueden permanecer fijos o
-redimiensionarse de acuerdo a las necesidades del mismo.
+redimensionarse de acuerdo a las necesidades del mismo.
 
 
 
@@ -126,7 +131,7 @@ Pero si añadimos la entidad al juego, bien explícitamente o a través de los
 métodos factoría de `add`, esta se mantendrá viva mientras dure el juego.
 
 
-La manera en que podemos destruír una entidad, es decir, eliminar todas sus
+La manera en que podemos destruir una entidad, es decir, eliminar todas sus
 referencias de forma que el recolector de basura pueda llevársela es mediante
 el método [`destroy()`](http://phaser.io/docs/2.6.2/Phaser.Sprite.html#destroy)
 de la entidad.
@@ -152,7 +157,7 @@ function update() {
 https://phaser.io/sandbox/ODAglzNQ
 
 
-Como veremos en breve, a veces nos interasará no destruir la entidad pero sí
+Como veremos en breve, a veces nos interesará no destruir la entidad pero sí
 **dejarla inerte** de forma que no se actualice, ni se pinte, ni interactúe con
 nada hasta que vuelva a interesarnos.
 
@@ -166,7 +171,7 @@ atributo `exists` a `false`.
 
 
 Aunque la nomenclatura resulte confusa, que una entidad "no exista" no significa
-que haya sido destruída. Significa que para Phaser, esta entidad no participará
+que haya sido destruida. Significa que para Phaser, esta entidad no participará
 en las fases de actualización y pintado.
 
 
@@ -210,7 +215,7 @@ http://phaser.io/docs/2.6.2/Phaser.Sprite.html#reset).
 Como ocurre con todas las entidades de Phaser, un [grupo](
 http://phaser.io/docs/2.4.4/Phaser.Group.html) **puede albergar otras
 entidades** pero además, los grupos exponen una API especialmente diseñada
-para la **búsqueda, ordenamiento y manipulacion en grupo** de
+para la **búsqueda, ordenamiento y manipulación en grupo** de
 las entidades que contiene.
 
 
@@ -224,20 +229,102 @@ devuelve la primera entidad cuya propiedad `exists` sea `true`.
 ### API de búsqueda
 
 
-<!-- Listado con algunos métodos de búsqueda. ¿Cuáles son los más relevantes? -->
+Un grupo es un contenedor. Creamos entidades y las añadimos al grupo.
+
+
+```js
+var martian = Martian(); // 'Martian' es un 'Sprite'
+var enemies = game.add.group();
+enemies.add(martian);
+```
+
+
+
+> Aquí comentamos algunas funciones ilustrativas. Podéis usar, del API, las que
+> más sentido tengan, sean estas o no.
+
+
+Phaser nos da acceso a todas las entidades de un grupo.
+
+
+```js
+function update() {
+    // Recorremos un grupo (en este caso, World)
+    game.world.forEach(function(item) {
+        item.x ++;
+    });
+}
+```
+
+
+
+Además, nos permite preguntar al grupo ciertas cosas:
+
+```js
+var e = new Martian("m");
+var g = game.add.group();
+g.add(e);
+
+var yesNo = g.contains(e); // si el grupo contiene una entidad
+var d = g.countDead(); // el número de "muertos"
+var e2 = g.getByName("m"); // dado un nombre, nos da una entidad
+var masCercano = g.getClosestTo(e2); // nos devuelve el más cercano
+var aleatorio = g.getRandom(); // un elemento aleatorio del grupo
+g.removeChild(e2); // quitamos un elemento del grupo
+```
 
 
 ### API de ordenamiento
 
 
-<!-- Listado con algunos métodos de ordenamiento. ¿Cuáles son los más relevantes? -->
+Generalmente, los grupos tienen un propósito y hay una buena razón para agrupar
+las entidades.
+
+
+Por ejemplo, si queremos crear un subconjunto de entidades que hacen o reciben
+algo concreto.
+
+
+Muchas veces, las entidades dentro del grupo tienen que estar ordenadas (o
+viene bien, por eficiencia, que lo estén).
+
+```js
+// ordenamos los elementos por su atributo "y"
+// es muy parecida al 'sort' normal de listas en JavaScript
+g.customSort(function(a, b) {
+    return a.y - b.y;
+});
+
+// Como es muy normal ordenar por parámetro, tenemos en el API también esta
+// función
+// Ordenamos según el parámetro 'x' de cada entidad
+g.sort('x', Phaser.Group.SORT_ASCENDING);
+```
+
 
 
 ### API de manipulación en grupo
 
 
-<!-- Listado con algunos métodos de manipulación en grupo. ¿Cuáles son los más relevantes? -->
+Otra de las cosas que podemos hacer con los grupos es tratarlos como una sola
+entidad.
 
+
+Por ejemplo, podríamos querer eliminar todos los bloques de hielo en un nivel,
+o hacer que todos los enemigos avancen más rápido.
+
+```js
+
+var g = game.add.group();
+
+// También existe 'forAllAlive', que sólo itera sobre los que están vivos
+g.forEach(function(item) {
+    item.speed += 2;
+});
+
+g.callAll('kill'); // llama a 'kill' en todas las entidades del grupo
+g.callAllExists('kill'); // lo mismo, pero sólo las que existen (exists -> es actualizado)
+```
 
 
 ## Implementación de pooling con grupos de Phaser
@@ -250,10 +337,10 @@ Phaser no incluye pools directamente pero podemos utilizar nuestra propia clase
 ### Creación del pool
 
 
-El constructor de _Pool_ recive el juego en `game`, **añade un grupo al juego**
+El constructor de _Pool_ recibe el juego en `game`, **añade un grupo al juego**
 con [`add.group()`](
 http://phaser.io/docs/2.6.2/Phaser.GameObjectFactory.html#group) y guarda
-ese grupo internamente. También recive la lista de entidades que se van a
+ese grupo internamente. También recibe la lista de entidades que se van a
 reciclar.
 
 
@@ -288,7 +375,7 @@ Pool.prototype.spawn = function (x, y) {
 
 ### Devolución de una entidad
 
-Devolver una entidad require llamar al método `kill()` sobre esa entidad.
+Devolver una entidad requiere llamar al método `kill()` sobre esa entidad.
 
 
 ```js
@@ -297,7 +384,7 @@ entity.kill();
 ```
 
 
-Podeís encontrar un ejemplo completo que usa _pooling_ en el siguiente enlace:
+Podéis encontrar un ejemplo completo que usa _pooling_ en el siguiente enlace:
 
 https://phaser.io/sandbox/BsmLVkSB
 
