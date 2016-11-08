@@ -1,7 +1,7 @@
 ---
 title: Programación PVLI (2016/2017) 
 author: Belén Albeza, Carlos León, Salvador de la Puente, Ismael Sagredo
-date: 13/10/2016
+date: 08/11/2016
 vim: spelllang=es
 ...
 
@@ -119,17 +119,12 @@ Tema 5: Carga de recursos <!-- con Phaser -->
 
 Tema 6: Gestión de entidades (I)
 
-<!-- <1!-- TODO [Carlos, 11-09-2016 14:38]: El 14 es fiesta --1> -->
-<!-- (no sprites) esto tiene que venir antes de sprites -->
-
 - 07/11 (Ismael)
     - Entidades de Phaser
 - 08/11 (Carlos)
     - Pooling con grupos de entidades
 - 11/11 (Ismael)
-    - Práctica 2: Escena espacial
-
-<!-- (spritepools no tiene que estar separada de grupos) -->
+    - Trabajo en Práctica 1
 
 # 14-18 de noviembre 
 
@@ -138,14 +133,12 @@ Tema 6: Gestión de entidades (II)
 - 14/11 (Ismael)
     - Tiles 
     - Creación de tiles ([`tiled`](http://www.mapeditor.org/))
-<!-- (prio 0) -->
- <!-- [0] -->
 - 15/11 (Carlos)
     - Texto 
     - Fuentes de mapa de bits
     - Fuentes Web y fuentes del sistema
 - 18/11 (Carlos)
-    - Trabajo en Práctica 2
+    - Práctica 2: Cliente web para batallas RPG
 
 # 21-25 de noviembre
 
@@ -181,18 +174,19 @@ Tema 7: Colisiones y triggers
 # 05-09 de diciembre
 
 - 5/12 (Ismael)
-    - Práctica 3: Juego de plataformas
+    - Física simple
+    - Bounding boxes
+    - Física con Phaser
 - 9/12 (Ismael)
-    - Trabajo en Práctica 3
+    - Práctica 3: Juego de plataformas
 
 # 12-16 de diciembre
 
 Tema 8: Física para juegos en 2D
 
 - 12/12 (Ismael)
-    - Física simple
-    - Bounding boxes
-    - Física con Phaser
+ <!-- colisiones, cómo hacer juegos... -->
+    - Detalles Práctica 3
 - 13/12 (Carlos)
     - Sistemas de colisiones *arcade*/*ninja*/*p2*
 - 16/12 (Carlos)
@@ -213,10 +207,10 @@ Tema 9: Animaciones basadas en sprites
 - 20/12 (Carlos)
     - Spritesheets
     - Tweening
-    - Animación por huesos
-    <!-- TODO [Carlos, 13-10-2016 16:12]: ver Spine -->
+<!-- - Animación por huesos -->
+<!-- TODO [Carlos, 13-10-2016 16:12]: ver Spine -->
 - 23/12 (Ismael)
-    - Trabajo en Práctica 4: Animaciones y física
+    - Trabajo en Práctica 3
 
 # 9-13 de enero
 
@@ -226,11 +220,11 @@ con el programa -->
 Tutorías de proyecto
 
 - 9/1 (Ismael)
-    - Práctica 5: Plug-ins y *release*
+    - Explicación Práctica 4 (animaciones)
 - 10/1 (Carlos)
     - Tutorías
 - 13/1 (Carlos)
-    - Tutorías y trabajo en Práctica 5
+    - Práctica 4
 
 # 16-20 de enero
 
@@ -241,5 +235,5 @@ Presentaciones
 - 17/1 (Carlos)
     - Presentación de proyectos
 - 20/1 (Carlos)
-    - Presentación de proyectos
+    - Explicación Práctica 5 y presentación de proyectos
 
