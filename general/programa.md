@@ -130,10 +130,9 @@ Tema 6: Gestión de entidades (I)
 
 Tema 6: Gestión de entidades (II)
 
-- 14/11 (Ismael)
+- 15/11 (Carlos)
     - Tiles 
     - Creación de tiles ([`tiled`](http://www.mapeditor.org/))
-- 15/11 (Carlos)
     - Texto 
     - Fuentes de mapa de bits
     - Fuentes Web y fuentes del sistema
