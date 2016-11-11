@@ -1,7 +1,7 @@
 ---
 title: Programación PVLI (2016/2017) 
 author: Belén Albeza, Carlos León, Salvador de la Puente, Ismael Sagredo
-date: 08/11/2016
+date: 11/11/2016
 vim: spelllang=es
 ...
 
@@ -130,10 +130,9 @@ Tema 6: Gestión de entidades (I)
 
 Tema 6: Gestión de entidades (II)
 
-- 14/11 (Ismael)
+- 15/11 (Carlos)
     - Tiles 
     - Creación de tiles ([`tiled`](http://www.mapeditor.org/))
-- 15/11 (Carlos)
     - Texto 
     - Fuentes de mapa de bits
     - Fuentes Web y fuentes del sistema
