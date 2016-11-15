@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Ismael Sagredo y Carlos León">
+  <meta name="dcterms.date" content="2016-12-11">
+  <title>Tiles y Fuentes en Phaser</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+
+
+  <!-- <link rel="stylesheet" href="../shared/lib/reveal/../tabzilla/css/tabzilla.css"/> -->
+  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
+  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/mozilla-devrel-light.css"/>
+  <link rel="stylesheet" href="../shared/lib/reveal/lib/css/solarized-light.css" />
+
+
+
+
+  <!-- <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"> -->
+
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+<!--  -->
+<!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
+<!--  -->
+<!--  -->
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../shared/lib/reveal/css/print/pdf.css' : '../shared/lib/reveal/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+
+<!-- FIXME megahack because `pandoc` only generates h1's. -->
+<!-- <style type="text/css"> -->
+
+
+<!-- .inner { -->
+<!--     width: 100%; -->
+<!--     margin: 0 auto; --> 
+<!-- } -->
+
+<!--     h1{ --> 
+<!--     } -->
+
+<!--     .level2 h1 { -->
+        
+<!--     border-top: 0.1em solid #484848; -->
+<!--     border-bottom: 0.1em solid #484848; -->
+    
+<!--     padding: 1em 0; -->
+<!--     margin-bottom: 1em; -->
+<!--     font-size: 1.6em; -->
+<!--     margin: 0 0 20px 0; -->
+<!--     color: #484848; -->
+<!--     font-family: "Fira Sans", Helvetica, sans-serif; -->
+<!--     font-weight: 600; -->
+<!--     line-height: 1.2; -->
+<!--     letter-spacing: normal; -->
+<!--     text-transform: uppercase; -->
+<!--     text-shadow: none; -->
+<!--     word-wrap: break-word; -->
+<!-- } -->
+
+<!-- </style> -->
+
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Tiles y Fuentes en Phaser</h1>
+  <h2 class="author">Ismael Sagredo y Carlos León</h2>
+  <h3 class="date">15/11/2016</h3>
+</section>
+
+<section><section id="introducción" class="titleslide slide level1"><h1>Introducción</h1></section><section id="qué-es-un-tilemap" class="slide level2">
+<h1>Qué es un TileMap</h1>
+<p>Un <strong>TileMap</strong> es una simplificación de un mundo en 2D en la que dicho mundo es dividido en una cuadrícula de tamaño fijo y cada una de los rectángulos que forman la cuadrícula, en realidad representa un fragmento o frame de un spritesheet.</p>
+<p>Estos fragmentos (tiles) normalmente están creados para repetirse en la escena sin que se vean costuras, de forma que se pueden construir escenas muy complejas repitiendo tiles y ocupando mucha menos memoria que dibujando la escena en una imagen.</p>
+</section><section id="partes-de-un-tilemap" class="slide level2">
+<h1>Partes de un Tilemap</h1>
+<p>Normalmente un Tilemap está compuesto por un fichero de datos con la definición del tilemap, su tamaño, el tamaño de las casillas (tiles) y que frame concreto debe visualizarse en cada casilla y una hoja de sprites con todos los tiles disponibles juntos. A la hoja de sprites se le suele llamar <strong>TileSet</strong>.</p>
+</section><section id="ejemplo-de-tilemap" class="slide level2">
+<h1>Ejemplo de Tilemap</h1>
+<figure>
+<img src="imgs/Tilemap_zelda.png" alt="TileMap del Zelda" style="height:75.0%" /><figcaption>TileMap del Zelda</figcaption>
+</figure>
+</section><section id="ejemplo-de-tileset" class="slide level2">
+<h1>Ejemplo de Tileset</h1>
+<figure>
+<img src="imgs/Tileset_zelda.png" alt="Tileset" style="height:75.0%" /><figcaption>Tileset</figcaption>
+</figure>
+</section><section id="por-qué-es-más-eficiente" class="slide level2">
+<h1>¿Por qué es más eficiente?</h1>
+<ul>
+<li class="fragment">Tamaño en memoria. Imaginemos una escena de 4096x1024p de tamaño que la dividimos en tiles de 64X64.</li>
+<li class="fragment">Sin tilemap: 4096x1024x4Bytes de color = 16.777.218 Bytes (16.7MB)</li>
+<li class="fragment">Con tilemap: El tilemap ocupa 64x16 e imaginemos que tenemos un Tileset de 1024x1024 con 16x16 tiles = 256 tiles. =&gt;</li>
+<li class="fragment">Tamaño del tilemap = 1024Bytes.</li>
+<li class="fragment">Tamaño del Tileset = 1024x1024x4 = 4 MB</li>
+<li class="fragment">Tamaño total = 4.01 MB</li>
+</ul>
+</section><section id="otras-ventajas" class="slide level2">
+<h1>Otras ventajas:</h1>
+<ul>
+<li class="fragment">Al tener todos los tiles en la misma hoja de scripts sólo necesitamos una Drawcall (llamada a pintado) para pintar todo el escenario.</li>
+<li class="fragment">En HTML5 es importante el peso de los archivos. Los tiempos de carga son mucho mayores que en una máquina local ya que hay que descargarse los datos desde el servidor.</li>
+<li class="fragment">Dibujar la escena es más sencillo, sobre todo con un editor de tiles.</li>
+<li class="fragment">Podemos reutilizar Tiles en diferentes escenarios.</li>
+</ul>
+<p>La desventaja es que los gráficos del escenario están repetidos.</p>
+</section></section>
+<section><section id="editores-de-tiles" class="titleslide slide level1"><h1>Editores de Tiles</h1></section><section id="por-qué-usarlos" class="slide level2">
+<h1>¿Por qué usarlos?</h1>
+<p>Nos simplifican la edicion del tilemap enormemente. Crear el tilemap a mano es mucho mas complejo y propenso a errores.</p>
+</section><section id="tiled" class="slide level2">
+<h1>Tiled</h1>
+<p>Tiled es un editor de niveles 2D que ayuda a desarrollar escenarios para juegos. Puede exportar a diferentes formatos, entre ellos el formato json que usa Phaser. Tiene soporte para diferentes capas (<strong>layers</strong>) e incluso para añadir una capa especial de objetos con la ubicación de los objetos en el mapa.</p>
+<p><a href="http://www.mapeditor.org/">Tiled</a></p>
+</section><section id="la-interfaz-de-tiled" class="slide level2">
+<h1>La interfaz de Tiled</h1>
+<figure>
+<img src="imgs/tiled.png" alt="La interfaz de Tiled" style="height:75.0%" /><figcaption>La interfaz de Tiled</figcaption>
+</figure>
+<ul>
+<li class="fragment">Menu contextual</li>
+<li class="fragment">Tilesets</li>
+<li class="fragment">Layers</li>
+<li class="fragment">Herramientas</li>
+</ul>
+</section><section id="crear-un-nuevo-proyecto" class="slide level2">
+<h1>Crear un nuevo proyecto</h1>
+<p>Creamos un nuevo proyecto en archivo &gt; nuevo y aparecerá la ventana de creación del tilemap.</p>
+<figure>
+<img src="imgs/tiled_nuevo_proyecto.png" alt="Nuevo proyecto" style="height:75.0%" /><figcaption>Nuevo proyecto</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<p>Aquí establecemos el tamaño del patrón (Tile) y el número de patrones que tendrá el nivel.</p>
+<p>Si queremos vista ortogonal o isométrica.</p>
+<p>Marcamos como base64 sin comprimir el formato de la capa de patrones.</p>
+</section><section id="vista-ortogonal-o-isométrica." class="slide level2">
+<h1>Vista ortogonal o isométrica.</h1>
+<ul>
+<li class="fragment">Base ortogonal es la tradicional en los juegos 2D.</li>
+<li class="fragment">Base isométrica es una vista ortogonal especial que simula el 3D sin corrección de perspectiva.</li>
+<li class="fragment">Todos los ejes forman un ángulo de 120º. El dibujo se gira 45º para poner la esquina del escenario frente al espectador.</li>
+<li class="fragment">La camara se situaría en la esquina superior</li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="imgs/Perspectiva_isométrica.png" alt="Perspectiva isométrica" style="height:75.0%" /><figcaption>Perspectiva isométrica</figcaption>
+</figure>
+</section><section id="perspectiva-isométrica" class="slide level2">
+<h1>Perspectiva isométrica</h1>
+<figure>
+<img src="imgs/isometrica.png" alt="Perspectiva isométrica" style="height:75.0%" /><figcaption>Perspectiva isométrica</figcaption>
+</figure>
+</section><section id="perspectiva-ortogonal" class="slide level2">
+<h1>Perspectiva ortogonal</h1>
+<figure>
+<img src="imgs/ortogonal.png" alt="Perspectiva ortogonal" style="height:75.0%" /><figcaption>Perspectiva ortogonal</figcaption>
+</figure>
+</section><section id="añadir-un-tileset" class="slide level2">
+<h1>Añadir un tileset</h1>
+<figure>
+<img src="imgs/add_tileset.png" alt="Añadir un tileset" style="height:75.0%" /><figcaption>Añadir un tileset</figcaption>
+</figure>
+<p>OJO!!! el <strong>nombre que le demos al tileset</strong> se usará posteriormente para cargar el spritesheet con los tiles en phaser ya que no se carga automáticamente.</p>
+</section><section id="añadir-una-capa" class="slide level2">
+<h1>Añadir una capa</h1>
+<p>Podemos añadir nuevas capas. Las capas son importantes diferenciar los objetos del fondo con los objetos del suelo.</p>
+<figure>
+<img src="imgs/nueva_capa.png" alt="Añadir capas" style="height:75.0%" /><figcaption>Añadir capas</figcaption>
+</figure>
+</section><section id="exportar-el-mapa." class="slide level2">
+<h1>Exportar el mapa.</h1>
+<p>Recomendable exportarlo a formato JSON.</p>
+</section></section>
+<section><section id="usar-tilemaps-en-phaser" class="titleslide slide level1"><h1>Usar TileMaps en Phaser</h1></section><section id="cargar-el-tilemap" class="slide level2">
+<h1>Cargar el TileMap</h1>
+<p>Para cargar el fichero de descripción del tilemap, usamos <strong>load.tilemap</strong>. El primer parámetro es el nombre del recurso en la cache. El segundo es el fichero json que contiene la descripción del mapa. El tercer parámetro si es distinto de <strong>null</strong> deberá contener el objeto json del mapa, ignorando el segundo parámetro y por último el cuarto parámetro indica el tipo de fichero que puede ser: <strong>Phaser.Tilemap.CSV</strong> o <strong>Phaser.Tilemap.TILED_JSON</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">tilemap</span>(<span class="st">&#39;tilemap&#39;</span><span class="op">,</span> <span class="st">&#39;images/map.json&#39;</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="va">Phaser</span>.<span class="va">Tilemap</span>.<span class="at">TILED_JSON</span>)<span class="op">;</span></code></pre></div>
+</section><section class="slide level2">
+
+<p>Para cargar el atlas de patrones usaremos la carga de imagenes normal: <strong>load.image</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&#39;patronesTilemap&#39;</span><span class="op">,</span> <span class="st">&#39;images/patrones.png&#39;</span>)<span class="op">;</span></code></pre></div>
+</section><section id="crear-el-tilemap" class="slide level2">
+<h1>Crear el TileMap</h1>
+<p>Para crear un tilemap usamos el recurso cargado en la cache como <em>tilemap</em> y una vez creado le asignamos la textura donde tenemos los tiles. La textura debe estar previamente cargada y el nombre de la textura en el mapa de tiles debe ser conocido, ya que un mapa de tiles puede tener mas de una textura asociada, por lo que hay que asignar al nombre usado en el editor al asignar al tileset al nombre de la textura cargada en la cache.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="at">map</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">game</span>.<span class="va">add</span>.<span class="at">tilemap</span>(<span class="st">&#39;tilemap&#39;</span>)<span class="op">;</span>
+
+<span class="kw">this</span>.<span class="va">map</span>.<span class="at">addTilesetImage</span>(<span class="st">&quot;patrones&quot;</span><span class="op">,</span><span class="st">&quot;patronesTilemap&quot;</span>)<span class="op">;</span></code></pre></div>
+</section><section id="crear-las-diferentes-layers." class="slide level2">
+<h1>Crear las diferentes layers.</h1>
+<p>Como hemos visto, en el editor de tiles podemos crear diferentes layers. Una layer permite diferenciar los objetos del fondo con los objetos de frente o tener diferentes fondos para realizar &quot;paralax&quot;.</p>
+<p>Si hay layers creadas en el editor, podemos asignar estas layers en Phaser:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="at">backgroundLayer</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">map</span>.<span class="at">createLayer</span>(<span class="st">&quot;BackgroundLayer&quot;</span>)<span class="op">;</span>
+<span class="kw">this</span>.<span class="at">groundLayer</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">map</span>.<span class="at">createLayer</span>(<span class="st">&quot;GroundLayer&quot;</span>)<span class="op">;</span>
+<span class="kw">this</span>.<span class="at">foreground</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">map</span>.<span class="at">createLayer</span>(<span class="st">&quot;Foreground&quot;</span>)<span class="op">;</span></code></pre></div>
+</section><section id="reescalar-el-tilemap." class="slide level2">
+<h1>Reescalar el TileMap.</h1>
+<p>Normalmente los tiles estan a resoluciones bajas si queremos tener apariecia de juego retro de 8 o 16 bits. Por lo que los tiles serian muy pequeños en una resolución normal actual. La solución es escalarlos. Se pueden escalar de forma manual usando <strong>SetScale</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">      <span class="kw">this</span>.<span class="va">groundLayer</span>.<span class="at">setScale</span>(<span class="dv">3</span><span class="op">,</span><span class="dv">3</span>)<span class="op">;</span>
+      <span class="kw">this</span>.<span class="va">backgroundLayer</span>.<span class="at">setScale</span>(<span class="dv">3</span><span class="op">,</span><span class="dv">3</span>)<span class="op">;</span>
+      <span class="kw">this</span>.<span class="va">death</span>.<span class="at">setScale</span>(<span class="dv">3</span><span class="op">,</span><span class="dv">3</span>)<span class="op">;</span></code></pre></div>
+</section><section class="slide level2">
+
+<p>Se pueden escalar de forma automática usando <strong>resizeWorld</strong>. Si usais resizeWorld, es muy recomendable que la resolución de pantalla sea proporcional a la resolución del tilemap para que se adapte correctamente en altura y en anchura.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="va">backgroundLayer</span>.<span class="at">resizeWorld</span>()<span class="op">;</span></code></pre></div>
+</section></section>
+<section><section id="texto-en-phaser" class="titleslide slide level1"><h1>Texto en Phaser</h1></section><section id="crear-texto-usando-fuentes-del-sysema." class="slide level2">
+<h1>Crear Texto usando fuentes del sysema.</h1>
+<p>Para crear texto simplemente podemos usar la entidad Text con la factoría de Phaser <em>add.text</em>.</p>
+</section><section class="slide level2">
+
+<p>Pero podemos modificar los atributos de text para cambiar su aspecto como:</p>
+<ul>
+<li class="fragment">alin: alineación del texto.</li>
+<li class="fragment">font: tipo de letra.</li>
+<li class="fragment">fontSize: tamaño.</li>
+<li class="fragment">fontWeight: si queremos negrita o no.</li>
+<li class="fragment">stroke: color del borde.</li>
+<li class="fragment">fill: color de relleno.</li>
+<li class="fragment">strokeThickness: grosor del borde.</li>
+</ul>
+</section><section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> text <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">text</span>(<span class="va">game</span>.<span class="va">world</span>.<span class="at">centerX</span><span class="op">,</span> <span class="va">game</span>.<span class="va">world</span>.<span class="at">centerY</span><span class="op">,</span> <span class="st">&#39;- phaser text stroke -&#39;</span>)<span class="op">;</span>
+
+<span class="co">// alineación del texto</span>
+<span class="va">text</span>.<span class="va">anchor</span>.<span class="at">set</span>(<span class="fl">0.5</span>)<span class="op">;</span>
+<span class="va">text</span>.<span class="at">align</span> <span class="op">=</span> <span class="st">&#39;center&#39;</span><span class="op">;</span>
+
+<span class="co">// Font style</span>
+<span class="va">text</span>.<span class="at">font</span> <span class="op">=</span> <span class="st">&#39;Arial Black&#39;</span><span class="op">;</span>
+<span class="va">text</span>.<span class="at">fontSize</span> <span class="op">=</span> <span class="dv">50</span><span class="op">;</span>
+<span class="va">text</span>.<span class="at">fontWeight</span> <span class="op">=</span> <span class="st">&#39;bold&#39;</span><span class="op">;</span>
+
+<span class="co">//Color del reborde de la letra y grosor.</span>
+<span class="va">text</span>.<span class="at">stroke</span> <span class="op">=</span> <span class="st">&#39;#000000&#39;</span><span class="op">;</span>
+<span class="va">text</span>.<span class="at">strokeThickness</span> <span class="op">=</span> <span class="dv">6</span><span class="op">;</span>
+<span class="va">text</span>.<span class="at">fill</span> <span class="op">=</span> <span class="st">&#39;#43d637&#39;</span><span class="op">;</span>
+<span class="va">text</span>.<span class="at">setShadow</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="st">&#39;rgba(0,0,0,0.5)&#39;</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span></code></pre></div>
+</section><section id="problema-de-las-fuentes-del-sistema" class="slide level2">
+<h1>Problema de las fuentes del sistema</h1>
+<p>Que una fuente de nuestra máquina puede no estar disponible en la máquina del usuario. ¿Solución? Usar fuentes estandar, crear nuestras propias fuentes de bitmaps o usar fuentes Web como Google Fonts.</p>
+</section><section id="texto-con-bitmap-fonts." class="slide level2">
+<h1>Texto con Bitmap fonts.</h1>
+<p>Para cargar un bitmapfont hay que usar <strong>load.bitmapFont</strong> en el preload donde hay que pasarle el png con las fuentes y el xml que las describe.</p>
+<p>load.bitmapFont</p>
+<p>Para generar el xml y el bitmap podemos usar Litera que es online <a href="http://kvazars.com/littera/">Littera</a></p>
+<p>O BMFont para windows <a href="http://www.angelcode.com/products/bmfont/">Bmfont</a></p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">preload<span class="op">:</span> <span class="at">funciton</span>()<span class="op">{</span>
+    <span class="va">game</span>.<span class="va">load</span>.<span class="at">bitmapFont</span>(<span class="st">&#39;bitmapFont&#39;</span><span class="op">,</span> <span class="st">&#39;assets/fonts/bitmapFonts/bitmapFont.png&#39;</span><span class="op">,</span> 
+    <span class="st">&#39;assets/fonts/bitmapFonts/bitmapFont.xml&#39;</span>)<span class="op">;</span>
+<span class="op">}</span>
+create<span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span>
+text <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">bitmapText</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="st">&#39;bitmapFont&#39;</span><span class="op">,</span><span class="st">&#39;Bitmap Fonts!&#39;</span><span class="op">,</span><span class="dv">64</span>)<span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+</section><section id="texto-con-fuentes-web." class="slide level2">
+<h1>Texto con fuentes Web.</h1>
+<p>Podemos cargar fuentes desde la web, por ejemplo Google Font. Para ello hay que cargar la fuente previamente antes de usarla.</p>
+<p>Podemos cargar el javascript de Google Font previamente en la página.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;//ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></code></pre></div>
+<p>O podemos cargarlo desde phaser.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"> <span class="va">game</span>.<span class="va">load</span>.<span class="at">script</span>(<span class="st">&#39;webfont&#39;</span><span class="op">,</span> <span class="st">&#39;//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js&#39;</span>)<span class="op">;</span></code></pre></div>
+</section><section class="slide level2">
+
+<p>Hay que esperar a que la fuente sea cargada para poder usarla, para ello podemos definir el siguiente objeto que le dice al api de Google font que fuente hay que cargar y a que método hay que llamar cuando termine. WebFont es el objeto js de Google cargado:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> wfconfig <span class="op">=</span> <span class="op">{</span>
+<span class="co">// el método que invoca Google font al terminar de cargar la fuente.</span>
+    <span class="dt">active</span><span class="op">:</span> <span class="kw">function</span>() <span class="op">{</span> 
+        <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;font loaded&quot;</span>)<span class="op">;</span>
+        <span class="at">init</span>()<span class="op">;</span> <span class="co">//llamada al método de creación de Phaser.</span>
+    <span class="op">},</span>
+ 
+    <span class="dt">google</span><span class="op">:</span> <span class="op">{</span>
+        <span class="dt">families</span><span class="op">:</span> [<span class="st">&#39;Sniglet&#39;</span>] <span class="co">//la fuente o fuentes a cargar</span>
+    <span class="op">}</span>
+ 
+<span class="op">};</span>
+
+<span class="va">window</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span>
+    <span class="va">WebFont</span>.<span class="at">load</span>(wfconfig)<span class="op">;</span> <span class="co">//carga la fuente definida en el objeto anterior.</span>
+<span class="op">};</span></code></pre></div>
+</section><section class="slide level2">
+
+<p>Y luego para usarlo simplemente se cambia el estilo del font.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> textStart <span class="op">=</span> <span class="kw">this</span>.<span class="va">game</span>.<span class="va">add</span>.<span class="at">text</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="st">&quot;Hola mundo!&quot;</span>)<span class="op">;</span>
+<span class="va">textStart</span>.<span class="at">font</span> <span class="op">=</span> <span class="st">&#39;Sniglet&#39;</span><span class="op">;</span></code></pre></div>
+</section><section id="problemas-de-las-google-fonts-u-otras-fuentes-web" class="slide level2">
+<h1>¿Problemas de las Google Fonts u otras fuentes Web?</h1>
+<p>Que dependemos de ellas para que el juego funcione y no tenemos control sobre ellas.</p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="../shared/lib/reveal/lib/js/head.min.js"></script>
+  <script src="../shared/lib/reveal/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../shared/lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../shared/lib/reveal/plugin/zoom-js/zoom.js', async: true },
+          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
