@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Ismael Sagredo y Carlos León">
+  <title>Texto en Phaser</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+
+
+  <!-- <link rel="stylesheet" href="../shared/lib/reveal/../tabzilla/css/tabzilla.css"/> -->
+  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
+  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/mozilla-devrel-light.css"/>
+  <link rel="stylesheet" href="../shared/lib/reveal/lib/css/solarized-light.css" />
+
+
+
+
+  <!-- <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"> -->
+
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+<!--  -->
+<!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
+<!--  -->
+<!--  -->
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../shared/lib/reveal/css/print/pdf.css' : '../shared/lib/reveal/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+
+<!-- FIXME megahack because `pandoc` only generates h1's. -->
+<!-- <style type="text/css"> -->
+
+
+<!-- .inner { -->
+<!--     width: 100%; -->
+<!--     margin: 0 auto; --> 
+<!-- } -->
+
+<!--     h1{ --> 
+<!--     } -->
+
+<!--     .level2 h1 { -->
+        
+<!--     border-top: 0.1em solid #484848; -->
+<!--     border-bottom: 0.1em solid #484848; -->
+    
+<!--     padding: 1em 0; -->
+<!--     margin-bottom: 1em; -->
+<!--     font-size: 1.6em; -->
+<!--     margin: 0 0 20px 0; -->
+<!--     color: #484848; -->
+<!--     font-family: "Fira Sans", Helvetica, sans-serif; -->
+<!--     font-weight: 600; -->
+<!--     line-height: 1.2; -->
+<!--     letter-spacing: normal; -->
+<!--     text-transform: uppercase; -->
+<!--     text-shadow: none; -->
+<!--     word-wrap: break-word; -->
+<!-- } -->
+
+<!-- </style> -->
+
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Texto en Phaser</h1>
+  <h2 class="author">Ismael Sagredo y Carlos León</h2>
+</section>
+
+<section><section id="texto-en-phaser" class="titleslide slide level1"><h1>Texto en Phaser</h1></section><section id="crear-texto-usando-fuentes-del-sistema" class="slide level2">
+<h1>Crear texto usando fuentes del sistema</h1>
+<p>Para crear texto simplemente podemos usar la entidad <code class="sourceCode javascript">Text</code> con la factoría de Phaser <code class="sourceCode javascript"><span class="va">add</span>.<span class="at">text</span></code></p>
+</section><section class="slide level2">
+
+<p>Pero podemos modificar los atributos de <code class="sourceCode javascript">text</code> para cambiar su aspecto como:</p>
+<ul>
+<li class="fragment"><code class="sourceCode javascript">align</code>: alineación del texto.</li>
+<li class="fragment"><code class="sourceCode javascript">font</code>: tipo de letra.</li>
+<li class="fragment"><code class="sourceCode javascript">fontSize</code>: tamaño.</li>
+<li class="fragment"><code class="sourceCode javascript">fontWeight</code>: si queremos negrita o no.</li>
+<li class="fragment"><code class="sourceCode javascript">stroke</code>: color del borde.</li>
+<li class="fragment"><code class="sourceCode javascript">fill</code>: color de relleno.</li>
+<li class="fragment"><code class="sourceCode javascript">strokeThickness</code>: grosor del borde.</li>
+</ul>
+</section><section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> text <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">text</span>(<span class="va">game</span>.<span class="va">world</span>.<span class="at">centerX</span><span class="op">,</span> <span class="va">game</span>.<span class="va">world</span>.<span class="at">centerY</span><span class="op">,</span> <span class="st">&#39;- phaser text stroke -&#39;</span>)<span class="op">;</span>
+
+<span class="co">// alineación del texto</span>
+<span class="va">text</span>.<span class="va">anchor</span>.<span class="at">set</span>(<span class="fl">0.5</span>)<span class="op">;</span>
+<span class="va">text</span>.<span class="at">align</span> <span class="op">=</span> <span class="st">&#39;center&#39;</span><span class="op">;</span>
+
+<span class="co">// Font style</span>
+<span class="va">text</span>.<span class="at">font</span> <span class="op">=</span> <span class="st">&#39;Arial Black&#39;</span><span class="op">;</span>
+<span class="va">text</span>.<span class="at">fontSize</span> <span class="op">=</span> <span class="dv">50</span><span class="op">;</span>
+<span class="va">text</span>.<span class="at">fontWeight</span> <span class="op">=</span> <span class="st">&#39;bold&#39;</span><span class="op">;</span>
+
+<span class="co">//Color del reborde de la letra y grosor.</span>
+<span class="va">text</span>.<span class="at">stroke</span> <span class="op">=</span> <span class="st">&#39;#000000&#39;</span><span class="op">;</span>
+<span class="va">text</span>.<span class="at">strokeThickness</span> <span class="op">=</span> <span class="dv">6</span><span class="op">;</span>
+<span class="va">text</span>.<span class="at">fill</span> <span class="op">=</span> <span class="st">&#39;#43d637&#39;</span><span class="op">;</span>
+<span class="va">text</span>.<span class="at">setShadow</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="st">&#39;rgba(0,0,0,0.5)&#39;</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span></code></pre></div>
+</section><section id="problema-de-las-fuentes-del-sistema" class="slide level2">
+<h1>Problema de las fuentes del sistema</h1>
+<p>Una fuente de nuestra máquina puede no estar disponible en la máquina del usuario</p>
+<p>¿Solución? Usar fuentes estándar, crear nuestras propias fuentes de mapa de bits (bitmaps) o usar fuentes Web (<strong>webfonts</strong>) como <a href="https://fonts.google.com/">Google Fonts</a></p>
+</section><section id="texto-con-fuentes-de-mapa-de-bits" class="slide level2">
+<h1>Texto con fuentes de mapa de bits</h1>
+<p>Para cargar un fuente de mapa de bits hay que usar <code class="sourceCode javascript"><span class="va">game</span>.<span class="va">load</span>.<span class="at">bitmapFont</span>()</code> en el <code class="sourceCode javascript">preload</code> donde hay que pasarle el PNG con las fuentes y el XML que las describe</p>
+<p>Para generar el XML y el mapa de bits podemos usar <a href="http://kvazars.com/littera/">Littera</a></p>
+<p>O BMFont para Windows <a href="http://www.angelcode.com/products/bmfont/">Bmfont</a></p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">preload<span class="op">:</span> <span class="at">funciton</span>()<span class="op">{</span>
+    <span class="va">game</span>.<span class="va">load</span>.<span class="at">bitmapFont</span>(<span class="st">&#39;bitmapFont&#39;</span><span class="op">,</span> <span class="st">&#39;assets/fonts/bitmapFonts/bitmapFont.png&#39;</span><span class="op">,</span> 
+    <span class="st">&#39;assets/fonts/bitmapFonts/bitmapFont.xml&#39;</span>)<span class="op">;</span>
+<span class="op">}</span>
+create<span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span>
+text <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">bitmapText</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="st">&#39;bitmapFont&#39;</span><span class="op">,</span><span class="st">&#39;Bitmap Fonts!&#39;</span><span class="op">,</span><span class="dv">64</span>)<span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+</section><section id="texto-con-fuentes-web" class="slide level2">
+<h1>Texto con fuentes Web</h1>
+<p>Podemos cargar fuentes desde la web, por ejemplo desde Google Fonts.</p>
+<p>Hay que cargar la fuente previamente antes de usarla</p>
+</section><section class="slide level2">
+
+<p>Podemos cargar el JavaScript de Google Fonts previamente en la página:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;//ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></code></pre></div>
+<p>O podemos cargarlo desde Phaser:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">game</span>.<span class="va">load</span>.<span class="at">script</span>(<span class="st">&#39;webfont&#39;</span><span class="op">,</span> <span class="st">&#39;//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js&#39;</span>)<span class="op">;</span></code></pre></div>
+</section><section class="slide level2">
+
+<p>Hay que esperar a que la fuente sea cargada para poder usarla.</p>
+<p>Para ello podemos definir el siguiente objeto que le dice al API de Google Fonts que fuente hay que cargar y a que método hay que llamar cuando termine.</p>
+</section><section class="slide level2">
+
+<p>WebFont es el objeto JavaScript de Google cargado:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> wfconfig <span class="op">=</span> <span class="op">{</span>
+<span class="co">// el método que invoca Google font al terminar de cargar la fuente.</span>
+    <span class="dt">active</span><span class="op">:</span> <span class="kw">function</span>() <span class="op">{</span> 
+        <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;font loaded&quot;</span>)<span class="op">;</span>
+        <span class="at">init</span>()<span class="op">;</span> <span class="co">//llamada al método de creación de Phaser.</span>
+    <span class="op">},</span>
+ 
+    <span class="dt">google</span><span class="op">:</span> <span class="op">{</span>
+        <span class="dt">families</span><span class="op">:</span> [<span class="st">&#39;Sniglet&#39;</span>] <span class="co">//la fuente o fuentes a cargar</span>
+    <span class="op">}</span>
+ 
+<span class="op">};</span>
+
+<span class="va">window</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span>
+    <span class="va">WebFont</span>.<span class="at">load</span>(wfconfig)<span class="op">;</span> <span class="co">//carga la fuente definida en el objeto anterior.</span>
+<span class="op">};</span></code></pre></div>
+</section><section class="slide level2">
+
+<p>Y luego para usarlo simplemente se cambia el estilo de la fuente</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> textStart <span class="op">=</span> <span class="kw">this</span>.<span class="va">game</span>.<span class="va">add</span>.<span class="at">text</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="st">&quot;Hola mundo!&quot;</span>)<span class="op">;</span>
+<span class="va">textStart</span>.<span class="at">font</span> <span class="op">=</span> <span class="st">&#39;Sniglet&#39;</span><span class="op">;</span></code></pre></div>
+</section><section id="problemas-de-las-google-fonts-u-otras-fuentes-web" class="slide level2">
+<h1>¿Problemas de las Google Fonts u otras fuentes Web?</h1>
+<p>Que dependemos de ellas para que el juego funcione y no tenemos control sobre ellas</p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="../shared/lib/reveal/lib/js/head.min.js"></script>
+  <script src="../shared/lib/reveal/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../shared/lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../shared/lib/reveal/plugin/zoom-js/zoom.js', async: true },
+          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
