@@ -1,7 +1,6 @@
 ---
 title: Tiles
 author: Ismael Sagredo y Carlos León
-date: 15/11/2016
 vim: spelllang=es
 ...
 
@@ -26,7 +25,7 @@ también *para la lógica del juego* (como en los
 
 ---
 
-![Dungeon Crawl](https://upload.wikimedia.org/wikipedia/commons/2/29/Dungeon_crawl_stone_soup.png)
+![Dungeon Crawl](https://upload.wikimedia.org/wikipedia/commons/2/29/Dungeon_crawl_stone_soup.png){weight=50%}
 
 ---
 
@@ -83,12 +82,20 @@ Normalmente un tile map está compuesto por:
 
 # Tile sets
 
+---
+
+Un tile set se suele implementar como un archivo de imagen en el que cada celda
+representa un tile
+
 ## Ejemplo de tile set
 
 ![Tileset](imgs/Tileset_zelda.png){height=75%}
 
-
 ---
+
+Cada celda del tile set representa una imagen *independiente*
+
+. . .
 
 Esto funciona bien para cosas aisladas: monedas, árboles, cajas...
 
@@ -105,9 +112,9 @@ Pero no funciona bien en **la playa**
 
 ---
 
-Los tiles normalmente están creados para repetirse en la escena
-sin que se vean costuras, de forma que se pueden construir escenas muy
-complejas 
+Para evitar los "cortes", los tiles normalmente están creados para repetirse en
+la escena sin que se vean costuras, de forma que se pueden construir escenas
+muy complejas 
 
 Se ocupa **mucha menos memoria** que dibujando la
 escena en una imagen (se carga una, se usa muchas veces)
@@ -169,7 +176,7 @@ especial de objetos con la ubicación de los objetos en el mapa
 
 ## La interfaz de Tiled
 
-![La interfaz de Tiled](imgs/tiled.png){height=75%}
+![La interfaz de Tiled](imgs/tiled.png)
 
 
 ##Partes de la interfaz de Tiled
@@ -185,7 +192,9 @@ especial de objetos con la ubicación de los objetos en el mapa
 
 Creamos un nuevo proyecto en `Archivo` > `Nuevo` y aparecerá la ventana de creación del tile map
 
-![Nuevo proyecto](imgs/tiled_nuevo_proyecto.png){height=75%}
+---
+
+![Nuevo proyecto](imgs/tiled_nuevo_proyecto.png){width=40%}
 
 ---
 
@@ -212,7 +221,7 @@ Marcamos como base64 sin comprimir el formato de la capa de patrones
 ## Perspectiva isométrica
 
 
-![Perspectiva isométrica](imgs/isometrica.png){height=75%}
+![Perspectiva isométrica](imgs/isometrica.png){width=50%}
 
 
 ## Perspectiva ortogonal
@@ -226,6 +235,8 @@ Marcamos como base64 sin comprimir el formato de la capa de patrones
 
 ![](imgs/add_tileset.png){height=60%}
 
+---
+
 **El nombre que le demos al tile set** se usará posteriormente para cargar el spritesheet con los tiles en Phaser
 
 
@@ -235,6 +246,8 @@ Marcamos como base64 sin comprimir el formato de la capa de patrones
 Podemos añadir nuevas capas
 
 Las capas son importantes para diferenciar los objetos del fondo con los objetos del suelo
+
+---
 
 ![Añadir capas](imgs/nueva_capa.png){height=75%}
 

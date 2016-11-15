@@ -121,8 +121,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <h2 class="author">Ismael Sagredo y Carlos León</h2>
 </section>
 
-<section><section id="texto-en-phaser" class="titleslide slide level1"><h1>Texto en Phaser</h1></section><section id="crear-texto-usando-fuentes-del-sistema" class="slide level2">
-<h1>Crear texto usando fuentes del sistema</h1>
+<section><section id="crear-texto-usando-fuentes-del-sistema" class="titleslide slide level1"><h1>Crear texto usando fuentes del sistema</h1></section><section class="slide level2">
+
 <p>Para crear texto simplemente podemos usar la entidad <code class="sourceCode javascript">Text</code> con la factoría de Phaser <code class="sourceCode javascript"><span class="va">add</span>.<span class="at">text</span></code></p>
 </section><section class="slide level2">
 
@@ -158,20 +158,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1>Problema de las fuentes del sistema</h1>
 <p>Una fuente de nuestra máquina puede no estar disponible en la máquina del usuario</p>
 <p>¿Solución? Usar fuentes estándar, crear nuestras propias fuentes de mapa de bits (bitmaps) o usar fuentes Web (<strong>webfonts</strong>) como <a href="https://fonts.google.com/">Google Fonts</a></p>
-</section><section id="texto-con-fuentes-de-mapa-de-bits" class="slide level2">
-<h1>Texto con fuentes de mapa de bits</h1>
-<p>Para cargar un fuente de mapa de bits hay que usar <code class="sourceCode javascript"><span class="va">game</span>.<span class="va">load</span>.<span class="at">bitmapFont</span>()</code> en el <code class="sourceCode javascript">preload</code> donde hay que pasarle el PNG con las fuentes y el XML que las describe</p>
-<p>Para generar el XML y el mapa de bits podemos usar <a href="http://kvazars.com/littera/">Littera</a></p>
-<p>O BMFont para Windows <a href="http://www.angelcode.com/products/bmfont/">Bmfont</a></p>
+</section></section>
+<section><section id="texto-con-fuentes-de-mapa-de-bits" class="titleslide slide level1"><h1>Texto con fuentes de mapa de bits</h1></section><section class="slide level2">
+
+<p>Para cargar un fuente de mapa de bits hay que usar <code class="sourceCode javascript"><span class="va">game</span>.<span class="va">load</span>.<span class="at">bitmapFont</span>()</code> en el <code class="sourceCode javascript">preload</code></p>
+<p>Hay que pasarle el bitmap (en <a href="https://es.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a>, por ejemplo) con las fuentes y el XML que las describe</p>
+<p>Para generar el XML y el mapa de bits podemos usar:</p>
+<ul>
+<li class="fragment"><a href="http://kvazars.com/littera/">Littera</a></li>
+<li class="fragment"><a href="http://www.angelcode.com/products/bmfont/">Bmfont</a> (Windows)</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">preload<span class="op">:</span> <span class="at">funciton</span>()<span class="op">{</span>
     <span class="va">game</span>.<span class="va">load</span>.<span class="at">bitmapFont</span>(<span class="st">&#39;bitmapFont&#39;</span><span class="op">,</span> <span class="st">&#39;assets/fonts/bitmapFonts/bitmapFont.png&#39;</span><span class="op">,</span> 
     <span class="st">&#39;assets/fonts/bitmapFonts/bitmapFont.xml&#39;</span>)<span class="op">;</span>
 <span class="op">}</span>
 create<span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span>
-text <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">bitmapText</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="st">&#39;bitmapFont&#39;</span><span class="op">,</span><span class="st">&#39;Bitmap Fonts!&#39;</span><span class="op">,</span><span class="dv">64</span>)<span class="op">;</span>
+    text <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">bitmapText</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="st">&#39;bitmapFont&#39;</span><span class="op">,</span><span class="st">&#39;Bitmap Fonts!&#39;</span><span class="op">,</span><span class="dv">64</span>)<span class="op">;</span>
 <span class="op">}</span></code></pre></div>
-</section><section id="texto-con-fuentes-web" class="slide level2">
-<h1>Texto con fuentes Web</h1>
+</section></section>
+<section><section id="texto-con-fuentes-web" class="titleslide slide level1"><h1>Texto con fuentes Web</h1></section><section class="slide level2">
+
 <p>Podemos cargar fuentes desde la web, por ejemplo desde Google Fonts.</p>
 <p>Hay que cargar la fuente previamente antes de usarla</p>
 </section><section class="slide level2">
@@ -188,7 +194,7 @@ text <span class="op">=</span> <span class="va">game</span>.<span class="va">add
 
 <p>WebFont es el objeto JavaScript de Google cargado:</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> wfconfig <span class="op">=</span> <span class="op">{</span>
-<span class="co">// el método que invoca Google font al terminar de cargar la fuente.</span>
+    <span class="co">// el método que invoca Google font al terminar de cargar la fuente.</span>
     <span class="dt">active</span><span class="op">:</span> <span class="kw">function</span>() <span class="op">{</span> 
         <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;font loaded&quot;</span>)<span class="op">;</span>
         <span class="at">init</span>()<span class="op">;</span> <span class="co">//llamada al método de creación de Phaser.</span>

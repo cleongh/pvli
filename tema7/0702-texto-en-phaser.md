@@ -5,10 +5,9 @@ vim: spelllang=es
 ...
 
 
-# Texto en Phaser
+# Crear texto usando fuentes del sistema
 
-
-## Crear texto usando fuentes del sistema
+---
 
 Para crear texto simplemente podemos usar la entidad `Text`{.js} con la factoría de Phaser `add.text`{.js}
 
@@ -56,15 +55,21 @@ bits (bitmaps) o usar fuentes Web (**webfonts**) como [Google
 Fonts](https://fonts.google.com/)
 
 
-## Texto con fuentes de mapa de bits
+# Texto con fuentes de mapa de bits
+
+---
 
 Para cargar un fuente de mapa de bits hay que usar `game.load.bitmapFont()`{.js} en el
-`preload`{.js} donde hay que pasarle el PNG con las fuentes y el XML que las
-describe
+`preload`{.js}
 
-Para generar el XML y el mapa de bits podemos usar [Littera](http://kvazars.com/littera/)
+Hay que pasarle el bitmap (en
+[PNG](https://es.wikipedia.org/wiki/Portable_Network_Graphics), por ejemplo)
+con las fuentes y el XML que las describe
 
-O BMFont para Windows [Bmfont](http://www.angelcode.com/products/bmfont/)
+Para generar el XML y el mapa de bits podemos usar:
+
+- [Littera](http://kvazars.com/littera/)
+- [Bmfont](http://www.angelcode.com/products/bmfont/) (Windows) 
 
 ```js
 preload: funciton(){
@@ -72,12 +77,14 @@ preload: funciton(){
 	'assets/fonts/bitmapFonts/bitmapFont.xml');
 }
 create: function(){
-text = game.add.bitmapText(200, 100, 'bitmapFont','Bitmap Fonts!',64);
+    text = game.add.bitmapText(200, 100, 'bitmapFont','Bitmap Fonts!',64);
 }
 ```
 
 
-## Texto con fuentes Web
+# Texto con fuentes Web
+
+---
 
 Podemos cargar fuentes desde la web, por ejemplo desde Google Fonts.
 
@@ -111,7 +118,7 @@ WebFont es el objeto JavaScript de Google cargado:
 
 ```js
 var wfconfig = {
-// el método que invoca Google font al terminar de cargar la fuente.
+    // el método que invoca Google font al terminar de cargar la fuente.
     active: function() { 
         console.log("font loaded");
         init(); //llamada al método de creación de Phaser.

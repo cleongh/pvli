@@ -119,7 +119,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section>
   <h1 class="title">Tiles</h1>
   <h2 class="author">Ismael Sagredo y Carlos León</h2>
-  <h3 class="date">15/11/2016</h3>
 </section>
 
 <section><section id="tiles" class="titleslide slide level1"><h1>Tiles</h1></section><section id="qué-es-un-tile" class="slide level2">
@@ -134,7 +133,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section class="slide level2">
 
 <figure>
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Dungeon_crawl_stone_soup.png" alt="Dungeon Crawl" /><figcaption>Dungeon Crawl</figcaption>
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Dungeon_crawl_stone_soup.png" alt="Dungeon Crawl" weight="50%" /><figcaption>Dungeon Crawl</figcaption>
 </figure>
 </section><section class="slide level2">
 
@@ -173,14 +172,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <img src="imgs/Tilemap_zelda.png" alt="TileMap del Zelda" style="height:75.0%" /><figcaption>TileMap del Zelda</figcaption>
 </figure>
 </section></section>
-<section><section id="tile-sets" class="titleslide slide level1"><h1>Tile sets</h1></section><section id="ejemplo-de-tile-set" class="slide level2">
+<section><section id="tile-sets" class="titleslide slide level1"><h1>Tile sets</h1></section><section class="slide level2">
+
+<p>Un tile set se suele implementar como un archivo de imagen en el que cada celda representa un tile</p>
+</section><section id="ejemplo-de-tile-set" class="slide level2">
 <h1>Ejemplo de tile set</h1>
 <figure>
 <img src="imgs/Tileset_zelda.png" alt="Tileset" style="height:75.0%" /><figcaption>Tileset</figcaption>
 </figure>
 </section><section class="slide level2">
 
+<p>Cada celda del tile set representa una imagen <em>independiente</em></p>
+<div class="fragment">
 <p>Esto funciona bien para cosas aisladas: monedas, árboles, cajas...</p>
+</div>
 </section><section class="slide level2">
 
 <p>Pero no funciona bien en <strong>la playa</strong></p>
@@ -192,7 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>(De <a href="http://opengameart.org/content/happyland-tileset" class="uri">http://opengameart.org/content/happyland-tileset</a>)</p>
 </section><section class="slide level2">
 
-<p>Los tiles normalmente están creados para repetirse en la escena sin que se vean costuras, de forma que se pueden construir escenas muy complejas</p>
+<p>Para evitar los &quot;cortes&quot;, los tiles normalmente están creados para repetirse en la escena sin que se vean costuras, de forma que se pueden construir escenas muy complejas</p>
 <p>Se ocupa <strong>mucha menos memoria</strong> que dibujando la escena en una imagen (se carga una, se usa muchas veces)</p>
 </section><section id="por-qué-es-más-eficiente" class="slide level2">
 <h1>¿Por qué es más eficiente?</h1>
@@ -241,7 +246,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section id="la-interfaz-de-tiled" class="slide level2">
 <h1>La interfaz de Tiled</h1>
 <figure>
-<img src="imgs/tiled.png" alt="La interfaz de Tiled" style="height:75.0%" /><figcaption>La interfaz de Tiled</figcaption>
+<img src="imgs/tiled.png" alt="La interfaz de Tiled" /><figcaption>La interfaz de Tiled</figcaption>
 </figure>
 </section><section id="partes-de-la-interfaz-de-tiled" class="slide level2">
 <h1>Partes de la interfaz de Tiled</h1>
@@ -255,8 +260,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section id="crear-un-nuevo-proyecto" class="slide level2">
 <h1>Crear un nuevo proyecto</h1>
 <p>Creamos un nuevo proyecto en <code>Archivo</code> &gt; <code>Nuevo</code> y aparecerá la ventana de creación del tile map</p>
+</section><section class="slide level2">
+
 <figure>
-<img src="imgs/tiled_nuevo_proyecto.png" alt="Nuevo proyecto" style="height:75.0%" /><figcaption>Nuevo proyecto</figcaption>
+<img src="imgs/tiled_nuevo_proyecto.png" alt="Nuevo proyecto" style="width:40.0%" /><figcaption>Nuevo proyecto</figcaption>
 </figure>
 </section><section class="slide level2">
 
@@ -281,7 +288,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section id="perspectiva-isométrica" class="slide level2">
 <h1>Perspectiva isométrica</h1>
 <figure>
-<img src="imgs/isometrica.png" alt="Perspectiva isométrica" style="height:75.0%" /><figcaption>Perspectiva isométrica</figcaption>
+<img src="imgs/isometrica.png" alt="Perspectiva isométrica" style="width:50.0%" /><figcaption>Perspectiva isométrica</figcaption>
 </figure>
 </section><section id="perspectiva-ortogonal" class="slide level2">
 <h1>Perspectiva ortogonal</h1>
@@ -293,11 +300,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <figure>
 <img src="imgs/add_tileset.png" style="height:60.0%" />
 </figure>
+</section><section class="slide level2">
+
 <p><strong>El nombre que le demos al tile set</strong> se usará posteriormente para cargar el spritesheet con los tiles en Phaser</p>
 </section><section id="añadir-una-capa" class="slide level2">
 <h1>Añadir una capa</h1>
 <p>Podemos añadir nuevas capas</p>
 <p>Las capas son importantes para diferenciar los objetos del fondo con los objetos del suelo</p>
+</section><section class="slide level2">
+
 <figure>
 <img src="imgs/nueva_capa.png" alt="Añadir capas" style="height:75.0%" /><figcaption>Añadir capas</figcaption>
 </figure>
