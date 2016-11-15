@@ -5,7 +5,7 @@ TEMA3=
 TEMA4=tema4/0401-introduccion-arquitectura-videojuegos.html tema4/0402-ejemplo-componentes-completo.html tema4/imgs/umlbasico.pu.svg tema4/imgs/herencia.pu.svg tema4/imgs/asociacion.pu.svg tema4/imgs/composicion.pu.svg tema4/imgs/herenciacorrecta.pu.svg  tema4/imgs/herenciaproblema.pu.svg tema4/imgs/sistemascomponentes.pu.svg tema4/imgs/arquitectura.pu.svg
 TEMA5=tema5/0501_carga_de_recursos_con_phaser.html
 TEMA6=
-TEMA7=
+TEMA7=tema7/0701_tiles_y_fuentes.html
 TEMA8=
 TEMA9=
 

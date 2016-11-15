@@ -69,10 +69,14 @@ Tiene soporte para diferentes capas (**layers**) e incluso para añadir una capa
 
 ![La interfaz de Tiled](imgs/tiled.png){height=75%}
 
-* Menu contextual
-* Tilesets
-* Layers
-* Herramientas
+
+##Partes de la interfaz de Tiled
+
+* Menu contextual (izquierda)
+* Tilesets (derecha abajo)
+* Layers (derecha arriba)
+* Herramientas. (Parte superior)
+* Zona de edicion (centro)
 
 
 ##Crear un nuevo proyecto
@@ -100,7 +104,7 @@ Marcamos como base64 sin comprimir el formato de la capa de patrones.
 
 ---
 
-![Perspectiva isométrica](imgs/Perspectiva_isométrica.png){height=75%}
+![Perspectiva isométrica](imgs/Perspectiva_isometrica.png){height=75%}
 
 
 ##Perspectiva isométrica
@@ -118,7 +122,7 @@ Marcamos como base64 sin comprimir el formato de la capa de patrones.
 ##Añadir un tileset
 
 
-![Añadir un tileset](imgs/add_tileset.png){height=75%}
+![Añadir un tileset](imgs/add_tileset.png){height=60%}
 
 OJO!!! el **nombre que le demos al tileset** se usará posteriormente para cargar el spritesheet con los tiles en phaser ya que no se carga automáticamente.
 
@@ -126,7 +130,7 @@ OJO!!! el **nombre que le demos al tileset** se usará posteriormente para carga
 ##Añadir una capa
 
 
-Podemos añadir nuevas capas. Las capas son importantes diferenciar los objetos del fondo con los objetos del suelo.
+Podemos añadir nuevas capas. Las capas son importantes para diferenciar los objetos del fondo con los objetos del suelo.
 
 ![Añadir capas](imgs/nueva_capa.png){height=75%}
 

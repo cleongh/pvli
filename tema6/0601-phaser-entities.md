@@ -31,6 +31,7 @@ El comando `run` realiza los pasos necesarios para que no sea necesario recargar
 cada vez que modifiquemos un archivo fuente. Los fuentes los puedes encontrar en
 `src/js/`.
 
+![Estructura de directorios de la plantilla](imgs/estructura_directorios.png)
 
 
 ## Entidades `Image`
