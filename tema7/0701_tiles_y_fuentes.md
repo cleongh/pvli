@@ -122,9 +122,9 @@ Marcamos como base64 sin comprimir el formato de la capa de patrones.
 ##Añadir un tileset
 
 
-![Añadir un tileset](imgs/add_tileset.png){height=60%}
+![](imgs/add_tileset.png){height=60%}
 
-OJO!!! el **nombre que le demos al tileset** se usará posteriormente para cargar el spritesheet con los tiles en phaser ya que no se carga automáticamente.
+OJO!!! el **nombre que le demos al tileset** se usará posteriormente para cargar el spritesheet con los tiles en phaser.
 
 
 ##Añadir una capa
