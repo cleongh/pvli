@@ -106,5 +106,3 @@ replantearse si está en el sitio apropiado.
 
 Por lo demás, en la asignatura usamos software (muy efectivo) de control de
 copias. Copiar es siempre una mala idea.
-
-# 
