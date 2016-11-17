@@ -10,6 +10,25 @@ Es normal (y positivo) que, durante el desarrollo de la asignatura, surjan
 errores de código y ejecución. Cuando sea así, podéis y debéis preguntar
 tanto a vuestros compañeros como al equipo docente.
 
+# Antes de preguntar
+
+#. Busca en el foro de la asignatura, si es una duda concreta sobre la
+práctica.
+#. Busca en Internet ([Stack Overflow](http://stackoverflow.com/), Google...)
+si los problemas son generales (Phaser, JS...)
+#. Intenta arreglarlo. Piensa, reduce el error al mínimo.
+    #. Depura (`console.log`{.js} funciona, pero usa depuración gráfica)
+    #. Identifica qué puede ir mal
+
+Ten en cuenta que cada pregunta requiere tiempo tuyo, de tus compañeros y de
+tus profesores. Y a nadie le sobra. Además, aunque sea cómo (y egoísta)
+preguntar sin haber hecho el trabajo primero, buscar e intentar encontrar la
+solución **es el mejor camino para convertirse en un buen programador**.
+
+Pero, por supuesto, no tiene sentido buscar como locos durante una semana. Si,
+tras la búsqueda, no habéis encontrado nada, es el momento de hacer la
+pregunta.
+
 # Cómo preguntar
 
 Imaginad que llamáis al médico, y tenéis la siguiente conversación:
