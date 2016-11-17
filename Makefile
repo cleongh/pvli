@@ -1,4 +1,4 @@
-GNERAL=general/criterios_evaluacion.html general/grupos.html general/programa.html
+GENERAL=general/criterios_evaluacion.html general/grupos.html general/programa.html general/reportar.html
 TEMA1=tema1/0101-1-introduccion-pvli.html tema1/0101-2-interpretes_js.html tema1/0102-tooling.html tema1/compilado.dot.svg  tema1/instrucciones.dot.svg  tema1/interpretes.dot.svg  tema1/trabajo_curso.dot.svg  tema1/trabajo_general.dot.svg  tema1/trabajo_manual.dot.svg
 TEMA2=
 TEMA3=
@@ -11,7 +11,7 @@ TEMA9=
 
 TEMAS=$(TEMA1) $(TEMA2) $(TEMA3) $(TEMA4) tema4/0403-ejercicios.html $(TEMA5) $(TEMA6) $(TEMA7) $(TEMA8) $(TEMA9) 
 TODO=$(GENERAL) $(TEMAS)
-BASERUN=pandoc  -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
+BASERUN=pandoc -S -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
 # BASERUN=pandoc  -s --mathjax -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
 
 all: $(TODO)

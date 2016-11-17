@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Carlos León" />
+  <title>Cómo preguntar dudas e informar de errores</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="../shared/docs.css" type="text/css" />
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Cómo preguntar dudas e informar de errores</h1>
+<h2 class="author">Carlos León</h2>
+</div>
+<h1 id="cuando-surgen-los-errores">Cuando surgen los errores</h1>
+<p>Es normal (y positivo) que, durante el desarrollo de la asignatura, surjan errores de código y ejecución. Cuando sea así, podéis y debéis preguntar tanto a vuestros compañeros como al equipo docente.</p>
+<h1 id="cómo-preguntar">Cómo preguntar</h1>
+<p>Imaginad que llamáis al médico, y tenéis la siguiente conversación:</p>
+<p>—Doctor, me encuentro mal.<br />
+—Bien, dígame, ¿cómo puedo ayudarle?<br />
+—No sé, no estoy bien. Intento estar bien, pero no lo consigo. Tengo síntomas extraños. No estoy como me gustaría. <strong>¿Qué me pasa?</strong></p>
+<p>Puede parecer una broma, pero es posible que esto os suene más real:</p>
+<p>—Profesor, mi práctica no funciona.<br />
+—Bien, dime, ¿cómo puedo ayudarte?<br />
+—No sé, no va bien. Intento que funcione, pero no lo consigo. Me da un error extraño. No imprime lo mismo que dice el enunciado. <strong>¿Qué he hecho mal?</strong></p>
+<p>Aunque exagerándolo, y con un poco de humor, este tipo de descripciones es normal. Es imposible dar una respuesta con tan poca información.</p>
+<h2 id="cómo-formulo-mi-error">¿Cómo formulo mi error?</h2>
+<p>Para tener una solución, hay que hacer un diagnóstico. Y, para tener un diagnóstico, hacen falta <strong>datos</strong>. Dado que estamos programando, vuestros datos son:</p>
+<ul>
+<li>El código. Tenéis que poner todo el código relevante (no sólo una línea, e idealmente poner un enlace a un commit/repo, o mediante <a href="http://pastebin.com/">pastebin</a> o <a href="https://gist.github.com/">Gist</a>).</li>
+<li>Las versiones de intérpretes, navegadores y demás que usáis: salida de <code class="sourceCode javascript">node <span class="op">--</span>version</code>, versión del navegador, etc.</li>
+<li>La salida por consola: intentad evitar capturas de pantalla. Copiad y pegad texto. Usad <a href="http://pastebin.com/">pastebin</a>. En el caso del navegador, sin embargo, una captura puede ser útil.</li>
+<li>La secuencia que habéis seguido para que os dé el error (si es de ejecución). Una lista, ordenada, paso a paso, para reproducir el error:
+<ol>
+<li>Ejecuto <code class="sourceCode bash"><span class="ex">node</span> init.js</code></li>
+<li>Cuando sale el menú (ejemplo en <a href="http://pastebin.com/s2n986aund" class="uri">http://pastebin.com/s2n986aund</a>), elijo <code class="sourceCode bash"><span class="ex">0</span></code>.</li>
+<li>El error salta.</li>
+</ol></li>
+</ul>
+<h2 id="ejemplo">Ejemplo</h2>
+<blockquote>
+<p>Hola a todos:</p>
+<p>Estoy con la práctica 6 y tengo un error extrañísimo. El entrar en el menú de opciones y elegir “aplastar enemigo con alegría”, me dice que no se puede llamar a <code class="sourceCode javascript"><span class="kw">undefined</span></code>.</p>
+<p>Yo 1. arranco con <code class="sourceCode bash"><span class="ex">node</span> init.js</code>, 2. elijo “aplastar enemigo”, 3. elijo “aplastar con alegría”, y me sale el error que podéis ver en <a href="http://pastebin.com/s2n986aund" class="uri">http://pastebin.com/s2n986aund</a>.</p>
+<p>Mi código está en Github, en alumnofiera267/practica7, en el commit <code>a56afde34</code>…</p>
+<p>Una captura de lo que me sale en el navegador está en <a href="https://imagebin.ca/v/32HTFG3qbe4k" class="uri">https://imagebin.ca/v/32HTFG3qbe4k</a>.</p>
+<pre><code># node --version
+v4.6.1 </code></pre>
+<pre><code># chromium --version 
+Chromium 54.0.2840.100</code></pre>
+<p>¡Gracias!</p>
+</blockquote>
+<h2 id="dónde-pongo-la-pregunta">¿Dónde pongo la pregunta?</h2>
+<p>En el foro del Campus Virtual.</p>
+<p>Cualquier pregunta privada ocurre varias veces, todos los años. Si vuestra pregunta está en el foro, todos podrán beneficiarse de la solución, además de que otro compañero puede ayudaros y, a veces, con menos retraso que el equipo docente (estamos siempre atentos, pero no damos abasto muchas veces).</p>
+<h1 id="compartir-es-positivo">Compartir es positivo</h1>
+<p>No tengáis miedo de compartir material. Mostrar el código y leer código de los demás es muy didáctico y facilita la colaboración. <strong>Vuestro código no tiene valor, lo que tiene valor es lo que aprendéis mientras lo escribís</strong>.</p>
+<h2 id="cuidado-con-las-copias">Cuidado con las copias</h2>
+<p>Como se comenta en varios lugares, <strong>copiar es ilegal, y supone suspender</strong>. Una cosa es compartir código e información (que <em>siempre</em> es positivo) y otra muy distinta usar las líneas de código de otro en nuestra práctica. Recordad: estáis cursando este grado y esta asignatura porque queréis aprender. Aquel para quien no sea así, y sólo quiera aprobar y pasar a lo siguiente, debería replantearse si está en el sitio apropiado.</p>
+<p>Por lo demás, en la asignatura usamos software (muy efectivo) de control de copias. Copiar es siempre una mala idea.</p>
+<h1 id="section"></h1>
+</body>
+</html>
