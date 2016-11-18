@@ -150,7 +150,7 @@ Tema 6: Gestión de entidades (III)
 - 22/11 (Salva y Carlos)
     - Audio en Phaser
 - 25/11 (Salva y Ismael)
-    - Ejercicio con Web Audio
+<!-- - Ejercicio con Web Audio -->
     - Trabajo en Práctica 2
 
 # 28 de noviembre - 2 de diciembre
