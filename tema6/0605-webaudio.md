@@ -100,9 +100,9 @@ través de varias capas software y hardware) la música en onda "bruta"
 
 ## ¿Como se comprime el audio?
 
-Compresión sin perdida (zip). Busca redundacias en la información para comprimirlas.
+Compresión sin pérdida (zip). Busca redundacias en la información para comprimirlas.
 
-Compresión con perdida (MP3). LA idea es que la perdida de información no sea perceptible.
+Compresión con pérdida (MP3). La pérdida de información no sea perceptible.
 
 ![Umbral de audicion Masculina (M) y Femenina (F)](imgs/umbral.png)
 
@@ -111,9 +111,13 @@ Frecuencia media audible 2KHz - 4 KHz
 ---
 
 
-Ejemplo
+Ejemplo tono no audible para adultos
 
-https://www.youtube.com/watch?v=Ez93oblQAJg
+[Tono no audible adultos](https://www.youtube.com/watch?v=Ez93oblQAJg)
+
+Comprimir consiste en eliminar las frecuencias no audibles.
+
+
 
 # Música y sonido
 
