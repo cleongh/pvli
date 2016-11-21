@@ -104,9 +104,13 @@ Compresión sin pérdida (zip). Busca redundacias en la información para compri
 
 Compresión con pérdida (MP3). La pérdida de información no sea perceptible.
 
+---
+
+
 ![Umbral de audicion Masculina (M) y Femenina (F)](imgs/umbral.png)
 
 Frecuencia media audible 2KHz - 4 KHz 
+
 
 ---
 
