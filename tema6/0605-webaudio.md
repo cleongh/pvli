@@ -1,6 +1,6 @@
 ---
 title: Audio en la web
-author: Carlos León
+author: Carlos León e Ismael Sagredo
 vim: spelllang=es
 ...
 
@@ -33,6 +33,26 @@ auditivo](https://es.wikipedia.org/wiki/Nervio_vestibulococlear).
 #. El nervio llega a nuestro cerebro
 #. Ocurren muchas cosas (muchas de las cuáles aún ignoramos)
 #. Percibimos, conscientemente, el **sonido**
+
+
+## Caracteristicas de una onda
+
+La longitud de onda (simbolizada por **λ**)  es la distancia entre dos crestas o valles seguidos.
+
+El periodo **T** es el tiempo requerido para que el movimiento de oscilación de la onda describa un ciclo completo
+
+![](imgs/frecuencia.svg)
+
+La frecuencia **f** es el número de ciclos completos transcurridos en una unidad de tiempo. (ej: Segundos). 
+
+Hercio (Hz) es el número de veces que se repite una onda por segundo. 100 Mhzs => 100 Mil veces por segundo.
+
+---
+
+La amplitud de la onda es la altura de la cresta.
+
+
+![Onda](imgs/nonsinusoidal_wavelength.jpg)
 
 
 ## ¿Cómo producir sonido?
@@ -76,6 +96,24 @@ archivo. Por ejemplo, para **descomprimirlo** (como en el caso de MP3)
 
 Después, se comunica con el chip de audio, "entregándole" (a
 través de varias capas software y hardware) la música en onda "bruta"
+
+
+## ¿Como se comprime el audio?
+
+Compresión sin perdida (zip). Busca redundacias en la información para comprimirlas.
+
+Compresión con perdida (MP3). LA idea es que la perdida de información no sea perceptible.
+
+![Umbral de audicion Masculina (M) y Femenina (F)](imgs/umbral.png)
+
+Frecuencia media audible 2KHz - 4 KHz 
+
+---
+
+
+Ejemplo
+
+https://www.youtube.com/watch?v=Ez93oblQAJg
 
 # Música y sonido
 
