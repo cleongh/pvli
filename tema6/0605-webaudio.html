@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Carlos León">
+  <meta name="author" content="Carlos León e Ismael Sagredo">
   <title>Audio en la web</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -118,7 +118,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <section>
   <h1 class="title">Audio en la web</h1>
-  <h2 class="author">Carlos León</h2>
+  <h2 class="author">Carlos León e Ismael Sagredo</h2>
 </section>
 
 <section><section id="sonido-en-un-computador" class="titleslide slide level1"><h1>Sonido en un computador</h1></section><section id="el-sonido" class="slide level2">
@@ -141,6 +141,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment">Ocurren muchas cosas (muchas de las cuáles aún ignoramos)</li>
 <li class="fragment">Percibimos, conscientemente, el <strong>sonido</strong></li>
 </ol>
+</section><section id="caracteristicas-de-una-onda" class="slide level2">
+<h1>Caracteristicas de una onda</h1>
+<p>La longitud de onda (simbolizada por <strong>λ</strong>) es la distancia entre dos crestas o valles seguidos.</p>
+<p>El periodo <strong>T</strong> es el tiempo requerido para que el movimiento de oscilación de la onda describa un ciclo completo</p>
+<figure>
+<img src="imgs/frecuencia.svg" />
+</figure>
+<p>La frecuencia <strong>f</strong> es el número de ciclos completos transcurridos en una unidad de tiempo. (ej: Segundos).</p>
+<p>Hercio (Hz) es el número de veces que se repite una onda por segundo. 100 Mhzs =&gt; 100 Mil veces por segundo.</p>
+</section><section class="slide level2">
+
+<p>La amplitud de la onda es la altura de la cresta.</p>
+<figure>
+<img src="imgs/nonsinusoidal_wavelength.jpg" alt="Onda" /><figcaption>Onda</figcaption>
+</figure>
 </section><section id="cómo-producir-sonido" class="slide level2">
 <h1>¿Cómo producir sonido?</h1>
 </section><section class="slide level2">
@@ -170,6 +185,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <p>El reproductor de audio puede tener que preprocesar el audio que hay en el archivo. Por ejemplo, para <strong>descomprimirlo</strong> (como en el caso de MP3)</p>
 <p>Después, se comunica con el chip de audio, “entregándole” (a través de varias capas software y hardware) la música en onda “bruta”</p>
+</section><section id="como-se-comprime-el-audio" class="slide level2">
+<h1>¿Como se comprime el audio?</h1>
+<p>Compresión sin pérdida (zip). Busca redundacias en la información para comprimirlas.</p>
+<p>Compresión con pérdida (MP3). La pérdida de información no sea perceptible.</p>
+</section><section class="slide level2">
+
+<figure>
+<img src="imgs/umbral.png" alt="Umbral de audicion Masculina (M) y Femenina (F)" /><figcaption>Umbral de audicion Masculina (M) y Femenina (F)</figcaption>
+</figure>
+<p>Frecuencia media audible 2KHz - 4 KHz</p>
+</section><section class="slide level2">
+
+<p>Ejemplo tono no audible para adultos</p>
+<p><a href="https://www.youtube.com/watch?v=Ez93oblQAJg">Tono no audible adultos</a></p>
+<p>Comprimir consiste en eliminar las frecuencias no audibles.</p>
 </section></section>
 <section><section id="música-y-sonido" class="titleslide slide level1"><h1>Música y sonido</h1></section><section class="slide level2">
 
