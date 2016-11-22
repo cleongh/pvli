@@ -1,6 +1,5 @@
 ---
-title: Audio en la web
-author: Carlos León
+title: Audio en Phaser
 vim: spelllang=es
 ...
 
@@ -204,6 +203,8 @@ explosion.loop = true;
 
 # Recursos de audio
 
+---
+
 - Podéis usar los recursos de audio de Phaser (los **assets**)
 - [Free sound](https://www.freesound.org/)
 - [Free SFX](http://www.freesfx.co.uk/)
@@ -214,6 +215,8 @@ explosion.loop = true;
     - [sfxr](http://www.drpetter.se/project_sfxr.html)
 
 # Más cosas
+
+---
 
 Phaser puede hacer mucho más con el sonido
 
