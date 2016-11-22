@@ -45,7 +45,7 @@ El periodo **T** es el tiempo requerido para que el movimiento de oscilación de
 
 La frecuencia **f** es el número de ciclos completos transcurridos en una unidad de tiempo. (ej: Segundos). 
 
-Hercio (Hz) es el número de veces que se repite una onda por segundo. 100 Mhzs => 100 Mil veces por segundo.
+Hercio (Hz) es el número de veces que se repite una onda por segundo. 100 kHzs => 100.000 veces por segundo.
 
 ---
 
