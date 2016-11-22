@@ -1,10 +1,10 @@
-GENERAL=general/criterios_evaluacion.html general/grupos.html general/programa.html general/reportar.html
+GENERAL=general/criterios_evaluacion.html general/grupos.html general/programa.html general/reportar.html general/depurar.html
 TEMA1=tema1/0101-1-introduccion-pvli.html tema1/0101-2-interpretes_js.html tema1/0102-tooling.html tema1/compilado.dot.svg  tema1/instrucciones.dot.svg  tema1/interpretes.dot.svg  tema1/trabajo_curso.dot.svg  tema1/trabajo_general.dot.svg  tema1/trabajo_manual.dot.svg
 TEMA2=
 TEMA3=
 TEMA4=tema4/0401-introduccion-arquitectura-videojuegos.html tema4/0402-ejemplo-componentes-completo.html tema4/imgs/umlbasico.pu.svg tema4/imgs/herencia.pu.svg tema4/imgs/asociacion.pu.svg tema4/imgs/composicion.pu.svg tema4/imgs/herenciacorrecta.pu.svg  tema4/imgs/herenciaproblema.pu.svg tema4/imgs/sistemascomponentes.pu.svg tema4/imgs/arquitectura.pu.svg
 TEMA5=tema5/0501_carga_de_recursos_con_phaser.html tema5/Ejercicio2/Enunciado/EnunciadoEjercicio2.html
-TEMA6=tema6/0603_tiles.html tema6/0604-texto-en-phaser.html tema6/0605-webaudio.html tema6/nodos.dot.svg
+TEMA6=tema6/0603_tiles.html tema6/0604-texto-en-phaser.html tema6/0605-webaudio.html tema6/nodos.dot.svg tema6/0606-audio-en-phaser.html
 TEMA7=
 TEMA8=
 TEMA9=
