@@ -1,20 +1,29 @@
 ---
 title: El Motor Físico de Phaser: Colisiones
-author: Ismael Sagredo y Carlos León
+author: Carlos León e Ismael Sagredo
 vim: spelllang=es
 ...
+
 
 # El motor físico.
 
 
+
+
+## Introduccion
+
 Normalmente es el motor físico el que se encarga de las colisiones de los cuerpos.
-El motor fisico: librería que proporciona una simulación aproximada de un ciert osistema de física como
+El motor fisico: librería que proporciona una simulación aproximada de un cierto sistema de física como
 cuerpos rígidos, cuerpos blandos, fluidos, colisiones, telas...
 
 Se usa en videojuegos y simulación. en la mayoría de los juegos, la velocidad de ejecución es más importante que 
 la precisión de la simulación. Por lo que se busca hacer aproximaciones.
 
+
+
 ## Motores fisicos comerciales
+
+
 
 Algunos motores físicos 3D
 
@@ -26,40 +35,53 @@ Algunos motores físicos 2D
 * Box2D: Cocos, Unity, Construct 2 (Angry Birds, Limbo)
 * Chipmunk: Cocos, Wii.
 
-## El motor físico de Phaser
 
+
+# El motor físico de Phaser
+
+
+
+## Introduccion al motor de phaser
 
 O mejor dicho: **los motores físicos de Phaser**
 En Phaser hay tres motores físicos disponibles: **Arcade Physics**, **Ninja Physics** y **P2 Physics**.
 
----
-
-* **Arcade Physics**: pensado para tratar colisiones AABB (axis-aligned bounded rectangles) es decir para manejar objetos sin rotaciones, y solo se comprueba si existen colisiones (solapamiento o overlaping) entre dos rectángulos. Tiene problemas con las áreas transparentes. (Juegos sencillos)
 
 ---
 
-* **Ninja Physics**: Admite rotaciones, y formas más complejas, cuestas, con más precisión, pero también más lento. (Un juego de plataformas sin física compleja usaría este motor)
+
+**Arcade Physics**: pensado para tratar colisiones AABB (axis-aligned bounded rectangles) es decir para manejar objetos sin rotaciones, y sólo se comprueba si existen colisiones (solapamiento o overlapping) entre dos rectángulos. Tiene problemas con las áreas transparentes. (Juegos sencillos)
+
 
 ---
 
-* **P2 Physics**: Tiene un modelo de física mucho más avanzado, springs (muelles), polígonos, fuerzas, restricciones. (Angry Birds usaría este motor). 
+
+**Ninja Physics**: Admite rotaciones, y formas más complejas, cuestas, con más precisión, pero también más lento. (Un juego de plataformas sin física compleja usaría este motor)
+
+
+---
+
+**P2 Physics**: Tiene un modelo de física mucho más avanzado, springs (muelles), polígonos, fuerzas, restricciones. (Angry Birds usaría este motor). 
 
 
 ## ¿Qué es una colisión?
 
+
+
 Cuando dos bounding box están solapados.
 
-Un bounding box es una caja que representa el objeto (lo simplifica). El tamaño por defecto del bounding box de phaser
+Un **Bounding Boxe** es una caja que representa el objeto (lo simplifica). El tamaño por defecto del Bounding Boxe de phaser
 es el tamño del sprite.
 
-Esto es un bounding box
+Esto es un Bounding Boxe
 
 ![boinding Box](imgs/custom-physics-aabb.png)
 
 
 ---
 
-Y esto es una colisión
+
+Y esto es una colisión entre dos Bounding Boxes (overlapping)
 
 
 ![boinding Box](imgs/custom-physics-least-overlap.png)
@@ -67,7 +89,10 @@ Y esto es una colisión
 
 ## ¿Cómo se calcula la colisión?
 
+
+
 Las colisiones más sencillas del motor Arcade son colisiones AABB que se peuden calcular de la siguiente manera
+
 
 ```c
 //pseudocódigo en C++
@@ -77,16 +102,20 @@ bool AABBvsAABB( AABB a, AABB b )
   if(a.max.y < b.min.y or a.min.y > b.max.y) return false
   return true
 }
-```js
+```
+
 
 Phaser las calcula por nosotros
 
 
-## El motor físico Arcade
+# El motor físico Arcade
 
+
+## Inicialización del motor arcade
 
 
 [Ejemplo del uso del motor arcade](https://phaser.io/sandbox/edit/rGYAfFoJ).
+
 
 Para iniciar el motor de fisica:
 
@@ -104,7 +133,8 @@ this.game.physics.arcade.enable(player);
 ```
 
 
-## Colisionar ocn los límites del del mundo.
+## Colisionar con los límites del del mundo.
+
 
 ```js
 player.body.collideWorldBounds = true
@@ -127,28 +157,32 @@ Se utiliza **physicsGroup**;
 
 ## Chequear colisiones entre dos objetos.
 
-Si solo quereos chequearla...
+
+Si solo queremos chequearla...
 
 ```js
 this.game.physics.arcade.collide(player, platforms);
 ```
 
-Pero si queremos que nos avisen si hay colisión hay que cargar un evento: 
 
 ---
+
+Pero si queremos que nos avisen si hay colisión hay que cargar un evento: 
+
 
 ```js
 this.game.physics.arcade.collide(player, platforms,onCollision);
 
-....
+
 //el método recibe dos parámetros
 function onCollision(obj1, obj2)
 {
-//do shomething
+//do something
 }
 ```
 
 --- 
+
 
 **Collide** tambien devuelve un booleano que se puede consultar si ha habido colisión:
 
@@ -164,7 +198,7 @@ function onCollision(obj1, obj2)
 ## Colisiones con un tilemap
 
 
-Ejemplos sacad de el ejercicio numero 3
+Ejemplos sacados de el ejercicio numero 3
 
 ```js
         //Creamos el tilemap y sus layer
@@ -182,12 +216,13 @@ Ejemplos sacad de el ejercicio numero 3
      var collisionWithTilemap = this.game.physics.arcade.collide(this._rush, this.groundLayer);
 ```
 
----
+
+## Colision en un intervalo
+
 
 * Colisiona con el rango de tiles que se indican en start - stop. 
 * Collides es un boolean que activa o desactiva la colisión.
-* Layer es donde opera => la capa. (las layers se crean con **game.add.group()** son layers fisicas y no tienen nada que ver
-con las layers del tilemap)
+* Layer es donde opera => la capa del tilemap. 
 
 
 ```js
@@ -196,28 +231,31 @@ setCollisionBetween(start, stop, collides, layer)
 
 ---
 
-Colision por exclusión:
+
+### Colision por exclusión:
+
 
 * Indexes array con los tiles excluidos.
 * Collides es un boolean que activa o desactiva la colisión.
 * Layer es donde opera.
+
 ```js
 setCollisionByExclusion(indexes, collides, layer, recalculate)
 
 map.setCollisionByExclusion([93,94,95,96], true);
 ```
 
+---
 
-----
+
+### Colisión con toda la layer del tilemap
 
 
-Colisión con toda la layer del tilemap
 ```js
 setCollision(collides, layer)
 
 //podeis sustituir en la práctica por esto:
 this.map.setCollision(true, 'GroundLayer');
 ```
-
 
 
