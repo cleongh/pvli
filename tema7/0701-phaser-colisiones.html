@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+
+
+  <!-- <link rel="stylesheet" href="../shared/lib/reveal/../tabzilla/css/tabzilla.css"/> -->
+  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
+  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/mozilla-devrel-light.css"/>
+  <link rel="stylesheet" href="../shared/lib/reveal/lib/css/solarized-light.css" />
+
+
+
+
+  <!-- <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"> -->
+
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+<!--  -->
+<!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
+<!--  -->
+<!--  -->
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../shared/lib/reveal/css/print/pdf.css' : '../shared/lib/reveal/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+
+<!-- FIXME megahack because `pandoc` only generates h1's. -->
+<!-- <style type="text/css"> -->
+
+
+<!-- .inner { -->
+<!--     width: 100%; -->
+<!--     margin: 0 auto; --> 
+<!-- } -->
+
+<!--     h1{ --> 
+<!--     } -->
+
+<!--     .level2 h1 { -->
+        
+<!--     border-top: 0.1em solid #484848; -->
+<!--     border-bottom: 0.1em solid #484848; -->
+    
+<!--     padding: 1em 0; -->
+<!--     margin-bottom: 1em; -->
+<!--     font-size: 1.6em; -->
+<!--     margin: 0 0 20px 0; -->
+<!--     color: #484848; -->
+<!--     font-family: "Fira Sans", Helvetica, sans-serif; -->
+<!--     font-weight: 600; -->
+<!--     line-height: 1.2; -->
+<!--     letter-spacing: normal; -->
+<!--     text-transform: uppercase; -->
+<!--     text-shadow: none; -->
+<!--     word-wrap: break-word; -->
+<!-- } -->
+
+<!-- </style> -->
+
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section><section id="el-motor-físico." class="titleslide slide level1"><h1>El motor físico.</h1></section><section id="introduccion" class="slide level2">
+<h1>Introduccion</h1>
+<p>Normalmente es el motor físico el que se encarga de las colisiones de los cuerpos. El motor fisico: librería que proporciona una simulación aproximada de un cierto sistema de física como cuerpos rígidos, cuerpos blandos, fluidos, colisiones, telas…</p>
+<p>Se usa en videojuegos y simulación. en la mayoría de los juegos, la velocidad de ejecución es más importante que la precisión de la simulación. Por lo que se busca hacer aproximaciones.</p>
+</section><section id="motores-fisicos-comerciales" class="slide level2">
+<h1>Motores fisicos comerciales</h1>
+<p>Algunos motores físicos 3D</p>
+<ul>
+<li class="fragment">Physx: propiedad de Nvidia y disponible en Unreal Engine y Unity.</li>
+<li class="fragment">Hawok: antes propiedad de Intel, ahora adquirido por Microsoft y disponible en CryEngine.</li>
+</ul>
+<p>Algunos motores físicos 2D</p>
+<ul>
+<li class="fragment">Box2D: Cocos, Unity, Construct 2 (Angry Birds, Limbo)</li>
+<li class="fragment">Chipmunk: Cocos, Wii.</li>
+</ul>
+</section></section>
+<section><section id="el-motor-físico-de-phaser" class="titleslide slide level1"><h1>El motor físico de Phaser</h1></section><section id="introduccion-al-motor-de-phaser" class="slide level2">
+<h1>Introduccion al motor de phaser</h1>
+<p>O mejor dicho: <strong>los motores físicos de Phaser</strong> En Phaser hay tres motores físicos disponibles: <strong>Arcade Physics</strong>, <strong>Ninja Physics</strong> y <strong>P2 Physics</strong>.</p>
+</section><section class="slide level2">
+
+<p><strong>Arcade Physics</strong>: pensado para tratar colisiones AABB (axis-aligned bounded rectangles) es decir para manejar objetos sin rotaciones, y sólo se comprueba si existen colisiones (solapamiento o overlapping) entre dos rectángulos. Tiene problemas con las áreas transparentes. (Juegos sencillos)</p>
+</section><section class="slide level2">
+
+<p><strong>Ninja Physics</strong>: Admite rotaciones, y formas más complejas, cuestas, con más precisión, pero también más lento. (Un juego de plataformas sin física compleja usaría este motor)</p>
+</section><section class="slide level2">
+
+<p><strong>P2 Physics</strong>: Tiene un modelo de física mucho más avanzado, springs (muelles), polígonos, fuerzas, restricciones. (Angry Birds usaría este motor).</p>
+</section><section id="qué-es-una-colisión" class="slide level2">
+<h1>¿Qué es una colisión?</h1>
+<p>Cuando dos bounding box están solapados.</p>
+<p>Un <strong>Bounding Boxe</strong> es una caja que representa el objeto (lo simplifica). El tamaño por defecto del Bounding Boxe de phaser es el tamño del sprite.</p>
+<p>Esto es un Bounding Boxe</p>
+<figure>
+<img src="imgs/custom-physics-aabb.png" alt="boinding Box" /><figcaption>boinding Box</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<p>Y esto es una colisión entre dos Bounding Boxes (overlapping)</p>
+<figure>
+<img src="imgs/custom-physics-least-overlap.png" alt="boinding Box" /><figcaption>boinding Box</figcaption>
+</figure>
+</section><section id="cómo-se-calcula-la-colisión" class="slide level2">
+<h1>¿Cómo se calcula la colisión?</h1>
+<p>Las colisiones más sencillas del motor Arcade son colisiones AABB que se peuden calcular de la siguiente manera</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="co">//pseudocódigo en C++</span>
+bool AABBvsAABB( AABB a, AABB b )
+{
+  if(a.max.x &lt; b.min.x or a.min.x &gt; b.max.x) <span class="cf">return</span> false
+  if(a.max.y &lt; b.min.y or a.min.y &gt; b.max.y) <span class="cf">return</span> false
+  return true
+}</code></pre></div>
+<p>Phaser las calcula por nosotros</p>
+</section></section>
+<section><section id="el-motor-físico-arcade" class="titleslide slide level1"><h1>El motor físico Arcade</h1></section><section id="inicialización-del-motor-arcade" class="slide level2">
+<h1>Inicialización del motor arcade</h1>
+<p><a href="https://phaser.io/sandbox/edit/rGYAfFoJ">Ejemplo del uso del motor arcade</a>.</p>
+<p>Para iniciar el motor de fisica:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="va">game</span>.<span class="va">physics</span>.<span class="at">startSystem</span>(<span class="va">Phaser</span>.<span class="va">Physics</span>.<span class="at">ARCADE</span>)<span class="op">;</span></code></pre></div>
+</section><section id="agregar-entidades-a-la-física" class="slide level2">
+<h1>Agregar entidades a la física</h1>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="at">player</span> <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="st">&#39;player&#39;</span>)<span class="op">;</span>
+<span class="kw">this</span>.<span class="va">game</span>.<span class="va">physics</span>.<span class="va">arcade</span>.<span class="at">enable</span>(player)<span class="op">;</span></code></pre></div>
+</section><section id="colisionar-con-los-límites-del-del-mundo." class="slide level2">
+<h1>Colisionar con los límites del del mundo.</h1>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">player</span>.<span class="va">body</span>.<span class="at">collideWorldBounds</span> <span class="op">=</span> <span class="kw">true</span></code></pre></div>
+</section><section id="crear-grupo-que-colisione-con-un-sprite" class="slide level2">
+<h1>Crear grupo que colisione con un sprite</h1>
+<p>Se utiliza <strong>physicsGroup</strong>;</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    platforms <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">physicsGroup</span>()<span class="op">;</span>
+
+    <span class="va">platforms</span>.<span class="at">create</span>(<span class="dv">500</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="st">&#39;platform&#39;</span>)<span class="op">;</span>
+    <span class="va">platforms</span>.<span class="at">create</span>(<span class="op">-</span><span class="dv">200</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="st">&#39;platform&#39;</span>)<span class="op">;</span>
+    <span class="va">platforms</span>.<span class="at">create</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">450</span><span class="op">,</span> <span class="st">&#39;platform&#39;</span>)<span class="op">;</span>
+    <span class="va">platforms</span>.<span class="at">setAll</span>(<span class="st">&#39;body.immovable&#39;</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span> <span class="co">//se establece como plataformas estáticas</span></code></pre></div>
+</section><section id="chequear-colisiones-entre-dos-objetos." class="slide level2">
+<h1>Chequear colisiones entre dos objetos.</h1>
+<p>Si solo queremos chequearla…</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="va">game</span>.<span class="va">physics</span>.<span class="va">arcade</span>.<span class="at">collide</span>(player<span class="op">,</span> platforms)<span class="op">;</span></code></pre></div>
+</section><section class="slide level2">
+
+<p>Pero si queremos que nos avisen si hay colisión hay que cargar un evento:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="va">game</span>.<span class="va">physics</span>.<span class="va">arcade</span>.<span class="at">collide</span>(player<span class="op">,</span> platforms<span class="op">,</span>onCollision)<span class="op">;</span>
+
+
+<span class="co">//el método recibe dos parámetros</span>
+<span class="kw">function</span> <span class="at">onCollision</span>(obj1<span class="op">,</span> obj2)
+<span class="op">{</span>
+<span class="co">//do something</span>
+<span class="op">}</span></code></pre></div>
+</section><section class="slide level2">
+
+<p><strong>Collide</strong> tambien devuelve un booleano que se puede consultar si ha habido colisión:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    <span class="cf">if</span>(<span class="op">!</span><span class="va">game</span>.<span class="va">physics</span>.<span class="va">arcade</span>.<span class="at">collide</span>(player<span class="op">,</span> platforms<span class="op">,</span> onCollision))
+    <span class="op">{</span>
+        <span class="va">textInfo</span>.<span class="at">text</span> <span class="op">=</span> <span class="st">&quot;No hay colision&quot;</span><span class="op">;</span>
+    <span class="op">}</span></code></pre></div>
+</section><section id="colisiones-con-un-tilemap" class="slide level2">
+<h1>Colisiones con un tilemap</h1>
+<p>Ejemplos sacados de el ejercicio numero 3</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">        <span class="co">//Creamos el tilemap y sus layer</span>
+      <span class="kw">this</span>.<span class="at">map</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">game</span>.<span class="va">add</span>.<span class="at">tilemap</span>(<span class="st">&#39;tilemap&#39;</span>)<span class="op">;</span><span class="co">// creo el map al vuelo o lo predefino en el objeto...</span>
+      <span class="kw">this</span>.<span class="va">map</span>.<span class="at">addTilesetImage</span>(<span class="st">&#39;patrones&#39;</span><span class="op">,</span><span class="st">&#39;tiles&#39;</span>)<span class="op">;</span> <span class="co">//Asignar el patron al spritesheet.</span>
+      <span class="co">//Creacion de las layers</span>
+      <span class="kw">this</span>.<span class="at">backgroundLayer</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">map</span>.<span class="at">createLayer</span>(<span class="st">&#39;BackgroundLayer&#39;</span>)<span class="op">;</span>
+      <span class="kw">this</span>.<span class="at">groundLayer</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">map</span>.<span class="at">createLayer</span>(<span class="st">&#39;GroundLayer&#39;</span>)<span class="op">;</span>
+      <span class="co">//plano de muerte</span>
+      <span class="kw">this</span>.<span class="at">death</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">map</span>.<span class="at">createLayer</span>(<span class="st">&#39;Death&#39;</span>)<span class="op">;</span>
+      
+      <span class="co">//le decimos que </span>
+      <span class="kw">this</span>.<span class="va">map</span>.<span class="at">setCollisionBetween</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">5000</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> <span class="st">&#39;GroundLayer&#39;</span>)<span class="op">;</span>
+
+     <span class="kw">var</span> collisionWithTilemap <span class="op">=</span> <span class="kw">this</span>.<span class="va">game</span>.<span class="va">physics</span>.<span class="va">arcade</span>.<span class="at">collide</span>(<span class="kw">this</span>.<span class="at">_rush</span><span class="op">,</span> <span class="kw">this</span>.<span class="at">groundLayer</span>)<span class="op">;</span></code></pre></div>
+</section><section id="colision-en-un-intervalo" class="slide level2">
+<h1>Colision en un intervalo</h1>
+<ul>
+<li class="fragment">Colisiona con el rango de tiles que se indican en start - stop.</li>
+<li class="fragment">Collides es un boolean que activa o desactiva la colisión.</li>
+<li class="fragment">Layer es donde opera =&gt; la capa del tilemap.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="at">setCollisionBetween</span>(start<span class="op">,</span> stop<span class="op">,</span> collides<span class="op">,</span> layer)</code></pre></div>
+</section><section class="slide level2">
+
+<section id="colision-por-exclusión" class="level3">
+<h3>Colision por exclusión:</h3>
+<ul>
+<li class="fragment">Indexes array con los tiles excluidos.</li>
+<li class="fragment">Collides es un boolean que activa o desactiva la colisión.</li>
+<li class="fragment">Layer es donde opera.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="at">setCollisionByExclusion</span>(indexes<span class="op">,</span> collides<span class="op">,</span> layer<span class="op">,</span> recalculate)
+
+<span class="va">map</span>.<span class="at">setCollisionByExclusion</span>([<span class="dv">93</span><span class="op">,</span><span class="dv">94</span><span class="op">,</span><span class="dv">95</span><span class="op">,</span><span class="dv">96</span>]<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></code></pre></div>
+</section>
+</section><section class="slide level2">
+
+<section id="colisión-con-toda-la-layer-del-tilemap" class="level3">
+<h3>Colisión con toda la layer del tilemap</h3>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="at">setCollision</span>(collides<span class="op">,</span> layer)
+
+<span class="co">//podeis sustituir en la práctica por esto:</span>
+<span class="kw">this</span>.<span class="va">map</span>.<span class="at">setCollision</span>(<span class="kw">true</span><span class="op">,</span> <span class="st">&#39;GroundLayer&#39;</span>)<span class="op">;</span></code></pre></div>
+</section>
+</section></section>
+    </div>
+  </div>
+
+  <script src="../shared/lib/reveal/lib/js/head.min.js"></script>
+  <script src="../shared/lib/reveal/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../shared/lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../shared/lib/reveal/plugin/zoom-js/zoom.js', async: true },
+          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

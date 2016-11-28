@@ -38,32 +38,8 @@ Los sonidos se almacenan en digital de dos formas:
 
 ---
 
-Nosotros trabajaremos sólo con audio de onda. Pero hay que tener en cuenta que
-el sonido **puede ocupar mucho espacio**
+Nosotros trabajaremos sólo con audio de onda (no MIDI)
 
----
-
-Cuanta más fidelidad queramos reproducir, más precisión (*resolución*)
-necesitaremos almacenar
-
-Es decir, más **números**
-
----
-
-Cuando la precisión es muy grande, el archivo de audio puede tener un tamaño de
-varias decenas de megas para una canción de 2 o 3 minutos
-
-Por tanto, usamos **compresión**
-
----
-
-Cuando usamos compresión, tenemos dos familias de formatos:
-
-- formatos sin pérdida: el audio, al comprimir y descomprimir, no pierde datos.
-  Es el mismo
-- formatos con pérdida: el audio, al ser comprimido, pierde fidelidad. Pero,
-  generalmente, esta pérdida no se nota por el oyente, y la compresión es mucho
-  mayor (MP3)
 
 
 # Audio en Phaser

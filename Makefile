@@ -5,7 +5,7 @@ TEMA3=
 TEMA4=tema4/0401-introduccion-arquitectura-videojuegos.html tema4/0402-ejemplo-componentes-completo.html tema4/imgs/umlbasico.pu.svg tema4/imgs/herencia.pu.svg tema4/imgs/asociacion.pu.svg tema4/imgs/composicion.pu.svg tema4/imgs/herenciacorrecta.pu.svg  tema4/imgs/herenciaproblema.pu.svg tema4/imgs/sistemascomponentes.pu.svg tema4/imgs/arquitectura.pu.svg
 TEMA5=tema5/0501_carga_de_recursos_con_phaser.html tema5/Ejercicio2/Enunciado/EnunciadoEjercicio2.html
 TEMA6=tema6/0603_tiles.html tema6/0604-texto-en-phaser.html tema6/0605-webaudio.html tema6/nodos.dot.svg tema6/0606-audio-en-phaser.html
-TEMA7=
+TEMA7=tema7/0701-phaser-colisiones.html
 TEMA8=
 TEMA9=
 
