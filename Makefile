@@ -3,7 +3,7 @@ TEMA1=tema1/0101-1-introduccion-pvli.html tema1/0101-2-interpretes_js.html tema1
 TEMA2=
 TEMA3=
 TEMA4=tema4/0401-introduccion-arquitectura-videojuegos.html tema4/0402-ejemplo-componentes-completo.html tema4/imgs/umlbasico.pu.svg tema4/imgs/herencia.pu.svg tema4/imgs/asociacion.pu.svg tema4/imgs/composicion.pu.svg tema4/imgs/herenciacorrecta.pu.svg  tema4/imgs/herenciaproblema.pu.svg tema4/imgs/sistemascomponentes.pu.svg tema4/imgs/arquitectura.pu.svg
-TEMA5=tema5/0501_carga_de_recursos_con_phaser.html tema5/Ejercicio2/Enunciado/EnunciadoEjercicio2.html
+TEMA5=tema5/0501_carga_de_recursos_con_phaser.html tema5/Ejercicio2/Enunciado/ejercicios_tema5.zip
 TEMA6=tema6/0603_tiles.html tema6/0604-texto-en-phaser.html tema6/0605-webaudio.html tema6/nodos.dot.svg tema6/0606-audio-en-phaser.html
 TEMA7=tema7/0701-phaser-colisiones.html
 TEMA8=
@@ -27,6 +27,12 @@ tema4/0403-ejercicios.html: tema4/0403-ejercicios.md shared/docs.css
 
 %.dot.svg: %.dot
 	dot -T svg $< -O
+
+tema5/Ejercicio2/Enunciado/EnunciadoEjercicio2.html: tema5/Ejercicio2/Enunciado/EnunciadoEjercicio2.md
+	$(BASERUN) --css ../shared/docs.css $< -o $@
+
+tema5/Ejercicio2/Enunciado/ejercicios_tema5.zip: tema5/Ejercicio2/Enunciado/ejercicios_tema5.html tema5/Ejercicio2/Enunciado/gulpfile.js tema5/Ejercicio2/Enunciado/package.json tema5/Ejercicio2/Enunciado/README.md tema5/Ejercicio2/Enunciado/.jshintrc tema5/Ejercicio2/Enunciado/src/*
+	cd tema5/Ejercicio2/Enunciado/ && zip -r $(notdir $@) src ejercicios_tema5.html gulpfile.js package.json README.md .jshintrc
 
 %.pu.svg: %.pu
 	cat $< | plantuml -p -tsvg > $@
