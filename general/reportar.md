@@ -111,8 +111,8 @@ docente (estamos siempre atentos, pero no damos abasto muchas veces).
 # Compartir es positivo
 
 No tengáis miedo de compartir material. Mostrar el código y leer código de los
-demás es muy didáctico y facilita la colaboración. **Vuestro código no tiene
-valor, lo que tiene valor es lo que aprendéis mientras lo escribís**.
+demás es muy didáctico y facilita la colaboración. El valor no está en el uso
+que se le dé a vuestro código, **lo que tiene valor es lo que aprendéis mientras lo escribís**.
 
 ## Cuidado con las copias
 
