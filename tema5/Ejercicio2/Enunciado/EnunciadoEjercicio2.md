@@ -74,7 +74,9 @@ Implementar el TODO 7 de gameover_scene con el callback del botón **var button*
 Implementa el TODO 8 creando el botón 'Return Main Menu' que cargue el menú de inicio.
 
 
-##Ejercicio 9: Destruir los recursos 'Tilemap', 'tiles' y 'logo' al terminar el state PlayScene.
+##Ejercicio 9: Destruir los recursos 'Tilemap', 'tiles' y ~~'logo'~~ al terminar el state PlayScene. 
+(Update: No hay que elimnar el logo porque se necesita en el ejercicio anterior (return main menu). Y hay que reestablecer el tamaño del mundo al ambiar el state usando
+**this.game.world.setBounds(0,0,800,600); para reestablecer el tamaño del mundo.
 
 
  
