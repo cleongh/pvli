@@ -9,14 +9,16 @@ vim: spelllang=es
 
 ---
 
-El motor Ninja está pensado para una simulación mucho más realista de la física. Por ejemplo, permite crear sprites o tiles con partes transparentes. Tener cuestas y poder deslizarte por las mismas, así como poder empujar otros objetos. Sigue sin tener rotación de sprites, por lo que un objeto no puede rodar sobre una pendiente, simplemente se desliza. 
+El motor Ninja está pensado para una simulación mucho más realista de la física. Por ejemplo, permite crear sprites o tiles con partes transparentes aunque de formas muy limitadas. Tener cuestas y poder deslizarte por las mismas, así como poder empujar otros objetos. Sigue sin tener rotación de sprites, por lo que un objeto no puede rodar sobre una pendiente, simplemente se desliza. 
 
 ---
+
+Características del motor Ninja
 
 * Permite colisiones entre círculos y rectángulos.
 * Permite objetos inamovibles.
 * Mejor soporte de gravedad y rebotes.
-<!--* Soporte de linkado de objetos.-->
+* Soporte de tiles con ciertas formas como cuestas o picos.
 
 
 
@@ -28,7 +30,6 @@ game.physics.startSystem(Phaser.Physics.NINJA);
 ```
 
 
-
 ## Añadir un Bounding box
 
 En forma de circulo:
@@ -38,6 +39,7 @@ game.physics.ninja.enableCircle(sprite1, sprite1.width / 2);
 ``` 
 
 En forma de caja
+
 ```js
 game.physics.ninja.enableAABB(sprite1);
 ``` 
@@ -45,9 +47,10 @@ game.physics.ninja.enableAABB(sprite1);
 
 ## Añadir un tile a la física
 
-Añade un tile o una lista de tiles a la física con la que posteriormente se podran colisionar.
+Añade un tile o una lista de tiles a la física con la que posteriormente se podrán colisionar.
 
 ```js
+//añade el frame actual del sprite que pertenece al conjunto tile1
 game.physics.ninja.enableTile(tile1, tile1.frame);
 ```
 
@@ -55,7 +58,7 @@ game.physics.ninja.enableTile(tile1, tile1.frame);
 
 Dependiendo del tipo de tile, podemos construir deferentes mapas. En este ejemplo
 
-![Ejemplos con tiles](https://phaser.io/examples/v2/ninja-physics/ninja-tilemap)
+[Ejemplos con tiles](https://phaser.io/examples/v2/ninja-physics/ninja-tilemap)
 
 Podemos ver
 
@@ -72,11 +75,10 @@ tiles = game.physics.ninja.convertTilemap(map, layer, slopeMap);
 
 
 
-## ¿Que id de tile físico utilizo?
+## ¿Que id de tile físico?
 
-Tenemos de ayuda una imagen de depuración:
 
-[Depuración de tiles físicos](http://examples.phaser.io/assets/physics/ninja-tiles128.png)
+![Tenemos de ayuda una imagen de depuración](http://examples.phaser.io/assets/physics/ninja-tiles128.png)
 
 
 ## Colisión con los tiles físicos
@@ -98,12 +100,12 @@ llamamos al método **circle.collideCircleVsTile** si es un círculo o **collide
 game.physics.ninja.collide(sprite1, tile1, collisionHandler, null, this);
 ```
 * collideCallback (3º parámetro) (collisionHandler): callback de la colisión. Los dos objetos son pasados a la función (function (obja,objb){})
-* processCallback (4º parámetro) (null) : callback para procesar la colisión. 
-* context (5º parámetro) (this) el contexto donde se ha producido la colisión. Añade una condición para que se ejecute el método collideCallback sólo si processCallback es true.
+* processCallback (4º parámetro) (null) : callback para procesar la colisión. Añade una condición para que se ejecute el método collideCallback sólo si processCallback es true.
+* context (5º parámetro) (this) el contexto de la colisión. 
 * devuelve un booleano informando de si se ha producido o no la colisión.
 
 
-## consultar un overlapping
+## consultar overlapping
 
 ```js
 game.physics.ninja.overlap(sprite1, tile1, collisionHandler, null, this);
@@ -111,7 +113,7 @@ game.physics.ninja.overlap(sprite1, tile1, collisionHandler, null, this);
 
 * overlapCallback (3º parámetro) (collisionHandler): callback si se produce overlap. Los dos objetos son pasados a la función (function (obja,objb){})
 * processCallback (4º parámetro) (null) : callback para procesar overlapping. Añade una condición para que se ejecute el método overlapCallback sólo si processCallback es true.
-* callbackContext (5º parámetro) (this) el contexto donde se ha producido la colisión.
+* callbackContext (5º parámetro) (this) el contexto de la colisión.
 * devuelve un booleano informando de si se ha producido o no el overlapping.
 
 
@@ -121,7 +123,7 @@ El motor Ninja no está disponible en el editor Sandbox online :(
 
 Pero tenemos ejemplos en Phaser :)
 
-![Ejemplos con el motor Ninja](https://phaser.io/examples/v2/category/ninja-physics)
+[Ejemplos con el motor Ninja](https://phaser.io/examples/v2/category/ninja-physics)
 
 
 # Colisiones con el motor P2
@@ -132,13 +134,13 @@ Pero tenemos ejemplos en Phaser :)
 ## P2 Engine
 
 
-P2 permite crear colisiones físicas mucho más complejas. Aquí no nos restringimos a unos cuantos tiles que aproximan el objeto como lo que hemos visto en el Ninja engine. Aquí podemos ajustar muchísimo más los bounding boxes de forma que podemos adaptarlos a la forma de sprite.
+P2 permite crear colisiones físicas mucho más complejas. Aquí no nos restringimos a unos cuantos tiles que aproximan el objeto como lo que hemos visto en el Ninja engine. Aquí podemos ajustar muchísimo más los bounding boxes de forma que podemos adaptarlos a la forma del sprite.
 
 
 ---
 
 
-[Arcade vs P2](imgs/physics-editor-arcade-p2.png)
+![Arcade vs P2](imgs/physics-editor-arcade-p2.png)
 
 
 
@@ -147,14 +149,14 @@ P2 permite crear colisiones físicas mucho más complejas. Aquí no nos restring
 
 Estas aproximaciones a la forma del sprite no las hace Phaser automáticamente, por lo que debemos crearlas a mano. Existen muchos editores de física 2D, pero uno de los más usados es **PhysicsEditor**
 
-![physicseditor](https://www.codeandweb.com/physicseditor)
+[physicseditor](https://www.codeandweb.com/physicseditor)
 
 
-## Physycs Editor
+## Physics Editor
 
  Permite exportar a múltiples formatos: Unity, Cocos2d, Flash, Corona...
  
- En concreto Lime + Corona (JSON) también permite exportar a Phaser ya que es compatible.
+ En concreto Lime + Corona (JSON) también permite exportar a Phaser ya que es compatible corona (JSON).
  
  Esto genera un json con la descripción de los cuerpos físicos. Los antiguos Bounding Box ahora se convierten en **Shapes**.
  
@@ -175,7 +177,7 @@ Para añadir la descripción de la física a la cache usamos **load.physics**
 game.load.physics('physicsData', 'assets/physics/sprites.json');
 ```
 
-![ejemplo de colisiones con P2](https://phaser.io/examples/v2/p2-physics/contact-events)
+[ejemplo de colisiones con P2](https://phaser.io/examples/v2/p2-physics/contact-events)
 
 ---
 
@@ -273,6 +275,6 @@ game.physics.p2.convertTilemap(map, layer);
 ## Ejemplos con P2
 
 
-![Ejemplos con P2 Engine](https://phaser.io/examples/v2/category/p2-physics)
+[Ejemplos con P2 Engine](https://phaser.io/examples/v2/category/p2-physics)
 
 
