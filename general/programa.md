@@ -214,7 +214,7 @@ Tutorías de proyecto
 - 10/1
     - Extensiones de sistemas con JavaScript
 - 13/1
-    - Práctica 4
+    - Trabajo en práctica 4
 
 # 16-20 de enero
 
