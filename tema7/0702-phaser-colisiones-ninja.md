@@ -90,7 +90,7 @@ llamamos al método **circle.collideCircleVsTile** si es un círculo o **collide
     {
         sprite1.body.circle.collideCircleVsTile(tiles[i].tile);
 	// dependiendo si es una figura con forma de ciculo o de AABB         
-	sprite1.body.AABB.collideAABBVsTile(tiles[i].tile);
+	sprite1.body.aabb.collideAABBVsTile(tiles[i].tile);
     }
 ``` 
 
