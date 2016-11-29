@@ -142,7 +142,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">game</span>.<span class="va">physics</span>.<span class="va">ninja</span>.<span class="at">enableAABB</span>(sprite1)<span class="op">;</span></code></pre></div>
 </section><section id="añadir-un-tile-a-la-física" class="slide level2">
 <h1>Añadir un tile a la física</h1>
-<p>Añade un tile o una lista de tiles a la física con la que posteriormente se podrán colisionar.</p>
+<p>Añade un tile o una lista de tiles a la física como tile colisionable.</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">//añade el frame actual del sprite que pertenece al conjunto tile1</span>
 <span class="va">game</span>.<span class="va">physics</span>.<span class="va">ninja</span>.<span class="at">enableTile</span>(tile1<span class="op">,</span> <span class="va">tile1</span>.<span class="at">frame</span>)<span class="op">;</span></code></pre></div>
 </section><section id="convertir-tiles-gráficos-en-físicos" class="slide level2">
@@ -170,8 +170,8 @@ tiles <span class="op">=</span> <span class="va">game</span>.<span class="va">ph
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">tiles</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>)
     <span class="op">{</span>
         <span class="va">sprite1</span>.<span class="va">body</span>.<span class="va">circle</span>.<span class="at">collideCircleVsTile</span>(tiles[i].<span class="at">tile</span>)<span class="op">;</span>
-        <span class="va">sprite1</span>.<span class="va">body</span>.<span class="va">circle</span>.<span class="at">collideAABBVsTile</span>(tiles[i].<span class="at">tile</span>)<span class="op">;</span>
-
+    <span class="co">// dependiendo si es una figura con forma de ciculo o de AABB         </span>
+    <span class="va">sprite1</span>.<span class="va">body</span>.<span class="va">AABB</span>.<span class="at">collideAABBVsTile</span>(tiles[i].<span class="at">tile</span>)<span class="op">;</span>
     <span class="op">}</span></code></pre></div>
 </section><section id="consultar-la-colision" class="slide level2">
 <h1>Consultar la colision</h1>

@@ -47,7 +47,7 @@ game.physics.ninja.enableAABB(sprite1);
 
 ## Añadir un tile a la física
 
-Añade un tile o una lista de tiles a la física con la que posteriormente se podrán colisionar.
+Añade un tile o una lista de tiles a la física como tile colisionable.
 
 ```js
 //añade el frame actual del sprite que pertenece al conjunto tile1
@@ -89,8 +89,8 @@ llamamos al método **circle.collideCircleVsTile** si es un círculo o **collide
     for (var i = 0; i < tiles.length; i++)
     {
         sprite1.body.circle.collideCircleVsTile(tiles[i].tile);
-        sprite1.body.circle.collideAABBVsTile(tiles[i].tile);
-
+	// dependiendo si es una figura con forma de ciculo o de AABB         
+	sprite1.body.AABB.collideAABBVsTile(tiles[i].tile);
     }
 ``` 
 
