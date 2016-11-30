@@ -154,7 +154,7 @@ Tema 6: Gestión de entidades (III)
 
 # 28 de noviembre - 2 de diciembre
 
-Tema 7: Física para juegos en 2D
+Tema 7: Física para juegos en 2D (I)
 
 - 28/11
     - Colisiones básicas (rectángulos)
@@ -173,16 +173,13 @@ Tema 7: Física para juegos en 2D
 
 # 12-16 de diciembre
 
-Tema 8: Animaciones basadas en sprites
 
-- 12/12
+- 12/12--Tema 7: Física para juegos en 2D (II)
     - Explicación de la Práctica 3 (plataformas)
+    - Física avanzada en Phaser
+- 13/12--Tema 8: Animaciones basadas en sprites (I)
     - Secuencias de sprites
     - Animación basada en secuencia
-- 13/12
-    - Ciclos de animación
-    - Spritesheets
-    - Tweening
 - 16/12
     - Trabajo en Práctica 3
 
@@ -193,10 +190,15 @@ Tema 8: Animaciones basadas en sprites
 
 <!-- TODO [Carlos, 13-10-2016 16:12]: darle una vuelta a los items (Carlos) -->
 
-- 19/12
+
+- 19/12--Tema 8: Animaciones basadas en sprites (II)
+    - Ciclos de animación
+    - Spritesheets
+    - Tweening
+- 20/12--Tema 9: Proyectos (I)
     - Particularidades de los videojuegos en Internet
-- 20/12
     - Proyectos en la web
+    - Despliegue
 <!-- - Animación por huesos -->
 <!-- TODO [Carlos, 13-10-2016 16:12]: ver Spine -->
 - 23/12
@@ -206,6 +208,8 @@ Tema 8: Animaciones basadas en sprites
 
 <!-- la idea es que la práctica 5 tenga plug-ins y partículas, hay que cumplir
 con el programa -->
+
+Tema 9: Proyectos (II)
 
 Tutorías de proyecto
 
@@ -217,6 +221,9 @@ Tutorías de proyecto
     - Trabajo en práctica 4
 
 # 16-20 de enero
+
+
+Tema 9: Proyectos (III)
 
 Presentaciones
 
