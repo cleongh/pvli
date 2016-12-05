@@ -4,19 +4,29 @@ title: "El Motor Físico de Phaser: Fuerzas Físicas, el motor P2"
 vim: spelllang=es
 ...
 
+
 # Introducción
 
-Hasta ahora hemos visto colisiones. Ahora veremos una variante de las colisiones que denominamos Trigger. Los triggers son un método muy utilizado en videojuegos para generar eventos durante el juego. 
+
+## Hasta ahora...
+
+Hemos visto colisiones. Ahora veremos una variante de las colisiones que denominamos **Triggers**. 
+Los triggers son un método muy utilizado en videojuegos para generar eventos durante el juego. 
 
 
 
 # Triggers (sensor)
 
-Podemos definir un **trigger** (disparador) como una zona del juego en la que se chequea quién entra y quién sale de ella y se informa de ambos eventos. Normalmente un trigger provoca una invocación a un método asociado a dicho trigger de forma asíncrona. 
+
+
+## ¿Qué es un trigger?
+
+Podemos definir un **trigger** (disparador) como una zona del juego en la que se chequea que objetos entran y salen de ella, informando de ambos eventos a quienes esten interesados.
+Normalmente un trigger provoca una invocación a un método asíncrono (evento) asociado a dicho trigger. 
 
 ---
 
-Al concepto de trigger a veces se le denomina **sensor**. Por ejemplo, ese es el concepto que utiliza Box2D. 
+Al concepto de trigger a veces se le denomina **sensor**. Por ejemplo, ese es el nombre que utiliza Box2D. 
 
 P2 también utiliza el concepto de sensor. 
 
@@ -48,17 +58,19 @@ Pero podemos seguir escuchando los eventos de contacto
     trigger.body.onBeginContact.add(checkSensorsBegin,this);
     trigger.body.onEndContact.add(checkSensorsEnd,this);
     
-function checkSensors(bodyA,shapeA,shapeB){
+function checkSensorsBegin(bodyA,shapeA,shapeB){
     game.debug.text("Collision detected!", 32, 32);
 }
 
-function checkSensors(bodyA,shapeA,shapeB){
+function checkSensorsEnd(bodyA,shapeA,shapeB){
     game.debug.text("Collision leaved!", 32, 32);
 }
 ```
 
 # Velocidad
 
+
+## ¿Qué es la velocidad?
 <!-- https://www.codeandweb.com/physicseditor/tutorials/phaser-p2-physics-example-tutorial -->
 
 La **velocidad** es una magnitud física vectorial que expresa la distancia recorrida de un objeto por unidad de tiempo.
@@ -73,7 +85,7 @@ sprite.body.velocity.y
 Si aplicamos una velocidad a un objeto físico este se moverá hacia la dirección indicada con la magnitud indicada.
 
 
-## Aplicanfo fuerzas
+## Aplicando fuerzas
 
 una **fuerza** es todo agente capaz de modificar la cantidad de movimiento de un objeto. En física de videojeugos llamamos fuerza a una modificación constante del movimiento de un objeto.
 
@@ -91,7 +103,7 @@ applyImpulse(impulse, worldX, worldY)
 applyImpulseLocal(impulse, localX, localY)
 
 * impulse: es un vector 2D (Por ejemplo: [ 200, 100])
-* Tanto los puntos WorldX como WoldY, localX, localY son el punto a partir del cual se está aplicando el impulso. Si no se especifican se toma el centro del mundo o el centro de masas del objeto.
+* Tanto los puntos WorldX como WorldY, localX, localY son el punto a partir del cual se está aplicando el impulso. Si no se especifican se toma el centro del mundo o el centro de masas del objeto.
 
 
 ## Move
@@ -131,7 +143,45 @@ Podemos modificar la velocidad relativa de cada objeto usando **gravityScale**
 
 # Aceleración
 
+
+## ¿Qué es la aceleración?
+
 La aceleración es una magnitud vectorial que nos indica la variación de velocidad por unidad de tiempo.
+
+
+
+---
+
+En física se define la velocidad uniformemente acelerada como:
+
+v=v0+a⋅t
+
+Donde:
+
+* v: velocidad.
+* v0: velocidad inicial.
+* a: aceleración.
+
+
+---
+
+El desplazamiento:
+
+
+![Aceleración](imgs/aceleracion.svg)
+
+* e(t): posición
+* e0: posición inicial.
+* t: tiempo.
+* a: aceleración.
+* vo: velocidad inicial.
+
+
+---
+
+
+Veamos un ejemplo
+
 
 
 ```js
@@ -149,6 +199,9 @@ function accelerateToObject(obj1, obj2, speed) {
 
 # Constrains
 
+
+## ¿Qué es una constraint?
+
 Una **Constraint** es una restricción al movimiento.
 
 ```js
@@ -161,7 +214,7 @@ var constraint1 = game.physics.p2.createGearConstraint(sprite, sprite2, 0, 1);
 * Gear constraint afecta a la velocidad de rotación a la que puede girar un objeto con respecto a otro. [Gear](https://phaser.io/examples/v2/p2-physics/gear-constraint)
 
 
-# Joins
+## Joins
 
 Son un tipo especial de constraint.
 
@@ -183,7 +236,7 @@ game.physics.p2.createRevoluteConstraint
 [Chains](https://phaser.io/examples/v2/p2-physics/chain)
 
 
-# Springs
+## Springs
 
 Los **Springs** o muelles sirven para mantener una distancia flexible a un objeto.
 
@@ -201,6 +254,9 @@ spring = game.physics.p2.createSpring(bodya, bodyb, 0, 30, 1);
 # Kinematic Body
 
 
+
+## Cuerpos Kinemáticos Vs Cuerpos Físicos.
+
 **Kinematic bodies** son cuerpos que están en la física pero que queremos mover nosotros por código.
 
 Típicamente las plataformas de los juegos de plataforma. También se suelen incluir los enemigos que son controlados por la IA o el player si no modificamos su posición con la física. 
@@ -208,7 +264,20 @@ Típicamente las plataformas de los juegos de plataforma. También se suelen inc
 
 ---
 
-En un juego normal, no queremos usar la física para mover un objeto controlado por el jugador o por la IA ya que esto puede provocar muchos problemas. Lo más razonable es moverlo nosotros. Sin embargo, sí que queremos tener colisiones
+En un juego normal, no queremos usar la física para mover un objeto controlado por el jugador o por la IA ya que esto puede provocar muchos problemas. 
+
+La física es dificil de controlar y produce errores de redondeo. 
+
+Lo más razonable para garantizar las mecánicas es moverlo nosotros con la lógica del juego. 
+
+
+Sin embargo, sí que queremos tener colisiones, de ahí que necesitamos que pertenezca a la física de alguna forma.
+
+
+## ¿Cómo establecemos un cuerpo kinemático?
+
+
+Podemos modificar la propiedad kinematic de body;
 
 ```js
 kinematic1.body.kinematic = true;
@@ -217,8 +286,18 @@ kinematic1.body.kinematic = true;
 ---
 
 
-A un objeto kinemático no le afecta la gravedad, ni los impulsos ni las colisiones. 
+## ¿Qué cosas afectan a un kinemático?
+
+
+A un objeto kinemático no le afecta la gravedad
+
+Ni los impulsos 
+
+Ni las colisiones modifican la velocidad del objeto, es decir un choque impide le paso, ero no modifica la velocidad del objeto, porque la física no peude alcular la velocidad de un objeto kinemático. 
+
 Solo podemos preguntar si hemos colisionado con el.
+
+O si él ha colisionado con algo.
 
 
 [Movimientos kinemáticos](https://phaser.io/examples/v2/p2-physics/kinematic-body)
