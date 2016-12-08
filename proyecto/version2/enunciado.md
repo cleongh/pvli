@@ -1,0 +1,3 @@
+animación
+sonido
+parallax

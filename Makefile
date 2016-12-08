@@ -8,9 +8,11 @@ TEMA6=tema6/0603_tiles.html tema6/0604-texto-en-phaser.html tema6/0605-webaudio.
 TEMA7=tema7/0701-phaser-colisiones.html tema7/0702-phaser-colisiones-ninja.html
 TEMA8=
 TEMA9=
+PR3=proyecto/version1/criterios_evaluacion.html  proyecto/version1/especificacion.html
 
+PROYECTO=$(PR3)
 TEMAS=$(TEMA1) $(TEMA2) $(TEMA3) $(TEMA4) tema4/0403-ejercicios.html $(TEMA5) $(TEMA6) $(TEMA7) $(TEMA8) $(TEMA9) 
-TODO=$(GENERAL) $(TEMAS)
+TODO=$(GENERAL) $(TEMAS) $(PROYECTO)
 BASERUN=pandoc -S -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
 # BASERUN=pandoc  -s --mathjax -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
 
@@ -20,6 +22,9 @@ all: $(TODO)
 	$(BASERUN) -i --slide-level=2 --section-divs --variable revealjs-url=../shared/lib/reveal -t revealjs --template shared/pvli-template-pandoc.html $< -o $@
 
 general/%.html: general/%.md shared/docs.css
+	$(BASERUN) --css ../shared/docs.css $< -o $@
+
+proyecto/version1/%.html: proyecto/version1/%.md shared/docs.css
 	$(BASERUN) --css ../shared/docs.css $< -o $@
 
 tema4/0403-ejercicios.html: tema4/0403-ejercicios.md shared/docs.css
