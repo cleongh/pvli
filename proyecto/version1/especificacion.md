@@ -39,7 +39,7 @@ los siguientes requisitos:
     - una pantalla de carga, 
     - una pantalla de menú 
     - un modo de juego al menos con un nivel
-    - una pantalla de pausa durante el juego con al menos dos opciones: Continuar el juego y Salir.
+    - una pantalla de pausa durante el juego con al menos dos opciones: Continuar el juego y Salir. Salir te llevará al menú principal.
     - un modo de "fin de partida", bien al superar el o los niveles, bien cuando muere el jugador.
 - Se tratará de llevar un personaje desde un punto a otro. El personaje podrá
   moverse hacia la izquierda y la derecha y podrá saltar. 
