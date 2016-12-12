@@ -10,7 +10,7 @@ conocimientos adquiridos durante el curso hasta la fecha y empezar a
 relacionarlos como un juego.
 
 A diferencia de las prácticas anteriores, para esta no hay un guión específico,
-ya que cada grupo tendrá que diseñar y crear su propio juego
+ya que cada grupo tendrá que diseñar y crear su propio juego.
 
 # Continuación de la práctica
 
@@ -27,27 +27,29 @@ los siguientes requisitos:
 ## Características obligatorias
 
 - Será un [juego de plataformas](https://en.wikipedia.org/wiki/Platform_game)
-  en 2D
-- Puede ser vertical, horizontal o de recorrido libre
+  en 2D.
+- Puede ser vertical, horizontal o de recorrido libre.
 - Se usará Phaser como motor de juego. Es posible usar otras librerías, siempre
   que su funcionalidad no solape con la que se espera que se implemente. El
   equipo docente tendrá que aceptar el uso de las librerías propuestas a
   priori. Si un grupo usa librerías que no sean aceptadas de antemano por el
   equipo docente, *la práctica estará suspensa*.
-- La entrada se hará por teclado
+- La entrada se hará por teclado.
 - Se incluirán:
     - una pantalla de carga, 
     - una pantalla de menú 
     - un modo de juego al menos con un nivel
-    - un modo de "fin de partida"
+    - una pantalla de pausa durante el juego con al menos dos opciones: Continuar el juego y Salir.
+    - un modo de "fin de partida", bien al superar el o los niveles, bien cuando muere el jugador.
 - Se tratará de llevar un personaje desde un punto a otro. El personaje podrá
   moverse hacia la izquierda y la derecha y podrá saltar. 
     - Al llegar al punto exitosamente, se informará de la victoria y se irá al
-      menú tras la pantalla de fin de partida
+      menú tras la pantalla de fin de partida.
     - Si "muere", se informará también y se irá al menú tras la pantalla de fin
-      de partida
+      de partida.
+- Al menos debe haber un tipo de enemigo.
 - "Morirá" por contacto con enemigos, que obligatoriamente han de moverse
-  (aunque sea simplemente en la dirección contraria)
+  (aunque sea simplemente en la dirección contraria).
 - También podrá morir "cayendo" por zonas
 - Los niveles se crearán con tiles, y se usará el formato de `Tiled` (se
   recomienda usar esta herramienta).
@@ -56,13 +58,15 @@ los siguientes requisitos:
 - No se tendrá en cuenta el despliegue del juego, ya que será el núcleo de
   las ampliaciones de la práctica 5.
 
-Además, se hará un "GDD" que **no podrá exceder de una cara en A4**. Es decir,
+Además, se hará un mini "GDD" que **no podrá exceder de una cara en A4** en ningún caso. Es decir,
 será un documento corto descriptivo en el que tendréis que:
 
-- Poner título al juego
-- Contar la historia (es obligatorio una) y los objetivos
-- Explicar cómo jugar
+- Poner título al juego.
+- Publico objetivo, calificación de edad estimada.
+- Contar la historia (es obligatorio una) y los objetivos.
+- Explicar cómo jugar.
 - Hacer un poco de "venta" del juego: ¿por qué querría alguien jugar al juego?
+- Referencias utilizadas.
 
 ## Características opcionales
 
