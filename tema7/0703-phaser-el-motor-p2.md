@@ -97,7 +97,7 @@ applyForce(force, worldX, worldY)
 
 ## Aplicando impulsos
 
-Un impulso es una fuerza que se ejerce en un momento puntual pero que cesa y se reduce con el tiempo.
+Un impulso es una fuerza que se ejerce en un momento puntual pero que cesa y su efecto se reduce con el tiempo.
 
 applyImpulse(impulse, worldX, worldY)
 applyImpulseLocal(impulse, localX, localY)
@@ -130,7 +130,7 @@ game.physics.p2.gravity.y = 300;
 ---
 
 
-Podemos modificar la velocidad relativa de cada objeto usando **gravityScale**
+Podemos modificar la fuerza de la gravedad relativa a cada objeto usando **gravityScale**
 
 ```js
     sprite1.body.data.gravityScale = 1;
@@ -152,7 +152,7 @@ La aceleración es una magnitud vectorial que nos indica la variación de veloci
 
 ---
 
-En física se define la velocidad uniformemente acelerada como:
+## Velocidad uniformemente acelerada
 
 v=v0+a⋅t
 
@@ -174,27 +174,67 @@ El desplazamiento:
 * e0: posición inicial.
 * t: tiempo.
 * a: aceleración.
-* vo: velocidad inicial.
+* v0: velocidad inicial.
 
 
 ---
 
 
-Veamos un ejemplo
+Una buena aproximación en videojuegos es hacer lo siguiente:
+
+e(t+1) = e(t)\*v(t)\*t
+
+v(t+1) = Max(v(t)\*a\*t,VMax)
+
+* e(t+1): Siguiente posicion;
+* e(t) : Posición inicial.
+* a: Aceleración.
+* v(t+1): Velocidad en la siguiente iteración;
+* v(t): Velocidad actual.
+* VMax: Velocidad máxima.
+
+
+---
+
+## Aceleración instantánea 
+
+
+Si la aceleración es instantanea => v(t) == VMax;
+
+e(t+1) = e(t)\*VMax\*t;
+
+
+## Aceleración variable
+
+El valor de a puede cambiar en función del tiempo. Por ejemplo en función de cuanto se pulse un gatillo, en función de cuanto se mueva la palanca, en función a una ecuación de aceleración...
+
+---
+
+
+Veamos un ejemplo de aceleración usando force.
 
 
 
 ```js
 function accelerateToObject(obj1, obj2, speed) {
-    var angle = Math.atan2(obj2.y - obj1.y, obj2.x - obj1.x); //Ángulo entre dos vectores (arcotangente)
-    obj1.body.rotation = angle + game.math.degToRad(90);  // corrige el ángulo (depende del sprite)
+    var angle = Math.atan2(obj2.y - obj1.y, obj2.x - obj1.x); //Ángulo de un vector (arcotangente).
+    obj1.body.rotation = angle + game.math.degToRad(90);  // corrige el ángulo (-p1/2 a pi/2) => (0 a 2pi).
     obj1.body.force.x = Math.cos(angle) * speed; // proyección del ángulo en x * módulo.
-    obj1.body.force.y = Math.sin(angle) * speed; // proyección del ángulo en y * módulo
+    obj1.body.force.y = Math.sin(angle) * speed; // proyección del ángulo en y * módulo.
 }
 ```
 
-
 [Aceleración](http://phaser.io/examples/v2/p2-physics/accelerate-to-object)
+
+
+---
+
+
+
+* El ángulo entre dos vectores se calcula con la arcotangente del vector diferencia (destino - origen)
+* Si queremos calcular la cantidad de movimiento aplicable a cada componente, debemos proyectar el ángulo a los diferentes componentes.
+* Se usa **thrust** para acelerar (al ser un impulso se aplica la aceleración por física) o force en el caso de los objetos.
+* La rotación es instantánea. (En general no tiene por que serlo)
 
 
 # Constrains
@@ -209,17 +249,16 @@ var constraint = game.physics.p2.createDistanceConstraint(sprite1, sprite2, 150)
 var constraint1 = game.physics.p2.createGearConstraint(sprite, sprite2, 0, 1);
 ```
 
-* Distance constraint  afecta a la distancia a la que puede estar un objeto de otro. [Distancia](https://phaser.io/examples/v2/p2-physics/distance-constraint)
+* **Distance constraint**  afecta a la distancia a la que puede estar un objeto de otro. [Distancia](https://phaser.io/examples/v2/p2-physics/distance-constraint)
 
-* Gear constraint afecta a la velocidad de rotación a la que puede girar un objeto con respecto a otro. [Gear](https://phaser.io/examples/v2/p2-physics/gear-constraint)
+* **Gear constraint** afecta a la velocidad de rotación a la que puede girar un objeto con respecto a otro. [Gear](https://phaser.io/examples/v2/p2-physics/gear-constraint)
 
 
 ## Joins
 
 Son un tipo especial de constraint.
 
-Conecta dos cuerpos creando una restricción de rotación. Un objeto rota en función del otro. Esto sirve para construir objetos pendulantes como cuerdas o cadenas. Básicamente cualquier sistema donde el movimiento de uno afecte al movimiento del resto
-en algén grado.
+Conecta dos cuerpos creando una restricción de rotación. Un objeto rota en función del otro. Esto sirve para construir objetos pendulantes como cuerdas o cadenas. Básicamente cualquier sistema donde el movimiento de uno afecte al movimiento del resto en algún grado.
 
 
 ---
@@ -239,16 +278,38 @@ game.physics.p2.createRevoluteConstraint
 ## Springs
 
 Los **Springs** o muelles sirven para mantener una distancia flexible a un objeto.
+Los springs siguen la ley de Hooke donde la fuerza F:
+
+
+![Ley de Hooke](imgs/hooke.svg)
+
+* k: constante de elasticidad **stiffness**.
+* X: longitud.
+
+
+---
+
+Derivado de esta ley tenemos el movimiento armónico oscilante. :
+
+* **damping** es una fuerza que va en dirección contraria al movimiento. 
+La resistencia que hace que el movimiento sea oscilante. Cuanto más extirado esté el muelle, más fuerza de damping se genera.
+El damping consigue cambiar la dirección del movimiento y como siempre es inverso a este movimiento, lo frena hasta que lo cambia de sentido.
+
+----
+
+En Phaser
 
 ```js
 spring = game.physics.p2.createSpring(bodya, bodyb, 0, 30, 1);
 ```
 
 * **restLength**: La longitud del spring.
-* **stiffness**: Rigidez del spring.
-* **damping**: Amortiguación.
+* **stiffness**: Rigidez del spring. (costante de elasticidad)
+* **damping**: Amortiguación. (rebote o fuerza contraria al movimiento
 
 [Springs](https://phaser.io/examples/v2/p2-physics/mouse-spring)
+
+
 
 
 # Kinematic Body
@@ -293,9 +354,9 @@ A un objeto kinemático no le afecta la gravedad
 
 Ni los impulsos 
 
-Ni las colisiones modifican la velocidad del objeto, es decir un choque impide le paso, ero no modifica la velocidad del objeto, porque la física no peude alcular la velocidad de un objeto kinemático. 
+Ni las colisiones modifican la velocidad del objeto, es decir un choque impide el paso, pero no modifica la velocidad del objeto, porque la física no puede calcular la velocidad de un objeto kinemático. 
 
-Solo podemos preguntar si hemos colisionado con el.
+Sólo podemos preguntar si hemos colisionado con él.
 
 O si él ha colisionado con algo.
 

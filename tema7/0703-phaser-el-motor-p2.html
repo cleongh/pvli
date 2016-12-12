@@ -173,7 +173,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </section><section id="aplicando-impulsos" class="slide level2">
 <h1>Aplicando impulsos</h1>
-<p>Un impulso es una fuerza que se ejerce en un momento puntual pero que cesa y se reduce con el tiempo.</p>
+<p>Un impulso es una fuerza que se ejerce en un momento puntual pero que cesa y su efecto se reduce con el tiempo.</p>
 <p>applyImpulse(impulse, worldX, worldY) applyImpulseLocal(impulse, localX, localY)</p>
 <ul>
 <li class="fragment">impulse: es un vector 2D (Por ejemplo: [ 200, 100])</li>
@@ -194,7 +194,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="va">gravity</span>.<span class="at">y</span> <span class="op">=</span> <span class="dv">300</span><span class="op">;</span></code></pre></div>
 </section><section class="slide level2">
 
-<p>Podemos modificar la velocidad relativa de cada objeto usando <strong>gravityScale</strong></p>
+<p>Podemos modificar la fuerza de la gravedad relativa a cada objeto usando <strong>gravityScale</strong></p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    <span class="va">sprite1</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">gravityScale</span> <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
     <span class="va">sprite2</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">gravityScale</span> <span class="op">=</span> <span class="fl">0.5</span><span class="op">;</span>
     <span class="va">sprite3</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">gravityScale</span> <span class="op">=</span> <span class="fl">0.25</span><span class="op">;</span></code></pre></div>
@@ -203,9 +203,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section><section id="aceleración" class="titleslide slide level1"><h1>Aceleración</h1></section><section id="qué-es-la-aceleración" class="slide level2">
 <h1>¿Qué es la aceleración?</h1>
 <p>La aceleración es una magnitud vectorial que nos indica la variación de velocidad por unidad de tiempo.</p>
-</section><section class="slide level2">
-
-<p>En física se define la velocidad uniformemente acelerada como:</p>
+</section><section id="velocidad-uniformemente-acelerada" class="slide level2">
+<h1>Velocidad uniformemente acelerada</h1>
 <p>v=v0+a⋅t</p>
 <p>Donde:</p>
 <ul>
@@ -224,18 +223,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment">e0: posición inicial.</li>
 <li class="fragment">t: tiempo.</li>
 <li class="fragment">a: aceleración.</li>
-<li class="fragment">vo: velocidad inicial.</li>
+<li class="fragment">v0: velocidad inicial.</li>
 </ul>
 </section><section class="slide level2">
 
-<p>Veamos un ejemplo</p>
+<p>Una buena aproximación en videojuegos es hacer lo siguiente:</p>
+<p>e(t+1) = e(t)*v(t)*t</p>
+<p>v(t+1) = Max(v(t)*a*t,VMax)</p>
+<ul>
+<li class="fragment">e(t+1): Siguiente posicion;</li>
+<li class="fragment">e(t) : Posición inicial.</li>
+<li class="fragment">a: Aceleración.</li>
+<li class="fragment">v(t+1): Velocidad en la siguiente iteración;</li>
+<li class="fragment">v(t): Velocidad actual.</li>
+<li class="fragment">VMax: Velocidad máxima.</li>
+</ul>
+</section><section id="aceleración-instantánea" class="slide level2">
+<h1>Aceleración instantánea</h1>
+<p>Si la aceleración es instantanea =&gt; v(t) == VMax;</p>
+<p>e(t+1) = e(t)*VMax*t;</p>
+</section><section id="aceleración-variable" class="slide level2">
+<h1>Aceleración variable</h1>
+<p>El valor de a puede cambiar en función del tiempo. Por ejemplo en función de cuanto se pulse un gatillo, en función de cuanto se mueva la palanca, en función a una ecuación de aceleración…</p>
+</section><section class="slide level2">
+
+<p>Veamos un ejemplo de aceleración usando force.</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">accelerateToObject</span>(obj1<span class="op">,</span> obj2<span class="op">,</span> speed) <span class="op">{</span>
-    <span class="kw">var</span> angle <span class="op">=</span> <span class="va">Math</span>.<span class="at">atan2</span>(<span class="va">obj2</span>.<span class="at">y</span> <span class="op">-</span> <span class="va">obj1</span>.<span class="at">y</span><span class="op">,</span> <span class="va">obj2</span>.<span class="at">x</span> <span class="op">-</span> <span class="va">obj1</span>.<span class="at">x</span>)<span class="op">;</span> <span class="co">//Ángulo entre dos vectores (arcotangente)</span>
-    <span class="va">obj1</span>.<span class="va">body</span>.<span class="at">rotation</span> <span class="op">=</span> angle <span class="op">+</span> <span class="va">game</span>.<span class="va">math</span>.<span class="at">degToRad</span>(<span class="dv">90</span>)<span class="op">;</span>  <span class="co">// corrige el ángulo (depende del sprite)</span>
+    <span class="kw">var</span> angle <span class="op">=</span> <span class="va">Math</span>.<span class="at">atan2</span>(<span class="va">obj2</span>.<span class="at">y</span> <span class="op">-</span> <span class="va">obj1</span>.<span class="at">y</span><span class="op">,</span> <span class="va">obj2</span>.<span class="at">x</span> <span class="op">-</span> <span class="va">obj1</span>.<span class="at">x</span>)<span class="op">;</span> <span class="co">//Ángulo de un vector (arcotangente).</span>
+    <span class="va">obj1</span>.<span class="va">body</span>.<span class="at">rotation</span> <span class="op">=</span> angle <span class="op">+</span> <span class="va">game</span>.<span class="va">math</span>.<span class="at">degToRad</span>(<span class="dv">90</span>)<span class="op">;</span>  <span class="co">// corrige el ángulo (-p1/2 a pi/2) =&gt; (0 a 2pi).</span>
     <span class="va">obj1</span>.<span class="va">body</span>.<span class="va">force</span>.<span class="at">x</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">cos</span>(angle) <span class="op">*</span> speed<span class="op">;</span> <span class="co">// proyección del ángulo en x * módulo.</span>
-    <span class="va">obj1</span>.<span class="va">body</span>.<span class="va">force</span>.<span class="at">y</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">sin</span>(angle) <span class="op">*</span> speed<span class="op">;</span> <span class="co">// proyección del ángulo en y * módulo</span>
+    <span class="va">obj1</span>.<span class="va">body</span>.<span class="va">force</span>.<span class="at">y</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">sin</span>(angle) <span class="op">*</span> speed<span class="op">;</span> <span class="co">// proyección del ángulo en y * módulo.</span>
 <span class="op">}</span></code></pre></div>
 <p><a href="http://phaser.io/examples/v2/p2-physics/accelerate-to-object">Aceleración</a></p>
+</section><section class="slide level2">
+
+<ul>
+<li class="fragment">El ángulo entre dos vectores se calcula con la arcotangente del vector diferencia (destino - origen)</li>
+<li class="fragment">Si queremos calcular la cantidad de movimiento aplicable a cada componente, debemos proyectar el ángulo a los diferentes componentes.</li>
+<li class="fragment">Se usa <strong>thrust</strong> para acelerar (al ser un impulso se aplica la aceleración por física) o force en el caso de los objetos.</li>
+<li class="fragment">La rotación es instantánea. (En general no tiene por que serlo)</li>
+</ul>
 </section></section>
 <section><section id="constrains" class="titleslide slide level1"><h1>Constrains</h1></section><section id="qué-es-una-constraint" class="slide level2">
 <h1>¿Qué es una constraint?</h1>
@@ -243,13 +270,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> constraint <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createDistanceConstraint</span>(sprite1<span class="op">,</span> sprite2<span class="op">,</span> <span class="dv">150</span>)<span class="op">;</span>
 <span class="kw">var</span> constraint1 <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createGearConstraint</span>(sprite<span class="op">,</span> sprite2<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></code></pre></div>
 <ul>
-<li class="fragment"><p>Distance constraint afecta a la distancia a la que puede estar un objeto de otro. <a href="https://phaser.io/examples/v2/p2-physics/distance-constraint">Distancia</a></p></li>
-<li class="fragment"><p>Gear constraint afecta a la velocidad de rotación a la que puede girar un objeto con respecto a otro. <a href="https://phaser.io/examples/v2/p2-physics/gear-constraint">Gear</a></p></li>
+<li class="fragment"><p><strong>Distance constraint</strong> afecta a la distancia a la que puede estar un objeto de otro. <a href="https://phaser.io/examples/v2/p2-physics/distance-constraint">Distancia</a></p></li>
+<li class="fragment"><p><strong>Gear constraint</strong> afecta a la velocidad de rotación a la que puede girar un objeto con respecto a otro. <a href="https://phaser.io/examples/v2/p2-physics/gear-constraint">Gear</a></p></li>
 </ul>
 </section><section id="joins" class="slide level2">
 <h1>Joins</h1>
 <p>Son un tipo especial de constraint.</p>
-<p>Conecta dos cuerpos creando una restricción de rotación. Un objeto rota en función del otro. Esto sirve para construir objetos pendulantes como cuerdas o cadenas. Básicamente cualquier sistema donde el movimiento de uno afecte al movimiento del resto en algén grado.</p>
+<p>Conecta dos cuerpos creando una restricción de rotación. Un objeto rota en función del otro. Esto sirve para construir objetos pendulantes como cuerdas o cadenas. Básicamente cualquier sistema donde el movimiento de uno afecte al movimiento del resto en algún grado.</p>
 </section><section class="slide level2">
 
 <p>game.physics.p2.createRevoluteConstraint (bodyA, pivotA, bodyB, pivotB, fuerza)</p>
@@ -263,12 +290,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><a href="https://phaser.io/examples/v2/p2-physics/chain">Chains</a></p>
 </section><section id="springs" class="slide level2">
 <h1>Springs</h1>
-<p>Los <strong>Springs</strong> o muelles sirven para mantener una distancia flexible a un objeto.</p>
+<p>Los <strong>Springs</strong> o muelles sirven para mantener una distancia flexible a un objeto. Los springs siguen la ley de Hooke donde la fuerza F:</p>
+<figure>
+<img src="imgs/hooke.svg" alt="Ley de Hooke" /><figcaption>Ley de Hooke</figcaption>
+</figure>
+<ul>
+<li class="fragment">k: constante de elasticidad <strong>stiffness</strong>.</li>
+<li class="fragment">X: longitud.</li>
+</ul>
+</section><section class="slide level2">
+
+<p>Derivado de esta ley tenemos el movimiento armónico oscilante. :</p>
+<ul>
+<li class="fragment"><strong>damping</strong> es una fuerza que va en dirección contraria al movimiento. La resistencia que hace que el movimiento sea oscilante. Cuanto más extirado esté el muelle, más fuerza de damping se genera. El damping consigue cambiar la dirección del movimiento y como siempre es inverso a este movimiento, lo frena hasta que lo cambia de sentido.</li>
+</ul>
+</section><section class="slide level2">
+
+<p>En Phaser</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">spring <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createSpring</span>(bodya<span class="op">,</span> bodyb<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></code></pre></div>
 <ul>
 <li class="fragment"><strong>restLength</strong>: La longitud del spring.</li>
-<li class="fragment"><strong>stiffness</strong>: Rigidez del spring.</li>
-<li class="fragment"><strong>damping</strong>: Amortiguación.</li>
+<li class="fragment"><strong>stiffness</strong>: Rigidez del spring. (costante de elasticidad)</li>
+<li class="fragment"><strong>damping</strong>: Amortiguación. (rebote o fuerza contraria al movimiento</li>
 </ul>
 <p><a href="https://phaser.io/examples/v2/p2-physics/mouse-spring">Springs</a></p>
 </section></section>
@@ -290,8 +333,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1>¿Qué cosas afectan a un kinemático?</h1>
 <p>A un objeto kinemático no le afecta la gravedad</p>
 <p>Ni los impulsos</p>
-<p>Ni las colisiones modifican la velocidad del objeto, es decir un choque impide le paso, ero no modifica la velocidad del objeto, porque la física no peude alcular la velocidad de un objeto kinemático.</p>
-<p>Solo podemos preguntar si hemos colisionado con el.</p>
+<p>Ni las colisiones modifican la velocidad del objeto, es decir un choque impide el paso, pero no modifica la velocidad del objeto, porque la física no puede calcular la velocidad de un objeto kinemático.</p>
+<p>Sólo podemos preguntar si hemos colisionado con él.</p>
 <p>O si él ha colisionado con algo.</p>
 <p><a href="https://phaser.io/examples/v2/p2-physics/kinematic-body">Movimientos kinemáticos</a></p>
 </section></section>
