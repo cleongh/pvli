@@ -6,7 +6,7 @@ TEMA4=tema4/0401-introduccion-arquitectura-videojuegos.html tema4/0402-ejemplo-c
 TEMA5=tema5/0501_carga_de_recursos_con_phaser.html tema5/Ejercicio2/Enunciado/ejercicios_tema5.zip
 TEMA6=tema6/0603_tiles.html tema6/0604-texto-en-phaser.html tema6/0605-webaudio.html tema6/nodos.dot.svg tema6/0606-audio-en-phaser.html
 TEMA7=tema7/0701-phaser-colisiones.html tema7/0702-phaser-colisiones-ninja.html tema7/0703-phaser-el-motor-p2.html 
-TEMA8=
+TEMA8=tema8/0801-animacion_con_sprites.html tema8/0801-animacion_con_sprites.html
 TEMA9=
 PR3=proyecto/version1/criterios_evaluacion.html  proyecto/version1/especificacion.html
 
