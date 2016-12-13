@@ -90,6 +90,7 @@ Si aplicamos una velocidad a un objeto físico este se moverá hacia la direcci�
 una **fuerza** es todo agente capaz de modificar la cantidad de movimiento de un objeto. En física de videojeugos llamamos fuerza a una modificación constante del movimiento de un objeto.
 
 applyForce(force, worldX, worldY)
+applyForceLocal(force, localX, localY)
 
 * force: es un vector 2D (Por ejemplo: [ 200, 100])
 * Tanto los puntos WorldX como WoldY, localX, localY son el punto a partir del cual se está aplicando la fuerza. 

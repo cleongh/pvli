@@ -132,7 +132,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>P2 también utiliza el concepto de sensor.</p>
 </section><section class="slide level2">
 
-<p>Para establecer que un collider es un sensor hay que modificar la shape de la física.</p>
+<p>Para establecer que un collider es un sensor, hay que modificar la shape de la física.</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">sprite</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">shapes</span>[<span class="dv">0</span>].<span class="at">sensor</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> <span class="co">// Establece que la shape 0 es un sensor.</span></code></pre></div>
 <p>o bien</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    triggerShape <span class="op">=</span> <span class="va">trigger</span>.<span class="va">body</span>.<span class="at">addRectangle</span>(<span class="dv">10</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">0</span><span class="op">,-</span><span class="dv">54</span>)<span class="op">;</span> <span class="co">//añade un sensor al objeto. Devuelve un shape.</span>
@@ -166,7 +166,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section id="aplicando-fuerzas" class="slide level2">
 <h1>Aplicando fuerzas</h1>
 <p>una <strong>fuerza</strong> es todo agente capaz de modificar la cantidad de movimiento de un objeto. En física de videojeugos llamamos fuerza a una modificación constante del movimiento de un objeto.</p>
-<p>applyForce(force, worldX, worldY)</p>
+<p>applyForce(force, worldX, worldY) applyForceLocal(force, localX, localY)</p>
 <ul>
 <li class="fragment">force: es un vector 2D (Por ejemplo: [ 200, 100])</li>
 <li class="fragment">Tanto los puntos WorldX como WoldY, localX, localY son el punto a partir del cual se está aplicando la fuerza.</li>
@@ -228,8 +228,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section class="slide level2">
 
 <p>Una buena aproximación en videojuegos es hacer lo siguiente:</p>
-<p>e(t+1) = e(t)*v(t)*t</p>
-<p>v(t+1) = Max(v(t)*a*t,VMax)</p>
+<p>e(t+1) = e(t) + v(t)*t</p>
+<p>v(t+1) = Min(v(t)*a*t,VMax)</p>
 <ul>
 <li class="fragment">e(t+1): Siguiente posicion;</li>
 <li class="fragment">e(t) : Posición inicial.</li>
@@ -241,7 +241,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section id="aceleración-instantánea" class="slide level2">
 <h1>Aceleración instantánea</h1>
 <p>Si la aceleración es instantanea =&gt; v(t) == VMax;</p>
-<p>e(t+1) = e(t)*VMax*t;</p>
+<p>e(t+1) = e(t) + VMax*t;</p>
 </section><section id="aceleración-variable" class="slide level2">
 <h1>Aceleración variable</h1>
 <p>El valor de a puede cambiar en función del tiempo. Por ejemplo en función de cuanto se pulse un gatillo, en función de cuanto se mueva la palanca, en función a una ecuación de aceleración…</p>
@@ -260,7 +260,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li class="fragment">El ángulo entre dos vectores se calcula con la arcotangente del vector diferencia (destino - origen)</li>
 <li class="fragment">Si queremos calcular la cantidad de movimiento aplicable a cada componente, debemos proyectar el ángulo a los diferentes componentes.</li>
-<li class="fragment">Se usa <strong>thrust</strong> para acelerar (al ser un impulso se aplica la aceleración por física) o force en el caso de los objetos.</li>
+<li class="fragment">Se usa <strong>thrust</strong> para acelerar (al ser un impulso, se aplica la aceleración por física) o force en el caso de los objetos.</li>
 <li class="fragment">La rotación es instantánea. (En general no tiene por que serlo)</li>
 </ul>
 </section></section>
@@ -302,7 +302,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <p>Derivado de esta ley tenemos el movimiento armónico oscilante. :</p>
 <ul>
-<li class="fragment"><strong>damping</strong> es una fuerza que va en dirección contraria al movimiento. La resistencia que hace que el movimiento sea oscilante. Cuanto más extirado esté el muelle, más fuerza de damping se genera. El damping consigue cambiar la dirección del movimiento y como siempre es inverso a este movimiento, lo frena hasta que lo cambia de sentido.</li>
+<li class="fragment"><strong>damping</strong> es una fuerza que va en dirección contraria al movimiento. La resistencia que hace que el movimiento sea oscilante. Cuanto más estirado esté el muelle, más fuerza de damping se genera. El damping consigue cambiar la dirección del movimiento y como siempre es inverso a este movimiento, lo frena hasta que lo cambia de sentido.</li>
 </ul>
 </section><section class="slide level2">
 
@@ -311,13 +311,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li class="fragment"><strong>restLength</strong>: La longitud del spring.</li>
 <li class="fragment"><strong>stiffness</strong>: Rigidez del spring. (costante de elasticidad)</li>
-<li class="fragment"><strong>damping</strong>: Amortiguación. (rebote o fuerza contraria al movimiento</li>
+<li class="fragment"><strong>damping</strong>: Amortiguación. (rebote o fuerza contraria al movimiento)</li>
 </ul>
 <p><a href="https://phaser.io/examples/v2/p2-physics/mouse-spring">Springs</a></p>
 </section></section>
 <section><section id="kinematic-body" class="titleslide slide level1"><h1>Kinematic Body</h1></section><section id="cuerpos-kinemáticos-vs-cuerpos-físicos." class="slide level2">
 <h1>Cuerpos Kinemáticos Vs Cuerpos Físicos.</h1>
-<p><strong>Kinematic bodies</strong> son cuerpos que están en la física pero que queremos mover nosotros por código.</p>
+<p><strong>Kinematic bodies</strong> son cuerpos que están en la física, pero que queremos mover nosotros por código.</p>
 <p>Típicamente las plataformas de los juegos de plataforma. También se suelen incluir los enemigos que son controlados por la IA o el player si no modificamos su posición con la física.</p>
 </section><section class="slide level2">
 
