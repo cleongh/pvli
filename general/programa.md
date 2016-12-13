@@ -180,6 +180,8 @@ Tema 7: Física para juegos en 2D (I)
 - 13/12--Tema 8: Animaciones basadas en sprites (I)
     - Secuencias de sprites
     - Animación basada en secuencia
+    - Ciclos de animación
+    - Spritesheets
 - 16/12
     - Trabajo en Práctica 3
 
@@ -192,9 +194,7 @@ Tema 7: Física para juegos en 2D (I)
 
 
 - 19/12--Tema 8: Animaciones basadas en sprites (II)
-    - Ciclos de animación
-    - Spritesheets
-    - Tweening
+    - Animación avanzada
 - 20/12--Tema 9: Proyectos (I)
     - Particularidades de los videojuegos en Internet
     - Proyectos en la web

@@ -1,5 +1,5 @@
 ---
-title: Animación con Sprites
+title: Animación con sprites
 vim: spelllang=es
 ...
 
