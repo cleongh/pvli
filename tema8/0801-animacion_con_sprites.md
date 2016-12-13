@@ -35,7 +35,7 @@ Sino como *movimiento*
 
 ---
 
-![The Horse in Motion animado (Wikipedia)](https://en.wikipedia.org/wiki/Eadweard_Muybridge#/media/File:The_Horse_in_Motion-anim.gif)
+![The Horse in Motion animado (Wikipedia)](https://upload.wikimedia.org/wikipedia/commons/0/07/The_Horse_in_Motion-anim.gif)
 
 ---
 
@@ -51,8 +51,6 @@ La idea prácticamente no ha variado
 
 Para crear la **sensación** de movimiento (animación), reproducimos imágenes en
 orden, suficientemente rápido
-
----
 
 # Sprites
 
@@ -140,7 +138,8 @@ pequeños cambios secuenciales, *suficientemente rápido*
 Para conseguir esto en videojuegos, simplemente disponemos de varios sprites
 que representan secuencias de movimientos seguidos, diferenciales
 
-![(https://www.flickr.com/photos/goosemouse/4998615136)](https://www.flickr.com/photos/goosemouse/4998615136)
+![Spritesheet
+(https://www.flickr.com/photos/goosemouse/4998615136)](https://c1.staticflickr.com/5/4147/4998615136_dc0b7b1e39_b.jpg){width=35%}
 
 ---
 
@@ -261,6 +260,39 @@ Los ciclos pueden ser:
 
 ## Combinando frames y ciclos
 
+---
+
+Para combinar frames y ciclos solemos usar una disposición en rejilla
+
+---
+
+Así, cada fila es un ciclo, y cada columna es un frame del ciclo
+
+---
+
+
+![Spritesheet
+(https://www.flickr.com/photos/goosemouse/4998615136)](https://c1.staticflickr.com/5/4147/4998615136_dc0b7b1e39_b.jpg){width=35%}
+
+---
+
+Es importante notar que los ciclos no tienen que tener todos los mismos frames
+
+Desde *el código*, o exportando datos adicionales, se carga la información de:
+
+- El tamaño de cada frame
+- Qué ciclos hay
+- Los frames de cada ciclo
+
+---
+
+
+![Frames (verde) y ciclos (rojo)
+(https://www.flickr.com/photos/goosemouse/4998615136)](imgs/frameciclo.jpg){width=35%}
+
+(Fijémonos en que el tamaño de frame es distinto en esta imagen: no es cómodo,
+pero es posible: habría que indicarlo desde código u otro recurso (un JSON))
+
 ## Reusar ciclos
 
 ---
@@ -323,18 +355,24 @@ mediante animación por esqueleto
 
 ## Cargar un spritesheet
 
+Con
+[`spritesheet`{.js}](https://phaser.io/docs/2.3.0/Phaser.Loader.html#spritesheet):
+
 ```javascript
-game.load.spritesheet('mummy', 'assets/sprites/metalslug_mummy37x45.png', 37, 45, 18);
-mummy = game.add.sprite(200, 360, 'mummy', 5);
+// se le da el ancho, alto y cuántos frames
+game.load.spritesheet('mummy', 'assets/sprites/imagen.png', 37, 45, 18);
+mummy = game.add.sprite(200, 360, 'mummy', 5); // '5' es el número de frame
 ```
 
 
 ## Establecer un ciclo de animación
 
+Se pueden modificar las propiedades de la animación con
+[`AnimationManager`{.js}](http://www.phaser.io/docs/2.6.2/Phaser.AnimationManager.html)
 
 ```javascript
+// animations en un AnimationManager
 anim = mummy.animations.add('walk');
-anim.play('walk', 10, true);
 ```
 
 
@@ -344,15 +382,35 @@ anim.play('walk', 10, true);
 
 ## Comenzar y detener la animación
 
+---
+
+Con `play`{.js} se ejecuta una animación
+
+El primer parámetro es el framerate (frames por segundo, `null`{.js} para usar el
+de la animación por defecto)
+
+El segundo parámetro es para hacer "loop"
 
 ```javascript
-phoenix.play(true); //  true = loop
-greenJellyfish.animations.stop(null, true);
+phoenix.play(null, true);
 ```
 
 
+---
+
+Para parar una animación, con `stop`{.js}:
+
+```javascript
+phoenix.stop();
+```
+
 
 ## Eventos en animaciones
+
+---
+
+Es posible hacer "callbacks" para ser informados de cuándo una animación se
+pone en marcha o se detiene:
 
 
 ```javascript
@@ -361,8 +419,10 @@ anim.onLoop.add(animationLooped, this);
 anim.onComplete.add(animationStopped, this);
 ```
 
+---
 
-
+Con esto, podemos controlar, sin necesidad de conteo de frames a mano, el
+estado de la animación y actuar en consecuencia:
 
 ```javascript
 function animationLooped(sprite, animation) {
@@ -381,9 +441,11 @@ function animationLooped(sprite, animation) {
 ```
 
 
-## Obtener información de las animaciones
+## Más cosas con animaciones por frames
 
+---
 
+Saber si la animación sigue funcionando
 
 ```javascript
 function update() {
@@ -396,24 +458,11 @@ function update() {
 }
 ```
 
-## Loops
+---
 
+Controlar su condición de "loop"
 
 ```javascript
 animation.loop = false;
 ```
-
-
-
-
-## Cambios en la animación
-
-```javascript
-bot.loadTexture('mummy', 0);
-
-bot.animations.add('walk');
-
-bot.animations.play('walk', 30, true);
-```
-
 

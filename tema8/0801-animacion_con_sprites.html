@@ -141,7 +141,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section class="slide level2">
 
 <figure>
-<img src="https://en.wikipedia.org/wiki/Eadweard_Muybridge#/media/File:The_Horse_in_Motion-anim.gif" alt="The Horse in Motion animado (Wikipedia)" /><figcaption>The Horse in Motion animado (Wikipedia)</figcaption>
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/07/The_Horse_in_Motion-anim.gif" alt="The Horse in Motion animado (Wikipedia)" /><figcaption>The Horse in Motion animado (Wikipedia)</figcaption>
 </figure>
 </section><section class="slide level2">
 
@@ -151,8 +151,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <p>La idea prácticamente no ha variado</p>
 <p>Para crear la <strong>sensación</strong> de movimiento (animación), reproducimos imágenes en orden, suficientemente rápido</p>
-</section><section class="slide level2">
-
 </section></section>
 <section><section id="sprites" class="titleslide slide level1"><h1>Sprites</h1></section><section class="slide level2">
 
@@ -210,7 +208,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <p>Para conseguir esto en videojuegos, simplemente disponemos de varios sprites que representan secuencias de movimientos seguidos, diferenciales</p>
 <figure>
-<img src="https://www.flickr.com/photos/goosemouse/4998615136" alt="(https://www.flickr.com/photos/goosemouse/4998615136)" /><figcaption>(https://www.flickr.com/photos/goosemouse/4998615136)</figcaption>
+<img src="https://c1.staticflickr.com/5/4147/4998615136_dc0b7b1e39_b.jpg" alt="Spritesheet (https://www.flickr.com/photos/goosemouse/4998615136)" style="width:35.0%" /><figcaption>Spritesheet (https://www.flickr.com/photos/goosemouse/4998615136)</figcaption>
 </figure>
 </section><section class="slide level2">
 
@@ -296,6 +294,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </section><section id="combinando-frames-y-ciclos" class="slide level2">
 <h1>Combinando frames y ciclos</h1>
+</section><section class="slide level2">
+
+<p>Para combinar frames y ciclos solemos usar una disposición en rejilla</p>
+</section><section class="slide level2">
+
+<p>Así, cada fila es un ciclo, y cada columna es un frame del ciclo</p>
+</section><section class="slide level2">
+
+<figure>
+<img src="https://c1.staticflickr.com/5/4147/4998615136_dc0b7b1e39_b.jpg" alt="Spritesheet (https://www.flickr.com/photos/goosemouse/4998615136)" style="width:35.0%" /><figcaption>Spritesheet (https://www.flickr.com/photos/goosemouse/4998615136)</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<p>Es importante notar que los ciclos no tienen que tener todos los mismos frames</p>
+<p>Desde <em>el código</em>, o exportando datos adicionales, se carga la información de:</p>
+<ul>
+<li class="fragment">El tamaño de cada frame</li>
+<li class="fragment">Qué ciclos hay</li>
+<li class="fragment">Los frames de cada ciclo</li>
+</ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="imgs/frameciclo.jpg" alt="Frames (verde) y ciclos (rojo) (https://www.flickr.com/photos/goosemouse/4998615136)" style="width:35.0%" /><figcaption>Frames (verde) y ciclos (rojo) (https://www.flickr.com/photos/goosemouse/4998615136)</figcaption>
+</figure>
+<p>(Fijémonos en que el tamaño de frame es distinto en esta imagen: no es cómodo, pero es posible: habría que indicarlo desde código u otro recurso (un JSON))</p>
 </section><section id="reusar-ciclos" class="slide level2">
 <h1>Reusar ciclos</h1>
 </section><section class="slide level2">
@@ -338,21 +362,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Phaser permite animar mediante secuencias de frames y ciclos, y también mediante animación por esqueleto</p>
 </section><section id="cargar-un-spritesheet" class="slide level2">
 <h1>Cargar un spritesheet</h1>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">game</span>.<span class="va">load</span>.<span class="at">spritesheet</span>(<span class="st">&#39;mummy&#39;</span><span class="op">,</span> <span class="st">&#39;assets/sprites/metalslug_mummy37x45.png&#39;</span><span class="op">,</span> <span class="dv">37</span><span class="op">,</span> <span class="dv">45</span><span class="op">,</span> <span class="dv">18</span>)<span class="op">;</span>
-mummy <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">360</span><span class="op">,</span> <span class="st">&#39;mummy&#39;</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span></code></pre></div>
+<p>Con <a href="https://phaser.io/docs/2.3.0/Phaser.Loader.html#spritesheet"><code class="sourceCode javascript">spritesheet</code></a>:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// se le da el ancho, alto y cuántos frames</span>
+<span class="va">game</span>.<span class="va">load</span>.<span class="at">spritesheet</span>(<span class="st">&#39;mummy&#39;</span><span class="op">,</span> <span class="st">&#39;assets/sprites/imagen.png&#39;</span><span class="op">,</span> <span class="dv">37</span><span class="op">,</span> <span class="dv">45</span><span class="op">,</span> <span class="dv">18</span>)<span class="op">;</span>
+mummy <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">360</span><span class="op">,</span> <span class="st">&#39;mummy&#39;</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span> <span class="co">// &#39;5&#39; es el número de frame</span></code></pre></div>
 </section><section id="establecer-un-ciclo-de-animación" class="slide level2">
 <h1>Establecer un ciclo de animación</h1>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">anim <span class="op">=</span> <span class="va">mummy</span>.<span class="va">animations</span>.<span class="at">add</span>(<span class="st">&#39;walk&#39;</span>)<span class="op">;</span>
-<span class="va">anim</span>.<span class="at">play</span>(<span class="st">&#39;walk&#39;</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></code></pre></div>
+<p>Se pueden modificar las propiedades de la animación con <a href="http://www.phaser.io/docs/2.6.2/Phaser.AnimationManager.html"><code class="sourceCode javascript">AnimationManager</code></a></p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// animations en un AnimationManager</span>
+anim <span class="op">=</span> <span class="va">mummy</span>.<span class="va">animations</span>.<span class="at">add</span>(<span class="st">&#39;walk&#39;</span>)<span class="op">;</span></code></pre></div>
 </section><section id="comenzar-y-detener-la-animación" class="slide level2">
 <h1>Comenzar y detener la animación</h1>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">phoenix</span>.<span class="at">play</span>(<span class="kw">true</span>)<span class="op">;</span> <span class="co">//  true = loop</span>
-<span class="va">greenJellyfish</span>.<span class="va">animations</span>.<span class="at">stop</span>(<span class="kw">null</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></code></pre></div>
+</section><section class="slide level2">
+
+<p>Con <code class="sourceCode javascript">play</code> se ejecuta una animación</p>
+<p>El primer parámetro es el framerate (frames por segundo, <code class="sourceCode javascript"><span class="kw">null</span></code> para usar el de la animación por defecto)</p>
+<p>El segundo parámetro es para hacer “loop”</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">phoenix</span>.<span class="at">play</span>(<span class="kw">null</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></code></pre></div>
+</section><section class="slide level2">
+
+<p>Para parar una animación, con <code class="sourceCode javascript">stop</code>:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">phoenix</span>.<span class="at">stop</span>()<span class="op">;</span></code></pre></div>
 </section><section id="eventos-en-animaciones" class="slide level2">
 <h1>Eventos en animaciones</h1>
+</section><section class="slide level2">
+
+<p>Es posible hacer “callbacks” para ser informados de cuándo una animación se pone en marcha o se detiene:</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">anim</span>.<span class="va">onStart</span>.<span class="at">add</span>(animationStarted<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span>
 <span class="va">anim</span>.<span class="va">onLoop</span>.<span class="at">add</span>(animationLooped<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span>
 <span class="va">anim</span>.<span class="va">onComplete</span>.<span class="at">add</span>(animationStopped<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span></code></pre></div>
+</section><section class="slide level2">
+
+<p>Con esto, podemos controlar, sin necesidad de conteo de frames a mano, el estado de la animación y actuar en consecuencia:</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">animationLooped</span>(sprite<span class="op">,</span> animation) <span class="op">{</span>
 
     <span class="cf">if</span> (<span class="va">animation</span>.<span class="at">loopCount</span> <span class="op">===</span> <span class="dv">1</span>)
@@ -366,8 +407,11 @@ mummy <span class="op">=</span> <span class="va">game</span>.<span class="va">ad
     <span class="op">}</span>
 
 <span class="op">}</span></code></pre></div>
-</section><section id="obtener-información-de-las-animaciones" class="slide level2">
-<h1>Obtener información de las animaciones</h1>
+</section><section id="más-cosas-con-animaciones-por-frames" class="slide level2">
+<h1>Más cosas con animaciones por frames</h1>
+</section><section class="slide level2">
+
+<p>Saber si la animación sigue funcionando</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">update</span>() <span class="op">{</span>
 
     <span class="cf">if</span> (<span class="va">anim</span>.<span class="at">isPlaying</span>)
@@ -376,16 +420,10 @@ mummy <span class="op">=</span> <span class="va">game</span>.<span class="va">ad
     <span class="op">}</span>
 
 <span class="op">}</span></code></pre></div>
-</section><section id="loops" class="slide level2">
-<h1>Loops</h1>
+</section><section class="slide level2">
+
+<p>Controlar su condición de “loop”</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">animation</span>.<span class="at">loop</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></code></pre></div>
-</section><section id="cambios-en-la-animación" class="slide level2">
-<h1>Cambios en la animación</h1>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">bot</span>.<span class="at">loadTexture</span>(<span class="st">&#39;mummy&#39;</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span>
-
-<span class="va">bot</span>.<span class="va">animations</span>.<span class="at">add</span>(<span class="st">&#39;walk&#39;</span>)<span class="op">;</span>
-
-<span class="va">bot</span>.<span class="va">animations</span>.<span class="at">play</span>(<span class="st">&#39;walk&#39;</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></code></pre></div>
 </section></section>
     </div>
   </div>
