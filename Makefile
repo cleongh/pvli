@@ -7,11 +7,13 @@ TEMA5=tema5/0501_carga_de_recursos_con_phaser.html tema5/Ejercicio2/Enunciado/ej
 TEMA6=tema6/0603_tiles.html tema6/0604-texto-en-phaser.html tema6/0605-webaudio.html tema6/nodos.dot.svg tema6/0606-audio-en-phaser.html
 TEMA7=tema7/0701-phaser-colisiones.html tema7/0702-phaser-colisiones-ninja.html tema7/0703-phaser-el-motor-p2.html
 TEMA8=tema8/0801-animacion_con_sprites.html
-TEMA9=tema9/0901-proyectos.html tema9/0902-extensiones.html
+TEMA9=tema9/0901-proyectos.html
 TEMA10=tema10/1001-extensiones.html
-PR3=proyecto/version1/criterios_evaluacion.html  proyecto/version1/especificacion.html
+PR3=proyecto/version1/criterios_evaluacion.html proyecto/version1/especificacion.html
+PR4=proyecto/version2/criterios_evaluacion.html proyecto/version2/especificacion.html
+PR5=proyecto/version3/criterios_evaluacion.html proyecto/version3/especificacion.html
 
-PROYECTO=$(PR3)
+PROYECTO=$(PR3) $(PR4) $(PR5)
 TEMAS=$(TEMA1) $(TEMA2) $(TEMA3) $(TEMA4) tema4/0403-ejercicios.html $(TEMA5) $(TEMA6) $(TEMA7) $(TEMA8) $(TEMA9) $(TEMA10)
 TODO=$(GENERAL) $(TEMAS) $(PROYECTO)
 BASERUN=pandoc -S -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
@@ -26,6 +28,12 @@ general/%.html: general/%.md shared/docs.css
 	$(BASERUN) --css ../shared/docs.css $< -o $@
 
 proyecto/version1/%.html: proyecto/version1/%.md shared/docs.css
+	$(BASERUN) --css ../shared/docs.css $< -o $@
+
+proyecto/version2/%.html: proyecto/version2/%.md shared/docs.css
+	$(BASERUN) --css ../shared/docs.css $< -o $@
+
+proyecto/version3/%.html: proyecto/version3/%.md shared/docs.css
 	$(BASERUN) --css ../shared/docs.css $< -o $@
 
 tema4/0403-ejercicios.html: tema4/0403-ejercicios.md shared/docs.css

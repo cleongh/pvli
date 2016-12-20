@@ -10,17 +10,17 @@
 <title>nodos</title>
 <g id="clust1" class="cluster"><title>cluster_0</title>
 <polygon fill="none" stroke="black" points="8,-8 8,-83 315.085,-83 315.085,-8 8,-8"/>
-<text text-anchor="middle" x="161.543" y="-67.8" font-family="Times,serif" font-size="14.00">audio</text>
+<text text-anchor="middle" x="161.543" y="-67.8" font-family="Times New Roman,serif" font-size="14.00">audio</text>
 </g>
 <!-- oscillator -->
 <g id="node1" class="node"><title>oscillator</title>
 <ellipse fill="none" stroke="black" cx="60.1961" cy="-34" rx="44.393" ry="18"/>
-<text text-anchor="middle" x="60.1961" y="-30.3" font-family="Times,serif" font-size="14.00">oscillator</text>
+<text text-anchor="middle" x="60.1961" y="-30.3" font-family="Times New Roman,serif" font-size="14.00">oscillator</text>
 </g>
 <!-- gain -->
 <g id="node2" class="node"><title>gain</title>
 <ellipse fill="none" stroke="black" cx="167.392" cy="-34" rx="27" ry="18"/>
-<text text-anchor="middle" x="167.392" y="-30.3" font-family="Times,serif" font-size="14.00">gain</text>
+<text text-anchor="middle" x="167.392" y="-30.3" font-family="Times New Roman,serif" font-size="14.00">gain</text>
 </g>
 <!-- oscillator&#45;&gt;gain -->
 <g id="edge1" class="edge"><title>oscillator&#45;&gt;gain</title>
@@ -30,7 +30,7 @@
 <!-- speaker -->
 <g id="node3" class="node"><title>speaker</title>
 <ellipse fill="none" stroke="black" cx="268.739" cy="-34" rx="38.1938" ry="18"/>
-<text text-anchor="middle" x="268.739" y="-30.3" font-family="Times,serif" font-size="14.00">speaker</text>
+<text text-anchor="middle" x="268.739" y="-30.3" font-family="Times New Roman,serif" font-size="14.00">speaker</text>
 </g>
 <!-- gain&#45;&gt;speaker -->
 <g id="edge2" class="edge"><title>gain&#45;&gt;speaker</title>

@@ -192,12 +192,12 @@ Tema 7: Física para juegos en 2D (II)
     - Animación basada en secuencia
     - Ciclos de animación
     - Spritesheets
-- 20/12--Tema 9: Proyectos
+- 20/12--Tema 9: Proyectos (I)
     - Particularidades de los videojuegos en Internet
     - Proyectos en la web
     - Despliegue
     - Explicación Práctica 4 (audio y animaciones)
-    - Explicación Práctica 4 (despliegue y publicación)
+    - Explicación Práctica 5 (despliegue y publicación)
 <!-- - Animación por huesos -->
 <!-- TODO [Carlos, 13-10-2016 16:12]: ver Spine -->
 <!-- - 23/12
@@ -208,16 +208,12 @@ Tema 7: Física para juegos en 2D (II)
 <!-- la idea es que la práctica 5 tenga plug-ins y partículas, hay que cumplir
 con el programa -->
 
-
-
-Tutorías de proyecto
-
 - 9/1: Tema 10: JavaScript para herramientas
     - Extensiones de sistemas con JavaScript
-- 10/1
+- 10/1--Tema 9: Proyectos (II)
     - Tutorías de proyectos
 - 13/1
-    - Trabajo en práctica 4
+    - Trabajo en Práctica 4
 
 # 16-20 de enero
 

@@ -3,7 +3,7 @@ title: Criterios de evaluación PVLI
 author: Carlos León
 date: 06/10/2016
 vim: spelllang=es
-...
+---
 
 Dado el carácter práctico de la asignatura de *Programación de Videojuegos en
 Lenguajes Interpretados*, la evaluación se llevará a cabo mediante entregas
@@ -80,7 +80,7 @@ asistencia se calculará como el porcentaje de asistencia ($asistencia = \text{h
 
 Todo el material entregado debe estar alojado en un repositorio *git*
 a elección de los alumnos. Este repositorio puede ser público o privado, pero
-se tiene que asegurar el acceso a los profesores. 
+se tiene que asegurar el acceso a los profesores.
 
 Por ejemplo, si el repositorio es privado, se tiene que dar de alta el usuario
 de los profesores.
@@ -89,7 +89,7 @@ de los profesores.
 
 Las entregas consistirán en un texto corto con:
 
-- Un enlace al repositorio (commit **exacto**) 
+- Un enlace al repositorio (commit **exacto**)
 - Los miembros del equipo
 - Lo que ha hecho cada miembro
 - Una descripción de todo lo *relevante* (por favor, sólo lo *relevante*)
@@ -105,7 +105,7 @@ archivos), se deberá incluir un texto de este tipo:
 
     Alonzo cree que todo es lambda y ha escrito mucho sobre ello.
 
-    Alan, por su parte, ha creado una máquina teórica. 
+    Alan, por su parte, ha creado una máquina teórica.
 
     Nos hemos dado cuenta de que que ambas soluciones son equivalentes.
     Se puede probar con el script:
