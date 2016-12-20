@@ -2,8 +2,6 @@
 title: Criterios de evaluación
 ---
 
-# Criterios de evaluación
-
 La práctica sea realizará por grupos, y se hará una sola entrega por cada grupo
 siguiendo las [instrucciones comunes][] de entrega para la asignatura. Se
 aplicarán los criterios usuales en cuanto a entregas, obligatoriedad y copias

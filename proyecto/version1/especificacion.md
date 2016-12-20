@@ -2,7 +2,7 @@
 title: "Práctica 3: primera versión de un videojuego en JavaScript (arcade
 plataformas)"
 vim: spelllang=es
-...
+---
 
 Esta práctica consiste en hacer un arcade 2D de plataformas en Phaser, que se
 pueda ejecutar, por tanto, en un navegador. El objetivo es aplicar los
@@ -36,13 +36,13 @@ los siguientes requisitos:
   equipo docente, *la práctica estará suspensa*.
 - La entrada se hará por teclado.
 - Se incluirán:
-    - una pantalla de carga, 
-    - una pantalla de menú 
+    - una pantalla de carga,
+    - una pantalla de menú
     - un modo de juego al menos con un nivel
     - una pantalla de pausa durante el juego con al menos dos opciones: Continuar el juego y Salir. Salir te llevará al menú principal.
     - un modo de "fin de partida", bien al superar el o los niveles, bien cuando muere el jugador.
 - Se tratará de llevar un personaje desde un punto a otro. El personaje podrá
-  moverse hacia la izquierda y la derecha y podrá saltar. 
+  moverse hacia la izquierda y la derecha y podrá saltar.
     - Al llegar al punto exitosamente, se informará de la victoria y se irá al
       menú tras la pantalla de fin de partida.
     - Si "muere", se informará también y se irá al menú tras la pantalla de fin

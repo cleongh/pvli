@@ -1,9 +1,7 @@
 ---
 title: Criterios de evaluación
 vim: spelllang=es
-...
-
-# Criterios de evaluación
+---
 
 La práctica sea realizará por grupos, y se hará una sola entrega por cada grupo
 siguiendo las [instrucciones comunes][] de entrega para la asignatura. Se
@@ -19,7 +17,7 @@ Uno de los objetivos principales de este tipo de actividades es que los alumnos
 sean capaces de ser autónomos, evaluar su propia entrega y ofrecer soluciones
 originales y personales. Es decir, hay hueco para improvisar, añadir elementos
 o proponer modificaciones razonables (siempre consensuadas y validadas a priori
-  con el equipo docente). 
+  con el equipo docente).
 
 Además, es fundamental que los grupos trabajen de forma autónoma, con tiempo de
 sobra y consultando al equipo docente. La idea es que, al hacerlo así, tener un

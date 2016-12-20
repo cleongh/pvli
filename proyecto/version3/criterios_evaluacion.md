@@ -2,8 +2,6 @@
 title: Criterios de evaluación
 ---
 
-# Criterios de evaluación
-
 La práctica sea realizará por grupos, y se hará una sola entrega por cada grupo.
 
 > En este caso, no se enviará un commit como entrega, sino una URL donde esté el juego publicado

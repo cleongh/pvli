@@ -114,13 +114,36 @@ Esto no sólo se centra en el *servidor de juego*, sino también en:
 Esto quiere decir que un juego en Internet que corra en el navegador tienen muchos más aspectos que el código
 
 
-## Hay que planificar para ciclos muy cortos
-
-## Hay que desplegar rápido
-
 ## No olvidemos las pruebas
 
+---
+
+Probad el juego antes de publicarlo
+
+---
+
+Las pruebas tienen que ser estrictas, aburridas, mecánicas, exhaustivas y destinadas a hacer que algo se rompa
+
+---
+
+Cada versión preparada para el lanzamiento tiene que tener su propio set de pruebas
+
 ## Mantenimiento
+
+---
+
+Cualquier proyecto tiene que estar mantenido
+
+No es suficiente (ni de lejos) publicar la primera versión y dejar que el juego genere beneficios por sí mismo
+
+---
+
+- Corrección de errores
+- Añadido de características demandadas
+- Ajuste de parámetros
+- Adaptación de precios  
+
+---
 
 # Cómo **aprovechar** las particularidades
 
@@ -148,15 +171,24 @@ El cliente **no** tiene que:
 
 ## Es crucial recibir realimentación
 
+---
+
+
 Uno de los principios básicos de cualquier proyecto es saber *cuál es el impacto que está teniendo*
+
+---
 
 La realimentación es fundamental
 
 Ayuda a ver los problemas que surjen
 
+---
+
 Estos pueden ser errores de programación, pero también defectos de interfaz, de jugabilidad (en el caso de juegos), de modificación de requisitos...
 
 Es muy posible, por ejemplo, que el jugador evolucione y que pida características nuevas en vuestro juego
+
+---
 
 Para todo esto, un buen proyecto debe *habilitar formas de comunicación con sus jugadores*
 
@@ -164,11 +196,19 @@ Cuanto más accesibles y sencillas sean, más fácil es encontrar respuesta (nad
 
 ## Aplicar la realimentación, probar y volver a desplegar ha de ser rápido
 
+---
+
 Si hay algo que un proyecto que no convence al jugador y no se arregla, el jugador desaparecerá
+
+---
 
 En un marco tan competitivo, cualquier otro juego aprovechará las debilidades relativas de vuestro juego para su beneficio
 
+---
+
 Con el [F2P](https://en.wikipedia.org/wiki/Free-to-play) y la accesibilidad en Internet de casi todos juegos, la calidad, la respuesta rápida y la adaptación constante son fundamentales
+
+---
 
 [HOTS](http://eu.battle.net/heroes/es/) vs [LOL](http://euw.leagueoflegends.com/es)
 
@@ -178,6 +218,8 @@ Monetizar: convertir vuestro juego en dinero
 
 La monetización es uno de los temas más críticos de los videojuegos
 
+---
+
 No es difícil (más o menos) crear un juego aceptable al que mucha gente juege, lo complicado es vivir de ello
 
 - Vender el juego (la licencia) a un *publisher*
@@ -185,9 +227,12 @@ No es difícil (más o menos) crear un juego aceptable al que mucha gente juege,
 - Vender capacidad de hacer juegos (no juegos)
 - Fundraising (de muchos tipos)
 
+---
+
 En [esta página](https://www.truevalhalla.com/blog) podéis ver un ejemplo (¡con mucho detalle!) de un modelo de monetización exitoso
 
 El autor hasta ha publicado [un libro](https://www.truevalhalla.com/blog/ebook)
+
 
 # Cómo empaquetar (para las entregas)
 
