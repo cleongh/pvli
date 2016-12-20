@@ -32,7 +32,7 @@ P2 también utiliza el concepto de sensor.
 
 ---
 
-Para establecer que un collider es un sensor hay que modificar la shape de la física.
+Para establecer que un collider es un sensor, hay que modificar la shape de la física.
 
 ```js
 sprite.body.data.shapes[0].sensor = true; // Establece que la shape 0 es un sensor.
@@ -90,6 +90,7 @@ Si aplicamos una velocidad a un objeto físico este se moverá hacia la direcci�
 una **fuerza** es todo agente capaz de modificar la cantidad de movimiento de un objeto. En física de videojeugos llamamos fuerza a una modificación constante del movimiento de un objeto.
 
 applyForce(force, worldX, worldY)
+applyForceLocal(force, localX, localY)
 
 * force: es un vector 2D (Por ejemplo: [ 200, 100])
 * Tanto los puntos WorldX como WoldY, localX, localY son el punto a partir del cual se está aplicando la fuerza. 
@@ -182,9 +183,9 @@ El desplazamiento:
 
 Una buena aproximación en videojuegos es hacer lo siguiente:
 
-e(t+1) = e(t)\*v(t)\*t
+e(t+1) = e(t) + v(t)\*t
 
-v(t+1) = Max(v(t)\*a\*t,VMax)
+v(t+1) = Min(v(t)\*a\*t,VMax)
 
 * e(t+1): Siguiente posicion;
 * e(t) : Posición inicial.
@@ -201,7 +202,7 @@ v(t+1) = Max(v(t)\*a\*t,VMax)
 
 Si la aceleración es instantanea => v(t) == VMax;
 
-e(t+1) = e(t)\*VMax\*t;
+e(t+1) = e(t) + VMax\*t;
 
 
 ## Aceleración variable
@@ -233,7 +234,7 @@ function accelerateToObject(obj1, obj2, speed) {
 
 * El ángulo entre dos vectores se calcula con la arcotangente del vector diferencia (destino - origen)
 * Si queremos calcular la cantidad de movimiento aplicable a cada componente, debemos proyectar el ángulo a los diferentes componentes.
-* Se usa **thrust** para acelerar (al ser un impulso se aplica la aceleración por física) o force en el caso de los objetos.
+* Se usa **thrust** para acelerar (al ser un impulso, se aplica la aceleración por física) o force en el caso de los objetos.
 * La rotación es instantánea. (En general no tiene por que serlo)
 
 
@@ -292,7 +293,7 @@ Los springs siguen la ley de Hooke donde la fuerza F:
 Derivado de esta ley tenemos el movimiento armónico oscilante. :
 
 * **damping** es una fuerza que va en dirección contraria al movimiento. 
-La resistencia que hace que el movimiento sea oscilante. Cuanto más extirado esté el muelle, más fuerza de damping se genera.
+La resistencia que hace que el movimiento sea oscilante. Cuanto más estirado esté el muelle, más fuerza de damping se genera.
 El damping consigue cambiar la dirección del movimiento y como siempre es inverso a este movimiento, lo frena hasta que lo cambia de sentido.
 
 ----
@@ -305,7 +306,7 @@ spring = game.physics.p2.createSpring(bodya, bodyb, 0, 30, 1);
 
 * **restLength**: La longitud del spring.
 * **stiffness**: Rigidez del spring. (costante de elasticidad)
-* **damping**: Amortiguación. (rebote o fuerza contraria al movimiento
+* **damping**: Amortiguación. (rebote o fuerza contraria al movimiento)
 
 [Springs](https://phaser.io/examples/v2/p2-physics/mouse-spring)
 
@@ -318,7 +319,7 @@ spring = game.physics.p2.createSpring(bodya, bodyb, 0, 30, 1);
 
 ## Cuerpos Kinemáticos Vs Cuerpos Físicos.
 
-**Kinematic bodies** son cuerpos que están en la física pero que queremos mover nosotros por código.
+**Kinematic bodies** son cuerpos que están en la física, pero que queremos mover nosotros por código.
 
 Típicamente las plataformas de los juegos de plataforma. También se suelen incluir los enemigos que son controlados por la IA o el player si no modificamos su posición con la física. 
 
