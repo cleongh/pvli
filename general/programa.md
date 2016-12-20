@@ -1,8 +1,8 @@
 ---
-title: Programación PVLI (2016/2017) 
+title: Programación PVLI (2016/2017)
 author: Belén Albeza, Carlos León, Salvador de la Puente, Ismael Sagredo
 vim: spelllang=es
-...
+---
 
 # 26-30 de septiembre
 
@@ -19,7 +19,7 @@ Tema 1: Programación de aplicaciones en HTML5
 - 30/9
     - Charla inicial: Introducción a las Tecnologías de Videojuegos en Internet
 
-# 03-07 de octubre 
+# 03-07 de octubre
 
 Tema 2: Javascript (I)
 
@@ -33,7 +33,7 @@ Tema 2: Javascript (I)
 - 07/10
     - El modelo de datos de JavaScript: ejercicios
 
-# 10-14 de octubre 
+# 10-14 de octubre
 
 <!-- (Salva - max 3) -->
 
@@ -45,7 +45,7 @@ Tema 2: Javascript (I)
     - Programación asíncrona
     - Eventos: el patrón suscriptor / publicador
 
-# 17-21 de octubre 
+# 17-21 de octubre
 
 <!-- <1!-- (Belén - max 3) --1> -->
 
@@ -60,7 +60,7 @@ Tema 3: Programación de videojuegos en un canvas de HTML5
     - Creación y acceso a un `canvas`
     - Canvas 2D/WebGL
 <!-- - Pintado y repintado, ciclo -->
-<!-- - Entrada básica --> 
+<!-- - Entrada básica -->
 <!-- Clicks por lo menos  -->
 <!-- - Eventos navegador/DOM -->
 <!-- - Eventos con Phaser -->
@@ -112,7 +112,7 @@ Tema 5: Carga de recursos <!-- con Phaser -->
 <!-- - Cargador de recursos para el juego -->
 <!-- - Cross-origin. Ejecutar Phaser en local server -->
 
-# 07-11 de noviembre 
+# 07-11 de noviembre
 
 <!-- Belen planifica día por día y nos repartimos los temas -->
 
@@ -125,14 +125,14 @@ Tema 6: Gestión de entidades (I)
 - 11/11
     - Trabajo en Práctica 1
 
-# 14-18 de noviembre 
+# 14-18 de noviembre
 
 Tema 6: Gestión de entidades (II)
 
 - 15/11
-    - Tiles 
+    - Tiles
     - Creación de tiles ([`tiled`](http://www.mapeditor.org/))
-    - Texto 
+    - Texto
     - Fuentes de mapa de bits
     - Fuentes Web y fuentes del sistema
 - 18/11
@@ -173,50 +173,49 @@ Tema 7: Física para juegos en 2D (I)
 
 # 12-16 de diciembre
 
+Tema 7: Física para juegos en 2D (II)
 
-- 12/12--Tema 7: Física para juegos en 2D (II)
+- 12/12
     - Explicación de la Práctica 3 (plataformas)
     - Física avanzada en Phaser
-- 13/12--Tema 8: Animaciones basadas en sprites (I)
-    - Secuencias de sprites
-    - Animación basada en secuencia
-    - Ciclos de animación
-    - Spritesheets
+- 13/12
+    - Física avanzada en Phaser
 - 16/12
     - Trabajo en Práctica 3
 
 
 # 19-22 de diciembre
 
-<!-- prepara Carlos -->
 
-<!-- TODO [Carlos, 13-10-2016 16:12]: darle una vuelta a los items (Carlos) -->
-
-
-- 19/12--Tema 8: Animaciones basadas en sprites (II)
-    - Animación avanzada
-- 20/12--Tema 9: Proyectos (I)
+- 19/12--Tema 8: Animaciones basadas en sprites
+    - Secuencias de sprites
+    - Animación basada en secuencia
+    - Ciclos de animación
+    - Spritesheets
+- 20/12--Tema 9: Proyectos
     - Particularidades de los videojuegos en Internet
     - Proyectos en la web
     - Despliegue
+    - Explicación Práctica 4 (audio y animaciones)
+    - Explicación Práctica 4 (despliegue y publicación)
 <!-- - Animación por huesos -->
 <!-- TODO [Carlos, 13-10-2016 16:12]: ver Spine -->
-- 23/12
-    - Trabajo en Práctica 3
+<!-- - 23/12
+    - Trabajo en Práctica 3 -->
 
 # 9-13 de enero
 
 <!-- la idea es que la práctica 5 tenga plug-ins y partículas, hay que cumplir
 con el programa -->
 
-Tema 9: Proyectos (II)
+
 
 Tutorías de proyecto
 
-- 9/1
-    - Explicación Práctica 4 (audio y animaciones)
-- 10/1
+- 9/1: Tema 10: JavaScript para herramientas
     - Extensiones de sistemas con JavaScript
+- 10/1
+    - Tutorías de proyectos
 - 13/1
     - Trabajo en práctica 4
 
@@ -228,9 +227,8 @@ Tema 9: Proyectos (III)
 Presentaciones
 
 - 16/1
-    - Presentación de proyectos
+    - Presentación de proyectos/Tutorías
 - 17/1
-    - Presentación de proyectos
+    - Presentación de proyectos/Tutorías
 - 20/1
-    - Explicación Práctica 5 (finalización y despliegue) y presentación de proyectos
-
+    - Presentación de proyectos/Tutorías
