@@ -143,8 +143,6 @@ No es suficiente (ni de lejos) publicar la primera versión y dejar que el juego
 - Ajuste de parámetros
 - Adaptación de precios  
 
----
-
 # Cómo **aprovechar** las particularidades
 
 ---
