@@ -1,8 +1,7 @@
 ---
 title: Criterios de evaluación PVLI
 author: Carlos León
-date: 06/10/2016
-vim: spelllang=es
+date: 18/9/2017
 ---
 
 Dado el carácter práctico de la asignatura de *Programación de Videojuegos en
