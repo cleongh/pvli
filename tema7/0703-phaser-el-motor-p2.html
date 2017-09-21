@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>El Motor Físico de Phaser: Fuerzas Físicas, el motor P2</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+
+
+  <!-- <link rel="stylesheet" href="../shared/lib/reveal/../tabzilla/css/tabzilla.css"/> -->
+  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
+  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/mozilla-devrel-light.css"/>
+  <link rel="stylesheet" href="../shared/lib/reveal/lib/css/solarized-light.css" />
+
+
+
+
+  <!-- <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"> -->
+
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+<!--  -->
+<!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
+<!--  -->
+<!--  -->
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../shared/lib/reveal/css/print/pdf.css' : '../shared/lib/reveal/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+
+<!-- FIXME megahack because `pandoc` only generates h1's. -->
+<!-- <style type="text/css"> -->
+
+
+<!-- .inner { -->
+<!--     width: 100%; -->
+<!--     margin: 0 auto; --> 
+<!-- } -->
+
+<!--     h1{ --> 
+<!--     } -->
+
+<!--     .level2 h1 { -->
+        
+<!--     border-top: 0.1em solid #484848; -->
+<!--     border-bottom: 0.1em solid #484848; -->
+    
+<!--     padding: 1em 0; -->
+<!--     margin-bottom: 1em; -->
+<!--     font-size: 1.6em; -->
+<!--     margin: 0 0 20px 0; -->
+<!--     color: #484848; -->
+<!--     font-family: "Fira Sans", Helvetica, sans-serif; -->
+<!--     font-weight: 600; -->
+<!--     line-height: 1.2; -->
+<!--     letter-spacing: normal; -->
+<!--     text-transform: uppercase; -->
+<!--     text-shadow: none; -->
+<!--     word-wrap: break-word; -->
+<!-- } -->
+
+<!-- </style> -->
+
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">El Motor Físico de Phaser: Fuerzas Físicas, el motor P2</h1>
+</section>
+
+<section><section id="introducción" class="titleslide slide level1"><h1>Introducción</h1></section><section id="hasta-ahora" class="slide level2">
+<h2>Hasta ahora…</h2>
+<p>Hemos visto colisiones. Ahora veremos una variante de las colisiones que denominamos <strong>Triggers</strong>. Los triggers son un método muy utilizado en videojuegos para generar eventos durante el juego.</p>
+</section></section>
+<section><section id="triggers-sensor" class="titleslide slide level1"><h1>Triggers (sensor)</h1></section><section id="qué-es-un-trigger" class="slide level2">
+<h2>¿Qué es un trigger?</h2>
+<p>Podemos definir un <strong>trigger</strong> (disparador) como una zona del juego en la que se chequea que objetos entran y salen de ella, informando de ambos eventos a quienes esten interesados. Normalmente un trigger provoca una invocación a un método asíncrono (evento) asociado a dicho trigger.</p>
+</section><section class="slide level2">
+
+<p>Al concepto de trigger a veces se le denomina <strong>sensor</strong>. Por ejemplo, ese es el nombre que utiliza Box2D.</p>
+<p>P2 también utiliza el concepto de sensor.</p>
+</section><section class="slide level2">
+
+<p>Para establecer que un collider es un sensor, hay que modificar la shape de la física.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">sprite</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">shapes</span>[<span class="dv">0</span>].<span class="at">sensor</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> <span class="co">// Establece que la shape 0 es un sensor.</span></code></pre></div>
+<p>o bien</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    triggerShape <span class="op">=</span> <span class="va">trigger</span>.<span class="va">body</span>.<span class="at">addRectangle</span>(<span class="dv">10</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">0</span><span class="op">,-</span><span class="dv">54</span>)<span class="op">;</span> <span class="co">//añade un sensor al objeto. Devuelve un shape.</span>
+    <span class="va">triggerShape</span>.<span class="at">sensor</span><span class="op">=</span><span class="kw">true</span><span class="op">;</span> <span class="co">// modificamos la shape marcándola como sensor.</span></code></pre></div>
+</section><section class="slide level2">
+
+<!-- https://codepen.io/codevinsky/pen/JAoHa -->
+<p>Al marcarla como sensor, la shape no colisiona con el resto de la física. Por tanto, al objeto se le puede atravesar sin que se produzcan rebotes.</p>
+</section><section class="slide level2">
+
+<p>Pero podemos seguir escuchando los eventos de contacto</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    <span class="va">trigger</span>.<span class="va">body</span>.<span class="va">onBeginContact</span>.<span class="at">add</span>(checkSensorsBegin<span class="op">,</span><span class="kw">this</span>)<span class="op">;</span>
+    <span class="va">trigger</span>.<span class="va">body</span>.<span class="va">onEndContact</span>.<span class="at">add</span>(checkSensorsEnd<span class="op">,</span><span class="kw">this</span>)<span class="op">;</span>
+    
+<span class="kw">function</span> <span class="at">checkSensorsBegin</span>(bodyA<span class="op">,</span>shapeA<span class="op">,</span>shapeB)<span class="op">{</span>
+    <span class="va">game</span>.<span class="va">debug</span>.<span class="at">text</span>(<span class="st">&quot;Collision detected!&quot;</span><span class="op">,</span> <span class="dv">32</span><span class="op">,</span> <span class="dv">32</span>)<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="kw">function</span> <span class="at">checkSensorsEnd</span>(bodyA<span class="op">,</span>shapeA<span class="op">,</span>shapeB)<span class="op">{</span>
+    <span class="va">game</span>.<span class="va">debug</span>.<span class="at">text</span>(<span class="st">&quot;Collision leaved!&quot;</span><span class="op">,</span> <span class="dv">32</span><span class="op">,</span> <span class="dv">32</span>)<span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+</section></section>
+<section><section id="velocidad" class="titleslide slide level1"><h1>Velocidad</h1></section><section id="qué-es-la-velocidad" class="slide level2">
+<h2>¿Qué es la velocidad?</h2>
+<!-- https://www.codeandweb.com/physicseditor/tutorials/phaser-p2-physics-example-tutorial -->
+<p>La <strong>velocidad</strong> es una magnitud física vectorial que expresa la distancia recorrida de un objeto por unidad de tiempo.</p>
+<p>Se puede modificar en Phaser directamente en el body físico.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">sprite</span>.<span class="va">body</span>.<span class="va">velocity</span>.<span class="at">x</span>
+<span class="va">sprite</span>.<span class="va">body</span>.<span class="va">velocity</span>.<span class="at">y</span></code></pre></div>
+<p>Si aplicamos una velocidad a un objeto físico este se moverá hacia la dirección indicada con la magnitud indicada.</p>
+</section><section id="aplicando-fuerzas" class="slide level2">
+<h2>Aplicando fuerzas</h2>
+<p>una <strong>fuerza</strong> es todo agente capaz de modificar la cantidad de movimiento de un objeto. En física de videojeugos llamamos fuerza a una modificación constante del movimiento de un objeto.</p>
+<p>applyForce(force, worldX, worldY) applyForceLocal(force, localX, localY)</p>
+<ul>
+<li class="fragment">force: es un vector 2D (Por ejemplo: [ 200, 100])</li>
+<li class="fragment">Tanto los puntos WorldX como WoldY, localX, localY son el punto a partir del cual se está aplicando la fuerza.</li>
+</ul>
+</section><section id="aplicando-impulsos" class="slide level2">
+<h2>Aplicando impulsos</h2>
+<p>Un impulso es una fuerza que se ejerce en un momento puntual pero que cesa y su efecto se reduce con el tiempo.</p>
+<p>applyImpulse(impulse, worldX, worldY) applyImpulseLocal(impulse, localX, localY)</p>
+<ul>
+<li class="fragment">impulse: es un vector 2D (Por ejemplo: [ 200, 100])</li>
+<li class="fragment">Tanto los puntos WorldX como WorldY, localX, localY son el punto a partir del cual se está aplicando el impulso. Si no se especifican se toma el centro del mundo o el centro de masas del objeto.</li>
+</ul>
+</section><section id="move" class="slide level2">
+<h2>Move</h2>
+<ul>
+<li class="fragment"><p>moveRight, moveUp, moveLeft, moveDown</p></li>
+<li class="fragment"><p>Mueven el objeto sin necesidad de cambiar la rotación.</p></li>
+<li class="fragment"><p>moveForward, moveBackward</p></li>
+<li class="fragment"><p>Mueven el objeto en la dirección de rotación del mismo. Si queremos girar tendremos que rotar el objeto.</p></li>
+<li class="fragment"><p>thrust: impulsa el objeto hacia su ángulo de orientación (forward)</p></li>
+</ul>
+</section><section id="gravedad" class="slide level2">
+<h2>Gravedad</h2>
+<p>La gravedad es un tipo de fuerza constante hacia una dirección. Normalmente hacia abajo:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="va">gravity</span>.<span class="at">y</span> <span class="op">=</span> <span class="dv">300</span><span class="op">;</span></code></pre></div>
+</section><section class="slide level2">
+
+<p>Podemos modificar la fuerza de la gravedad relativa a cada objeto usando <strong>gravityScale</strong></p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    <span class="va">sprite1</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">gravityScale</span> <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
+    <span class="va">sprite2</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">gravityScale</span> <span class="op">=</span> <span class="fl">0.5</span><span class="op">;</span>
+    <span class="va">sprite3</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">gravityScale</span> <span class="op">=</span> <span class="fl">0.25</span><span class="op">;</span></code></pre></div>
+<p><a href="http://phaser.io/examples/v2/p2-physics/gravity-scale">gravityScale</a></p>
+</section></section>
+<section><section id="aceleración" class="titleslide slide level1"><h1>Aceleración</h1></section><section id="qué-es-la-aceleración" class="slide level2">
+<h2>¿Qué es la aceleración?</h2>
+<p>La aceleración es una magnitud vectorial que nos indica la variación de velocidad por unidad de tiempo.</p>
+</section><section id="velocidad-uniformemente-acelerada" class="slide level2">
+<h2>Velocidad uniformemente acelerada</h2>
+<p>v=v0+a⋅t</p>
+<p>Donde:</p>
+<ul>
+<li class="fragment">v: velocidad.</li>
+<li class="fragment">v0: velocidad inicial.</li>
+<li class="fragment">a: aceleración.</li>
+</ul>
+</section><section class="slide level2">
+
+<p>El desplazamiento:</p>
+<figure>
+<img src="imgs/aceleracion.svg" alt="Aceleración" /><figcaption>Aceleración</figcaption>
+</figure>
+<ul>
+<li class="fragment">e(t): posición</li>
+<li class="fragment">e0: posición inicial.</li>
+<li class="fragment">t: tiempo.</li>
+<li class="fragment">a: aceleración.</li>
+<li class="fragment">v0: velocidad inicial.</li>
+</ul>
+</section><section class="slide level2">
+
+<p>Una buena aproximación en videojuegos es hacer lo siguiente:</p>
+<p>e(t+1) = e(t) + v(t)*t</p>
+<p>v(t+1) = Min(v(t)*a*t,VMax)</p>
+<ul>
+<li class="fragment">e(t+1): Siguiente posicion;</li>
+<li class="fragment">e(t) : Posición inicial.</li>
+<li class="fragment">a: Aceleración.</li>
+<li class="fragment">v(t+1): Velocidad en la siguiente iteración;</li>
+<li class="fragment">v(t): Velocidad actual.</li>
+<li class="fragment">VMax: Velocidad máxima.</li>
+</ul>
+</section><section id="aceleración-instantánea" class="slide level2">
+<h2>Aceleración instantánea</h2>
+<p>Si la aceleración es instantanea =&gt; v(t) == VMax;</p>
+<p>e(t+1) = e(t) + VMax*t;</p>
+</section><section id="aceleración-variable" class="slide level2">
+<h2>Aceleración variable</h2>
+<p>El valor de a puede cambiar en función del tiempo. Por ejemplo en función de cuanto se pulse un gatillo, en función de cuanto se mueva la palanca, en función a una ecuación de aceleración…</p>
+</section><section class="slide level2">
+
+<p>Veamos un ejemplo de aceleración usando force.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">accelerateToObject</span>(obj1<span class="op">,</span> obj2<span class="op">,</span> speed) <span class="op">{</span>
+    <span class="kw">var</span> angle <span class="op">=</span> <span class="va">Math</span>.<span class="at">atan2</span>(<span class="va">obj2</span>.<span class="at">y</span> <span class="op">-</span> <span class="va">obj1</span>.<span class="at">y</span><span class="op">,</span> <span class="va">obj2</span>.<span class="at">x</span> <span class="op">-</span> <span class="va">obj1</span>.<span class="at">x</span>)<span class="op">;</span> <span class="co">//Ángulo de un vector (arcotangente).</span>
+    <span class="va">obj1</span>.<span class="va">body</span>.<span class="at">rotation</span> <span class="op">=</span> angle <span class="op">+</span> <span class="va">game</span>.<span class="va">math</span>.<span class="at">degToRad</span>(<span class="dv">90</span>)<span class="op">;</span>  <span class="co">// corrige el ángulo (-p1/2 a pi/2) =&gt; (0 a 2pi).</span>
+    <span class="va">obj1</span>.<span class="va">body</span>.<span class="va">force</span>.<span class="at">x</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">cos</span>(angle) <span class="op">*</span> speed<span class="op">;</span> <span class="co">// proyección del ángulo en x * módulo.</span>
+    <span class="va">obj1</span>.<span class="va">body</span>.<span class="va">force</span>.<span class="at">y</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">sin</span>(angle) <span class="op">*</span> speed<span class="op">;</span> <span class="co">// proyección del ángulo en y * módulo.</span>
+<span class="op">}</span></code></pre></div>
+<p><a href="http://phaser.io/examples/v2/p2-physics/accelerate-to-object">Aceleración</a></p>
+</section><section class="slide level2">
+
+<ul>
+<li class="fragment">El ángulo entre dos vectores se calcula con la arcotangente del vector diferencia (destino - origen)</li>
+<li class="fragment">Si queremos calcular la cantidad de movimiento aplicable a cada componente, debemos proyectar el ángulo a los diferentes componentes.</li>
+<li class="fragment">Se usa <strong>thrust</strong> para acelerar (al ser un impulso, se aplica la aceleración por física) o force en el caso de los objetos.</li>
+<li class="fragment">La rotación es instantánea. (En general no tiene por que serlo)</li>
+</ul>
+</section></section>
+<section><section id="constrains" class="titleslide slide level1"><h1>Constrains</h1></section><section id="qué-es-una-constraint" class="slide level2">
+<h2>¿Qué es una constraint?</h2>
+<p>Una <strong>Constraint</strong> es una restricción al movimiento.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> constraint <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createDistanceConstraint</span>(sprite1<span class="op">,</span> sprite2<span class="op">,</span> <span class="dv">150</span>)<span class="op">;</span>
+<span class="kw">var</span> constraint1 <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createGearConstraint</span>(sprite<span class="op">,</span> sprite2<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></code></pre></div>
+<ul>
+<li class="fragment"><p><strong>Distance constraint</strong> afecta a la distancia a la que puede estar un objeto de otro. <a href="https://phaser.io/examples/v2/p2-physics/distance-constraint">Distancia</a></p></li>
+<li class="fragment"><p><strong>Gear constraint</strong> afecta a la velocidad de rotación a la que puede girar un objeto con respecto a otro. <a href="https://phaser.io/examples/v2/p2-physics/gear-constraint">Gear</a></p></li>
+</ul>
+</section><section id="joins" class="slide level2">
+<h2>Joins</h2>
+<p>Son un tipo especial de constraint.</p>
+<p>Conecta dos cuerpos creando una restricción de rotación. Un objeto rota en función del otro. Esto sirve para construir objetos pendulantes como cuerdas o cadenas. Básicamente cualquier sistema donde el movimiento de uno afecte al movimiento del resto en algún grado.</p>
+</section><section class="slide level2">
+
+<p>game.physics.p2.createRevoluteConstraint (bodyA, pivotA, bodyB, pivotB, fuerza)</p>
+<ul>
+<li class="fragment">bodyA Objeto padre</li>
+<li class="fragment">punto de pivote de A</li>
+<li class="fragment">bodyB Objeto hijo.</li>
+<li class="fragment">punto de pivote de B.</li>
+<li class="fragment">Fuerza Máxima que mantiene a las partes juntas.</li>
+</ul>
+<p><a href="https://phaser.io/examples/v2/p2-physics/chain">Chains</a></p>
+</section><section id="springs" class="slide level2">
+<h2>Springs</h2>
+<p>Los <strong>Springs</strong> o muelles sirven para mantener una distancia flexible a un objeto. Los springs siguen la ley de Hooke donde la fuerza F:</p>
+<figure>
+<img src="imgs/hooke.svg" alt="Ley de Hooke" /><figcaption>Ley de Hooke</figcaption>
+</figure>
+<ul>
+<li class="fragment">k: constante de elasticidad <strong>stiffness</strong>.</li>
+<li class="fragment">X: longitud.</li>
+</ul>
+</section><section class="slide level2">
+
+<p>Derivado de esta ley tenemos el movimiento armónico oscilante. :</p>
+<ul>
+<li class="fragment"><strong>damping</strong> es una fuerza que va en dirección contraria al movimiento. La resistencia que hace que el movimiento sea oscilante. Cuanto más estirado esté el muelle, más fuerza de damping se genera. El damping consigue cambiar la dirección del movimiento y como siempre es inverso a este movimiento, lo frena hasta que lo cambia de sentido.</li>
+</ul>
+</section><section class="slide level2">
+
+<p>En Phaser</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">spring <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createSpring</span>(bodya<span class="op">,</span> bodyb<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></code></pre></div>
+<ul>
+<li class="fragment"><strong>restLength</strong>: La longitud del spring.</li>
+<li class="fragment"><strong>stiffness</strong>: Rigidez del spring. (costante de elasticidad)</li>
+<li class="fragment"><strong>damping</strong>: Amortiguación. (rebote o fuerza contraria al movimiento)</li>
+</ul>
+<p><a href="https://phaser.io/examples/v2/p2-physics/mouse-spring">Springs</a></p>
+</section></section>
+<section><section id="kinematic-body" class="titleslide slide level1"><h1>Kinematic Body</h1></section><section id="cuerpos-kinemáticos-vs-cuerpos-físicos." class="slide level2">
+<h2>Cuerpos Kinemáticos Vs Cuerpos Físicos.</h2>
+<p><strong>Kinematic bodies</strong> son cuerpos que están en la física, pero que queremos mover nosotros por código.</p>
+<p>Típicamente las plataformas de los juegos de plataforma. También se suelen incluir los enemigos que son controlados por la IA o el player si no modificamos su posición con la física.</p>
+</section><section class="slide level2">
+
+<p>En un juego normal, no queremos usar la física para mover un objeto controlado por el jugador o por la IA ya que esto puede provocar muchos problemas.</p>
+<p>La física es dificil de controlar y produce errores de redondeo.</p>
+<p>Lo más razonable para garantizar las mecánicas es moverlo nosotros con la lógica del juego.</p>
+<p>Sin embargo, sí que queremos tener colisiones, de ahí que necesitamos que pertenezca a la física de alguna forma.</p>
+</section><section id="cómo-establecemos-un-cuerpo-kinemático" class="slide level2">
+<h2>¿Cómo establecemos un cuerpo kinemático?</h2>
+<p>Podemos modificar la propiedad kinematic de body;</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">kinematic1</span>.<span class="va">body</span>.<span class="at">kinematic</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></code></pre></div>
+</section><section id="qué-cosas-afectan-a-un-kinemático" class="slide level2">
+<h2>¿Qué cosas afectan a un kinemático?</h2>
+<p>A un objeto kinemático no le afecta la gravedad</p>
+<p>Ni los impulsos</p>
+<p>Ni las colisiones modifican la velocidad del objeto, es decir un choque impide el paso, pero no modifica la velocidad del objeto, porque la física no puede calcular la velocidad de un objeto kinemático.</p>
+<p>Sólo podemos preguntar si hemos colisionado con él.</p>
+<p>O si él ha colisionado con algo.</p>
+<p><a href="https://phaser.io/examples/v2/p2-physics/kinematic-body">Movimientos kinemáticos</a></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="../shared/lib/reveal/lib/js/head.min.js"></script>
+  <script src="../shared/lib/reveal/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../shared/lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../shared/lib/reveal/plugin/zoom-js/zoom.js', async: true },
+          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

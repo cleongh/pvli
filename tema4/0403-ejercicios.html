@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Ejercicios de arquitecturas de componentes con JavaScript</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../shared/docs.css" type="text/css" />
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Ejercicios de arquitecturas de componentes con JavaScript</h1>
+</div>
+<!-- # Introducción -->
+<!-- Estos ejercicios se entregarán en el Campus Virtual, siguiendo las
+[instrucciones usuales de
+entrega](../general/criterios_evaluacion.html#cómo-entregar). La fecha de
+entrega está publicada en la tarea correspondiente. -->
+<!-- Todos los ejercicios son ampliaciones sobre el código del tema 4. Por lo tanto,
+la entrega consistirá en un solo repositorio y un solo `commit`.  -->
+<!-- En los comentarios de la práctica debéis comentar qué ejercicios resolvéis, y
+cómo lo hacéis. **Un ejercicio resuelto pero no indicado en los comentarios de
+la entrega será considerado _no resuelto_**. -->
+<h1 id="ejercicio-1">Ejercicio 1</h1>
+<p>Basándote en el código del tema 4, añade un tipo de mensaje llamado <code>Sleep</code>, que haga que la entidad que lo reciba no haga nada durante su ciclo, pasen los ciclos que pasen, hasta que reciba un mensaje <code>WakeUp</code> (también tienes que implementar este mensaje).</p>
+<h1 id="ejercicio-2">Ejercicio 2</h1>
+<p>Basándote en el código del tema 4, crea un tipo de componente que, en cada ciclo, aumente la vida de una entidad. Llámalo <code>Healer</code>. Ten en cuenta que en el diseño original del código del tema 4, las entidades no tienen vida. Tendrás que crear, para implementar este componente, otro componente que usen las entidades que tienen vida.</p>
+<p>Piensa en cómo deben comunicarse estas entidades. La idea del ejercicio es que el diseño siga siendo orientado a componentes y que sea lo más puro posible.</p>
+<h1 id="ejercicio-3">Ejercicio 3</h1>
+<p>Modifica el código original para que la función <code>tick</code> de <code>Game</code> no se envíe el mensaje <code>Presence</code>, sino que cada entidad lance el mensaje según lo considere oportuno.</p>
+<p>(PISTA: las entidades “dormidas” no tienen que anunciar su presencia, pero esto no debería modificar mucho el código del <a href="#ejercicio-1">ejercicio 1</a>).</p>
+<h1 id="ejercicio-4">Ejercicio 4</h1>
+<ol style="list-style-type: decimal">
+<li>Haz un componente para entidades que se muevan. No te preocupes por la implementación, con que la entidad imprima “me estoy moviendo” en cada ciclo, junto a su nombre, es suficiente.</li>
+<li>Haz un componente para entidades que tengan volumen físico (entidades con las que se pueda colisionar). No te preocupes por la implementación, con que la entidad imprima “tengo volumen” en cada ciclo, junto a su nombre, es suficiente.</li>
+<li>Crea una entidad que se mueva, pero no tenga volumen físico. Añádela al juego.</li>
+<li>Crea una entidad que tenga volumen físico, pero que no se mueva. Añádela al juego.</li>
+<li>Crea una entidad que tenga volumen físico y que se mueva. Añádela al juego.</li>
+</ol>
+<hr />
+<p>Ahora, teniendo en cuenta que <em>tienes que usar herencia</em>, añade en alguna parte de tu código un comentario con una jerarquía de clases que te permita implementar los puntos 3, 4 y 5. <strong>No tienes que implementarla, sólo pensar en ella y añadir un bloque de comentario en el archivo con lo que se te ocurra</strong>. Sé original y piensa en las alternativas.</p>
+</body>
+</html>
