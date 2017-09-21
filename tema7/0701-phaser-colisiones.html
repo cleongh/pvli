@@ -129,20 +129,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>En la mayoría de los juegos, la velocidad de ejecución es más importante que la precisión de la simulación</p>
 <p>Por tanto se busca hacer aproximaciones</p>
 </section><section id="algunos-motores-físicos-3d" class="slide level2">
-<h1>Algunos motores físicos 3D</h1>
+<h2>Algunos motores físicos 3D</h2>
 <ul>
 <li class="fragment"><code>Physx</code>: propiedad de Nvidia y disponible en Unreal Engine y Unity</li>
 <li class="fragment"><code>Hawok</code>: antes propiedad de Intel, ahora adquirido por Microsoft y disponible en CryEngine</li>
 </ul>
 </section><section id="algunos-motores-físicos-2d" class="slide level2">
-<h1>Algunos motores físicos 2D</h1>
+<h2>Algunos motores físicos 2D</h2>
 <ul>
 <li class="fragment"><code>Box2D</code>: Cocos, Unity, Construct 2 (Angry Birds, Limbo)</li>
 <li class="fragment"><code>Chipmunk:</code> Cocos, Wii</li>
 </ul>
 </section></section>
 <section><section id="el-motor-físico-de-phaser" class="titleslide slide level1"><h1>El motor físico de Phaser</h1></section><section id="motor-físico-de-phaser" class="slide level2">
-<h1>Motor físico de Phaser</h1>
+<h2>Motor físico de Phaser</h2>
 <p>O mejor dicho: <strong>los motores físicos de Phaser</strong></p>
 </section><section class="slide level2">
 
@@ -153,23 +153,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment"><strong>P2 Physics</strong></li>
 </ul>
 </section><section id="arcade-physics" class="slide level2">
-<h1>Arcade Physics</h1>
+<h2>Arcade Physics</h2>
 <p>Pensado para tratar colisiones AABB (axis-aligned bounded rectangles): para manejar objetos sin rotaciones</p>
 <p>Sólo se comprueba si existen colisiones (solapamiento o overlapping) entre dos rectángulos</p>
 <p>Tiene problemas con las áreas transparentes</p>
 <p>Está pensado para juegos sencillos</p>
 </section><section id="ninja-physics" class="slide level2">
-<h1>Ninja Physics</h1>
+<h2>Ninja Physics</h2>
 <p>Admite rotaciones, y formas más complejas (cuestas)</p>
 <p>Tiene más precisión, pero es más lento</p>
 <p>Un juego de plataformas sin física compleja usaría este motor</p>
 </section><section id="p2-physics" class="slide level2">
-<h1>P2 Physics</h1>
+<h2>P2 Physics</h2>
 <p>Tiene un modelo de física mucho más avanzado, <em>springs</em> (muelles), polígonos, fuerzas, restricciones</p>
 <p>Angry Birds usaría este motor</p>
 </section></section>
 <section><section id="colisiones" class="titleslide slide level1"><h1>Colisiones</h1></section><section id="qué-es-una-colisión" class="slide level2">
-<h1>¿Qué es una colisión?</h1>
+<h2>¿Qué es una colisión?</h2>
 <p>Cuando dos <em>bounding boxes</em> están solapados</p>
 <p>Un <strong>Bounding Box</strong> es una caja que representa el objeto (lo simplifica). El tamaño por defecto del bounding box de Phaser es el tamño del sprite</p>
 </section><section class="slide level2">
@@ -185,7 +185,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <img src="imgs/custom-physics-least-overlap.png" alt="Overlapping entre bounding boxes" /><figcaption>Overlapping entre bounding boxes</figcaption>
 </figure>
 </section><section id="cómo-se-calcula-la-colisión" class="slide level2">
-<h1>¿Cómo se calcula la colisión?</h1>
+<h2>¿Cómo se calcula la colisión?</h2>
 <p>Las colisiones más sencillas del motor Arcade son colisiones AABB que se pueden calcular de la siguiente manera:</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">AABBvsAABB</span>(a<span class="op">,</span> b) <span class="op">{</span>
     <span class="cf">if</span>(<span class="va">a</span>.<span class="va">max</span>.<span class="at">x</span> <span class="op">&lt;</span> <span class="va">b</span>.<span class="va">min</span>.<span class="at">x</span> <span class="op">||</span> <span class="va">a</span>.<span class="va">min</span>.<span class="at">x</span> <span class="op">&gt;</span> <span class="va">b</span>.<span class="va">max</span>.<span class="at">x</span>) 
@@ -200,19 +200,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Phaser hace este cálculo por nosotros</p>
 </section></section>
 <section><section id="el-motor-físico-arcade" class="titleslide slide level1"><h1>El motor físico Arcade</h1></section><section id="inicialización-del-motor-arcade" class="slide level2">
-<h1>Inicialización del motor Arcade</h1>
+<h2>Inicialización del motor Arcade</h2>
 <p><a href="https://phaser.io/sandbox/edit/rGYAfFoJ">Ejemplo del uso del motor arcade</a></p>
 <p>Para iniciar el motor de fisica:</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="va">game</span>.<span class="va">physics</span>.<span class="at">startSystem</span>(<span class="va">Phaser</span>.<span class="va">Physics</span>.<span class="at">ARCADE</span>)<span class="op">;</span></code></pre></div>
 </section><section id="agregar-entidades-a-la-física" class="slide level2">
-<h1>Agregar entidades a la física</h1>
+<h2>Agregar entidades a la física</h2>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="at">player</span> <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="st">&#39;player&#39;</span>)<span class="op">;</span>
 <span class="kw">this</span>.<span class="va">game</span>.<span class="va">physics</span>.<span class="va">arcade</span>.<span class="at">enable</span>(player)<span class="op">;</span></code></pre></div>
 </section><section id="colisionar-con-los-límites-del-del-mundo" class="slide level2">
-<h1>Colisionar con los límites del del mundo</h1>
+<h2>Colisionar con los límites del del mundo</h2>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">player</span>.<span class="va">body</span>.<span class="at">collideWorldBounds</span> <span class="op">=</span> <span class="kw">true</span></code></pre></div>
 </section><section id="crear-grupo-que-colisione-con-un-sprite" class="slide level2">
-<h1>Crear grupo que colisione con un sprite</h1>
+<h2>Crear grupo que colisione con un sprite</h2>
 <p>Se utiliza <code class="sourceCode javascript"><span class="at">physicsGroup</span>()</code>;</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    platforms <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">physicsGroup</span>()<span class="op">;</span>
 
@@ -221,7 +221,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="va">platforms</span>.<span class="at">create</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">450</span><span class="op">,</span> <span class="st">&#39;platform&#39;</span>)<span class="op">;</span>
     <span class="va">platforms</span>.<span class="at">setAll</span>(<span class="st">&#39;body.immovable&#39;</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span> <span class="co">//se establece como plataformas estáticas</span></code></pre></div>
 </section><section id="comprobar-colisiones-entre-dos-objetos" class="slide level2">
-<h1>Comprobar colisiones entre dos objetos</h1>
+<h2>Comprobar colisiones entre dos objetos</h2>
 <p>Si queremos comprobar si hay colisión a mano, usamos:</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="va">game</span>.<span class="va">physics</span>.<span class="va">arcade</span>.<span class="at">collide</span>(player<span class="op">,</span> platforms)<span class="op">;</span></code></pre></div>
 </section><section class="slide level2">
@@ -242,7 +242,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="va">textInfo</span>.<span class="at">text</span> <span class="op">=</span> <span class="st">&quot;No hay colision&quot;</span><span class="op">;</span>
 <span class="op">}</span></code></pre></div>
 </section><section id="colisiones-con-un-tilemap" class="slide level2">
-<h1>Colisiones con un tilemap</h1>
+<h2>Colisiones con un tilemap</h2>
 <p>Ejemplos sacados de el ejercicio número 3:</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// Creamos el tilemap y sus layer</span>
 <span class="kw">this</span>.<span class="at">map</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">game</span>.<span class="va">add</span>.<span class="at">tilemap</span>(<span class="st">&#39;tilemap&#39;</span>)<span class="op">;</span><span class="co">// creo el map al vuelo o lo predefino en el objeto...</span>
@@ -258,7 +258,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="kw">var</span> collisionWithTilemap <span class="op">=</span> <span class="kw">this</span>.<span class="va">game</span>.<span class="va">physics</span>.<span class="va">arcade</span>.<span class="at">collide</span>(<span class="kw">this</span>.<span class="at">_rush</span><span class="op">,</span> <span class="kw">this</span>.<span class="at">groundLayer</span>)<span class="op">;</span></code></pre></div>
 </section><section id="colisión-en-un-intervalo" class="slide level2">
-<h1>Colisión en un intervalo</h1>
+<h2>Colisión en un intervalo</h2>
 <ul>
 <li class="fragment">Colisiona con el rango de tiles que se indican en <code>start</code>–<code>stop</code>.</li>
 <li class="fragment"><code class="sourceCode javascript">collides</code> es un booleano que activa o desactiva la colisión</li>

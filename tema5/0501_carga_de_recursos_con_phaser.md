@@ -1,8 +1,8 @@
 ---
 title: Carga de recursos con Phaser
-author: Ismael Sagredo
-date: 31/10/2016
-vim: spelllang=es
+#author: Ismael Sagredo
+#date: 31/10/2016
+#vim: spelllang=es
 ...
 
 <!-- Yo dividiría el contenido en más diapositivas. Creo que diapósitivas cortas

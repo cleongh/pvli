@@ -1,23 +1,23 @@
 ---
 title: Ejercicios de arquitecturas de componentes con JavaScript
-author: Carlos León
-date: 18/10/16
-vim: spelllang=es
+#author: Carlos León
+#date: 18/10/16
+#vim: spelllang=es
 ...
 
-# Introducción
+<!-- # Introducción -->
 
-Estos ejercicios se entregarán en el Campus Virtual, siguiendo las
+<!-- Estos ejercicios se entregarán en el Campus Virtual, siguiendo las
 [instrucciones usuales de
 entrega](../general/criterios_evaluacion.html#cómo-entregar). La fecha de
-entrega está publicada en la tarea correspondiente.
+entrega está publicada en la tarea correspondiente. -->
 
-Todos los ejercicios son ampliaciones sobre el código del tema 4. Por lo tanto,
-la entrega consistirá en un solo repositorio y un solo `commit`. 
+<!-- Todos los ejercicios son ampliaciones sobre el código del tema 4. Por lo tanto,
+la entrega consistirá en un solo repositorio y un solo `commit`.  -->
 
-En los comentarios de la práctica debéis comentar qué ejercicios resolvéis, y
+<!-- En los comentarios de la práctica debéis comentar qué ejercicios resolvéis, y
 cómo lo hacéis. **Un ejercicio resuelto pero no indicado en los comentarios de
-la entrega será considerado _no resuelto_**.
+la entrega será considerado _no resuelto_**. -->
 
 # Ejercicio 1
 

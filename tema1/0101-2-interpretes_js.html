@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Carlos León, Ismael Sagredo">
   <title>Tema 1: Programación de aplicaciones en HTML5</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -118,39 +117,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <section>
   <h1 class="title">Tema 1: Programación de aplicaciones en HTML5</h1>
-  <h2 class="author">Carlos León, Ismael Sagredo</h2>
-  <h3 class="date">22/09/16</h3>
 </section>
 
 <section><section id="lenguajes-interpretados" class="titleslide slide level1"><h1>Lenguajes interpretados</h1></section><section id="qué-son-lenguajes-interpretados" class="slide level2">
-<h1>Qué son lenguajes interpretados</h1>
+<h2>Qué son lenguajes interpretados</h2>
 </section><section id="section" class="slide level2">
-<h1></h1>
-<p>Los <a href="https://en.wikipedia.org/wiki/Interpreted_language">lenguajes interpretados</a> son lenguajes diseñados para describir programas que <strong>no</strong> se ejecutan en el procesador, sino en otro programa.</p>
-<p>Es decir, hay un programa que emula a un procesador: el <strong>intérprete</strong>.</p>
+<h2></h2>
+<p>Los <a href="https://en.wikipedia.org/wiki/Interpreted_language">lenguajes interpretados</a> son lenguajes diseñados para describir programas que <strong>no</strong> se ejecutan en el procesador, sino en otro programa</p>
+<p>Es decir, hay un programa que emula a un procesador: el <strong>intérprete</strong></p>
 <figure>
 <img src="interpretes.dot.svg" alt="Esquema de lenguaje interpretado" style="height:30.0%" /><figcaption>Esquema de lenguaje interpretado</figcaption>
 </figure>
 </section><section id="cómo-funcionan" class="slide level2">
-<h1>Cómo funcionan</h1>
+<h2>Cómo funcionan</h2>
 <figure>
 <img src="instrucciones.dot.svg" alt="Funcionamiento de un intérprete" /><figcaption>Funcionamiento de un intérprete</figcaption>
 </figure>
 </section><section id="en-comparación-con-los-compilados" class="slide level2">
-<h1>En comparación con los compilados</h1>
+<h2>En comparación con los compilados</h2>
 <figure>
 <img src="compilado.dot.svg" alt="Funcionamiento de un programa compilado" /><figcaption>Funcionamiento de un programa compilado</figcaption>
 </figure>
 </section><section id="ecmascript" class="slide level2">
-<h1>ECMAScript</h1>
-<p>ECMAScript/JavaScript es el lenguaje de los navegadores.</p>
-<p>Comenzó como un pequeño lenguaje que se interpretaba dentro de <a href="https://es.wikipedia.org/wiki/Netscape_Navigator">Netscape</a>, principalmente para incluir efectos y operaciones sencillas.</p>
+<h2>ECMAScript</h2>
+<p>ECMAScript/JavaScript es el lenguaje de los navegadores</p>
+<p>Comenzó como un pequeño lenguaje que se interpretaba dentro de <a href="https://es.wikipedia.org/wiki/Netscape_Navigator">Netscape</a>, principalmente para incluir efectos y operaciones sencillas</p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Netscape_logo.svg" alt="Logo Netscape" /><br />
 </p>
 </section></section>
 <section><section id="javascript" class="titleslide slide level1"><h1>JavaScript</h1></section><section id="javascript-1" class="slide level2">
-<h1>JavaScript</h1>
-<p>JavaScript es un dialecto de <a href="https://es.wikipedia.org/wiki/ECMAScript">ECMAScript</a>.</p>
+<h2>JavaScript</h2>
+<p>JavaScript es un dialecto de <a href="https://es.wikipedia.org/wiki/ECMAScript">ECMAScript</a></p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> variable <span class="op">=</span> <span class="dv">6</span><span class="op">;</span>
 
 <span class="cf">if</span>(variable <span class="op">===</span> <span class="dv">5</span>) <span class="op">{</span>
@@ -160,18 +157,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Pues no, vale &quot;</span> <span class="op">+</span> variable <span class="op">+</span> <span class="st">&quot;.&quot;</span>)
 <span class="op">}</span></code></pre></div>
 </section><section id="javascript-2" class="slide level2">
-<h1>JavaScript</h1>
-<p>Su sintaxis es parecida a la de C/C++/Java (intencionadamente).</p>
-<p>Cuando JS fue creado, Java estaba muy de moda. Por eso se eligieron el nombre y la sintaxis.</p>
+<h2>JavaScript</h2>
+<p>Su sintaxis es parecida a la de C/C++/Java (intencionadamente)</p>
+<p>Cuando JS fue creado, Java estaba muy de moda. Por eso se eligieron el nombre y la sintaxis</p>
 <blockquote>
 <p>Pero JavaScript tiene <strong>muy poco que ver con Java</strong></p>
 </blockquote>
 </section><section id="javascript-en-los-navegadores" class="slide level2">
-<h1>JavaScript en los navegadores</h1>
-<p>Casi todos los navegadores “modernos” tienen dentro una máquina virtual que ejecuta JavaScript.</p>
-<p>Además, tienen un API llamado DOM (<em>Document Object Model</em>) que permite acceder a las partes del documento (por ejemplo, acceder a un párrafo o imagen de una página web).</p>
+<h2>JavaScript en los navegadores</h2>
+<p>Casi todos los navegadores “modernos” tienen dentro una máquina virtual que ejecuta JavaScript</p>
+<p>Además, tienen un API llamado DOM (<em>Document Object Model</em>) que permite acceder a las partes del documento (por ejemplo, acceder a un párrafo o imagen de una página web)</p>
 </section><section id="javascript-en-el-mundo-real" class="slide level2">
-<h1>JavaScript en el mundo real</h1>
+<h2>JavaScript en el mundo real</h2>
 <p>JavaScript hoy en día se usa para:</p>
 <ul>
 <li class="fragment">Videojuegos</li>
@@ -183,7 +180,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </section></section>
 <section><section id="ejecutando-javascript" class="titleslide slide level1"><h1>Ejecutando JavaScript</h1></section><section id="node.js" class="slide level2">
-<h1>Node.js</h1>
+<h2>Node.js</h2>
 <p><a href="https://nodejs.org/">Node.js</a> es un <em>intérprete</em> de JavaScript:</p>
 <ol>
 <li class="fragment">Recibe código JS como entrada</li>
@@ -192,28 +189,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment">Ejecuta esa representación intermedia</li>
 </ol>
 </section><section id="node.js-como-máquina-virtual" class="slide level2">
-<h1>Node.js como máquina virtual</h1>
-<p>Por lo tanto, <code>Node.js</code> contiene una máquina virtual capaz de leer, entender y ejecutar JS.</p>
-<p>Esta máquina<a href="#/fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> se llama <a href="https://en.wikipedia.org/wiki/V8_(JavaScript_engine)">V8</a>.</p>
+<h2>Node.js como máquina virtual</h2>
+<p>Por lo tanto, <code>Node.js</code> contiene una máquina virtual capaz de leer, entender y ejecutar JS</p>
+<p>Esta máquina<a href="#/fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> se llama <a href="https://en.wikipedia.org/wiki/V8_(JavaScript_engine)">V8</a></p>
 <p class="fragment">
 <strong>V8</strong> es el motor de <a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a>.
 <p>
 </section><section id="usando-node.js" class="slide level2">
-<h1>Usando Node.js</h1>
+<h2>Usando Node.js</h2>
 <p><code>Node.js</code> se puede usar desde línea de comandos:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">node</span> script.js
 
 <span class="co"># Pues no, vale 6. </span></code></pre></div>
 </section><section id="git" class="slide level2">
-<h1>Git</h1>
-<p><a href="https://git-scm.com/">Git</a> es el sistema de control de versiones que usaremos para la asignatura.</p>
+<h2>Git</h2>
+<p><a href="https://git-scm.com/">Git</a> es el sistema de control de versiones que usaremos para la asignatura</p>
 <ul>
 <li class="fragment"><a href="http://rogerdudler.github.io/git-guide/index.es.html">Guía sencilla</a></li>
 <li class="fragment"><a href="https://github.com/delapuente/gitincouples">Git in Couples</a></li>
 </ul>
 </section><section id="git-y-copias" class="slide level2">
-<h1>Git y copias</h1>
-<p>Usar <code>git</code> no significa copiar.</p>
+<h2>Git y copias</h2>
+<p>Usar <code>git</code> no significa copiar</p>
 <p>Copiar sigue siendo ilegal en la asignatura</p>
 </section></section>
 <section class="footnotes">

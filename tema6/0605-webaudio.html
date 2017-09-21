@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Carlos León e Ismael Sagredo">
   <title>Audio en la web</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -118,17 +117,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <section>
   <h1 class="title">Audio en la web</h1>
-  <h2 class="author">Carlos León e Ismael Sagredo</h2>
 </section>
 
 <section><section id="sonido-en-un-computador" class="titleslide slide level1"><h1>Sonido en un computador</h1></section><section id="el-sonido" class="slide level2">
-<h1>El sonido</h1>
+<h2>El sonido</h2>
 <p>De Wikipedia:</p>
 <blockquote>
 <p>es cualquier fenómeno que involucre la propagación de ondas mecánicas (sean audibles o no), generalmente a través de un fluido (u otro medio elástico) que esté generando el movimiento vibratorio de un cuerpo.</p>
 </blockquote>
 </section><section id="características-del-sonido" class="slide level2">
-<h1>Características del sonido</h1>
+<h2>Características del sonido</h2>
 </section><section class="slide level2">
 
 <p>Lo que llamamos sonido es el resultado de:</p>
@@ -142,7 +140,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment">Percibimos, conscientemente, el <strong>sonido</strong></li>
 </ol>
 </section><section id="caracteristicas-de-una-onda" class="slide level2">
-<h1>Caracteristicas de una onda</h1>
+<h2>Caracteristicas de una onda</h2>
 <p>La longitud de onda (simbolizada por <strong>λ</strong>) es la distancia entre dos crestas o valles seguidos.</p>
 <p>El periodo <strong>T</strong> es el tiempo requerido para que el movimiento de oscilación de la onda describa un ciclo completo</p>
 <figure>
@@ -157,7 +155,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <img src="imgs/nonsinusoidal_wavelength.jpg" alt="Onda" /><figcaption>Onda</figcaption>
 </figure>
 </section><section id="cómo-producir-sonido" class="slide level2">
-<h1>¿Cómo producir sonido?</h1>
+<h2>¿Cómo producir sonido?</h2>
 </section><section class="slide level2">
 
 <p>Para reproducir sonido es necesario generar ondas que se propaguen a través de un fluido</p>
@@ -177,7 +175,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment">le señal eléctrica hace que el altavoz “mueva” el aire, produciendo el sonido</li>
 </ol>
 </section><section id="y-qué-tiene-que-ver-eso-con-un-mp3" class="slide level2">
-<h1>¿Y qué tiene que ver eso con un MP3?</h1>
+<h2>¿Y qué tiene que ver eso con un MP3?</h2>
 </section><section class="slide level2">
 
 <p>Un archivo de audio en formato de onda (hay otros diferentes, como MIDI) tiene esa representación numérica/digital de la onda compleja que define el sonido</p>
@@ -241,7 +239,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <p>Hoy en día las tecnologías web permiten reproducir audio desde el navegador</p>
 </section><section id="elemento-audio" class="slide level2">
-<h1>Elemento <code class="sourceCode html"><span class="kw">&lt;audio&gt;</span></code></h1>
+<h2>Elemento <code class="sourceCode html"><span class="kw">&lt;audio&gt;</span></code></h2>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;audio</span><span class="ot"> controls</span><span class="kw">&gt;</span>
   <span class="kw">&lt;source</span><span class="ot"> src=</span><span class="st">&quot;https://upload.wikimedia.org/wikipedia/en/4/45/ACDC_-_Back_In_Black-sample.ogg&quot;</span><span class="ot"> type=</span><span class="st">&quot;audio/ogg&quot;</span><span class="kw">&gt;</span>
   Tu navegador no soporta audio

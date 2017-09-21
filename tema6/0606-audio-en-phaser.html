@@ -197,7 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>No solemos saber (o no es cómodo saber) cuánto dura un sonido</p>
 <p>Así que lo que hacemos es <em>decirle a Phaser que haga algo cuando el sonido termine de reproducirse</em></p>
 </section><section id="evento-cuando-el-sonido-termina-de-reproducirse" class="slide level2">
-<h1>Evento cuando el sonido termina de reproducirse</h1>
+<h2>Evento cuando el sonido termina de reproducirse</h2>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">create</span>() <span class="op">{</span>
     <span class="va">explosion</span>.<span class="va">onStop</span>.<span class="at">add</span>(soundStopped<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span>
 <span class="op">}</span>
@@ -209,7 +209,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="co">// ...</span>
 <span class="op">}</span></code></pre></div>
 </section><section id="callback-de-descodificación" class="slide level2">
-<h1>Callback de descodificación</h1>
+<h2>Callback de descodificación</h2>
 <p>Otro tipo de <em>callback</em> es el que se necesita cuando se descomprime un archivo de audio comprimido</p>
 </section><section class="slide level2">
 
@@ -226,7 +226,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="va">explosion</span>.<span class="va">onStop</span>.<span class="at">add</span>(soundStopped<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span>
 <span class="op">}</span></code></pre></div>
 </section><section id="repetir" class="slide level2">
-<h1>Repetir</h1>
+<h2>Repetir</h2>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// hace que `explosion` se vuelva a reproducir cuando acabe</span>
 <span class="co">// (muy útil para música)</span>
 <span class="va">explosion</span>.<span class="at">loop</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></code></pre></div>

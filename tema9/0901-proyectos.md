@@ -1,6 +1,6 @@
 ---
 title: Proyectos en la Web
----
+...
 
 # ¿Proyectos o juegos?
 

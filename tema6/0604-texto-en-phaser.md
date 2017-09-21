@@ -1,7 +1,7 @@
 ---
 title: Texto en Phaser
-author: Ismael Sagredo y Carlos León
-vim: spelllang=es
+# author: Ismael Sagredo y Carlos León
+# vim: spelllang=es
 ...
 
 

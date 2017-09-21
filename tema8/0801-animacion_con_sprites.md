@@ -1,6 +1,6 @@
 ---
 title: Animación con sprites
-vim: spelllang=es
+# vim: spelllang=es
 ...
 
 # El pasado

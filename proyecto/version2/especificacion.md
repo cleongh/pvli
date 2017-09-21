@@ -1,15 +1,15 @@
 ---
-title: "Práctica 4: segunda versión de un videojuego en JavaScript (animación y sonido)"
+title: "Proyecto: segunda versión de un videojuego en JavaScript (animación y sonido)"
 ---
 
-Esta práctica consiste en continuar el arcade con plataformas, esta vez añadiendo animación y sonido.
+Esta versión consiste en continuar el arcade con plataformas, esta vez añadiendo animación y sonido.
 
 A diferencia de las prácticas anteriores, para esta no hay un guión específico,
 ya que cada grupo tendrá que continuar el diseño del juego anterior (puede ser modificado ligeramente, si está bien justificado).
 
-# Continuación de la práctica
+# Continuación del proyecto
 
-La práctica 5 será una continuación de esta práctica, se añadirá principalmente
+La siguiente versión será una continuación de ésta, se añadirá principalmente
 el empaquetado. Por lo tanto, es importante (y
 recomendable) que se procure hacer una base de código robusta, mantenible y de
 calidad con el fin de que las ampliaciones tengan un coste razonable.

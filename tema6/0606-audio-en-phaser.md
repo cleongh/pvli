@@ -1,6 +1,6 @@
 ---
 title: Audio en Phaser
-vim: spelllang=es
+# vim: spelllang=es
 ...
 
 # Motores de audio

@@ -1,8 +1,8 @@
 ---
 title: 'PVLI: Introducción'
-author: Carlos León
-date: 26/09/16
-vim: spelllang=es 
+# author: Carlos León
+# date: 26/09/16
+# vim: spelllang=es 
 ... 
 
 
@@ -11,36 +11,36 @@ vim: spelllang=es
 
 ## Cosas que sabréis hacer
 
-Hacer videojuegos en JavaScript que funcionen en un navegador.
+Hacer videojuegos en JavaScript que funcionen en un navegador
 
-Usar herramientas de desarrollo profesionales para el desarrollo web.
+Usar herramientas de desarrollo profesionales para el desarrollo web
 
 Gestionar recursos (imágenes, audio...) para usarlo en videojuegos en un
-navegador.
+navegador
 
 
 ## Cosas que aprenderéis
 
-Qué es un lenguaje interpretado.
+Qué es un lenguaje interpretado
 
-Ventajas e inconvenientes sobre los compilados a código máquina.
+Ventajas e inconvenientes sobre los compilados a código máquina
 
-Cómo funciona un navegador por dentro.
+Cómo funciona un navegador por dentro
 
-A gestionar el desarrollo con un "toolset", y no a mano.
+A gestionar el desarrollo con un "toolset", y no a mano
 
-A hacer proyectos de forma profesional, presentarlos y entregarlos.
+A hacer proyectos de forma profesional, presentarlos y entregarlos
 
 
 ## Cómo enfocar la asignatura
 
-No ser pasivos.
+No ser pasivos
 
-Buscar recursos en Internet: [GIYF](https://es.wikipedia.org/wiki/GIYF).
+Buscar recursos en Internet: [GIYF](https://es.wikipedia.org/wiki/GIYF)
 
-Tener ganas de **aprender**, no de aprobar.
+Tener ganas de **aprender**, no de aprobar
 
-Proponer cosas, intentar cosas nuevas.
+Proponer cosas, intentar cosas nuevas
 
 <p class="fragment">(Soltar sermón motivador)</p>
 
@@ -48,17 +48,7 @@ Proponer cosas, intentar cosas nuevas.
 
 # Equipo docente
 
-
-## Profesores UCM (I)
-
-![Ismael Sagredo](http://gaia.fdi.ucm.es/wp-content/uploads/2013/11/Isma.jpg){width=20%}
-
-Despacho 411 (4ª planta), tlf. 7599 \
-<isagredo@ucm.es>
-
-
-## Profesores UCM (II)
-
+## Equipo UCM
 
 ![Carlos León](http://nil.fdi.ucm.es/sites/default/files/carlos_leon_0.jpg){width=20%}
 
@@ -67,48 +57,56 @@ Despacho 420bis (4ª planta), tlf. 7606 \
 *Coordinador*
 
 
-## Mozilla
+## Equipo Mozilla
 
-Contaremos con **Mozilla** apara impartir esta asignatura.
+Contaremos con **Mozilla** apara impartir esta asignatura
 
-Son expertos internacionales en tecnologías web y videojuegos.
+Son expertos internacionales en tecnologías web y videojuegos
 
-La gestión de la asignatura la haremos los profesores UCM.
+La gestión de la asignatura la haremos los profesores UCM
 
 ![Mozilla](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Mozilla_dinosaur_head_logo.png/1280px-Mozilla_dinosaur_head_logo.png){width=20%}\
 
 
-## Profesores Mozilla (I)
 
-
-![Belén Albeza](https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/2/000/0e3/1c0/0151a41.jpg){width=20%}
-
-<balbeza@mozilla.com>
-
-## Profesores Mozilla (II)
+## Equipo Mozilla
 
 ![Salvador de la Puente](https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/4/000/14d/227/288f065.jpg){width=20%}
 
 <sdelapuente@mozilla.com>
 
 
+
 # Evaluación
+
+## Método de evaluación
+
+Examen en convocatoria ordinaria y/o extraordinaria (60% de la nota)
+
+Proyecto, por grupos (40% de la nota)
 
 
 ## Entregas
 
-Hay que entregar *todo*.
+Hay que entregar *todo* (examen y proyecto)
 
-Todo tiene que tener una nota $>=5$.
+Todo tiene que tener una nota >=5
 
-Todo lo aprobado se guarda hasta septiembre.
+Todo lo aprobado se guarda para la convocatoria extraordinaria
+
+
+## Entregas del proyecto
+
+Se calificarán 3 entregas, pero la nota final será la última (las dos primeras entregas son opcionales)
+
+Sólo será necesaria la última entrega, pero si entregáis las otras tendréis información y corrección a tiempo
 
 
 ## Copias
 
-**Copiar es ilegal**. Significa **suspender**.
+**Copiar es ilegal**. Significa **suspender**
 
-Se hará un control de copias **estricto**.
+Se hará un control de copias **estricto**
 
 ![No copiar](https://upload.wikimedia.org/wikipedia/commons/0/09/NO_COPY.svg){height=10%}\
 
@@ -116,7 +114,7 @@ Se hará un control de copias **estricto**.
 ## Fórmula
 
 ```include
-general/aux/formula_evaluacion.md
+general/auxiliary/formula_evaluacion.md
 ```
 
 
@@ -125,40 +123,39 @@ general/aux/formula_evaluacion.md
 
 ## Ficha docente
 
-La ficha docente está [publicada en la web de la
-facultad](http://www.fdi.ucm.es/Pub/ImpresoFichaDocente.aspx?Id=1114).
+La ficha docente está en el CV
 
-Tiene información oficial.
+Tiene información oficial
 
 La ficha es general y establece el "contrato" de la enseñanza oficial, es
-*obligatorio* ceñirse a ella.
+*obligatorio* ceñirse a ella
 
 Estas transparencias son más concretas, pero no está de más echarle un vistazo
-a la ficha.
+a la ficha
 
 
 ## Campus Virtual
 
-El CV es la herramienta *oficial* de comunicación.
+El CV es la herramienta *oficial* de comunicación
 
 Cualquier cosa publicada en el CV será considerada establecida y oficial
 (fechas, entregas, apuntes...)
 
 
-## Planificación
+<!-- ## Planificación -->
 
-El curso está planificado sesión a sesión.
+<!-- El curso está planificado sesión a sesión -->
 
-La planificación está disponible en el [CV](planificacion.pdf).
+<!-- La planificación está disponible en el [CV](../general/planificacion.html) -->
 
-Obviamente, puede cambiar. Os informaremos de los cambios.
+<!-- Obviamente, puede cambiar. Os informaremos de los cambios -->
 
 
 # En resumen...
 
 ## Resumen
 
-Hemos preparado la asignatura con ilusión. 
+Hemos preparado la asignatura con ilusión
 
 Si ponéis de vuestra parte, aprenderemos y haremos proyectos de los que estemos
-orgullosos.
+orgullosos

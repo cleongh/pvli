@@ -1,7 +1,7 @@
 ---
 title: "El Motor Físico de Phaser: Colisiones"
 # author: Carlos León e Ismael Sagredo
-vim: spelllang=es
+# vim: spelllang=es
 ...
 
 

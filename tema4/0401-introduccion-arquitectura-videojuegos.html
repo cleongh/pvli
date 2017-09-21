@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Carlos León">
   <title>Introducción a la arquitectura de videojuegos</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -118,39 +117,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <section>
   <h1 class="title">Introducción a la arquitectura de videojuegos</h1>
-  <h2 class="author">Carlos León</h2>
-  <h3 class="date">18/10/2016</h3>
 </section>
 
 <section><section id="qué-es-la-arquitectura-de-un-juego" class="titleslide slide level1"><h1>Qué es la arquitectura de un juego</h1></section><section id="section" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Los videojuegos son, normalmente, sistemas complejos y grandes</p>
 </section><section id="section-1" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Tienen muchos subsistemas que, además, gestionan aspectos distintos y hasta tecnologías heterogéneas</p>
 <!-- TODO [Carlos, 19-10-2016 12:32]: foto de subsistemas -->
 </section><section id="section-2" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>La complejidad puede crecer tanto, que carecer de un diseño global coherente <em>puede hacer inmanejable el desarrollo</em></p>
 </section><section id="section-3" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Por eso se usan <em>arquitecturas</em></p>
 <p>Un arquitectura, análoga a la de un edificio, es una manera de organizar el código para hacer el desarrollo más eficiente</p>
 <!-- TODO [Carlos, 19-10-2016 12:34]: foto de Unity -->
 </section><section id="section-4" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Pensad en sistemas que hacen muchas cosas, como Unity</p>
 <p class="fragment">
 ¿Podríais implementar Unity?
 </p>
 </section><section id="section-5" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Unity es un motor de juego entero</p>
 <p class="fragment">
 (y, además, un editor)
 <p>
 </section><section id="section-6" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Cada parte de un motor de juego como Unity tiene que:</p>
 <ul>
 <li class="fragment">Ser modificable</li>
@@ -161,87 +158,87 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </section></section>
 <section><section id="por-qué-pensar-en-la-arquitectura" class="titleslide slide level1"><h1>Por qué pensar en la arquitectura</h1></section><section id="section-7" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>La arquitectura software de un videojuego no es para la <em>máquina</em>, es para el <em>programador</em></p>
 <p>Pensad en un juego cuyo código comunique los módulos de varias maneras distintas</p>
 </section><section id="section-8" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Cuando se tienen 6 subsistemas distintos, la organización del código es <em>indispensable</em></p>
 <p>Además, puede tener impacto en la eficiencia</p>
 </section></section>
 <section><section id="repaso-de-programación-orientada-a-objetos" class="titleslide slide level1"><h1>Repaso de programación orientada a objetos</h1></section><section id="section-9" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Un paradigma de programación muy usado para sistemas software que requieren arquitecturas complejas es la <em>programación orientada a objetos</em> basada en clases</p>
 </section><section id="clases" class="slide level2">
-<h1>Clases</h1>
+<h2>Clases</h2>
 </section><section id="section-10" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Las clases son los tipos, las estructuras de las que se crean instancias</p>
 <figure>
 <img src="imgs/umlbasico.pu.svg" alt="Ejemplo de clases" /><figcaption>Ejemplo de clases</figcaption>
 </figure>
 </section><section id="instancias" class="slide level2">
-<h1>Instancias</h1>
+<h2>Instancias</h2>
 </section><section id="section-11" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Las instancias son cada uno de los elementos/objetos concretos que tienen las propiedades (atributos y métodos) de una clase</p>
 </section><section id="section-12" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Aquí, <code class="sourceCode cpp">player</code> y <code class="sourceCode cpp">enemy</code> son instancias de <code class="sourceCode cpp">Player</code> y <code class="sourceCode cpp">Enemy</code> respectivamente:</p>
 <div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">Player player(<span class="st">&quot;player&quot;</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">100</span>);
 Enemy enemy(<span class="st">&quot;enemy&quot;</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="dv">0</span>, <span class="dv">0</span>, &amp;player);</code></pre></div>
 </section><section id="relaciones" class="slide level2">
-<h1>Relaciones</h1>
+<h2>Relaciones</h2>
 </section><section id="section-13" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Las clases, como módulos, se relacionan en un sistema</p>
 <p>Hay muchos tipos de relaciones y muchas maneras de usarlas, aquí sólo comentamos algunas</p>
 </section><section id="herencia" class="slide level2">
-<h1>Herencia</h1>
+<h2>Herencia</h2>
 <p>Las clases pueden <em>heredarse</em>, de forma que una clase <em>hija</em> <strong>es-una</strong> (<code>is-a</code>) clase padre también</p>
 <figure>
 <img src="imgs/herencia.pu.svg" alt="Clases para estructurar un juego" /><figcaption>Clases para estructurar un juego</figcaption>
 </figure>
 </section><section id="uso" class="slide level2">
-<h1>Uso</h1>
+<h2>Uso</h2>
 <p>Las clases pueden <em>usarse</em> unas a otras, de forma que se <em>pasen mensajes</em></p>
 <figure>
 <img src="imgs/asociacion.pu.svg" alt="Clases que se usan" /><figcaption>Clases que se usan</figcaption>
 </figure>
 </section><section id="composición" class="slide level2">
-<h1>Composición</h1>
+<h2>Composición</h2>
 <p>Las clases pueden <em>componerse</em>, de forma que la relación es muy fuerte. Así, si desaparece el todo, <em>desaparecen las partes también</em></p>
 <figure>
 <img src="imgs/composicion.pu.svg" alt="Composición de clases" /><figcaption>Composición de clases</figcaption>
 </figure>
 </section></section>
 <section><section id="arquitecturas-basadas-en-herencia" class="titleslide slide level1"><h1>Arquitecturas basadas en herencia</h1></section><section id="section-14" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>La programación orientada a objetos clásica permite una manera de modular sistemas</p>
 </section><section id="section-15" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Entre otros, los videojuegos son razonablemente complejos y manejan dos aspectos que hay que gestionar:</p>
 <ul>
 <li class="fragment">Modelo de datos (orco, espada, mundo…)</li>
 <li class="fragment">Modelo de sistemas (gráficos, sonido, entrada…)</li>
 </ul>
 </section><section id="section-16" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Muchos videojuegos se han modelado con patrones de herencia</p>
 <p class="fragment">
 ¿<strong>Por qué</strong>?
 </p>
 </section><section id="section-17" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>¿Por qué <em>no</em> seguimos haciéndolo?</p>
 <p class="fragment">
 (Hay mucha gente que sigue haciéndolo, y en muchos casos no es un problema)
 </p>
 </section><section id="el-problema-de-la-herencia" class="slide level2">
-<h1>El problema de la herencia</h1>
+<h2>El problema de la herencia</h2>
 <p>La herencia se basa en la relación <em>es-un</em></p>
 </section><section id="section-18" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Muchas veces:</p>
 <ul>
 <li class="fragment">todos los <code>Enemigos</code> son <code>Movibles</code></li>
@@ -249,16 +246,16 @@ Enemy enemy(<span class="st">&quot;enemy&quot;</span>, <span class="dv">15</span
 <li class="fragment">todos los proyectiles son objetos <code>Físicos</code></li>
 </ul>
 </section><section id="section-19" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Intentémoslo:</p>
 <p><code>entidad</code> → <code>movible</code> → <code>visible</code> → <code>jugador</code></p>
 </section><section id="section-20" class="slide level2">
-<h1></h1>
+<h2></h2>
 <figure>
 <img src="imgs/herenciacorrecta.pu.svg" alt="Herencia básica" /><figcaption>Herencia básica</figcaption>
 </figure>
 </section><section id="section-21" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>¿Pero qué pasa cuando queremos crear…</p>
 <ul>
 <li class="fragment">… un enemigo <em>invisible</em>?</li>
@@ -266,37 +263,37 @@ Enemy enemy(<span class="st">&quot;enemy&quot;</span>, <span class="dv">15</span
 <li class="fragment">… un enemigo que no tiene propiedades gráficas?</li>
 </ul>
 </section><section id="section-22" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Ahora hagamos un jugador que no se puede mover:</p>
 <figure>
 <img src="imgs/herenciaproblema.pu.svg" alt="Herencia problemática" /><figcaption>Herencia problemática</figcaption>
 </figure>
 </section><section id="section-23" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>A finales de los 90 esto se convirtió en un problema claro, y las arquitecturas por componentes de entidad se generalizaron</p>
 <p>En general (y mucho en diseño de videojuegos) preferimos <a href="https://en.wikipedia.org/wiki/Composition_over_inheritance">composición antes que herencia</a></p>
 </section></section>
 <section><section id="sistemas-de-componentes" class="titleslide slide level1"><h1>Sistemas de componentes</h1></section><section id="section-24" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Para aliviar los problemas relativos de la estructura de herencia (con <em>es-un</em>), usamos <a href="https://en.wikipedia.org/wiki/Entity_component_system"><strong>componentes</strong></a></p>
 </section><section id="qué-es-un-componente" class="slide level2">
-<h1>Qué es un componente</h1>
+<h2>Qué es un componente</h2>
 </section><section id="section-25" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Un componente es un aspecto, una propiedad o característica que tiene una <em>entidad</em></p>
 </section><section id="section-26" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Por ejemplo, podemos tener un componente que sirva para pintar</p>
 <p>Este componente se usará <em>sólo para pintar</em>, y no sabrá nada del sonido</p>
 </section><section id="section-27" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>También podríamos añadir un componente para modelar un inventario</p>
 <p>El componente no sabrá nada de la entidad que lo contiene. Sólo tendrá información de cómo guardar objetos</p>
 </section><section id="section-28" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Puede haber un componente para las entidades que son visibles, y otro componente para las entidades que tienen respuesta física al sistema (tabla  1)</p>
 </section><section id="section-29" class="slide level2">
-<h1></h1>
+<h2></h2>
 <div id="tbl:componentes">
 <table>
 <caption>Table 1: Entidades y sus componentes correspondientes</caption>
@@ -332,13 +329,13 @@ Enemy enemy(<span class="st">&quot;enemy&quot;</span>, <span class="dv">15</span
 </table>
 </div>
 </section><section id="entonces-qué-es-una-entidad" class="slide level2">
-<h1>Entonces, ¿qué es una entidad?</h1>
+<h2>Entonces, ¿qué es una entidad?</h2>
 </section><section id="section-30" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Una <em>entidad</em> no es más que un identificador, un elemento vacío que <em>contiene componentes</em></p>
 <p>La entidad no tiene información de cómo pintarse, ni de cómo moverse</p>
 </section><section id="section-31" class="slide level2">
-<h1></h1>
+<h2></h2>
 <ul>
 <li class="fragment">Un personaje (“player”) será una entidad</li>
 <li class="fragment">Un <em>trigger</em>, también</li>
@@ -346,7 +343,7 @@ Enemy enemy(<span class="st">&quot;enemy&quot;</span>, <span class="dv">15</span
 <li class="fragment">Los enemigos</li>
 </ul>
 </section><section id="section-32" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Es decir, una entidad es algo genérico que <em>sólo tiene una lista de componentes</em></p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> entidad <span class="op">=</span> <span class="op">{</span>
    <span class="dt">id          </span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span>
@@ -358,7 +355,7 @@ Enemy enemy(<span class="st">&quot;enemy&quot;</span>, <span class="dv">15</span
    ]
 <span class="op">}</span></code></pre></div>
 </section><section id="section-33" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>La entidad <strong>delega</strong> en sus componentes todo el comportamiento:</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// en cada ciclo (tick), la entidad simplemente </span>
 <span class="co">// delega en sus componentes</span>
@@ -369,7 +366,7 @@ Enemy enemy(<span class="st">&quot;enemy&quot;</span>, <span class="dv">15</span
 <span class="op">}</span></code></pre></div>
 </section></section>
 <section><section id="sistemas-de-entidades" class="titleslide slide level1"><h1>Sistemas de entidades</h1></section><section id="section-34" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Cada componente tiene información sobre un aspecto del juego</p>
 <ul>
 <li class="fragment">Física</li>
@@ -382,32 +379,32 @@ Enemy enemy(<span class="st">&quot;enemy&quot;</span>, <span class="dv">15</span
 <li class="fragment">…</li>
 </ul>
 </section><section id="sistemas" class="slide level2">
-<h1>Sistemas</h1>
+<h2>Sistemas</h2>
 </section><section id="section-35" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Tiene sentido, por lo tanto, <strong>dividir</strong> el código en partes (hacer módulos) que se encarguen de trabajar los dominios correspondientes</p>
 <p>Cada uno de estos módulos suelen llamarse <em>sistemas</em> o <em>subsistemas</em></p>
 </section><section id="section-36" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Cada sistema suele<a href="#/fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> manejar y tener acceso a los componentes correspondientes</p>
 </section><section id="section-37" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Por ejemplo, en la parte física no suele influir mucho el sonido:</p>
 <figure>
 <img src="imgs/sistemascomponentes.pu.svg" alt="Relación entre sistemas y componentes" /><figcaption>Relación entre sistemas y componentes</figcaption>
 </figure>
 </section><section id="section-38" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Así pues, <code>AudioComponent</code> sólo se relaciona con <code>AudioManager</code> (y, probablemente, con <code>Entity</code>) pero no sabe nada de <code>PhysicsManager</code></p>
 </section></section>
 <section><section id="hay-muchas-maneras-de-hacer-arquitecturas" class="titleslide slide level1"><h1>Hay muchas maneras de hacer arquitecturas</h1></section><section id="section-39" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>En este tema hemos visto (y veremos) <em>una manera</em> de hacer arquitecturas por componentes, pero hay muchas</p>
 </section><section id="section-40" class="slide level2">
-<h1></h1>
+<h2></h2>
 <p>Paso de mensajes, entidades puras, sistemas independientes o acoplados… cada decisión de diseño depende del problema a resolver</p>
 </section><section id="section-41" class="slide level2">
-<h1></h1>
+<h2></h2>
 <blockquote>
 <p>No hay una solución general para todos los problemas</p>
 </blockquote>

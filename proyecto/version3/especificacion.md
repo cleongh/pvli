@@ -1,8 +1,8 @@
 ---
-title: "Práctica 5: tercera versión de un videojuego en JavaScript (empaquetado y despliegue)"
+title: "Proyecto: tercera versión de un videojuego en JavaScript (empaquetado y despliegue)"
 ---
 
-Esta práctica consiste en continuar el arcade con plataformas, esta vez terminando el juego y publicándolo en la web.
+Esta versión consiste en continuar el arcade con plataformas, esta vez terminando el juego y publicándolo en la web.
 
 ## Características obligatorias
 

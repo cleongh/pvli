@@ -1,8 +1,8 @@
 ---
 title: Herramientas
-author: Carlos León
-date: 27/09/16
-vim: spelllang=es
+#author: Carlos León
+#date: 27/09/16
+#vim: spelllang=es
 ...
 
 # Las herramientas **son importantes**

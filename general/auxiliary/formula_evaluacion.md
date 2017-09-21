@@ -1,13 +1,12 @@
+La nota final de la asignatura se calculará en función de la siguiente fórmula:
+
 $$ \begin{aligned}
-nota_{final} & = practica_1 \times 0,025 \\
-             & + practica_2 \times 0,025 \\
-             & + practica_3 \times 0,1 \\
-             & + examen_{parcial} \times 0,1 \\
-             & + practica_4 \times 0,025 \\
-             & + practica_5 \times 0,05 \\
-             & + presentación \times 0,025 \\
+nota_{final} & = proyecto \times 0,4 \\
              & + examen_{final} \times 0,6 \\
-             & + asistencia \times 0,025 \\
-             & + contribución \times 0,025
+proyecto & = funcionamiento\_correcto \times 0,25 \\
+         & + calidad\_juego \times 0,25 \\
+         & + dise\tilde{n}o \times 0,25 \\
+         & + calidad\_c\acute{o}digo \times 0,25
 \end{aligned}$${#eq:formulaeval}
 
+La puntuación de cada parte se hará de forma objetiva e informada, pero estará a discreción del criterio del equipo docente según los estándares exigidos en la asignatura

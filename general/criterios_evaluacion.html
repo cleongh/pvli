@@ -4,8 +4,6 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="Carlos León" />
-  <meta name="date" content="2016-06-10" />
   <title>Criterios de evaluación PVLI</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../shared/docs.css" type="text/css" />
@@ -14,42 +12,46 @@
 <body>
 <div id="header">
 <h1 class="title">Criterios de evaluación PVLI</h1>
-<h2 class="author">Carlos León</h2>
-<h3 class="date">06/10/2016</h3>
 </div>
 <p>Dado el carácter práctico de la asignatura de <em>Programación de Videojuegos en Lenguajes Interpretados</em>, la evaluación se llevará a cabo mediante entregas prácticas (código) que serán entregadas a través del Campus Virtual en las fechas que se vaya señalando.</p>
-<p>Para la evaluación, el alumno entregará cinco prácticas, y realizará dos exámenes (uno parcial y uno final en febrero o septiembre). Además, en la evaluación habrá una presentación de proyectos, y tanto la asistencia como la contribución durante el desarrollo de la asignatura serán tenidas en cuenta.</p>
+<p>Para la evaluación, el alumno realizará y entregará un proyecto, y realizará un examen final de la asignatura. Además, en la evaluación habrá una presentación de proyectos, y tanto la asistencia como la contribución durante el desarrollo de la asignatura serán tenidas en cuenta.</p>
 <p>La evaluación en PVLI se hará en función de la fórmula  1:</p>
+<p>La nota final de la asignatura se calculará en función de la siguiente fórmula:</p>
 <p><span id="eq:formulaeval"><span class="math display">\[ \begin{aligned}
-nota_{final} &amp; = practica_1 \times 0,025 \\
-             &amp; + practica_2 \times 0,025 \\
-             &amp; + practica_3 \times 0,1 \\
-             &amp; + examen_{parcial} \times 0,1 \\
-             &amp; + practica_4 \times 0,025 \\
-             &amp; + practica_5 \times 0,05 \\
-             &amp; + presentación \times 0,025 \\
+nota_{final} &amp; = proyecto \times 0,4 \\
              &amp; + examen_{final} \times 0,6 \\
-             &amp; + asistencia \times 0,025 \\
-             &amp; + contribución \times 0,025
+proyecto &amp; = funcionamiento\_correcto \times 0,25 \\
+         &amp; + calidad\_juego \times 0,25 \\
+         &amp; + dise\tilde{n}o \times 0,25 \\
+         &amp; + calidad\_c\acute{o}digo \times 0,25
 \end{aligned}\qquad(1)\]</span></span></p>
+<p>La puntuación de cada parte se hará de forma objetiva e informada, pero estará a discreción del criterio del equipo docente según los estándares exigidos en la asignatura</p>
 <p>Todas las notas serán mantenidas hasta el final de la evaluación. Es decir, si se suspende en la convocatoria de febrero, todo aquello que haya tenido más de un 5 será mantenido como parte de la nota final, siempre y cuando no haya una entrega adicional posterior, en cuyo caso se corregirá esta última y <em>se mantendrá la última nota, incluso si esta es más baja que la primera</em><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
 <ul>
-<li>Todas las correcciones tendrán una parte de evaluación automática basada en análisis automático de código y tests, y una parte de evaluación cualitativa manual.</li>
-<li>Si se supera la parte de la evaluación automática, se procederá a la manual. En caso contrario, se habrá suspendido la entrega (examen o práctica).</li>
-<li>En la publicación de cada práctica se detallará el peso de cada parte de la práctica.</li>
-<li>Si una entrega (práctica o examen) no carga correctamente o no se puede ejecutar completamente <strong>sin errores</strong>, la entrega se considerará suspensa.</li>
-<li>Si no se siguen <strong>exactamente</strong> los criterios de envío (número de archivos, formato de envío, carpetas, tipo de compresión, nombres de archivos), la entrega estará suspensa.</li>
+<li>Las correcciones podrán tendrán una parte de evaluación automática basada en análisis automático de código y tests, y una parte de evaluación cualitativa manual.</li>
+<li>Si se supera la parte de la evaluación automática, en su caso, se procederá a la manual. En caso contrario, se habrá suspendido la entrega (examen o práctica). <!-- - En la publicación de cada práctica se detallará el peso de cada parte de la práctica. --></li>
+<li>Si una entrega (práctica o examen) no carga correctamente o no se puede ejecutar completamente <strong>sin errores</strong>, la entrega se considerará suspensa con un <span class="math inline">\(0\)</span>.</li>
+<li>Si no se siguen <strong>exactamente</strong> los criterios de envío (número de archivos, formato de envío, carpetas, tipo de compresión, nombres de archivos), la entrega estará suspensa con un <span class="math inline">\(0\)</span>.</li>
 </ul>
-<p>En la convocatoria de septiembre no se repetirán ni el examen parcial ni la presentación, al ser obligatorias durante la evaluación continua.</p>
-<p>Si alguna de las prácticas o el examen final tienen menos de un <span class="math inline">\(5,0\)</span>, la evaluación se considerará suspensa.</p>
-<p>La nota de <span class="math inline">\(contribución\)</span> es un valor basado en la percepción de los docentes sobre la implicación y la colaboración del alumno en la asignatura. Si bien se intentará ser completamente objetivo, en esta parte de la nota es inevitable una parte de subjetividad. Por tanto, si bien el valor de esta parte podrá ser discutido por el alumno, queda a discreción del profesor la evaluación en este aspecto.</p>
+<!-- En la convocatoria de septiembre no se repetirán ni el examen parcial ni la
+presentación, al ser obligatorias durante la evaluación continua. -->
+<p>Si el proyecto o el examen final tienen, cualquiera de ellos, menos de un <span class="math inline">\(5,0\)</span>, la evaluación se considerará suspensa.</p>
+<!-- La nota de $contribución$ es un valor basado en la percepción de los docentes
+sobre la implicación y la colaboración del alumno en la asignatura. Si bien se
+intentará ser completamente objetivo, en esta parte de la nota es inevitable
+una parte de subjetividad. Por tanto, si bien el valor de esta parte podrá ser
+discutido por el alumno, queda a discreción del profesor la evaluación en este
+aspecto. -->
 <h2 id="copias">Copias</h2>
 <p><strong>Copiar cualquier entrega no está permitido y supondrá una falta grave, acarreando el suspenso de la convocatoria actual</strong>. Se llevará a cabo un examen exhaustivo de copias.</p>
 <h2 id="grupos">Grupos</h2>
 <p>La información sobre los grupos puede consultarse en el <a href="grupos.html">documento de grupos</a>.</p>
 <h2 id="asistencia">Asistencia</h2>
 <p>La asistencia es obligatoria, y está más allá de la evaluación. El curso es presencial, y está diseñado como tal. La intención es que el trabajo en clase sea suficiente para que, junto con la realización de los ejercicios y prácticas, se adquiera todo el conocimiento necesario para la asignatura.</p>
-<p>La evaluación de la asistencia se hará con hojas de firmas. La nota de asistencia se calculará como el porcentaje de asistencia (<span class="math inline">\(asistencia = \text{hojas-asistencia} - faltas\)</span>) multiplicado por el peso de la asistencia de la fórmula  1 .</p>
+<!-- La evaluación de la asistencia se hará con hojas de firmas. La nota de
+asistencia se calculará como el porcentaje de asistencia ($asistencia = \text{hojas-asistencia}
+- faltas$) multiplicado por el peso de la asistencia de la fórmula
+@eq:formulaeval . -->
 <h2 id="entregas">Entregas</h2>
 <p>Todo el material entregado debe estar alojado en un repositorio <em>git</em> a elección de los alumnos. Este repositorio puede ser público o privado, pero se tiene que asegurar el acceso a los profesores.</p>
 <p>Por ejemplo, si el repositorio es privado, se tiene que dar de alta el usuario de los profesores.</p>

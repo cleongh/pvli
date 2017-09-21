@@ -173,7 +173,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <p>Obviamente, esto en irrelevante en términos de eficiencia con el hardware moderno</p>
 </section><section id="sprites-hoy" class="slide level2">
-<h1>Sprites hoy</h1>
+<h2>Sprites hoy</h2>
 </section><section class="slide level2">
 
 <p>Hoy en día, los sprites son generalmente mapas de bits de cualquier tamaño</p>
@@ -257,7 +257,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <p>Podemos usar un atlas de imagen en el que cada imagen sea un frame de la animación</p>
 </section><section id="frames" class="slide level2">
-<h1><em>Frames</em></h1>
+<h2><em>Frames</em></h2>
 </section><section class="slide level2">
 
 <p>Un frame, como hemos visto, es cada una de las imágenes que serán representadas en una animación</p>
@@ -268,7 +268,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <p>Varios frames forman un <em>ciclo</em></p>
 </section><section id="ciclos" class="slide level2">
-<h1><em>Ciclos</em></h1>
+<h2><em>Ciclos</em></h2>
 </section><section class="slide level2">
 
 <p>Un recurso de animación puede contener varios <em>ciclos</em> de animación</p>
@@ -293,7 +293,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment">Simples: diseñados para que se quede en un estado estacionario (morir)</li>
 </ul>
 </section><section id="combinando-frames-y-ciclos" class="slide level2">
-<h1>Combinando frames y ciclos</h1>
+<h2>Combinando frames y ciclos</h2>
 </section><section class="slide level2">
 
 <p>Para combinar frames y ciclos solemos usar una disposición en rejilla</p>
@@ -321,7 +321,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </figure>
 <p>(Fijémonos en que el tamaño de frame es distinto en esta imagen: no es cómodo, pero es posible: habría que indicarlo desde código u otro recurso (un JSON))</p>
 </section><section id="reusar-ciclos" class="slide level2">
-<h1>Reusar ciclos</h1>
+<h2>Reusar ciclos</h2>
 </section><section class="slide level2">
 
 <p>Cuando un personaje en 2D se mueve, es muy normal que pueda hacerlo en varias direcciones</p>
@@ -333,7 +333,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Si tenemos un ciclo de animación en el que el personaje puede ir en una dirección, no tenemos por qué dibujarlo yendo en la contraria, ya que podemos aprovechar la simetría</p>
 <p>Haciendo esto, hacemos la imagen espejada por software y la usamos como el ciclo de animación correspondiente</p>
 </section><section id="enlazando-los-ciclos" class="slide level2">
-<h1>Enlazando los ciclos</h1>
+<h2>Enlazando los ciclos</h2>
 </section><section class="slide level2">
 
 <p>Cuando se crean ciclos, es de esperar que, en el videojuego, se pase de uno a otro de manera “suave”</p>
@@ -361,18 +361,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <p>Phaser permite animar mediante secuencias de frames y ciclos, y también mediante animación por esqueleto</p>
 </section><section id="cargar-un-spritesheet" class="slide level2">
-<h1>Cargar un spritesheet</h1>
+<h2>Cargar un spritesheet</h2>
 <p>Con <a href="https://phaser.io/docs/2.3.0/Phaser.Loader.html#spritesheet"><code class="sourceCode javascript">spritesheet</code></a>:</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// se le da el ancho, alto y cuántos frames</span>
 <span class="va">game</span>.<span class="va">load</span>.<span class="at">spritesheet</span>(<span class="st">&#39;mummy&#39;</span><span class="op">,</span> <span class="st">&#39;assets/sprites/imagen.png&#39;</span><span class="op">,</span> <span class="dv">37</span><span class="op">,</span> <span class="dv">45</span><span class="op">,</span> <span class="dv">18</span>)<span class="op">;</span>
 mummy <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">360</span><span class="op">,</span> <span class="st">&#39;mummy&#39;</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span> <span class="co">// &#39;5&#39; es el número de frame</span></code></pre></div>
 </section><section id="establecer-un-ciclo-de-animación" class="slide level2">
-<h1>Establecer un ciclo de animación</h1>
+<h2>Establecer un ciclo de animación</h2>
 <p>Se pueden modificar las propiedades de la animación con <a href="http://www.phaser.io/docs/2.6.2/Phaser.AnimationManager.html"><code class="sourceCode javascript">AnimationManager</code></a></p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// animations en un AnimationManager</span>
 anim <span class="op">=</span> <span class="va">mummy</span>.<span class="va">animations</span>.<span class="at">add</span>(<span class="st">&#39;walk&#39;</span>)<span class="op">;</span></code></pre></div>
 </section><section id="comenzar-y-detener-la-animación" class="slide level2">
-<h1>Comenzar y detener la animación</h1>
+<h2>Comenzar y detener la animación</h2>
 </section><section class="slide level2">
 
 <p>Con <code class="sourceCode javascript">play</code> se ejecuta una animación</p>
@@ -384,7 +384,7 @@ anim <span class="op">=</span> <span class="va">mummy</span>.<span class="va">an
 <p>Para parar una animación, con <code class="sourceCode javascript">stop</code>:</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">phoenix</span>.<span class="at">stop</span>()<span class="op">;</span></code></pre></div>
 </section><section id="eventos-en-animaciones" class="slide level2">
-<h1>Eventos en animaciones</h1>
+<h2>Eventos en animaciones</h2>
 </section><section class="slide level2">
 
 <p>Es posible hacer “callbacks” para ser informados de cuándo una animación se pone en marcha o se detiene:</p>
@@ -408,7 +408,7 @@ anim <span class="op">=</span> <span class="va">mummy</span>.<span class="va">an
 
 <span class="op">}</span></code></pre></div>
 </section><section id="más-cosas-con-animaciones-por-frames" class="slide level2">
-<h1>Más cosas con animaciones por frames</h1>
+<h2>Más cosas con animaciones por frames</h2>
 </section><section class="slide level2">
 
 <p>Saber si la animación sigue funcionando</p>

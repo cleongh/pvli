@@ -1,10 +1,10 @@
 ---
-title: "Práctica 3: primera versión de un videojuego en JavaScript (arcade
+title: "Proyecto: primera versión de un videojuego en JavaScript (arcade
 plataformas)"
-vim: spelllang=es
+# vim: spelllang=es
 ---
 
-Esta práctica consiste en hacer un arcade 2D de plataformas en Phaser, que se
+Este proyecto consiste en hacer un arcade 2D de plataformas en Phaser, que se
 pueda ejecutar, por tanto, en un navegador. El objetivo es aplicar los
 conocimientos adquiridos durante el curso hasta la fecha y empezar a
 relacionarlos como un juego.
@@ -12,9 +12,9 @@ relacionarlos como un juego.
 A diferencia de las prácticas anteriores, para esta no hay un guión específico,
 ya que cada grupo tendrá que diseñar y crear su propio juego.
 
-# Continuación de la práctica
+# Continuación del proyecto
 
-Las prácticas 4 y 5 (a priori) serán continuaciones de la 3 en las que se
+Habrá dos entregas más en las que se
 añadirán características y empaquetado. Por lo tanto, es importante (y
 recomendable) que se procure hacer una base de código robusta, mantenible y de
 calidad con el fin de que las ampliaciones tengan un coste razonable.

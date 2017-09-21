@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Ismael Sagredo">
   <title>Carga de recursos con Phaser</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -118,8 +117,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <section>
   <h1 class="title">Carga de recursos con Phaser</h1>
-  <h2 class="author">Ismael Sagredo</h2>
-  <h3 class="date">31/10/2016</h3>
 </section>
 
 <section class="slide level2">
@@ -129,11 +126,11 @@ con un párrafo son más placenteras de leer que diapositivas largar con muchos
 párrafos. -->
 </section>
 <section><section id="introducción" class="titleslide slide level1"><h1>Introducción</h1></section><section id="qué-es-phaser" class="slide level2">
-<h1>Qué es Phaser</h1>
+<h2>Qué es Phaser</h2>
 <p><strong>Phaser</strong> es un framework que nos permite construir juegos en HTML5 para equipos de escritorio y dispositivos móviles. Es bastante nuevo, pero tiene involucrada una apasionada comunidad en el proceso de desarrollo, por lo que crece rápidamente</p>
 <p>El juego se renderiza sobre un <em>Canvas</em>, luego no está directamente pensado par ser ejecutado en Node, aunque podemos <em>“apañarlo”</em>.</p>
 </section><section id="urls-vs-uris" class="slide level2">
-<h1>URLs vs URIs</h1>
+<h2>URLs vs URIs</h2>
 <p>Las URIs son un superconjunto de las URLs.</p>
 <figure>
 <img src="imgs/URIvsURL.png" alt="URL vs URI" width="400" height="400" /><figcaption>URL vs URI</figcaption>
@@ -164,7 +161,7 @@ anterior. -->
 <img src="imgs/uri.png" alt="Partes de una URI" /><figcaption>Partes de una URI</figcaption>
 </figure>
 </section><section id="game-states" class="slide level2">
-<h1>Game States</h1>
+<h2>Game States</h2>
 <p>Los estados de Phaser son la unidad mínima que maneja el framework para crear una escena de juego. Podríamos decir que es equivalente a la <em>Scene</em> de Unity.</p>
 <p>Piensa en un State como en un capítulo de un libro. Pero <em>sólo un State está activo al mismo tiempo</em>. Podemos cambiar entre estados, pero sólo uno puede estar activo.</p>
 <!-- Explicaría más la confusión. Supongo que se quiere hacer hincapié en
@@ -180,7 +177,7 @@ muy bien. -->
 <img src="imgs/States.png" alt="Ejemplo de State" style="height:75.0%" /><figcaption>Ejemplo de State</figcaption>
 </figure>
 </section><section id="estructura-de-un-state" class="slide level2">
-<h1>Estructura de un State</h1>
+<h2>Estructura de un State</h2>
 <p>Un State es un objeto de JavaScript que contiene una serie de métodos ya definidos.</p>
 <p>Un estado es válido si hay, al menos, uno de estos métodos: <strong>preload</strong>, <strong>create</strong>, <strong>update</strong> o <strong>render</strong>. Si no existe alguno de estos métodos, Phaser no carga el State.</p>
 <!-- Esto es contradictorio. Creo que se ha querido decir que "si no existe
@@ -213,7 +210,7 @@ ninguno de estos métodos, Phaser no carga el state". -->
 </section></section>
 <section><section id="ejemplo-básico-de-un-juego-con-phaser" class="titleslide slide level1"><h1>Ejemplo básico de un juego con Phaser</h1></section><section class="slide level2">
 
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="er">&lt;</span>!doctype html&gt;
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!doctype </span>html<span class="dt">&gt;</span>
 <span class="kw">&lt;html&gt;</span>
     <span class="kw">&lt;head&gt;</span>
         <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span> <span class="kw">/&gt;</span>
@@ -304,7 +301,7 @@ hecho para nada. -->
                 <span class="va">game</span>.<span class="va">state</span>.<span class="at">add</span>(<span class="st">&quot;Preload&quot;</span><span class="op">,</span>preload)<span class="op">;</span>
                 <span class="va">game</span>.<span class="va">state</span>.<span class="at">add</span>(<span class="st">&quot;GameTitle&quot;</span><span class="op">,</span>gameTitle)<span class="op">;</span>
             <span class="op">};</span>    
-        <span class="op">&lt;</span><span class="ss">/script&gt;</span></code></pre></div>
+        <span class="kw">&lt;/script&gt;</span></code></pre></div>
 </section></section>
 <section><section id="localización-de-los-recursos" class="titleslide slide level1"><h1>Localización de los recursos</h1></section><section class="slide level2">
 

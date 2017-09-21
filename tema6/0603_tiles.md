@@ -1,7 +1,7 @@
 ---
 title: Tiles
-author: Ismael Sagredo y Carlos León
-vim: spelllang=es
+# author: Ismael Sagredo y Carlos León
+# vim: spelllang=es
 ...
 
 # Tiles

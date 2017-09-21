@@ -1,7 +1,7 @@
 ---
 title: Audio en la web
-author: Carlos León e Ismael Sagredo
-vim: spelllang=es
+# author: Carlos León e Ismael Sagredo
+# vim: spelllang=es
 ...
 
 # Sonido en un computador

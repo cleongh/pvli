@@ -1,8 +1,8 @@
 ---
 title: Introducción a la arquitectura de videojuegos
-author: Carlos León
-date: 18/10/2016
-vim: spelllang=es
+#author: Carlos León
+#date: 18/10/2016
+#vim: spelllang=es
 ...
 
 # Qué es la arquitectura de un juego

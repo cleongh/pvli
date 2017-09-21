@@ -1,8 +1,8 @@
 ---
 title: Normas de grupos para entregas 
-author: Carlos León
-date: 'Última actualización: 03/10/2016'
-vim: spelllang=es
+#author: Carlos León
+#date: 'Última actualización: 03/10/2016'
+#vim: spelllang=es
 ...
 
 # Creación de grupos

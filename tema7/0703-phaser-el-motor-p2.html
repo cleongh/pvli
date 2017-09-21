@@ -120,11 +120,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section>
 
 <section><section id="introducción" class="titleslide slide level1"><h1>Introducción</h1></section><section id="hasta-ahora" class="slide level2">
-<h1>Hasta ahora…</h1>
+<h2>Hasta ahora…</h2>
 <p>Hemos visto colisiones. Ahora veremos una variante de las colisiones que denominamos <strong>Triggers</strong>. Los triggers son un método muy utilizado en videojuegos para generar eventos durante el juego.</p>
 </section></section>
 <section><section id="triggers-sensor" class="titleslide slide level1"><h1>Triggers (sensor)</h1></section><section id="qué-es-un-trigger" class="slide level2">
-<h1>¿Qué es un trigger?</h1>
+<h2>¿Qué es un trigger?</h2>
 <p>Podemos definir un <strong>trigger</strong> (disparador) como una zona del juego en la que se chequea que objetos entran y salen de ella, informando de ambos eventos a quienes esten interesados. Normalmente un trigger provoca una invocación a un método asíncrono (evento) asociado a dicho trigger.</p>
 </section><section class="slide level2">
 
@@ -156,7 +156,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="op">}</span></code></pre></div>
 </section></section>
 <section><section id="velocidad" class="titleslide slide level1"><h1>Velocidad</h1></section><section id="qué-es-la-velocidad" class="slide level2">
-<h1>¿Qué es la velocidad?</h1>
+<h2>¿Qué es la velocidad?</h2>
 <!-- https://www.codeandweb.com/physicseditor/tutorials/phaser-p2-physics-example-tutorial -->
 <p>La <strong>velocidad</strong> es una magnitud física vectorial que expresa la distancia recorrida de un objeto por unidad de tiempo.</p>
 <p>Se puede modificar en Phaser directamente en el body físico.</p>
@@ -164,7 +164,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="va">sprite</span>.<span class="va">body</span>.<span class="va">velocity</span>.<span class="at">y</span></code></pre></div>
 <p>Si aplicamos una velocidad a un objeto físico este se moverá hacia la dirección indicada con la magnitud indicada.</p>
 </section><section id="aplicando-fuerzas" class="slide level2">
-<h1>Aplicando fuerzas</h1>
+<h2>Aplicando fuerzas</h2>
 <p>una <strong>fuerza</strong> es todo agente capaz de modificar la cantidad de movimiento de un objeto. En física de videojeugos llamamos fuerza a una modificación constante del movimiento de un objeto.</p>
 <p>applyForce(force, worldX, worldY) applyForceLocal(force, localX, localY)</p>
 <ul>
@@ -172,7 +172,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment">Tanto los puntos WorldX como WoldY, localX, localY son el punto a partir del cual se está aplicando la fuerza.</li>
 </ul>
 </section><section id="aplicando-impulsos" class="slide level2">
-<h1>Aplicando impulsos</h1>
+<h2>Aplicando impulsos</h2>
 <p>Un impulso es una fuerza que se ejerce en un momento puntual pero que cesa y su efecto se reduce con el tiempo.</p>
 <p>applyImpulse(impulse, worldX, worldY) applyImpulseLocal(impulse, localX, localY)</p>
 <ul>
@@ -180,7 +180,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment">Tanto los puntos WorldX como WorldY, localX, localY son el punto a partir del cual se está aplicando el impulso. Si no se especifican se toma el centro del mundo o el centro de masas del objeto.</li>
 </ul>
 </section><section id="move" class="slide level2">
-<h1>Move</h1>
+<h2>Move</h2>
 <ul>
 <li class="fragment"><p>moveRight, moveUp, moveLeft, moveDown</p></li>
 <li class="fragment"><p>Mueven el objeto sin necesidad de cambiar la rotación.</p></li>
@@ -189,7 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment"><p>thrust: impulsa el objeto hacia su ángulo de orientación (forward)</p></li>
 </ul>
 </section><section id="gravedad" class="slide level2">
-<h1>Gravedad</h1>
+<h2>Gravedad</h2>
 <p>La gravedad es un tipo de fuerza constante hacia una dirección. Normalmente hacia abajo:</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="va">gravity</span>.<span class="at">y</span> <span class="op">=</span> <span class="dv">300</span><span class="op">;</span></code></pre></div>
 </section><section class="slide level2">
@@ -201,10 +201,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><a href="http://phaser.io/examples/v2/p2-physics/gravity-scale">gravityScale</a></p>
 </section></section>
 <section><section id="aceleración" class="titleslide slide level1"><h1>Aceleración</h1></section><section id="qué-es-la-aceleración" class="slide level2">
-<h1>¿Qué es la aceleración?</h1>
+<h2>¿Qué es la aceleración?</h2>
 <p>La aceleración es una magnitud vectorial que nos indica la variación de velocidad por unidad de tiempo.</p>
 </section><section id="velocidad-uniformemente-acelerada" class="slide level2">
-<h1>Velocidad uniformemente acelerada</h1>
+<h2>Velocidad uniformemente acelerada</h2>
 <p>v=v0+a⋅t</p>
 <p>Donde:</p>
 <ul>
@@ -239,11 +239,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment">VMax: Velocidad máxima.</li>
 </ul>
 </section><section id="aceleración-instantánea" class="slide level2">
-<h1>Aceleración instantánea</h1>
+<h2>Aceleración instantánea</h2>
 <p>Si la aceleración es instantanea =&gt; v(t) == VMax;</p>
 <p>e(t+1) = e(t) + VMax*t;</p>
 </section><section id="aceleración-variable" class="slide level2">
-<h1>Aceleración variable</h1>
+<h2>Aceleración variable</h2>
 <p>El valor de a puede cambiar en función del tiempo. Por ejemplo en función de cuanto se pulse un gatillo, en función de cuanto se mueva la palanca, en función a una ecuación de aceleración…</p>
 </section><section class="slide level2">
 
@@ -265,7 +265,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </section></section>
 <section><section id="constrains" class="titleslide slide level1"><h1>Constrains</h1></section><section id="qué-es-una-constraint" class="slide level2">
-<h1>¿Qué es una constraint?</h1>
+<h2>¿Qué es una constraint?</h2>
 <p>Una <strong>Constraint</strong> es una restricción al movimiento.</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> constraint <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createDistanceConstraint</span>(sprite1<span class="op">,</span> sprite2<span class="op">,</span> <span class="dv">150</span>)<span class="op">;</span>
 <span class="kw">var</span> constraint1 <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createGearConstraint</span>(sprite<span class="op">,</span> sprite2<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></code></pre></div>
@@ -274,7 +274,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment"><p><strong>Gear constraint</strong> afecta a la velocidad de rotación a la que puede girar un objeto con respecto a otro. <a href="https://phaser.io/examples/v2/p2-physics/gear-constraint">Gear</a></p></li>
 </ul>
 </section><section id="joins" class="slide level2">
-<h1>Joins</h1>
+<h2>Joins</h2>
 <p>Son un tipo especial de constraint.</p>
 <p>Conecta dos cuerpos creando una restricción de rotación. Un objeto rota en función del otro. Esto sirve para construir objetos pendulantes como cuerdas o cadenas. Básicamente cualquier sistema donde el movimiento de uno afecte al movimiento del resto en algún grado.</p>
 </section><section class="slide level2">
@@ -289,7 +289,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p><a href="https://phaser.io/examples/v2/p2-physics/chain">Chains</a></p>
 </section><section id="springs" class="slide level2">
-<h1>Springs</h1>
+<h2>Springs</h2>
 <p>Los <strong>Springs</strong> o muelles sirven para mantener una distancia flexible a un objeto. Los springs siguen la ley de Hooke donde la fuerza F:</p>
 <figure>
 <img src="imgs/hooke.svg" alt="Ley de Hooke" /><figcaption>Ley de Hooke</figcaption>
@@ -316,7 +316,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><a href="https://phaser.io/examples/v2/p2-physics/mouse-spring">Springs</a></p>
 </section></section>
 <section><section id="kinematic-body" class="titleslide slide level1"><h1>Kinematic Body</h1></section><section id="cuerpos-kinemáticos-vs-cuerpos-físicos." class="slide level2">
-<h1>Cuerpos Kinemáticos Vs Cuerpos Físicos.</h1>
+<h2>Cuerpos Kinemáticos Vs Cuerpos Físicos.</h2>
 <p><strong>Kinematic bodies</strong> son cuerpos que están en la física, pero que queremos mover nosotros por código.</p>
 <p>Típicamente las plataformas de los juegos de plataforma. También se suelen incluir los enemigos que son controlados por la IA o el player si no modificamos su posición con la física.</p>
 </section><section class="slide level2">
@@ -326,11 +326,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Lo más razonable para garantizar las mecánicas es moverlo nosotros con la lógica del juego.</p>
 <p>Sin embargo, sí que queremos tener colisiones, de ahí que necesitamos que pertenezca a la física de alguna forma.</p>
 </section><section id="cómo-establecemos-un-cuerpo-kinemático" class="slide level2">
-<h1>¿Cómo establecemos un cuerpo kinemático?</h1>
+<h2>¿Cómo establecemos un cuerpo kinemático?</h2>
 <p>Podemos modificar la propiedad kinematic de body;</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">kinematic1</span>.<span class="va">body</span>.<span class="at">kinematic</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></code></pre></div>
 </section><section id="qué-cosas-afectan-a-un-kinemático" class="slide level2">
-<h1>¿Qué cosas afectan a un kinemático?</h1>
+<h2>¿Qué cosas afectan a un kinemático?</h2>
 <p>A un objeto kinemático no le afecta la gravedad</p>
 <p>Ni los impulsos</p>
 <p>Ni las colisiones modifican la velocidad del objeto, es decir un choque impide el paso, pero no modifica la velocidad del objeto, porque la física no puede calcular la velocidad de un objeto kinemático.</p>
