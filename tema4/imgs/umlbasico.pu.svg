@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="87px" preserveAspectRatio="none" style="width:216px;height:87px;background:#000000;" version="1.1" viewBox="0 0 216 87" width="216px" zoomAndPan="magnify"><defs/><g><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="74" x="5" y="18.5352">@startuml</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="209" x="5" y="35.0234">abstract Entity &lt;|-- Movable</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="10" y="51.5117"/><text fill="#FF0000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="94" x="10" y="51.5117">Syntax Error?</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="10" y="68"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" font-style="italic" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="103" x="10" y="68">Did you mean:</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="204" x="5" y="84.4883">abstractEntity &lt;|-- Movable</text><!--
+@startuml
+abstract Entity <|- - Movable
+Entity <|- - Weapon
+abstract Movable <|- - Player
+Movable <|- - Enemy
+Game "1" *- - "*" Entity
+Player o- - Weapon : aggregation
+hide members
+@enduml
+
+PlantUML version 1.2017.16(Sun Sep 03 12:53:37 CEST 2017)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_144-b01
+Operating System: Mac OS X
+OS Version: 10.12.6
+Default Encoding: UTF-8
+Language: es
+Country: ES
+--></g></svg>

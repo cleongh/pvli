@@ -1,5 +1,4 @@
 @startuml
-
 abstract Entity <|-- Movable
 Entity <|-- Weapon
 abstract Movable <|-- Player
@@ -7,5 +6,4 @@ Movable <|-- Enemy
 Game "1" *-- "*" Entity
 Player o-- Weapon : aggregation
 hide members
-
 @enduml
