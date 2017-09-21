@@ -28,13 +28,13 @@ proyecto/criterios_evaluacion.html: proyecto/criterios_evaluacion.md shared/docs
 	$(BASERUN) --css ../shared/docs.css $< -o $@
 
 proyecto/version1/%.html: proyecto/version1/%.md shared/docs.css
-	$(BASERUN) --css ../shared/docs.css $< -o $@
+	$(BASERUN) --css ../../shared/docs.css $< -o $@
 
 proyecto/version2/%.html: proyecto/version2/%.md shared/docs.css
-	$(BASERUN) --css ../shared/docs.css $< -o $@
+	$(BASERUN) --css ../../shared/docs.css $< -o $@
 
 proyecto/version3/%.html: proyecto/version3/%.md shared/docs.css
-	$(BASERUN) --css ../shared/docs.css $< -o $@
+	$(BASERUN) --css ../../shared/docs.css $< -o $@
 
 tema4/0403-ejercicios.html: tema4/0403-ejercicios.md shared/docs.css
 	$(BASERUN) --css ../shared/docs.css $< -o $@
@@ -43,7 +43,7 @@ tema4/0403-ejercicios.html: tema4/0403-ejercicios.md shared/docs.css
 	dot -T svg $< -O
 
 tema5/ejercicio/ejercicios_tema5.html: tema5/ejercicio/ejercicios_tema5.md
-	$(BASERUN) --css ../shared/docs.css $< -o $@
+	$(BASERUN) --css ../../shared/docs.css $< -o $@
 
 tema5/ejercicio/ejercicios_tema5.zip: tema5/ejercicio/ejercicios_tema5.html tema5/ejercicio/gulpfile.js tema5/ejercicio/package.json tema5/ejercicio/README.md tema5/ejercicio/.jshintrc tema5/ejercicio/src/*
 	cd tema5/ejercicio/ && zip -r $(notdir $@) src ejercicios_tema5.html gulpfile.js package.json README.md .jshintrc
