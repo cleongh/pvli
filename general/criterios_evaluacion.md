@@ -66,7 +66,7 @@ La información sobre los grupos puede consultarse en el [documento de grupos](g
 
 ## Asistencia
 
-La asistencia es obligatoria, y está más allá de la evaluación. El curso es
+La asistencia es obligatoria. El curso es
 presencial, y está diseñado como tal. La intención es que el trabajo en clase
 sea suficiente para que, junto con la realización de los ejercicios
 y prácticas, se adquiera todo el conocimiento necesario para la asignatura.
@@ -98,7 +98,7 @@ Las entregas consistirán en un texto corto con:
 En las entregas, que serán de tipo texto (es decir, no se podrán subir
 archivos), se deberá incluir un texto de este tipo:
 
-    entrega: Proyecto 4
+    entrega: Versión 2 del proyecto
     miembros: Alan Turing y Alonzo Church
     repo: github.com/lambda/pr4
     commit: a0bcf435d55135bf218a504cd8e45fd85b845de5

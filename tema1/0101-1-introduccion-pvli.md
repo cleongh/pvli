@@ -97,9 +97,10 @@ Todo lo aprobado se guarda para la convocatoria extraordinaria
 
 ## Entregas del proyecto
 
-Se calificarán 3 entregas, pero la nota final será la última (las dos primeras entregas son opcionales)
+Se calificarán 3 entregas, pero la nota final será la última
 
-Sólo será necesaria la última entrega, pero si entregáis las otras tendréis información y corrección a tiempo
+Las entregas son obligatorias, y su presentación pública en clase, también
+
 
 
 ## Copias
