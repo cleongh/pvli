@@ -42,4 +42,4 @@ Virtual.
 
 Se entregará la práctica según las [instrucciones comunes][] de la asignatura.
 
-[instrucciones comunes]: https://clnznr.github.io/pvli/website/general/criterios_evaluacion.html
+[instrucciones comunes]: https://clnznr.github.io/pvli/general/criterios_evaluacion.html
