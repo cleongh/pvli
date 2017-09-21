@@ -35,8 +35,8 @@ En concreto, se prevén estos casos:
 
 # Evaluación de grupos
 
-Para evaluar a cada miembro del grupo, se aplicará la [fórmula de
-evaluación](formula_evaluacion.html) de forma individual, teniendo en cuenta su
+Para evaluar a cada miembro del grupo, se aplicará la fórmula de
+evaluación de forma individual, teniendo en cuenta su
 contribución en la parte común, su contribución individual y su tamaño de
 contribución respecto al proyecto. En caso de duda en cuanto a la contribución
 relativa, todos los miembros de un grupo tendrán la misma nota.
