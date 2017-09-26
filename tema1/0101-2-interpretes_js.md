@@ -9,7 +9,7 @@ title: 'Tema 1: Programación de aplicaciones en HTML5'
 
 ## Qué son lenguajes interpretados
 
-##
+---
 
 Los [lenguajes
 interpretados](https://en.wikipedia.org/wiki/Interpreted_language) son

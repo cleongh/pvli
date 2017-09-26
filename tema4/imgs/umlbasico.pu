@@ -1,7 +1,9 @@
 @startuml
-abstract Entity <|-- Movable
+abstract Entity
+Entity <|-- Movable
 Entity <|-- Weapon
-abstract Movable <|-- Player
+abstract Movable
+Movable <|-- Player
 Movable <|-- Enemy
 Game "1" *-- "*" Entity
 Player o-- Weapon : aggregation

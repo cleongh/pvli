@@ -7,7 +7,7 @@ title: Un ejemplo concreto de componentes
 
 # Una implementación de arquitectura de componentes en JavaScript
 
-##
+---
 
 Vamos a implementar un sistema *muy simple* de entidades, componentes y
 **mensajes**
@@ -18,7 +18,7 @@ técnica muy usada para **desacoplar** los componentes, y las entidades</p>
 
 # Arquitectura
 
-##
+---
 
 ![Diagrama UML de la arquitectura](imgs/arquitectura.pu.svg)
 
