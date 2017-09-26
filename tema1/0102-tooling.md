@@ -236,7 +236,7 @@ $ node node_modules/gulp/bin/gulp.js # lanza todas ls tareas
 
 Las primeras semanas usaremos `node.js`, con la versión **que haya instalada en los laboratorios**
 
-![Node.js](https://nodejs.org/static/images/logo-header.png)
+![Node.js](https://nodejs.org/static/images/logo.svg){width=40%}
 
 ---
 
