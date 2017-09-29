@@ -2,7 +2,7 @@
 title: "Proyecto: tercera versión de un videojuego en JavaScript (empaquetado y despliegue)"
 ---
 
-Esta versión consiste en continuar el arcade con plataformas, esta vez terminando el juego y publicándolo en la web.
+Esta versión consiste en continuar el juego, esta vez terminando el juego y publicándolo en la web.
 
 ## Características obligatorias
 
@@ -15,11 +15,9 @@ Además, se actualizará el mini "GDD", y seguirá sin **poder exceder de una ca
 será un documento corto descriptivo en el que tendréis que:
 
 - Poner título al juego.
-- Publico objetivo, calificación de edad estimada.
-- Contar la historia (es obligatorio una) y los objetivos.
+- Contar la historia y los objetivos.
 - Explicar cómo jugar.
 - Hacer un poco de "venta" del juego: ¿por qué querría alguien jugar al juego?
-- Referencias utilizadas.
 
 ## Características opcionales
 
