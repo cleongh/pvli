@@ -37,7 +37,7 @@ los momentos clave de la secuencia.
 ---
 
 ![Notas de Tolkien para la elaboración del Señor de los Anillos](
-./imgs/lotr-notes.jpg)
+./imgs/lotr-notes.jpg){width=30%}
 
 ---
 
@@ -238,9 +238,7 @@ guiarán las interacciones propias del juego.
 
 ---
 
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/437Ld_rKM2s?rel=0" frameborder="0"
-allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/axlx3o0codc" frameborder="0" allowfullscreen></iframe>
 
 Un ejemplo: _los enemigos se mueven todos juntos hacia un lado, avanzan una
 línea y se mueven hacia el otro lado mientras disparan aleatoriamente._.
