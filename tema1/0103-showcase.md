@@ -19,11 +19,11 @@ salva@mozilla.com
 [@salvadelapuente](https://twitter.com/salvadelapuente)
 
 
-### Belén
+<!-- ### Belén
 
 belen@mozilla.com
 
-[@ladybenko](https://twitter.com/ladybenko)
+[@ladybenko](https://twitter.com/ladybenko) -->
 
 
 

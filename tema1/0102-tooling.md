@@ -328,6 +328,8 @@ Así, siempre que hagamos `gulp run`{.bash}, se ejecutará `gulp deploy`{.bash} 
 
 Las entregas estarán disponibles en un repositorio `git`
 
+--- 
+
 Consistirán en un texto corto con:
 
 - Un enlace al repositorio (commit **exacto**) 
@@ -369,7 +371,7 @@ En las entregas, poned un texto así:
 
 ```bash
 $ npm install yo # instalar 'yeoman'
-$ npm install generator-gamejam # 'instalar el generador de juegos hecho por Belén
+$ npm install generator-gamejam # 'instalar el generador de juegos hecho por Belén Albeza (Mozilla)
 $ npm install jslint # 'instalar el generador de juegos hecho por Belén
 $ node_modules/.bin/yo # arrancar el generador
 $ npm install # instalar dependencias
@@ -379,7 +381,7 @@ $ node_modules/.bin/gulp run # arrancar 'gulp', haciendo que recargue la página
 
 ---
 
-Belén ha creado una plantilla de Yeoman para juegos, `generator-gamejam`
+Belén Albeza (Mozilla) ha creado una plantilla de Yeoman para juegos, `generator-gamejam`
 
 No es obligatorio ni necesario usarla, pero puede ahorraros mucho, mucho tiempo
 
