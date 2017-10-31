@@ -5,10 +5,6 @@ title: Carga de recursos con Phaser
 #vim: spelllang=es
 ...
 
-<!-- Yo dividiría el contenido en más diapositivas. Creo que diapósitivas cortas
-con un párrafo son más placenteras de leer que diapositivas largar con muchos
-párrafos. -->
-
 # Introducción
 
 ## Qué es Phaser
@@ -17,7 +13,9 @@ párrafos. -->
 
 El juego se renderiza sobre un *Canvas*, luego no está directamente pensado par ser ejecutado en Node, aunque podemos *"apañarlo"*.
 
-##URLs vs URIs
+## URLs vs URIs
+
+---
 
 Las URIs son un superconjunto de las URLs.
 
@@ -65,6 +63,8 @@ Los estados de Phaser son la unidad mínima que maneja el framework para crear u
 
 Piensa en un State como en un capítulo de un libro. Pero *sólo un State está activo al mismo tiempo*. Podemos cambiar entre estados, pero sólo uno puede estar activo.
 
+---
+
 <!-- Explicaría más la confusión. Supongo que se quiere hacer hincapié en
 que los estados no representan individuos. Haría explícito que esta es la
 confusión que se quiere evitar. Creo que toda la explicación que sigue está
@@ -79,9 +79,11 @@ Los States sirven para controlar el flujo de juego.
 
 ---
 
-![Ejemplo de State](imgs/States.png){height=75%}
+![Ejemplo de State](imgs/States.png){width=50%}
 
 ## Estructura de un State
+
+---
 
 
 Un State es un objeto de JavaScript que contiene una serie de métodos ya definidos.
@@ -97,7 +99,7 @@ La gestión del State la realiza el **StateManager**. El StateManager es el enca
 ---
 
 
-![Flujo de ejecución de los métodos de un State](imgs/TimelinePhaser.png){height=50%}
+![Flujo de ejecución de los métodos de un State](imgs/TimelinePhaser.png){width=50%}
 
 
 ---
@@ -256,6 +258,8 @@ Para localizar los recursos podemos usar **baseURL** y *crossOrigin* del subsist
 **BaseURL** es el lugar donde están los recursos. Si los recursos no están en el mismo sitio que el código
 podemos establecer aquí la url base para no tener que escribirla constantemente en el método de carga concreto.
 
+---
+
 **Cross-origin resource sharing (CORS)** es el mecanismo de control y restricción de recursos que emplean los navegadores cuando un
 recurso es solicitado por otro dominio. CORS define la forma en la que el navegador debe interactuar con el servidor.
 
@@ -370,15 +374,19 @@ Son las imágenes 2D que sirven para visualizar los objetos en un juego 2D.  En 
 player = game.add.sprite(100, 200, 'player');
 ```
 
+---
+
 ![Sprite](imgs/mariosprite.jpg){height=75%}
 
 Hay que usar la key que se le puso en la carga. El objeto, obviamente, debe estar cargado memoria.
 
-#Spritesheet o atlas de sprites.
+#Spritesheet o atlas de sprites
 
 ---
 
 ![Spritesheet o Atlas de Sprites](imgs/mario_spritesheet.gif){height=300px width=400px}
+
+---
 
 Sirven para optimizar recursos:
 * Reduce el número de accesos al servidor (no es lo mismo traerse una imagen grande con muchas imágenes pequeñas que muchas imágenes pequeñas individuales).

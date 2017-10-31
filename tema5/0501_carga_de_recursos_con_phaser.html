@@ -119,18 +119,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <h1 class="title">Carga de recursos con Phaser</h1>
 </section>
 
-<section class="slide level2">
-
-<!-- Yo dividiría el contenido en más diapositivas. Creo que diapósitivas cortas
-con un párrafo son más placenteras de leer que diapositivas largar con muchos
-párrafos. -->
-</section>
 <section><section id="introducción" class="titleslide slide level1"><h1>Introducción</h1></section><section id="qué-es-phaser" class="slide level2">
 <h2>Qué es Phaser</h2>
 <p><strong>Phaser</strong> es un framework que nos permite construir juegos en HTML5 para equipos de escritorio y dispositivos móviles. Es bastante nuevo, pero tiene involucrada una apasionada comunidad en el proceso de desarrollo, por lo que crece rápidamente</p>
 <p>El juego se renderiza sobre un <em>Canvas</em>, luego no está directamente pensado par ser ejecutado en Node, aunque podemos <em>“apañarlo”</em>.</p>
 </section><section id="urls-vs-uris" class="slide level2">
 <h2>URLs vs URIs</h2>
+</section><section class="slide level2">
+
 <p>Las URIs son un superconjunto de las URLs.</p>
 <figure>
 <img src="imgs/URIvsURL.png" alt="URL vs URI" width="400" height="400" /><figcaption>URL vs URI</figcaption>
@@ -164,6 +160,8 @@ anterior. -->
 <h2>Game States</h2>
 <p>Los estados de Phaser son la unidad mínima que maneja el framework para crear una escena de juego. Podríamos decir que es equivalente a la <em>Scene</em> de Unity.</p>
 <p>Piensa en un State como en un capítulo de un libro. Pero <em>sólo un State está activo al mismo tiempo</em>. Podemos cambiar entre estados, pero sólo uno puede estar activo.</p>
+</section><section class="slide level2">
+
 <!-- Explicaría más la confusión. Supongo que se quiere hacer hincapié en
 que los estados no representan individuos. Haría explícito que esta es la
 confusión que se quiere evitar. Creo que toda la explicación que sigue está
@@ -174,10 +172,12 @@ muy bien. -->
 </section><section class="slide level2">
 
 <figure>
-<img src="imgs/States.png" alt="Ejemplo de State" style="height:75.0%" /><figcaption>Ejemplo de State</figcaption>
+<img src="imgs/States.png" alt="Ejemplo de State" style="width:50.0%" /><figcaption>Ejemplo de State</figcaption>
 </figure>
 </section><section id="estructura-de-un-state" class="slide level2">
 <h2>Estructura de un State</h2>
+</section><section class="slide level2">
+
 <p>Un State es un objeto de JavaScript que contiene una serie de métodos ya definidos.</p>
 <p>Un estado es válido si hay, al menos, uno de estos métodos: <strong>preload</strong>, <strong>create</strong>, <strong>update</strong> o <strong>render</strong>. Si no existe alguno de estos métodos, Phaser no carga el State.</p>
 <!-- Esto es contradictorio. Creo que se ha querido decir que "si no existe
@@ -186,7 +186,7 @@ ninguno de estos métodos, Phaser no carga el state". -->
 </section><section class="slide level2">
 
 <figure>
-<img src="imgs/TimelinePhaser.png" alt="Flujo de ejecución de los métodos de un State" style="height:50.0%" /><figcaption>Flujo de ejecución de los métodos de un State</figcaption>
+<img src="imgs/TimelinePhaser.png" alt="Flujo de ejecución de los métodos de un State" style="width:50.0%" /><figcaption>Flujo de ejecución de los métodos de un State</figcaption>
 </figure>
 </section><section class="slide level2">
 
@@ -307,6 +307,8 @@ hecho para nada. -->
 
 <p>Para localizar los recursos podemos usar <strong>baseURL</strong> y <em>crossOrigin</em> del subsistema load.</p>
 <p><strong>BaseURL</strong> es el lugar donde están los recursos. Si los recursos no están en el mismo sitio que el código podemos establecer aquí la url base para no tener que escribirla constantemente en el método de carga concreto.</p>
+</section><section class="slide level2">
+
 <p><strong>Cross-origin resource sharing (CORS)</strong> es el mecanismo de control y restricción de recursos que emplean los navegadores cuando un recurso es solicitado por otro dominio. CORS define la forma en la que el navegador debe interactuar con el servidor.</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes">MDN de Cross Origin</a></p>
 </section><section class="slide level2">
@@ -373,16 +375,20 @@ Hay que indicar que `cache` es una propiedad del objeto juego. -->
 
 <p>Son las imágenes 2D que sirven para visualizar los objetos en un juego 2D. En Phaser se instancian así:</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">player <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="st">&#39;player&#39;</span>)<span class="op">;</span></code></pre></div>
+</section><section class="slide level2">
+
 <figure>
 <img src="imgs/mariosprite.jpg" alt="Sprite" style="height:75.0%" /><figcaption>Sprite</figcaption>
 </figure>
 <p>Hay que usar la key que se le puso en la carga. El objeto, obviamente, debe estar cargado memoria.</p>
 </section></section>
-<section><section id="spritesheet-o-atlas-de-sprites." class="titleslide slide level1"><h1>Spritesheet o atlas de sprites.</h1></section><section class="slide level2">
+<section><section id="spritesheet-o-atlas-de-sprites" class="titleslide slide level1"><h1>Spritesheet o atlas de sprites</h1></section><section class="slide level2">
 
 <figure>
 <img src="imgs/mario_spritesheet.gif" alt="Spritesheet o Atlas de Sprites" width="400" height="300" /><figcaption>Spritesheet o Atlas de Sprites</figcaption>
 </figure>
+</section><section class="slide level2">
+
 <p>Sirven para optimizar recursos: * Reduce el número de accesos al servidor (no es lo mismo traerse una imagen grande con muchas imágenes pequeñas que muchas imágenes pequeñas individuales). * Es más eficiente en memoria.</p>
 </section><section class="slide level2">
 
