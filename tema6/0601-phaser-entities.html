@@ -1,314 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <title></title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <title>Entidades de Phaser</title>
+    <meta name="description" content="Entidades de Phaser.">
+    <meta name="author" content="Salvador de la Puente González">
 
+    <link rel="stylesheet" href="../shared/lib/tabzilla/css/tabzilla.css"/>
+    <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
+    <link rel="stylesheet" href="../shared/lib/reveal/css/theme/mozilla-devrel-light.css"/>
 
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/../tabzilla/css/tabzilla.css"/> -->
-  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/mozilla-devrel-light.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/lib/css/solarized-light.css" />
+		<!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../shared/lib/reveal/lib/css/solarized-light.css" />
 
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../shared/lib/reveal/css/print/pdf.css' : '../shared/lib/reveal/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+  <body>
+    <section id="tabzilla">
+      <a href="https://www.mozilla.org/">Mozilla</a>
+    </section>
 
+		<div class="reveal">
+      <div class="slides">
+        <section data-markdown="0601-phaser-entities.md"
+                 data-separator="^\n\n\n"
+                 data-separator-vertical="^\n\n">
+        </section>
+      </div>
+		</div>
 
+    <script src="../shared/lib/reveal/lib/js/head.min.js"></script>
+    <script src="../shared/lib/reveal/js/reveal.js"></script>
 
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"> -->
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
 
-  <style type="text/css">code{white-space: pre;}</style>
-  <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-  </style>
-<!--  -->
-<!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
-<!--  -->
-<!--  -->
-  <!-- Printing and PDF exports -->
-  <script>
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? '../shared/lib/reveal/css/print/pdf.css' : '../shared/lib/reveal/css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
-  </script>
-  <!--[if lt IE 9]>
-  <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
-  <![endif]-->
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
-
-
-<!-- FIXME megahack because `pandoc` only generates h1's. -->
-<!-- <style type="text/css"> -->
-
-
-<!-- .inner { -->
-<!--     width: 100%; -->
-<!--     margin: 0 auto; --> 
-<!-- } -->
-
-<!--     h1{ --> 
-<!--     } -->
-
-<!--     .level2 h1 { -->
-        
-<!--     border-top: 0.1em solid #484848; -->
-<!--     border-bottom: 0.1em solid #484848; -->
-    
-<!--     padding: 1em 0; -->
-<!--     margin-bottom: 1em; -->
-<!--     font-size: 1.6em; -->
-<!--     margin: 0 0 20px 0; -->
-<!--     color: #484848; -->
-<!--     font-family: "Fira Sans", Helvetica, sans-serif; -->
-<!--     font-weight: 600; -->
-<!--     line-height: 1.2; -->
-<!--     letter-spacing: normal; -->
-<!--     text-transform: uppercase; -->
-<!--     text-shadow: none; -->
-<!--     word-wrap: break-word; -->
-<!-- } -->
-
-<!-- </style> -->
-
-
-</head>
-<body>
-  <div class="reveal">
-    <div class="slides">
-
-
-<section><section id="entidades-de-phaser" class="titleslide slide level1"><h1>Entidades de Phaser</h1></section><section id="el-servidor-local" class="slide level2">
-<h1>El servidor local</h1>
-<p>Una vez hayas copiado la plantilla y ejecutado <code>npm install</code> en la raíz, lanza el siguiente comando:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">node</span> ./node_modules/gulp/bin/gulp run</code></pre></div>
-<p>Con ello lanzarás un navegador que cargará la plantilla proporcionada.</p>
-<p>Fíjate en la URL del navegador. Indica <code>localhost:3000</code> que es el nombre de la IP local y el número de puerto.</p>
-<p>El comando <code>run</code> realiza los pasos necesarios para que no sea necesario recargar cada vez que modifiquemos un archivo fuente. Los fuentes los puedes encontrar en <code>src/js/</code>.</p>
-<figure>
-<img src="imgs/estructura_directorios.png" alt="Estructura de directorios de la plantilla" /><figcaption>Estructura de directorios de la plantilla</figcaption>
-</figure>
-</section><section id="entidades-image" class="slide level2">
-<h1>Entidades <code>Image</code></h1>
-<p>Las imágenes son las entidades visibles más simples de Phaser. Las entidades son instancias de la clase <a href="https://phaser.io/docs/2.6.2/Phaser.Image.html"><code>Image</code></a>.</p>
-<p>Su simplicidad las hace ligeras y eficientes en términos de memoria. Utilizamos imágenes cuando no necesitamos comportamientos complejos como físicas o animaciones por <em>keyframes</em>.</p>
-<p>Aun así, las imágenes se pueden mover, rotar, escalar o recortar. Esto las hace ideales para, por ejemplo, logos, imágenes de fondo, barras de carga, elementos de interfaz...</p>
-<p>Una imagen se crea a través del método factoría <a href="https://phaser.io/docs/2.6.2/Phaser.GameObjectFactory.html#image"><code>add.image</code></a> del objeto juego. Por ejemplo, como parte de la creación de un estado:</p>
-<section id="atributos-relevantes-de-las-imágenes" class="level3">
-<h3>Atributos relevantes de las imágenes</h3>
-<p>Phaser tiene objetos para representar puntos o vectores centrados en (0, 0).</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> myPoint <span class="op">=</span> <span class="kw">new</span> <span class="va">Phaser</span>.<span class="at">Point</span>()<span class="op">;</span> <span class="co">// (0, 0)</span>
-<span class="kw">var</span> myPointXY <span class="op">=</span> <span class="kw">new</span> <span class="va">Phaser</span>.<span class="at">Point</span>(<span class="dv">10</span><span class="op">,</span> <span class="dv">10</span>)<span class="op">;</span> <span class="co">// (10, 10)</span></code></pre></div>
-<p>Las imágenes rendean texturas, y les podemos decir desde dónde queremos rendear la textura en relación al origen de la imagen, con <code>anchor</code>.</p>
-<p>También se puede elegir el <em>blending</em> con <code>blendMode</code> (¡mirad el API!).</p>
-</section>
-<section id="métodos-relevantes-de-las-imágenes" class="level3">
-<h3>Métodos relevantes de las imágenes</h3>
-<p>Una imagen puede ser &quot;recortada&quot; con <code>crop</code>, de forma que sólo se vea un trozo de la misma</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">image <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">image</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="st">&#39;phaser&#39;</span>)<span class="op">;</span>
-<span class="va">image</span>.<span class="at">crop</span>(<span class="kw">new</span> <span class="va">Phaser</span>.<span class="at">Rectangle</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">10</span>))<span class="op">;</span></code></pre></div>
-<p>Cuando la imagen se recorta, realmente no se pierde información. De hecho, el recorte se puede cambiar dinámicamente:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// en la pestaña update</span>
-<span class="kw">function</span> <span class="at">update</span>() <span class="op">{</span>
-    v <span class="op">+=</span> <span class="fl">0.1</span><span class="op">;</span>
-    <span class="va">image</span>.<span class="at">crop</span>(<span class="kw">new</span> <span class="va">Phaser</span>.<span class="at">Rectangle</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> v<span class="op">,</span> v))<span class="op">;</span>
-<span class="op">}</span></code></pre></div>
-</section>
-</section><section id="el-mundo" class="slide level2">
-<h1>El mundo</h1>
-<p>En Phaser, la factoría de objetos se llama añadir (<code>add</code>) por una razón: <strong>porque añadimos las nuevas entidades al mundo</strong>.</p>
-<p>Para Phaser, el mundo, representado por la clase <a href="https://phaser.io/docs/2.6.2/Phaser.World.html"><code>World</code></a>, es la <strong>abstracción del lugar (un plano bidimensional) donde habitan las entidades</strong>.</p>
-<figure>
-<img src="./imgs/world.svg" alt="El mundo, la cámara y entidades más allá de los límites de la cámara" /><figcaption>El mundo, la cámara y entidades más allá de los límites de la cámara</figcaption>
-</figure>
-<p>Miramos al mundo a través de <a href="https://phaser.io/docs/2.6.2/Phaser.Camera.html">cámaras</a>.</p>
-<figure>
-<img src="./imgs/world-and-camera.svg" alt="El mundo, la cámara y entidades más allá de los límites de la cámara" /><figcaption>El mundo, la cámara y entidades más allá de los límites de la cámara</figcaption>
-</figure>
-<p>En Phaser existe sólo un mundo, que se crea automáticamente cuando creamos el juego y al que se puede acceder a través del atributo <a href="https://phaser.io/docs/2.6.2/Phaser.Game.html#world"><code>world</code></a> del objeto de juego.</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// en la pestaña create</span>
-<span class="va">game</span>.<span class="va">world</span>.<span class="at">setBounds</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1920</span><span class="op">,</span> <span class="dv">1200</span>)<span class="op">;</span></code></pre></div>
-<p>También se crea una cámara, a la que podemos acceder a través del atributo <a href="https://phaser.io/docs/2.6.2/Phaser.Game.html#camera"><code>camera</code></a> del objeto de juego o del mundo.</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// en la pestaña create</span>
-<span class="kw">var</span> card <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="st">&#39;card&#39;</span>)<span class="op">;</span>
-<span class="va">game</span>.<span class="va">camera</span>.<span class="at">follow</span>(card)<span class="op">;</span></code></pre></div>
-<p>Este mundo tiene un tamaño inicial igual al tamaño indicado al construir el juego pero se expandirá conforme incluyamos entidades que sobrepasen los límites del espacio de juego.</p>
-</section><section id="entidades-sprite" class="slide level2">
-<h1>Entidades <code>Sprite</code></h1>
-<p>La mayoría de las entidades visibles de un juego incorporan alguna animación y comportamiento. La clase <a href="https://phaser.io/docs/2.6.2/Phaser.Sprite.html"><code>Sprite</code></a> representa estas &quot;entidades animadas&quot; y es el componente principal de los juegos con Phaser.</p>
-<p>Aunque podamos añadir <em>sprites</em> al mundo utilizando el método factoría <a href="https://phaser.io/docs/2.6.2/Phaser.GameObjectFactory.html#sprite"><code>add.sprite</code></a>, el sprite por defecto es tan simple que no se suele utilizar salvo en ocasiones donde no se requiere un comportamiento complejo.</p>
-<p>Este ejemplo es equivalente a añadir un <em>sprite</em> con <code>add.sprite</code>:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// En la pestaña create.</span>
-<span class="kw">function</span> <span class="at">create</span>() <span class="op">{</span>
-  <span class="kw">var</span> sprite <span class="op">=</span> <span class="kw">new</span> <span class="va">Phaser</span>.<span class="at">Sprite</span>(<span class="kw">this</span>.<span class="at">game</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="st">&#39;phaser&#39;</span>)<span class="op">;</span>
-  <span class="kw">this</span>.<span class="va">game</span>.<span class="va">world</span>.<span class="at">addChild</span>(sprite)<span class="op">;</span>
-<span class="op">}</span></code></pre></div>
-<p>https://phaser.io/sandbox/KTYGfoXs</p>
-<p>En la mayoría de los casos los <em>sprites</em> tendrán un comportamiento avanzado: reaccionarán a los controles, ejecutarán algoritmos de IA, necesitarás métodos auxiliares, etc.</p>
-<p>Por ello, en lugar de usar instancias de las clase <code>Sprite</code>, es mejor que creemos clases adaptadas a nuestras necesidades y añadir instancias de estas clases.</p>
-<p>Para ello, nuestras clases <em>sprite</em> deben heredar de <a href=""><code>Phaser.Sprite</code></a>. Por ejemplo, considera el <em>sprite</em> de un personaje que aparece aleatoriamente y cae.</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">FallingMartian</span>(game) <span class="op">{</span>
-  <span class="kw">var</span> x <span class="op">=</span> <span class="va">Math</span>.<span class="at">random</span>() <span class="op">*</span> <span class="va">game</span>.<span class="va">world</span>.<span class="at">width</span><span class="op">;</span>
-  <span class="kw">var</span> y <span class="op">=</span> <span class="va">Math</span>.<span class="at">random</span>() <span class="op">*</span> <span class="va">game</span>.<span class="va">world</span>.<span class="at">height</span><span class="op">;</span>
-  <span class="va">Phaser</span>.<span class="va">Sprite</span>.<span class="at">call</span>(<span class="kw">this</span><span class="op">,</span> game<span class="op">,</span> x<span class="op">,</span> y<span class="op">,</span> <span class="st">&#39;phaser&#39;</span>)<span class="op">;</span>
-<span class="op">}</span>
-<span class="va">FallingMartian</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">Phaser</span>.<span class="va">Sprite</span>.<span class="at">prototype</span>)<span class="op">;</span>
-<span class="va">FallingMartian</span>.<span class="at">constructor</span> <span class="op">=</span> FallingMartian<span class="op">;</span></code></pre></div>
-<p>Ahora podemos personalizar su comportamiento durante la fase de actualización de Phaser. Por ejemplo:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">FallingMartian</span>.<span class="va">prototype</span>.<span class="at">update</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span>
-  <span class="kw">this</span>.<span class="at">y</span> <span class="op">+=</span> <span class="dv">2</span><span class="op">;</span>
-<span class="op">}</span></code></pre></div>
-<p>Usando el ejemplo anterior para añadir un <em>sprite</em>, podemos añadir el personaje que cae:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// En la pestaña create.</span>
-<span class="kw">function</span> <span class="at">create</span>() <span class="op">{</span>
-  <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span>
-    <span class="kw">var</span> sprite <span class="op">=</span> <span class="kw">new</span> <span class="at">FallingMartian</span>(<span class="kw">this</span>.<span class="at">game</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="st">&#39;phaser&#39;</span>)<span class="op">;</span>
-    <span class="kw">this</span>.<span class="va">game</span>.<span class="va">world</span>.<span class="at">addChild</span>(sprite)<span class="op">;</span>
-  <span class="op">}</span>
-<span class="op">}</span></code></pre></div>
-<p>https://phaser.io/sandbox/xMDkDhBs</p>
-<section id="atributos-relevantes-de-los-sprites" class="level3">
-<h3>Atributos relevantes de los sprites</h3>
-<p>Todos los <code>Sprite</code> son también <code>Image</code>. Por tanto, tienen todos los atributos de <code>Image</code></p>
-<p>Más adelante veremos más atributos de los <code>Sprite</code>, como <code>animations</code>, <code>body</code> (para físicas) y <code>children</code> (para agrupar)</p>
-</section>
-<section id="métodos-relevantes-de-los-sprites" class="level3">
-<h3>Métodos relevantes de los sprites</h3>
-<p><code>addChild</code> y <code>removeChild</code> añaden y eliminan, respectivamente, un hijo.</p>
-<p>Un &quot;hijo&quot; es otra entidad cuyas propiedades van unidas y son relativas a las del padre.</p>
-<p>Por ejemplo, si el <code>Sprite</code> <code>A</code> tiene un hijo <code>B</code> y movemos <code>A</code>, <code>B</code> se moverá junto a <code>A</code> automáticamente.</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">create</span>() <span class="op">{</span>
-    <span class="kw">var</span> c <span class="op">=</span> <span class="kw">new</span> <span class="at">Martian</span>(<span class="st">&#39;phaser&#39;</span>)<span class="op">;</span> <span class="co">// Martian es un Sprite</span>
-    <span class="va">c</span>.<span class="at">y</span> <span class="op">=</span> <span class="dv">80</span><span class="op">;</span>
-    <span class="kw">var</span> c2 <span class="op">=</span> <span class="kw">new</span> <span class="at">Martian</span>(<span class="st">&#39;phaser&#39;</span>)<span class="op">;</span>
-    <span class="va">c</span>.<span class="at">addChild</span>(c2)<span class="op">;</span> <span class="co">// hacemos que c2 sea hijo de c</span>
-    <span class="va">c2</span>.<span class="at">y</span> <span class="op">=</span> <span class="dv">10</span><span class="op">;</span> <span class="co">// relativo a c, en total corresponde a 90</span>
-    <span class="va">game</span>.<span class="va">world</span>.<span class="at">addChild</span>(c)<span class="op">;</span>
-<span class="op">}</span></code></pre></div>
-<p><code>overlap</code> comprueba si un <code>Sprite</code> colisiona con otro:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">update</span>() <span class="op">{</span>
-    <span class="co">// si `c` y `c2` se solapan</span>
-    <span class="cf">if</span>(<span class="va">c</span>.<span class="at">overlap</span>(c2)) <span class="op">{</span>
-        <span class="co">// cambiamos la coordenada &#39;y&#39; de `c2`</span>
-        <span class="va">c2</span>.<span class="at">y</span> <span class="op">=</span> <span class="dv">100</span><span class="op">;</span>
-    <span class="op">}</span>
-<span class="op">}</span></code></pre></div>
-</section>
-</section><section id="transformaciones" class="slide level2">
-<h1>Transformaciones</h1>
-<p>Las imágenes, como otras entidades en Phaser, pueden alterar su posición, rotación y factor de escala.</p>
-<p>Se llama transformación a la <strong>alteración de los atributos que controlan la posición, la rotación o el factor de escala de una entidad</strong>.</p>
-<section id="posicionamiento" class="level3">
-<h3>Posicionamiento</h3>
-<p>Para alterar la posición de una entidad, recurrimos a los atributos <a href="https://phaser.io/docs/2.6.2/Phaser.Sprite.html#x"><code>x</code></a> e <a href="https://phaser.io/docs/2.6.2/Phaser.Sprite.html#y"><code>y</code></a>.</p>
-<p>En el caso de <code>Sprite</code>, es conveniente mover al elemento habiendo creado una clase que herede de <code>Sprite</code> y modificar <code>x</code> e <code>y</code> dentro de su <code>update</code>:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">Martian</span>(name) <span class="op">{</span>
-    <span class="va">Phaser</span>.<span class="va">Sprite</span>.<span class="at">call</span>(<span class="kw">this</span><span class="op">,</span> game<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> name)<span class="op">;</span>
-<span class="op">}</span>
-
-<span class="va">Martian</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">Phaser</span>.<span class="va">Sprite</span>.<span class="at">prototype</span>)<span class="op">;</span>
-<span class="va">Martian</span>.<span class="at">constructor</span> <span class="op">=</span> Martian<span class="op">;</span>
-
-<span class="va">Martian</span>.<span class="va">prototype</span>.<span class="at">update</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span>
-    <span class="kw">this</span>.<span class="at">x</span> <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span>
-    <span class="kw">this</span>.<span class="at">y</span> <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span>
-<span class="op">};</span>
-
-<span class="kw">function</span> <span class="at">create</span>() <span class="op">{</span>
-    <span class="va">game</span>.<span class="va">world</span>.<span class="at">addChild</span>(<span class="kw">new</span> <span class="at">Martian</span>(<span class="st">&#39;phaser&#39;</span>))<span class="op">;</span>
-<span class="op">}</span></code></pre></div>
-<p>https://phaser.io/sandbox/iuezaSHd</p>
-</section>
-<section id="rotación" class="level3">
-<h3>Rotación</h3>
-<p><code>angle</code> controla la rotación de un Sprite, en grados ([-180...180])</p>
-<p>También existe <code>rotation</code>, para hacer la rotación de radianes y es ligeramente más rápido.</p>
-<p>Valores negativos del ángulo son rotación antihoraria, y valores positivos, horaria.</p>
-<p>Cualquier valor &gt;360 equivale a restar 360 al ángulo (<code>angle = 450</code> es igual que <code>angle = 90</code>).</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">Martian</span>.<span class="va">prototype</span>.<span class="at">update</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span>
-    <span class="co">// El marciano da vueltas sin parar</span>
-    <span class="kw">this</span>.<span class="at">angle</span><span class="op">++;</span>
-<span class="op">};</span></code></pre></div>
-</section>
-<section id="escalado" class="level3">
-<h3>Escalado</h3>
-<p><code>width</code> y <code>height</code> controlan la anchura y altura, respectivamente. Con ellos se pueden escalar objetos.</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">Martian</span>.<span class="va">prototype</span>.<span class="at">resizeMe</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span>
-    <span class="kw">this</span>.<span class="at">width</span> <span class="op">=</span> <span class="dv">3</span><span class="op">;</span>
-    <span class="kw">this</span>.<span class="at">height</span> <span class="op">=</span> <span class="dv">5</span><span class="op">;</span>
-<span class="op">};</span></code></pre></div>
-<p>Podemos hacer <em>mirroring</em>, con consiste en hacer una versión especular de la imagen, escalando de forma negativa.</p>
-<p>En el siguiente código, el <code>Sprite</code> se encoge tanto que se acaba dando la vuelta.</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">Martian</span>.<span class="va">prototype</span>.<span class="at">update</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span>
-    <span class="kw">this</span>.<span class="at">width</span><span class="op">--;</span>
-<span class="op">};</span></code></pre></div>
-</section>
-</section><section id="la-jerarquía-del-mundo" class="slide level2">
-<h1>La jerarquía del mundo</h1>
-<p>El mundo contiene entidades pero además, en Phaser, las entidades pueden contener otras entidades formando así una jerarquía en forma de árbol.</p>
-<p>La relación entre una entidad y sus entidades hijas es la de <strong>pertenencia al sistema de coordenadas</strong> (recordad <code>addChild</code>).</p>
-<p>Es decir, si la entidad <code>Moon</code> se añade a la entidad <code>Earth</code>, significa que <code>Moon</code> se encuentra en el sistema de coordenadas de <code>Earth</code>.</p>
-<p>Lo que a su vez significa que al transformar <code>Earth</code> modificaremos <code>Moon</code> indirectamente.</p>
-<p>También significa que si transformaremos <code>Moon</code>, lo haremos respecto del sistema de coordenadas de <code>Earth</code> y no del mundo.</p>
-<p>Podéis ver un <a href="https://phaser.io/sandbox/edit/lWlACykr">ejemplo</a> en el que las entidades se agrupan según una jerarquía.</p>
-</section></section>
-    </div>
-  </div>
-
-  <script src="../shared/lib/reveal/lib/js/head.min.js"></script>
-  <script src="../shared/lib/reveal/js/reveal.js"></script>
-
-  <script>
-
-      // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-
-        // Optional reveal.js plugins
-        dependencies: [
-          { src: '../shared/lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: '../shared/lib/reveal/plugin/zoom-js/zoom.js', async: true },
-          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true }
-        ]
-      });
-    </script>
-    </body>
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+          { src: '../shared/lib/reveal/plugin/markdown/marked.js' },
+          { src: '../shared/lib/reveal/plugin/markdown/markdown.js' },
+          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true },
+          { src: '../shared/lib/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../shared/lib/reveal.js-svg-animation/svg-animation.js', async: true }
+				]
+			});
+		</script>
+  </body>
 </html>
