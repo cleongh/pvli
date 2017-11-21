@@ -31,7 +31,7 @@ El comando `run` realiza los pasos necesarios para que no sea necesario recargar
 cada vez que modifiquemos un archivo fuente. Los fuentes los puedes encontrar en
 `src/js/`.
 
-![Estructura de directorios de la plantilla](imgs/estructura_directorios.png)
+<!-- ![Estructura de directorios de la plantilla](imgs/estructura_directorios.png) -->
 
 
 ## Entidades `Image`
@@ -419,5 +419,3 @@ de coordenadas de `Earth` y no del mundo.
 
 Podéis ver un [ejemplo](https://phaser.io/sandbox/edit/lWlACykr) en el que las
 entidades se agrupan según una jerarquía.
-
-
