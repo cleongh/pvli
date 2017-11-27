@@ -43,7 +43,7 @@ https://en.wikipedia.org/wiki/Frame_rate) disminuirá por debajo de 60 fps.
 En la pestaña "Rendering", podemos activar la opción "FPS Meter" en Chrome.
 
 
-Además, en la pestaña "Profiles", podemos guardar una ejecución del programa y
+Además, en la pestaña "Performance", podemos guardar una ejecución del programa y
 veremos qué funciones se ejecutan y cuánto tiempo tardan en hacerlo. 
 
 
@@ -67,7 +67,7 @@ destruidos de forma que la memoria que ocupan queda disponible de nuevo.
 
 
 Para ver cómo funciona, activamos las opciones de desarrollo (en este caso, en
-Chrome), y en la pestaña "Timeline" grabamos mientras ejecutamos un juego.
+Chrome), y en la pestaña "Performance" grabamos mientras ejecutamos un juego, activando la opción de "Memory".
 
 
 
