@@ -16,34 +16,34 @@ PROYECTO3=proyecto/version3/especificacion.html
 PROYECTO=$(PROYECTO1) $(PROYECTO2) $(PROYECTO3) proyecto/criterios_evaluacion.html
 TEMAS=$(TEMA1) $(TEMA2) $(TEMA3) $(TEMA4) tema4/0403-ejercicios.html $(TEMA5) $(TEMA6) $(TEMA7) $(TEMA8) $(TEMA9) $(TEMA10)
 TODO=$(GENERAL) $(TEMAS) $(PROYECTO)
-BASERUN=pandoc -S -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
+BASERUN=pandoc -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
 # BASERUN=pandoc  -s --mathjax -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
 
 all: $(TODO)
 
 general/%.html: general/%.md shared/docs.css
-	$(BASERUN) --css ../shared/docs.css -t html $< -o $@
+	$(BASERUN) --css ../shared/docs.css -t html+smart $< -o $@
 
 proyecto/criterios_evaluacion.html: proyecto/criterios_evaluacion.md shared/docs.css
-	$(BASERUN) --css ../shared/docs.css $< -o $@
+	$(BASERUN) --css ../shared/docs.css -t html+smart $< -o $@
 
 proyecto/version1/%.html: proyecto/version1/%.md shared/docs.css
-	$(BASERUN) --css ../../shared/docs.css $< -o $@
+	$(BASERUN) --css ../../shared/docs.css -t html+smart $< -o $@
 
 proyecto/version2/%.html: proyecto/version2/%.md shared/docs.css
-	$(BASERUN) --css ../../shared/docs.css $< -o $@
+	$(BASERUN) --css ../../shared/docs.css -t html+smart $< -o $@
 
 proyecto/version3/%.html: proyecto/version3/%.md shared/docs.css
-	$(BASERUN) --css ../../shared/docs.css $< -o $@
+	$(BASERUN) --css ../../shared/docs.css -t html+smart $< -o $@
 
 tema4/0403-ejercicios.html: tema4/0403-ejercicios.md shared/docs.css
-	$(BASERUN) --css ../shared/docs.css $< -o $@
+	$(BASERUN) --css ../shared/docs.css -t html+smart $< -o $@
 
 %.dot.svg: %.dot
 	dot -T svg $< -O
 
 tema5/ejercicio/ejercicios_tema5.html: tema5/ejercicio/ejercicios_tema5.md
-	$(BASERUN) --css ../../shared/docs.css $< -o $@
+	$(BASERUN) --css ../../shared/docs.css -t html+smart $< -o $@
 
 tema5/ejercicio/ejercicios_tema5.zip: tema5/ejercicio/ejercicios_tema5.html tema5/ejercicio/gulpfile.js tema5/ejercicio/package.json tema5/ejercicio/README.md tema5/ejercicio/.jshintrc tema5/ejercicio/src/*
 	cd tema5/ejercicio/ && zip -r $(notdir $@) src ejercicios_tema5.html gulpfile.js package.json README.md .jshintrc
@@ -53,7 +53,7 @@ tema5/ejercicio/ejercicios_tema5.zip: tema5/ejercicio/ejercicios_tema5.html tema
 
 
 %.html: %.md shared/pvli-template-pandoc.html
-	$(BASERUN) -i --slide-level=2 --section-divs --variable revealjs-url=../shared/lib/reveal -t revealjs --template shared/pvli-template-pandoc.html $< -o $@
+	$(BASERUN) -i --slide-level=2 --section-divs --variable revealjs-url=../shared/lib/reveal -t revealjs+smart --template shared/pvli-template-pandoc.html $< -o $@
 
 
 clean:

@@ -22,41 +22,57 @@
 
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
 <!--  -->
 <!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
@@ -73,7 +89,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <!--[if lt IE 9]>
   <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
   <![endif]-->
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
 
 <!-- FIXME megahack because `pandoc` only generates h1's. -->
@@ -119,7 +134,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <h1 class="title">Audio en la web</h1>
 </section>
 
-<section><section id="sonido-en-un-computador" class="titleslide slide level1"><h1>Sonido en un computador</h1></section><section id="el-sonido" class="slide level2">
+<section><section id="sonido-en-un-computador" class="title-slide slide level1"><h1>Sonido en un computador</h1></section><section id="el-sonido" class="slide level2">
 <h2>El sonido</h2>
 <p>De Wikipedia:</p>
 <blockquote>
@@ -143,16 +158,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>Caracteristicas de una onda</h2>
 <p>La longitud de onda (simbolizada por <strong>λ</strong>) es la distancia entre dos crestas o valles seguidos.</p>
 <p>El periodo <strong>T</strong> es el tiempo requerido para que el movimiento de oscilación de la onda describa un ciclo completo</p>
-<figure>
-<img src="imgs/frecuencia.svg" />
-</figure>
+<p><img data-src="imgs/frecuencia.svg" /></p>
+</section><section class="slide level2">
+
 <p>La frecuencia <strong>f</strong> es el número de ciclos completos transcurridos en una unidad de tiempo. (ej: Segundos).</p>
 <p>Hercio (Hz) es el número de veces que se repite una onda por segundo. 100 kHzs =&gt; 100.000 veces por segundo.</p>
 </section><section class="slide level2">
 
 <p>La amplitud de la onda es la altura de la cresta.</p>
 <figure>
-<img src="imgs/nonsinusoidal_wavelength.jpg" alt="Onda" /><figcaption>Onda</figcaption>
+<img data-src="imgs/nonsinusoidal_wavelength.jpg" alt="Onda" /><figcaption>Onda</figcaption>
 </figure>
 </section><section id="cómo-producir-sonido" class="slide level2">
 <h2>¿Cómo producir sonido?</h2>
@@ -206,7 +221,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section class="slide level2">
 
 <figure>
-<img src="imgs/umbral.png" alt="Umbral de audicion Masculina (M) y Femenina (F)" /><figcaption>Umbral de audicion Masculina (M) y Femenina (F)</figcaption>
+<img data-src="imgs/umbral.png" alt="Umbral de audicion Masculina (M) y Femenina (F)" /><figcaption>Umbral de audicion Masculina (M) y Femenina (F)</figcaption>
 </figure>
 <p>Frecuencia media audible 2KHz - 4 KHz</p>
 </section><section class="slide level2">
@@ -215,7 +230,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><a href="https://www.youtube.com/watch?v=Ez93oblQAJg">Tono no audible adultos</a></p>
 <p>Comprimir consiste en eliminar las frecuencias no audibles.</p>
 </section></section>
-<section><section id="música-y-sonido" class="titleslide slide level1"><h1>Música y sonido</h1></section><section class="slide level2">
+<section><section id="música-y-sonido" class="title-slide slide level1"><h1>Música y sonido</h1></section><section class="slide level2">
 
 <p>Toda la música es sonido</p>
 </section><section class="slide level2">
@@ -235,35 +250,35 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <p>La música, normalmente, está codificada como pistas. De la misma forma que solemos escucharla en reproductores modernos (MP3)</p>
 </section></section>
-<section><section id="reproducir-audio-en-un-navegador" class="titleslide slide level1"><h1>Reproducir audio en un navegador</h1></section><section class="slide level2">
+<section><section id="reproducir-audio-en-un-navegador" class="title-slide slide level1"><h1>Reproducir audio en un navegador</h1></section><section class="slide level2">
 
 <p>Hoy en día las tecnologías web permiten reproducir audio desde el navegador</p>
 </section><section id="elemento-audio" class="slide level2">
 <h2>Elemento <code class="sourceCode html"><span class="kw">&lt;audio&gt;</span></code></h2>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;audio</span><span class="ot"> controls</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;source</span><span class="ot"> src=</span><span class="st">&quot;https://upload.wikimedia.org/wikipedia/en/4/45/ACDC_-_Back_In_Black-sample.ogg&quot;</span><span class="ot"> type=</span><span class="st">&quot;audio/ogg&quot;</span><span class="kw">&gt;</span>
-  Tu navegador no soporta audio
-<span class="kw">&lt;/audio&gt;</span></code></pre></div>
+<pre class="sourceCode html" id="cb1"><code class="sourceCode html"><div class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">&lt;audio</span><span class="ot"> controls</span><span class="kw">&gt;</span></div>
+<div class="sourceLine" id="cb1-2" data-line-number="2">  <span class="kw">&lt;source</span><span class="ot"> src=</span><span class="st">&quot;https://upload.wikimedia.org/wikipedia/en/4/45/ACDC_-_Back_In_Black-sample.ogg&quot;</span><span class="ot"> type=</span><span class="st">&quot;audio/ogg&quot;</span><span class="kw">&gt;</span></div>
+<div class="sourceLine" id="cb1-3" data-line-number="3">  Tu navegador no soporta audio</div>
+<div class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">&lt;/audio&gt;</span></div></code></pre>
 <audio controls>
-<source src="https://upload.wikimedia.org/wikipedia/en/4/45/ACDC_-_Back_In_Black-sample.ogg" type="audio/ogg"> Tu navegador no soporta audio
-</audio>
+<source src="https://upload.wikimedia.org/wikipedia/en/4/45/ACDC_-_Back_In_Black-sample.ogg" type="audio/ogg">
+<p>Tu navegador no soporta audio </audio></p>
 </section></section>
-<section><section id="web-audio" class="titleslide slide level1"><h1>Web Audio</h1></section><section class="slide level2">
+<section><section id="web-audio" class="title-slide slide level1"><h1>Web Audio</h1></section><section class="slide level2">
 
 <p>Web Audio es una forma (aún experimental) de reproducir audio en el navegador a bajo nivel</p>
 </section><section class="slide level2">
 
 <p>Con Web Audio, podemos crear nuestra propia onda de sonido</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// Creamos un &quot;contexto&quot;</span>
-<span class="kw">var</span> context <span class="op">=</span> <span class="kw">new</span> <span class="at">AudioContext</span>()<span class="op">;</span>
-<span class="co">// Creamos un oscilador (genera una onda sencilla)</span>
-<span class="kw">var</span> oscillator <span class="op">=</span> <span class="va">context</span>.<span class="at">createOscillator</span>()<span class="op">;</span>
-<span class="co">// Conectamos el oscilador con los altavoces</span>
-<span class="va">oscillator</span>.<span class="at">connect</span>(<span class="va">context</span>.<span class="at">destination</span>)<span class="op">;</span>
-<span class="co">// Empezamos la reproducción</span>
-<span class="va">oscillator</span>.<span class="at">start</span>(<span class="va">context</span>.<span class="at">currentTime</span>)<span class="op">;</span>
-<span class="co">// Finalizamos la reproducción 5 segundos después</span>
-<span class="va">oscillator</span>.<span class="at">stop</span>(<span class="va">context</span>.<span class="at">currentTime</span> <span class="op">+</span> <span class="dv">5</span>)<span class="op">;</span></code></pre></div>
+<pre class="sourceCode js" id="cb2"><code class="sourceCode javascript"><div class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Creamos un &quot;contexto&quot;</span></div>
+<div class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">var</span> context <span class="op">=</span> <span class="kw">new</span> <span class="at">AudioContext</span>()<span class="op">;</span></div>
+<div class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">// Creamos un oscilador (genera una onda sencilla)</span></div>
+<div class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">var</span> oscillator <span class="op">=</span> <span class="va">context</span>.<span class="at">createOscillator</span>()<span class="op">;</span></div>
+<div class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">// Conectamos el oscilador con los altavoces</span></div>
+<div class="sourceLine" id="cb2-6" data-line-number="6"><span class="va">oscillator</span>.<span class="at">connect</span>(<span class="va">context</span>.<span class="at">destination</span>)<span class="op">;</span></div>
+<div class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">// Empezamos la reproducción</span></div>
+<div class="sourceLine" id="cb2-8" data-line-number="8"><span class="va">oscillator</span>.<span class="at">start</span>(<span class="va">context</span>.<span class="at">currentTime</span>)<span class="op">;</span></div>
+<div class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">// Finalizamos la reproducción 5 segundos después</span></div>
+<div class="sourceLine" id="cb2-10" data-line-number="10"><span class="va">oscillator</span>.<span class="at">stop</span>(<span class="va">context</span>.<span class="at">currentTime</span> <span class="op">+</span> <span class="dv">5</span>)<span class="op">;</span></div></code></pre>
 <script type="text/javascript">
 function play() {
     var context = new AudioContext();
@@ -284,7 +299,7 @@ Ejemplo de oscilador
 
 <p>Web Audio está diseñada de forma que, con la API, construimos nodos</p>
 <figure>
-<img src="https://mdn.mozillademos.org/files/5183/WebAudioGenerics.png" alt="Ejemplo de nodos Web Audio" /><figcaption>Ejemplo de nodos Web Audio</figcaption>
+<img data-src="https://mdn.mozillademos.org/files/5183/WebAudioGenerics.png" alt="Ejemplo de nodos Web Audio" /><figcaption>Ejemplo de nodos Web Audio</figcaption>
 </figure>
 </section><section class="slide level2">
 
@@ -293,22 +308,22 @@ Ejemplo de oscilador
 </section><section class="slide level2">
 
 <figure>
-<img src="nodos.dot.svg" alt="Conectando nodos Web Audio" /><figcaption>Conectando nodos Web Audio</figcaption>
+<img data-src="nodos.dot.svg" alt="Conectando nodos Web Audio" /><figcaption>Conectando nodos Web Audio</figcaption>
 </figure>
 </section><section class="slide level2">
 
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> context <span class="op">=</span> <span class="kw">new</span> <span class="at">AudioContext</span>()<span class="op">;</span>
-<span class="kw">var</span> oscillator <span class="op">=</span> <span class="va">context</span>.<span class="at">createOscillator</span>()<span class="op">;</span>
-<span class="va">oscillator</span>.<span class="at">start</span>(<span class="va">context</span>.<span class="at">currentTime</span>)<span class="op">;</span>
-<span class="va">oscillator</span>.<span class="at">stop</span>(<span class="va">context</span>.<span class="at">currentTime</span> <span class="op">+</span> <span class="dv">5</span>)<span class="op">;</span>
-<span class="co">// Creamos un nodo nuevo de ganancia</span>
-<span class="kw">var</span> gainNode <span class="op">=</span> <span class="va">context</span>.<span class="at">createGain</span>()<span class="op">;</span>
-<span class="co">// Conectamos la salida del oscilador al nodo de ganancia</span>
-<span class="va">oscillator</span>.<span class="at">connect</span>(gainNode)<span class="op">;</span>
-<span class="co">// Conectamos el nodo de ganancia a la salida</span>
-<span class="va">gainNode</span>.<span class="at">connect</span>(<span class="va">context</span>.<span class="at">destination</span>)<span class="op">;</span>
-<span class="co">// Cambiamos el volumen</span>
-<span class="va">gainNode</span>.<span class="va">gain</span>.<span class="at">value</span> <span class="op">=</span> <span class="fl">0.5</span><span class="op">;</span></code></pre></div>
+<pre class="sourceCode js" id="cb3"><code class="sourceCode javascript"><div class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">var</span> context <span class="op">=</span> <span class="kw">new</span> <span class="at">AudioContext</span>()<span class="op">;</span></div>
+<div class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">var</span> oscillator <span class="op">=</span> <span class="va">context</span>.<span class="at">createOscillator</span>()<span class="op">;</span></div>
+<div class="sourceLine" id="cb3-3" data-line-number="3"><span class="va">oscillator</span>.<span class="at">start</span>(<span class="va">context</span>.<span class="at">currentTime</span>)<span class="op">;</span></div>
+<div class="sourceLine" id="cb3-4" data-line-number="4"><span class="va">oscillator</span>.<span class="at">stop</span>(<span class="va">context</span>.<span class="at">currentTime</span> <span class="op">+</span> <span class="dv">5</span>)<span class="op">;</span></div>
+<div class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">// Creamos un nodo nuevo de ganancia</span></div>
+<div class="sourceLine" id="cb3-6" data-line-number="6"><span class="kw">var</span> gainNode <span class="op">=</span> <span class="va">context</span>.<span class="at">createGain</span>()<span class="op">;</span></div>
+<div class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">// Conectamos la salida del oscilador al nodo de ganancia</span></div>
+<div class="sourceLine" id="cb3-8" data-line-number="8"><span class="va">oscillator</span>.<span class="at">connect</span>(gainNode)<span class="op">;</span></div>
+<div class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">// Conectamos el nodo de ganancia a la salida</span></div>
+<div class="sourceLine" id="cb3-10" data-line-number="10"><span class="va">gainNode</span>.<span class="at">connect</span>(<span class="va">context</span>.<span class="at">destination</span>)<span class="op">;</span></div>
+<div class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">// Cambiamos el volumen</span></div>
+<div class="sourceLine" id="cb3-12" data-line-number="12"><span class="va">gainNode</span>.<span class="va">gain</span>.<span class="at">value</span> <span class="op">=</span> <span class="fl">0.5</span><span class="op">;</span></div></code></pre>
 <script type="text/javascript">
 function play2() {
     var context = new AudioContext();
@@ -327,7 +342,7 @@ function play2() {
 Ejemplo de oscilador con nodos
 </button>
 </section></section>
-<section><section id="referencias-y-tutoriales" class="titleslide slide level1"><h1>Referencias y tutoriales</h1></section><section class="slide level2">
+<section><section id="referencias-y-tutoriales" class="title-slide slide level1"><h1>Referencias y tutoriales</h1></section><section class="slide level2">
 
 <ul>
 <li class="fragment"><a href="https://www.html5rocks.com/en/tutorials/webaudio/intro/">Getting Started with Web Audio API</a></li>
