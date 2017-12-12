@@ -53,7 +53,6 @@ tema5/ejercicio/ejercicios_tema5.zip: tema5/ejercicio/ejercicios_tema5.html tema
 
 
 %.html: %.md shared/pvli-template-pandoc.html
-	# $(BASERUN) -i --slide-level=2 --section-divs --variable revealjs-url=../shared/lib/reveal -t revealjs+smart --template shared/pvli-template-pandoc.html $< -o $@
 	$(BASERUN) -i --variable revealjs-url=../shared/lib/reveal -t revealjs+smart --template shared/pvli-template-pandoc.html $< -o $@
 
 

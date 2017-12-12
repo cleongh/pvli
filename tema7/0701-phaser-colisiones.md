@@ -5,11 +5,11 @@ title: "El Motor Físico de Phaser: Colisiones"
 ...
 
 
-# Introducción
+# El motor físico
 
 ---
 
-Normalmente es el motor físico el que se encarga de las colisiones de los cuerpos
+El motor físico se encarga de las colisiones y del movimiento
 
 
 Es una librería que proporciona una simulación aproximada de un cierto sistema de física como
@@ -189,39 +189,32 @@ Si queremos comprobar si hay colisión a mano, usamos:
 this.game.physics.arcade.collide(player, platforms);
 ```
 
-
 ---
 
-Si queremos que nos avisen si hay colisión hay que cargar un evento: 
-
+Si queremos que nos avisen si hay colisión hay que cargar un evento:
 
 ```js
 this.game.physics.arcade.collide(player, platforms, onCollision);
 
-
 // el método recibe dos parámetros, son los objetos que han colisionado
-function onCollision(obj1, obj2)
-{
+function onCollision(obj1, obj2) {
 // hacer algo
 }
 ```
 
---- 
-
+---
 
 `collide`{.js} devuelve un booleano que indica si ha habido colisión:
 
 ```js
 if(!game.physics.arcade.collide(player, platforms, onCollision)) {
-    textInfo.text = "No hay colision";
+    textInfo.text = "No hay colisión";
 }
 ```
 
-
 ## Colisiones con un tilemap
 
-
-Ejemplos sacados de el ejercicio número 3:
+<!-- Ejemplos sacados de el ejercicio número 3: -->
 
 ```js
 // Creamos el tilemap y sus layer
@@ -239,41 +232,36 @@ this.map.setCollisionBetween(1, 5000, true, 'GroundLayer');
 var collisionWithTilemap = this.game.physics.arcade.collide(this._rush, this.groundLayer);
 ```
 
-
 ## Colisión en un intervalo
-
 
 ```js
 setCollisionBetween(start, stop, collides, layer);
 ```
 
-* Colisiona con el rango de tiles que se indican en `start`--`stop`.
-* `collides`{.js} es un booleano que activa o desactiva la colisión
-* `layer` es donde opera → la capa del tilemap.
-
+- Colisiona con el rango de tiles que se indican en `start`{.js}--`stop`{.js}
+- `collides`{.js} es un booleano que activa o desactiva la colisión
+- `layer`{.js} es donde opera → la capa del tilemap
 
 ---
 
 Por ejemplo:
 
-
 ```js
 setCollisionBetween(1, 6); // tiles 1, 2, 3, 4 y 5 de la capa actual colisionan
+
 // lo mismo que
-setCollisionBetween(1, 6, true, this.currentLayer); 
+setCollisionBetween(1, 6, true, this.currentLayer);
 ```
 
 ---
 
-
 ### Colisión por exclusión
 
+- indexes es un array que contiene los `id`{.js}'s de los tiles excluídos
+- `collides`{.js} es un booleano que activa o desactiva la colisión
+- `layer`{.js} es la capa en la que donde opera la función
 
-* indexes es un array que contiene los `id`'s de los tiles excluídos
-* `collides` es un booleano que activa o desactiva la colisión
-* `layer` es la capa en la que donde opera la función
-
-```javascript
+```js
 setCollisionByExclusion(indexes, collides, layer, recalculate);
 ```
 
@@ -282,19 +270,15 @@ setCollisionByExclusion(indexes, collides, layer, recalculate);
 Por ejemplo:
 
 ```js
-
 map.setCollisionByExclusion([93, 94, 95, 96], true);
 ```
 
 ---
 
-
 ### Colisión con toda la capa del tilemap
 
-
 ```js
-setCollision(collides, layer)
+setCollision(collides, layer);
 
-//podéis sustituir en la práctica por esto:
 this.map.setCollision(true, 'GroundLayer');
 ```

@@ -23,13 +23,10 @@ De Wikipedia:
 
 Lo que llamamos sonido es el resultado de:
 
-#. la vibración del aire, que llega a nuestro oreja (esto es una [onda
-mecánica](https://es.wikipedia.org/wiki/Onda_mec%C3%A1nica))
-#. La oreja, gracias a su forma, hace que la onda rebote y se refleje en la
-dirección del conducto auditivo
+#. la vibración del aire, que llega a nuestro oreja (esto es una [onda mecánica](https://es.wikipedia.org/wiki/Onda_mec%C3%A1nica))
+#. La oreja, gracias a su forma, hace que la onda rebote y se refleje en la dirección del conducto auditivo
 #. Así, la onda llega al tímpano, que vibra
-#. La vibración es transmitida al [nervio
-auditivo](https://es.wikipedia.org/wiki/Nervio_vestibulococlear).
+#. La vibración es transmitida al [nervio auditivo](https://es.wikipedia.org/wiki/Nervio_vestibulococlear).
 #. El nervio llega a nuestro cerebro
 #. Ocurren muchas cosas (muchas de las cuáles aún ignoramos)
 #. Percibimos, conscientemente, el **sonido**

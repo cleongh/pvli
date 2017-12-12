@@ -138,15 +138,22 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 
 <section><section id="colisiones-con-el-motor-ninja" class="title-slide slide level1"><h1>Colisiones con el Motor Ninja</h1></section><section class="slide level2">
 
-<p>El motor Ninja está pensado para una simulación mucho más realista de la física. Por ejemplo, permite crear sprites o tiles con partes transparentes aunque de formas muy limitadas. Tener cuestas y poder deslizarte por las mismas, así como poder empujar otros objetos. Sigue sin tener rotación de sprites, por lo que un objeto no puede rodar sobre una pendiente, simplemente se desliza.</p>
+<p>El motor Ninja está pensado para una simulación mucho más realista de la física</p>
+</section><section class="slide level2">
+
+<p>Por ejemplo, permite crear sprites o tiles con partes transparentes aunque de formas muy limitadas</p>
+</section><section class="slide level2">
+
+<p>Tener cuestas y poder deslizarte por las mismas, así como poder empujar otros objetos</p>
+<p>Sigue sin tener rotación de sprites, por lo que un objeto no puede rodar sobre una pendiente, simplemente se desliza</p>
 </section><section class="slide level2">
 
 <p>Características del motor Ninja</p>
 <ul>
-<li class="fragment">Permite colisiones entre círculos y rectángulos.</li>
-<li class="fragment">Permite objetos inamovibles.</li>
-<li class="fragment">Mejor soporte de gravedad y rebotes.</li>
-<li class="fragment">Soporte de tiles con ciertas formas como cuestas o picos.</li>
+<li class="fragment">Permite colisiones entre círculos y rectángulos</li>
+<li class="fragment">Permite objetos inamovibles</li>
+<li class="fragment">Mejor soporte de gravedad y rebotes</li>
+<li class="fragment">Soporte de tiles con ciertas formas como cuestas o picos</li>
 </ul>
 </section><section id="inicialización-del-motor-ninja" class="slide level2">
 <h2>Inicialización del motor Ninja</h2>
@@ -159,7 +166,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <pre class="sourceCode js" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="va">game</span>.<span class="va">physics</span>.<span class="va">ninja</span>.<span class="at">enableAABB</span>(sprite1)<span class="op">;</span></a></code></pre>
 </section><section id="añadir-un-tile-a-la-física" class="slide level2">
 <h2>Añadir un tile a la física</h2>
-<p>Añade un tile o una lista de tiles a la física como tile colisionable.</p>
+<p>Añade un tile o una lista de tiles a la física como tile que puede colisionar</p>
 <pre class="sourceCode js" id="cb4"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">//añade el frame actual del sprite que pertenece al conjunto tile1</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="va">game</span>.<span class="va">physics</span>.<span class="va">ninja</span>.<span class="at">enableTile</span>(tile1<span class="op">,</span> <span class="va">tile1</span>.<span class="at">frame</span>)<span class="op">;</span></a></code></pre>
 </section><section id="convertir-tiles-gráficos-en-físicos" class="slide level2">
@@ -178,123 +185,43 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </ul>
 </section><section id="que-id-de-tile-físico" class="slide level2">
 <h2>¿Que id de tile físico?</h2>
+<p>Cada tipo de forma física tiene un identificador</p>
+<p>Puede mirarse el código, o esta imagen:</p>
 <figure>
-<img data-src="http://examples.phaser.io/assets/physics/ninja-tiles128.png" alt="Tenemos de ayuda una imagen de depuración" /><figcaption>Tenemos de ayuda una imagen de depuración</figcaption>
+<img data-src="http://examples.phaser.io/assets/physics/ninja-tiles128.png" alt="Tenemos de ayuda una imagen de depuración" style="width:40.0%" /><figcaption>Tenemos de ayuda una imagen de depuración</figcaption>
 </figure>
 </section><section id="colisión-con-los-tiles-físicos" class="slide level2">
 <h2>Colisión con los tiles físicos</h2>
-<p>llamamos al método <strong>circle.collideCircleVsTile</strong> si es un círculo o <strong>collideAABBVsTile</strong> si es un rectángulo.</p>
-<pre class="sourceCode js" id="cb6"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1">    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">tiles</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">    <span class="op">{</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">        <span class="va">sprite1</span>.<span class="va">body</span>.<span class="va">circle</span>.<span class="at">collideCircleVsTile</span>(tiles[i].<span class="at">tile</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="co">// dependiendo si es una figura con forma de ciculo o de AABB         </span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">    <span class="va">sprite1</span>.<span class="va">body</span>.<span class="va">aabb</span>.<span class="at">collideAABBVsTile</span>(tiles[i].<span class="at">tile</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="op">}</span></a></code></pre>
-</section><section id="consultar-la-colision" class="slide level2">
-<h2>Consultar la colision</h2>
+<p>Llamamos al método <code class="sourceCode javascript"><span class="va">circle</span>.<span class="at">collideCircleVsTile</span></code> si es un círculo o <code class="sourceCode javascript">collideAABBVsTile</code> si es un rectángulo</p>
+<pre class="sourceCode js" id="cb6"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1">    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">tiles</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>)     <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">        <span class="va">sprite1</span>.<span class="va">body</span>.<span class="va">circle</span>.<span class="at">collideCircleVsTile</span>(tiles[i].<span class="at">tile</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">        <span class="co">// dependiendo si es una figura con forma de ciculo o de AABB</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">        <span class="va">sprite1</span>.<span class="va">body</span>.<span class="va">aabb</span>.<span class="at">collideAABBVsTile</span>(tiles[i].<span class="at">tile</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">    <span class="op">}</span></a></code></pre>
+</section><section id="consultar-la-colisión" class="slide level2">
+<h2>Consultar la colisión</h2>
 <pre class="sourceCode js" id="cb7"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="va">game</span>.<span class="va">physics</span>.<span class="va">ninja</span>.<span class="at">collide</span>(sprite1<span class="op">,</span> tile1<span class="op">,</span> collisionHandler<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span></a></code></pre>
 <ul>
-<li class="fragment">collideCallback (3º parámetro) (collisionHandler): callback de la colisión. Los dos objetos son pasados a la función (function (obja,objb){})</li>
-<li class="fragment">processCallback (4º parámetro) (null) : callback para procesar la colisión. Añade una condición para que se ejecute el método collideCallback sólo si processCallback es true.</li>
-<li class="fragment">context (5º parámetro) (this) el contexto de la colisión.</li>
-<li class="fragment">devuelve un booleano informando de si se ha producido o no la colisión.</li>
+<li class="fragment"><code class="sourceCode javascript">collideCallback</code> (3º parámetro) (<code class="sourceCode javascript">collisionHandler</code>): callback de la colisión. Los dos objetos son pasados a la función (<code class="sourceCode javascript"><span class="kw">function</span> (obja<span class="op">,</span> objb)<span class="op">{}</span></code>)</li>
+<li class="fragment"><code class="sourceCode javascript">processCallback</code> (4º parámetro) (<code class="sourceCode javascript"><span class="kw">null</span></code>): callback para procesar la colisión. Añade una condición para que se ejecute el método <code class="sourceCode javascript">collideCallback</code> sólo si <code class="sourceCode javascript">processCallback</code> es true</li>
+<li class="fragment"><code class="sourceCode javascript">context</code> (5º parámetro) (<code class="sourceCode javascript"><span class="kw">this</span></code>) el contexto de la colisión.</li>
+<li class="fragment">devuelve un booleano informando de si se ha producido o no la colisión</li>
 </ul>
 </section><section id="consultar-overlapping" class="slide level2">
-<h2>consultar overlapping</h2>
+<h2>Consultar overlapping</h2>
 <pre class="sourceCode js" id="cb8"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="va">game</span>.<span class="va">physics</span>.<span class="va">ninja</span>.<span class="at">overlap</span>(sprite1<span class="op">,</span> tile1<span class="op">,</span> collisionHandler<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span></a></code></pre>
 <ul>
-<li class="fragment">overlapCallback (3º parámetro) (collisionHandler): callback si se produce overlap. Los dos objetos son pasados a la función (function (obja,objb){})</li>
-<li class="fragment">processCallback (4º parámetro) (null) : callback para procesar overlapping. Añade una condición para que se ejecute el método overlapCallback sólo si processCallback es true.</li>
-<li class="fragment">callbackContext (5º parámetro) (this) el contexto de la colisión.</li>
-<li class="fragment">devuelve un booleano informando de si se ha producido o no el overlapping.</li>
+<li class="fragment"><code class="sourceCode javascript">overlapCallback</code> (3º parámetro) (<code class="sourceCode javascript">collisionHandler</code>): callback si se produce overlap. Los dos objetos son pasados a la función (<code class="sourceCode javascript"><span class="kw">function</span> (obja<span class="op">,</span>objb)<span class="op">{}</span></code>)</li>
+<li class="fragment"><code class="sourceCode javascript">processCallback</code> (4º parámetro) (<code class="sourceCode javascript"><span class="kw">null</span></code>) : callback para procesar overlapping. Añade una condición para que se ejecute el método overlapCallback sólo si <code class="sourceCode javascript">processCallback</code> es true</li>
+<li class="fragment"><code class="sourceCode javascript">callbackContext</code> (5º parámetro) (<code class="sourceCode javascript"><span class="kw">this</span></code>) el contexto de la colisión</li>
+<li class="fragment">devuelve un booleano informando de si se ha producido o no el overlapping</li>
 </ul>
 </section><section id="ejemplos-con-ninja" class="slide level2">
 <h2>Ejemplos con Ninja</h2>
-<p>El motor Ninja no está disponible en el editor Sandbox online :(</p>
-<p>Pero tenemos ejemplos en Phaser :)</p>
+<!-- El motor Ninja no está disponible en el editor Sandbox online :(
+
+Pero tenemos ejemplos en Phaser :) -->
 <p><a href="https://phaser.io/examples/v2/category/ninja-physics">Ejemplos con el motor Ninja</a></p>
-</section></section>
-<section><section id="colisiones-con-el-motor-p2" class="title-slide slide level1"><h1>Colisiones con el motor P2</h1></section><section id="p2-engine" class="slide level2">
-<h2>P2 Engine</h2>
-<p>P2 permite crear colisiones físicas mucho más complejas. Aquí no nos restringimos a unos cuantos tiles que aproximan el objeto como lo que hemos visto en el Ninja engine. Aquí podemos ajustar muchísimo más los bounding boxes de forma que podemos adaptarlos a la forma del sprite.</p>
-</section><section class="slide level2">
-
-<figure>
-<img data-src="imgs/physics-editor-arcade-p2.png" alt="Arcade vs P2" /><figcaption>Arcade vs P2</figcaption>
-</figure>
-</section><section id="editor-de-físicas" class="slide level2">
-<h2>Editor de físicas</h2>
-<p>Estas aproximaciones a la forma del sprite no las hace Phaser automáticamente, por lo que debemos crearlas a mano. Existen muchos editores de física 2D, pero uno de los más usados es <strong>PhysicsEditor</strong></p>
-<p><a href="https://www.codeandweb.com/physicseditor">physicseditor</a></p>
-</section><section id="physics-editor" class="slide level2">
-<h2>Physics Editor</h2>
-<p>Permite exportar a múltiples formatos: Unity, Cocos2d, Flash, Corona…</p>
-<p>En concreto Lime + Corona (JSON) también permite exportar a Phaser ya que es compatible corona (JSON).</p>
-<p>Esto genera un json con la descripción de los cuerpos físicos. Los antiguos Bounding Box ahora se convierten en <strong>Shapes</strong>.</p>
-</section><section id="iniciar-p2-engine" class="slide level2">
-<h2>Iniciar P2 Engine</h2>
-<pre class="sourceCode js" id="cb9"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="va">game</span>.<span class="va">physics</span>.<span class="at">startSystem</span>(<span class="va">Phaser</span>.<span class="va">Physics</span>.<span class="at">P2JS</span>)<span class="op">;</span></a></code></pre>
-</section><section id="cargar-los-poligonos-en-la-física" class="slide level2">
-<h2>Cargar los poligonos en la física</h2>
-<p>Para añadir la descripción de la física a la cache usamos <strong>load.physics</strong></p>
-<pre class="sourceCode js" id="cb10"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="va">game</span>.<span class="va">load</span>.<span class="at">physics</span>(<span class="st">&#39;physicsData&#39;</span><span class="op">,</span> <span class="st">&#39;assets/physics/sprites.json&#39;</span>)<span class="op">;</span></a></code></pre>
-<p><a href="https://phaser.io/examples/v2/p2-physics/contact-events">ejemplo de colisiones con P2</a></p>
-</section><section class="slide level2">
-
-<p>Para añadirle una shape a un sprite <strong>loadPolygon</strong>.</p>
-<pre class="sourceCode js" id="cb11"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" data-line-number="1">sprite <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="st">&#39;Mario&#39;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="va">sprite</span>.<span class="va">body</span>.<span class="at">clearShapes</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="va">sprite</span>.<span class="va">body</span>.<span class="at">loadPolygon</span>(<span class="st">&#39;physicsData&#39;</span><span class="op">,</span> <span class="st">&#39;Mario&#39;</span>)<span class="op">;</span></a></code></pre>
-</section><section id="añadir-un-cuerpo-a-la-física-y-depuración" class="slide level2">
-<h2>Añadir un cuerpo a la física y depuración</h2>
-<p><strong>enable</strong> permite añadir cuerpos a la física. El segundo atributo si está a true muestra la información de la forma del collider.</p>
-<pre class="sourceCode js" id="cb12"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">enable</span>(ship<span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span></a></code></pre>
-</section><section id="activar-los-eventos-de-colisión" class="slide level2">
-<h2>Activar los eventos de colisión</h2>
-<p>Sin ello, la física no generará eventos.</p>
-<pre class="sourceCode js" id="cb13"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" data-line-number="1">    <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">setImpactEvents</span>(<span class="kw">true</span>)<span class="op">;</span></a></code></pre>
-</section><section id="chequear-colisiones" class="slide level2">
-<h2>Chequear colisiones</h2>
-<p>Para chequear los diferentes eventos de colision de un objeto (<strong>onBeginContact</strong>, <strong>onEndContact</strong>) accedemos a su body físico y cargamos el evento con <strong>add</strong>.</p>
-<pre class="sourceCode js" id="cb14"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="va">block</span>.<span class="va">body</span>.<span class="va">onBeginContact</span>.<span class="at">add</span>(blockHit<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="va">block</span>.<span class="va">body</span>.<span class="va">onEndContact</span> .<span class="at">add</span>(blockHitEnd<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="kw">function</span> <span class="at">blockHit</span> (bodyA<span class="op">,</span> bodyB<span class="op">,</span> shapeA<span class="op">,</span> shapeB<span class="op">,</span> equation) <span class="op">{}</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="kw">function</span> <span class="at">blockHitEnd</span> (bodyA<span class="op">,</span> bodyB<span class="op">,</span> shapeA<span class="op">,</span> shapeB) <span class="op">{}</span></a></code></pre>
-</section><section class="slide level2">
-
-<ul>
-<li class="fragment"><strong>bodyA</strong> y <strong>bodyB</strong> son los cuerpos que colisionan.</li>
-<li class="fragment"><strong>shapeA</strong> y <strong>shapeB</strong> son sus colliders.</li>
-<li class="fragment"><strong>equation</strong> array con los puntos de contacto.</li>
-</ul>
-</section><section id="grupos-de-colision" class="slide level2">
-<h2>Grupos de colision</h2>
-<p>Permite especificar qué tipos de objetos colisionan con cuales y que evento lo procesará.</p>
-<pre class="sourceCode js" id="cb15"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" data-line-number="1">    <span class="kw">var</span> playerCollisionGroup <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createCollisionGroup</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">    <span class="kw">var</span> pandaCollisionGroup <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createCollisionGroup</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">    </a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">    <span class="va">panda</span>.<span class="va">body</span>.<span class="at">setCollisionGroup</span>(pandaCollisionGroup)<span class="op">;</span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5">    <span class="va">ship</span>.<span class="va">body</span>.<span class="at">setCollisionGroup</span>(playerCollisionGroup)<span class="op">;</span></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6">    </a>
-<a class="sourceLine" id="cb15-7" data-line-number="7">    <span class="va">ship</span>.<span class="va">body</span>.<span class="at">collides</span>(pandaCollisionGroup<span class="op">,</span> hitPanda<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span></a></code></pre>
-</section><section class="slide level2">
-
-<pre class="sourceCode js" id="cb16"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">function</span> <span class="at">hitPanda</span>(body1<span class="op">,</span> body2) <span class="op">{</span></a>
-<a class="sourceLine" id="cb16-2" data-line-number="2">    <span class="va">body2</span>.<span class="va">sprite</span>.<span class="at">alpha</span> <span class="op">-=</span> <span class="fl">0.1</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="op">}</span></a></code></pre>
-</section><section id="física-con-tilemaps" class="slide level2">
-<h2>Física con tilemaps</h2>
-<p>Establecer los tiles colisionables: setCollision | setCollisionBetween …</p>
-<pre class="sourceCode js" id="cb17"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" data-line-number="1"> <span class="va">map</span>.<span class="at">setCollisionBetween</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span></a></code></pre>
-</section><section class="slide level2">
-
-<p>Convertir un mapa en tiles: Convierte todos los mapas con tiles cuadrados sin tener en cuenta su transparencia. Para ajustar la forma hay que pasarle la información del editor de shape a cada tile como hemos hecho anteriormente.</p>
-<pre class="sourceCode js" id="cb18"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">convertTilemap</span>(map<span class="op">,</span> layer)<span class="op">;</span></a></code></pre>
-</section><section id="ejemplos-con-p2" class="slide level2">
-<h2>Ejemplos con P2</h2>
-<p><a href="https://phaser.io/examples/v2/category/p2-physics">Ejemplos con P2 Engine</a></p>
 </section></section>
     </div>
   </div>

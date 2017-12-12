@@ -136,9 +136,9 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
   <h1 class="title">El Motor Físico de Phaser: Colisiones</h1>
 </section>
 
-<section><section id="introducción" class="title-slide slide level1"><h1>Introducción</h1></section><section class="slide level2">
+<section><section id="el-motor-físico" class="title-slide slide level1"><h1>El motor físico</h1></section><section class="slide level2">
 
-<p>Normalmente es el motor físico el que se encarga de las colisiones de los cuerpos</p>
+<p>El motor físico se encarga de las colisiones y del movimiento</p>
 <p>Es una librería que proporciona una simulación aproximada de un cierto sistema de física como cuerpos rígidos, cuerpos blandos, fluidos, colisiones, telas…</p>
 </section><section class="slide level2">
 
@@ -246,21 +246,19 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>Si queremos que nos avisen si hay colisión hay que cargar un evento:</p>
 <pre class="sourceCode js" id="cb7"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">this</span>.<span class="va">game</span>.<span class="va">physics</span>.<span class="va">arcade</span>.<span class="at">collide</span>(player<span class="op">,</span> platforms<span class="op">,</span> onCollision)<span class="op">;</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">// el método recibe dos parámetros, son los objetos que han colisionado</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="kw">function</span> <span class="at">onCollision</span>(obj1<span class="op">,</span> obj2)</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="op">{</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">// hacer algo</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="op">}</span></a></code></pre>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">// el método recibe dos parámetros, son los objetos que han colisionado</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">function</span> <span class="at">onCollision</span>(obj1<span class="op">,</span> obj2) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">// hacer algo</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="op">}</span></a></code></pre>
 </section><section class="slide level2">
 
 <p><code class="sourceCode javascript">collide</code> devuelve un booleano que indica si ha habido colisión:</p>
 <pre class="sourceCode js" id="cb8"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="va">game</span>.<span class="va">physics</span>.<span class="va">arcade</span>.<span class="at">collide</span>(player<span class="op">,</span> platforms<span class="op">,</span> onCollision)) <span class="op">{</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">    <span class="va">textInfo</span>.<span class="at">text</span> <span class="op">=</span> <span class="st">&quot;No hay colision&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">    <span class="va">textInfo</span>.<span class="at">text</span> <span class="op">=</span> <span class="st">&quot;No hay colisión&quot;;</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="op">}</span></a></code></pre>
 </section><section id="colisiones-con-un-tilemap" class="slide level2">
 <h2>Colisiones con un tilemap</h2>
-<p>Ejemplos sacados de el ejercicio número 3:</p>
+<!-- Ejemplos sacados de el ejercicio número 3: -->
 <pre class="sourceCode js" id="cb9"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">// Creamos el tilemap y sus layer</span></a>
 <a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">this</span>.<span class="at">map</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">game</span>.<span class="va">add</span>.<span class="at">tilemap</span>(<span class="st">&#39;tilemap&#39;</span>)<span class="op">;</span><span class="co">// creo el map al vuelo o lo predefino en el objeto...</span></a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">this</span>.<span class="va">map</span>.<span class="at">addTilesetImage</span>(<span class="st">&#39;patrones&#39;</span><span class="op">,</span><span class="st">&#39;tiles&#39;</span>)<span class="op">;</span> <span class="co">// Asignar el patrón al spritesheet</span></a>
@@ -278,37 +276,36 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h2>Colisión en un intervalo</h2>
 <pre class="sourceCode js" id="cb10"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="at">setCollisionBetween</span>(start<span class="op">,</span> stop<span class="op">,</span> collides<span class="op">,</span> layer)<span class="op">;</span></a></code></pre>
 <ul>
-<li class="fragment">Colisiona con el rango de tiles que se indican en <code>start</code>–<code>stop</code>.</li>
+<li class="fragment">Colisiona con el rango de tiles que se indican en <code class="sourceCode javascript">start</code>–<code class="sourceCode javascript">stop</code></li>
 <li class="fragment"><code class="sourceCode javascript">collides</code> es un booleano que activa o desactiva la colisión</li>
-<li class="fragment"><code>layer</code> es donde opera → la capa del tilemap.</li>
+<li class="fragment"><code class="sourceCode javascript">layer</code> es donde opera → la capa del tilemap</li>
 </ul>
 </section><section class="slide level2">
 
 <p>Por ejemplo:</p>
 <pre class="sourceCode js" id="cb11"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="at">setCollisionBetween</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">6</span>)<span class="op">;</span> <span class="co">// tiles 1, 2, 3, 4 y 5 de la capa actual colisionan</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">// lo mismo que</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="at">setCollisionBetween</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> <span class="kw">this</span>.<span class="at">currentLayer</span>)<span class="op">;</span> </a></code></pre>
+<a class="sourceLine" id="cb11-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">// lo mismo que</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="at">setCollisionBetween</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> <span class="kw">this</span>.<span class="at">currentLayer</span>)<span class="op">;</span></a></code></pre>
 </section><section class="slide level2">
 
 <h3 id="colisión-por-exclusión">Colisión por exclusión</h3>
 <ul>
-<li class="fragment">indexes es un array que contiene los <code>id</code>’s de los tiles excluídos</li>
-<li class="fragment"><code>collides</code> es un booleano que activa o desactiva la colisión</li>
-<li class="fragment"><code>layer</code> es la capa en la que donde opera la función</li>
+<li class="fragment">indexes es un array que contiene los <code class="sourceCode javascript">id</code>’s de los tiles excluídos</li>
+<li class="fragment"><code class="sourceCode javascript">collides</code> es un booleano que activa o desactiva la colisión</li>
+<li class="fragment"><code class="sourceCode javascript">layer</code> es la capa en la que donde opera la función</li>
 </ul>
-<pre class="sourceCode javascript" id="cb12"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="at">setCollisionByExclusion</span>(indexes<span class="op">,</span> collides<span class="op">,</span> layer<span class="op">,</span> recalculate)<span class="op">;</span></a></code></pre>
+<pre class="sourceCode js" id="cb12"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="at">setCollisionByExclusion</span>(indexes<span class="op">,</span> collides<span class="op">,</span> layer<span class="op">,</span> recalculate)<span class="op">;</span></a></code></pre>
 </section><section class="slide level2">
 
 <p>Por ejemplo:</p>
-<pre class="sourceCode js" id="cb13"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="va">map</span>.<span class="at">setCollisionByExclusion</span>([<span class="dv">93</span><span class="op">,</span> <span class="dv">94</span><span class="op">,</span> <span class="dv">95</span><span class="op">,</span> <span class="dv">96</span>]<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></a></code></pre>
+<pre class="sourceCode js" id="cb13"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="va">map</span>.<span class="at">setCollisionByExclusion</span>([<span class="dv">93</span><span class="op">,</span> <span class="dv">94</span><span class="op">,</span> <span class="dv">95</span><span class="op">,</span> <span class="dv">96</span>]<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></a></code></pre>
 </section><section class="slide level2">
 
 <h3 id="colisión-con-toda-la-capa-del-tilemap">Colisión con toda la capa del tilemap</h3>
-<pre class="sourceCode js" id="cb14"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="at">setCollision</span>(collides<span class="op">,</span> layer)</a>
+<pre class="sourceCode js" id="cb14"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="at">setCollision</span>(collides<span class="op">,</span> layer)<span class="op">;</span></a>
 <a class="sourceLine" id="cb14-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co">//podéis sustituir en la práctica por esto:</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="kw">this</span>.<span class="va">map</span>.<span class="at">setCollision</span>(<span class="kw">true</span><span class="op">,</span> <span class="st">&#39;GroundLayer&#39;</span>)<span class="op">;</span></a></code></pre>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="kw">this</span>.<span class="va">map</span>.<span class="at">setCollision</span>(<span class="kw">true</span><span class="op">,</span> <span class="st">&#39;GroundLayer&#39;</span>)<span class="op">;</span></a></code></pre>
 </section></section>
     </div>
   </div>
