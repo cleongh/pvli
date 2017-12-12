@@ -356,7 +356,7 @@ Donde:
 El desplazamiento:
 
 
-![Aceleración](imgs/aceleracion.svg)
+<!-- ![Aceleración](imgs/aceleracion.svg) -->
 
 $$e(t) = \frac{1}{2} a t^2 + v_0 t + e_0$$
 
@@ -376,13 +376,12 @@ $$e(t+1) = e(t) + v(t) \times t$$
 
 $$v(t+1) = \text{min}(v(t) \times a \times t, v_{max})$$
 
-_ $e(t+1)$: Siguiente posicion;
-_ $e(t)$ : Posición inicial
-_ $a$: Aceleración
-_ $v(t+1)$: Velocidad en la siguiente iteración;
-_ $v(t)$: Velocidad actual
-_ $v_{max}$: Velocidad máxima
-
+- $e(t+1)$: Siguiente posicion;
+- $e(t)$ : Posición inicial
+- $a$: Aceleración
+- $v(t+1)$: Velocidad en la siguiente iteración;
+- $v(t)$: Velocidad actual
+- $v_{max}$: Velocidad máxima
 
 ---
 
@@ -562,9 +561,11 @@ kinematic1.body.kinematic = true;
 
 ## ¿Qué cosas afectan a un *kinematic*?
 
+---
+
 - A un objeto kinemático no le afecta la gravedad
 - Ni los impulsos
-- Ni las colisiones modifican la velocidad del objeto, es decir un choque impide el paso, pero no modifica la velocidad del objeto, porque - la física no puede calcular la velocidad de un objeto kinemático
+- Ni las colisiones modifican la velocidad del objeto, es decir un choque impide el paso, pero no modifica la velocidad del objeto, porque la física no puede calcular la velocidad de un objeto kinemático
 - Sólo podemos preguntar si hemos colisionado con él
 - O si él ha colisionado con algo
 

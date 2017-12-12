@@ -347,9 +347,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </section><section class="slide level2">
 
 <p>El desplazamiento:</p>
-<figure>
-<img data-src="imgs/aceleracion.svg" alt="Aceleración" /><figcaption>Aceleración</figcaption>
-</figure>
+<!-- ![Aceleración](imgs/aceleracion.svg) -->
 <p><span class="math display">\[e(t) = \frac{1}{2} a t^2 + v_0 t + e_0\]</span></p>
 <ul>
 <li class="fragment"><span class="math inline">\(e(t)\)</span>: posición</li>
@@ -363,7 +361,14 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>Una buena aproximación en videojuegos es hacer lo siguiente:</p>
 <p><span class="math display">\[e(t+1) = e(t) + v(t) \times t\]</span></p>
 <p><span class="math display">\[v(t+1) = \text{min}(v(t) \times a \times t, v_{max})\]</span></p>
-<p>_ <span class="math inline">\(e(t+1)\)</span>: Siguiente posicion; _ <span class="math inline">\(e(t)\)</span> : Posición inicial _ <span class="math inline">\(a\)</span>: Aceleración _ <span class="math inline">\(v(t+1)\)</span>: Velocidad en la siguiente iteración; _ <span class="math inline">\(v(t)\)</span>: Velocidad actual _ <span class="math inline">\(v_{max}\)</span>: Velocidad máxima</p>
+<ul>
+<li class="fragment"><span class="math inline">\(e(t+1)\)</span>: Siguiente posicion;</li>
+<li class="fragment"><span class="math inline">\(e(t)\)</span> : Posición inicial</li>
+<li class="fragment"><span class="math inline">\(a\)</span>: Aceleración</li>
+<li class="fragment"><span class="math inline">\(v(t+1)\)</span>: Velocidad en la siguiente iteración;</li>
+<li class="fragment"><span class="math inline">\(v(t)\)</span>: Velocidad actual</li>
+<li class="fragment"><span class="math inline">\(v_{max}\)</span>: Velocidad máxima</li>
+</ul>
 </section><section id="aceleración-instantánea" class="slide level2">
 <h2>Aceleración instantánea</h2>
 <p>Si la aceleración es instantanea <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(v(t) == v_{max}\)</span>;</p>
@@ -481,10 +486,12 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <pre class="sourceCode js" id="cb23"><code class="sourceCode javascript"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="va">kinematic1</span>.<span class="va">body</span>.<span class="at">kinematic</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></a></code></pre>
 </section><section id="qué-cosas-afectan-a-un-kinematic" class="slide level2">
 <h2>¿Qué cosas afectan a un <em>kinematic</em>?</h2>
+</section><section class="slide level2">
+
 <ul>
 <li class="fragment">A un objeto kinemático no le afecta la gravedad</li>
 <li class="fragment">Ni los impulsos</li>
-<li class="fragment">Ni las colisiones modifican la velocidad del objeto, es decir un choque impide el paso, pero no modifica la velocidad del objeto, porque - la física no puede calcular la velocidad de un objeto kinemático</li>
+<li class="fragment">Ni las colisiones modifican la velocidad del objeto, es decir un choque impide el paso, pero no modifica la velocidad del objeto, porque la física no puede calcular la velocidad de un objeto kinemático</li>
 <li class="fragment">Sólo podemos preguntar si hemos colisionado con él</li>
 <li class="fragment">O si él ha colisionado con algo</li>
 </ul>
@@ -508,7 +515,9 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
         dependencies: [
           { src: '../shared/lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: '../shared/lib/reveal/plugin/zoom-js/zoom.js', async: true },
-          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true }
+          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true },
+          { src: '../shared/lib/reveal/plugin/math/math.js' },
+
         ]
       });
     </script>
