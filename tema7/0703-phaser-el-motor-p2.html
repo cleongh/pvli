@@ -267,7 +267,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <a class="sourceLine" id="cb13-6" data-line-number="6"><span class="op">}</span></a>
 <a class="sourceLine" id="cb13-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb13-8" data-line-number="8"><span class="kw">function</span> <span class="at">checkSensorsEnd</span>(bodyA<span class="op">,</span>shapeA<span class="op">,</span>shapeB)<span class="op">{</span></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9">    <span class="va">game</span>.<span class="va">debug</span>.<span class="at">text</span>(<span class="st">&quot;Collision leaved!&quot;</span><span class="op">,</span> <span class="dv">32</span><span class="op">,</span> <span class="dv">32</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-9" data-line-number="9">    <span class="va">game</span>.<span class="va">debug</span>.<span class="at">text</span>(<span class="st">&quot;Collision left!&quot;</span><span class="op">,</span> <span class="dv">32</span><span class="op">,</span> <span class="dv">32</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb13-10" data-line-number="10"><span class="op">}</span></a></code></pre>
 </section><section class="slide level2">
 
@@ -371,7 +371,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </ul>
 </section><section id="aceleración-instantánea" class="slide level2">
 <h2>Aceleración instantánea</h2>
-<p>Si la aceleración es instantanea <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(v(t) == v_{max}\)</span>;</p>
+<p>Si la aceleración es instantanea <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(v(t) = v_{max}\)</span>;</p>
 <p><span class="math display">\[e(t+1) = e(t) + v_{max} \times t\]</span></p>
 </section><section id="aceleración-variable" class="slide level2">
 <h2>Aceleración variable</h2>
@@ -379,7 +379,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>Por ejemplo en función de cuanto se pulse un gatillo, en función de cuanto se mueva la palanca, en función a una ecuación de aceleración, etc.</p>
 </section><section class="slide level2">
 
-<p>Veamos un ejemplo de aceleración usando force</p>
+<p>Veamos un ejemplo de aceleración usando <code class="sourceCode javascript">force</code>:</p>
 <pre class="sourceCode js" id="cb19"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">function</span> <span class="at">accelerateToObject</span>(obj1<span class="op">,</span> obj2<span class="op">,</span> speed) <span class="op">{</span></a>
 <a class="sourceLine" id="cb19-2" data-line-number="2">    <span class="kw">var</span> angle <span class="op">=</span> <span class="va">Math</span>.<span class="at">atan2</span>(<span class="va">obj2</span>.<span class="at">y</span> <span class="op">-</span> <span class="va">obj1</span>.<span class="at">y</span><span class="op">,</span> <span class="va">obj2</span>.<span class="at">x</span> <span class="op">-</span> <span class="va">obj1</span>.<span class="at">x</span>)<span class="op">;</span> <span class="co">//Ángulo de un vector (arcotangente)</span></a>
 <a class="sourceLine" id="cb19-3" data-line-number="3">    <span class="va">obj1</span>.<span class="va">body</span>.<span class="at">rotation</span> <span class="op">=</span> angle <span class="op">+</span> <span class="va">game</span>.<span class="va">math</span>.<span class="at">degToRad</span>(<span class="dv">90</span>)<span class="op">;</span>  <span class="co">// corrige el ángulo (-p1/2 a pi/2) =&gt; (0 a 2pi)</span></a>
@@ -400,7 +400,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </section></section>
 <section><section id="constrains" class="title-slide slide level1"><h1>Constrains</h1></section><section id="qué-es-una-constraint" class="slide level2">
 <h2>¿Qué es una constraint?</h2>
-<p>Una <strong>Constraint</strong> es una restricción al movimiento</p>
+<p>Una <strong>Constraint</strong> es una restricción al movimiento:</p>
 <pre class="sourceCode js" id="cb20"><code class="sourceCode javascript"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">var</span> constraint <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createDistanceConstraint</span>(sprite1<span class="op">,</span> sprite2<span class="op">,</span> <span class="dv">150</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw">var</span> constraint1 <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createGearConstraint</span>(sprite<span class="op">,</span> sprite2<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></a></code></pre>
 </section><section class="slide level2">

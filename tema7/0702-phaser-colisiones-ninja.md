@@ -1,5 +1,5 @@
 ---
-title: "El Motor Físico de Phaser: El Motor Ninja y P2"
+title: "El Motor Físico de Phaser: El Motor Ninja"
 # author: Carlos León e Ismael Sagredo
 # vim: spelllang=es
 ...

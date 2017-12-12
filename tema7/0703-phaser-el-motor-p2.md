@@ -231,7 +231,7 @@ function checkSensorsBegin(bodyA,shapeA,shapeB){
 }
 
 function checkSensorsEnd(bodyA,shapeA,shapeB){
-    game.debug.text("Collision leaved!", 32, 32);
+    game.debug.text("Collision left!", 32, 32);
 }
 ```
 
@@ -387,8 +387,7 @@ $$v(t+1) = \text{min}(v(t) \times a \times t, v_{max})$$
 
 ## Aceleración instantánea
 
-
-Si la aceleración es instantanea $\rightarrow$ $v(t) == v_{max}$;
+Si la aceleración es instantanea $\rightarrow$ $v(t) = v_{max}$;
 
 $$e(t+1) = e(t) + v_{max} \times t$$
 
@@ -402,8 +401,7 @@ Por ejemplo en función de cuanto se pulse un gatillo, en función de cuanto se 
 
 ---
 
-Veamos un ejemplo de aceleración usando force
-
+Veamos un ejemplo de aceleración usando `force`{.js}:
 
 ```js
 function accelerateToObject(obj1, obj2, speed) {
@@ -431,7 +429,7 @@ function accelerateToObject(obj1, obj2, speed) {
 
 ## ¿Qué es una constraint?
 
-Una **Constraint** es una restricción al movimiento
+Una **Constraint** es una restricción al movimiento:
 
 ```js
 var constraint = game.physics.p2.createDistanceConstraint(sprite1, sprite2, 150);
