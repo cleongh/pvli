@@ -1,18 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Ejercicios de arquitecturas de componentes con JavaScript</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../shared/docs.css" type="text/css" />
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../shared/docs.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<div id="header">
+<header>
 <h1 class="title">Ejercicios de arquitecturas de componentes con JavaScript</h1>
-</div>
+</header>
 <!-- # Introducción -->
 <!-- Estos ejercicios se entregarán en el Campus Virtual, siguiendo las
 [instrucciones usuales de
@@ -32,7 +41,7 @@ la entrega será considerado _no resuelto_**. -->
 <p>Modifica el código original para que la función <code>tick</code> de <code>Game</code> no se envíe el mensaje <code>Presence</code>, sino que cada entidad lance el mensaje según lo considere oportuno.</p>
 <p>(PISTA: las entidades “dormidas” no tienen que anunciar su presencia, pero esto no debería modificar mucho el código del <a href="#ejercicio-1">ejercicio 1</a>).</p>
 <h1 id="ejercicio-4">Ejercicio 4</h1>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Haz un componente para entidades que se muevan. No te preocupes por la implementación, con que la entidad imprima “me estoy moviendo” en cada ciclo, junto a su nombre, es suficiente.</li>
 <li>Haz un componente para entidades que tengan volumen físico (entidades con las que se pueda colisionar). No te preocupes por la implementación, con que la entidad imprima “tengo volumen” en cada ciclo, junto a su nombre, es suficiente.</li>
 <li>Crea una entidad que se mueva, pero no tenga volumen físico. Añádela al juego.</li>

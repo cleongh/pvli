@@ -22,41 +22,59 @@
 
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
 <!--  -->
 <!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
@@ -73,7 +91,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <!--[if lt IE 9]>
   <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
   <![endif]-->
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
 
 <!-- FIXME megahack because `pandoc` only generates h1's. -->
@@ -119,7 +136,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <h1 class="title">Herramientas</h1>
 </section>
 
-<section><section id="las-herramientas-son-importantes" class="titleslide slide level1"><h1>Las herramientas <strong>son importantes</strong></h1></section><section id="no-sólo-escribimos" class="slide level2">
+<section><section id="las-herramientas-son-importantes" class="title-slide slide level1"><h1>Las herramientas <strong>son importantes</strong></h1></section><section id="no-sólo-escribimos" class="slide level2">
 <h2>No sólo escribimos</h2>
 </section><section class="slide level2">
 
@@ -155,7 +172,7 @@ El objetivo es aprender cómo funcionan cada una de las piezas
 </section><section class="slide level2">
 
 <figure>
-<img src="imgs/vim.png" alt="GVim" style="width:70.0%" /><figcaption>GVim</figcaption>
+<img data-src="imgs/vim.png" alt="GVim" style="width:70.0%" /><figcaption>GVim</figcaption>
 </figure>
 </section><section id="consola" class="slide level2">
 <h2>Consola</h2>
@@ -166,7 +183,7 @@ El objetivo es aprender cómo funcionan cada una de las piezas
 </section><section class="slide level2">
 
 <figure>
-<img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Gnometerminalhelloworld.png" alt="Terminal de GNOME" /><figcaption>Terminal de GNOME</figcaption>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Gnometerminalhelloworld.png" alt="Terminal de GNOME" /><figcaption>Terminal de GNOME</figcaption>
 </figure>
 </section><section id="intérprete" class="slide level2">
 <h2>Intérprete</h2>
@@ -176,8 +193,9 @@ El objetivo es aprender cómo funcionan cada una de las piezas
 </section><section class="slide level2">
 
 <p>Un navegador es un programa capaz de analizar archivos en HTML y mostrarlos como una <a href="https://es.wikipedia.org/wiki/P%C3%A1gina_web">página web</a>.</p>
-<p><img src="imgs/firefox.png" alt="Firefox" style="width:40.0%" /><br />
-Hoy en día, los navegadores más usados contienen un intérprete de JavaScript.</p>
+<p><img data-src="imgs/firefox.png" alt="Firefox" style="width:40.0%" /><br />
+</p>
+<p>Hoy en día, los navegadores más usados contienen un intérprete de JavaScript.</p>
 </section><section class="slide level2">
 
 <p>Además, los navegadores proveen al intérprete con un modelo del documento (<a href="https://es.wikipedia.org/wiki/Document_Object_Model">DOM-Document Object Model</a>), que es un API para acceder a una página web</p>
@@ -192,14 +210,14 @@ Hoy en día, los navegadores más usados contienen un intérprete de JavaScript.
 </section><section class="slide level2">
 
 <p>Las librerías son fragmentos de código que quedan disponibles para el programador:</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// usamos librerías para imprimir contenido</span>
-<span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;hola&quot;</span>)<span class="op">;</span>
-
-<span class="co">// o para mejorar nuestro estilo de código</span>
-<span class="va">_</span>.<span class="at">map</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> <span class="kw">function</span>(num)<span class="op">{</span> <span class="cf">return</span> num <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> <span class="op">}</span>)<span class="op">;</span>
-
-<span class="co">// o para acceder a frameworks completos</span>
-<span class="kw">var</span> game <span class="op">=</span> <span class="kw">new</span> <span class="va">Phaser</span>.<span class="at">Game</span>(<span class="dv">800</span><span class="op">,</span> <span class="dv">600</span><span class="op">,</span> <span class="va">Phaser</span>.<span class="at">CANVAS</span><span class="op">,</span> <span class="st">&#39;phaser-example&#39;</span><span class="op">,</span> <span class="op">{</span> <span class="dt">create</span><span class="op">:</span> create <span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<pre class="sourceCode javascript" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// usamos librerías para imprimir contenido</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;hola&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">// o para mejorar nuestro estilo de código</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="va">_</span>.<span class="at">map</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> <span class="kw">function</span>(num)<span class="op">{</span> <span class="cf">return</span> num <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">// o para acceder a frameworks completos</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">var</span> game <span class="op">=</span> <span class="kw">new</span> <span class="va">Phaser</span>.<span class="at">Game</span>(<span class="dv">800</span><span class="op">,</span> <span class="dv">600</span><span class="op">,</span> <span class="va">Phaser</span>.<span class="at">CANVAS</span><span class="op">,</span> <span class="st">&#39;phaser-example&#39;</span><span class="op">,</span> <span class="op">{</span> <span class="dt">create</span><span class="op">:</span> create <span class="op">}</span>)<span class="op">;</span></a></code></pre>
 </section><section id="análisis-estático-y-testing-automático" class="slide level2">
 <h2>Análisis estático y testing automático</h2>
 <p>Herramientas como <code>jslint</code> analizan el código de forma estática y hacen recomendaciones sobre su calidad</p>
@@ -253,15 +271,15 @@ Hoy en día, los navegadores más usados contienen un intérprete de JavaScript.
 </section><section class="slide level2">
 
 <figure>
-<img src="trabajo_manual.dot.svg" alt="Proceso sin herramientas" /><figcaption>Proceso sin herramientas</figcaption>
+<img data-src="trabajo_manual.dot.svg" alt="Proceso sin herramientas" /><figcaption>Proceso sin herramientas</figcaption>
 </figure>
 </section><section class="slide level2">
 
 <figure>
-<img src="trabajo_general.dot.svg" alt="Proceso con herramientas" /><figcaption>Proceso con herramientas</figcaption>
+<img data-src="trabajo_general.dot.svg" alt="Proceso con herramientas" /><figcaption>Proceso con herramientas</figcaption>
 </figure>
 </section></section>
-<section><section id="herramientas-para-este-curso" class="titleslide slide level1"><h1>Herramientas para este curso</h1></section><section id="herramientas-en-pvli" class="slide level2">
+<section><section id="herramientas-para-este-curso" class="title-slide slide level1"><h1>Herramientas para este curso</h1></section><section id="herramientas-en-pvli" class="slide level2">
 <h2>Herramientas en PVLI</h2>
 <p>En PVLI vamos a seguir estas ideas, usando herramientas profesionales</p>
 </section><section id="editor-de-textos-1" class="slide level2">
@@ -302,8 +320,8 @@ Hoy en día, los navegadores más usados contienen un intérprete de JavaScript.
 </section><section class="slide level2">
 
 <p>La <em>shell</em> es el programa que se ejecuta en la terminal (que es la ventana)</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">npm</span> install <span class="co"># instala en local todas las dependencias, que están en &quot;package.json&quot;</span>
-$ <span class="ex">node</span> node_modules/gulp/bin/gulp.js <span class="co"># lanza todas ls tareas </span></code></pre></div>
+<pre class="sourceCode bash" id="cb2"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">npm</span> install <span class="co"># instala en local todas las dependencias, que están en &quot;package.json&quot;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">$ <span class="ex">node</span> node_modules/gulp/bin/gulp.js <span class="co"># lanza todas ls tareas </span></a></code></pre>
 </section><section id="alternativas-típicas-para-la-shell" class="slide level2">
 <h2>Alternativas típicas para la shell</h2>
 <ul>
@@ -315,13 +333,13 @@ $ <span class="ex">node</span> node_modules/gulp/bin/gulp.js <span class="co"># 
 <h2>Intérprete</h2>
 <p>Las primeras semanas usaremos <code>node.js</code>, con la versión <strong>que haya instalada en los laboratorios</strong></p>
 <figure>
-<img src="https://nodejs.org/static/images/logo.svg" alt="Node.js" style="width:40.0%" /><figcaption>Node.js</figcaption>
+<img data-src="https://nodejs.org/static/images/logo.svg" alt="Node.js" style="width:40.0%" /><figcaption>Node.js</figcaption>
 </figure>
 </section><section class="slide level2">
 
 <p><code>Node.js</code> incluye un <em>gestor de paquetes</em>, <a href="https://www.npmjs.com/"><code>npm</code></a></p>
 <figure>
-<img src="http://www.nodehispano.com/wp-content/uploads/npm.png" alt="npm" /><figcaption><code>npm</code></figcaption>
+<img data-src="http://www.nodehispano.com/wp-content/uploads/npm.png" alt="npm" /><figcaption><code>npm</code></figcaption>
 </figure>
 </section><section class="slide level2">
 
@@ -331,12 +349,12 @@ $ <span class="ex">node</span> node_modules/gulp/bin/gulp.js <span class="co"># 
 <p>Así, no hace falta buscar una librería en Internet, encontrar la carpeta donde descargarla, probar la versión, ver que falla y tener que buscar la dependencia…</p>
 </section><section class="slide level2">
 
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">npm</span> install http-server</code></pre></div>
+<pre class="sourceCode bash" id="cb3"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1">$ <span class="ex">npm</span> install http-server</a></code></pre>
 </section><section class="slide level2">
 
 <p>Los paquetes tienen <a href="http://npm.anvaka.com/">dependencias</a>. Por ejemplo, <a href="http://npm.anvaka.com/#/view/2d/browserify"><code>browserify</code></a></p>
 <figure>
-<img src="imgs/browserify.png" alt="Ejemplo de dependencias de browserify" style="width:60.0%" /><figcaption>Ejemplo de dependencias de <code>browserify</code></figcaption>
+<img data-src="imgs/browserify.png" alt="Ejemplo de dependencias de browserify" style="width:60.0%" /><figcaption>Ejemplo de dependencias de <code>browserify</code></figcaption>
 </figure>
 </section><section class="slide level2">
 
@@ -345,7 +363,7 @@ $ <span class="ex">node</span> node_modules/gulp/bin/gulp.js <span class="co"># 
 <h2>Navegador</h2>
 <p>Usaremos Chrome/Chromium, con la versión <strong>que haya instalada en los laboratorios</strong></p>
 <figure>
-<img src="https://www.google.com/chrome/assets/common/images/chrome_logo_2x.png?mmfb=a5234ae3c4265f687c7fffae2760a907" alt="Navegador Chrome" /><figcaption>Navegador Chrome</figcaption>
+<img data-src="https://www.google.com/chrome/assets/common/images/chrome_logo_2x.png?mmfb=a5234ae3c4265f687c7fffae2760a907" alt="Navegador Chrome" /><figcaption>Navegador Chrome</figcaption>
 </figure>
 </section><section id="servidores-web-1" class="slide level2">
 <h2>Servidores web</h2>
@@ -353,8 +371,8 @@ $ <span class="ex">node</span> node_modules/gulp/bin/gulp.js <span class="co"># 
 <p>Para probar, podéis instalar <code>http-server</code>, es un “one-liner”:</p>
 </section><section class="slide level2">
 
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">npm</span> install http-server <span class="co"># para instalarlo</span>
-$ <span class="ex">http-server</span> <span class="co"># para ejecutarlo</span></code></pre></div>
+<pre class="sourceCode bash" id="cb4"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1">$ <span class="ex">npm</span> install http-server <span class="co"># para instalarlo</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">$ <span class="ex">http-server</span> <span class="co"># para ejecutarlo</span></a></code></pre>
 <p class="fragment">
 Esa instrucción lo descarga, crea una carpeta para instalarlo y lo instala en local junto con sus dependencias
 </p>
@@ -365,7 +383,7 @@ Esa instrucción lo descarga, crea una carpeta para instalarlo y lo instala en l
 </section><section class="slide level2">
 
 <figure>
-<img src="http://phaser.io/images/img.png" alt="Phaser" style="height:20.0%" /><figcaption>Phaser</figcaption>
+<img data-src="http://phaser.io/images/img.png" alt="Phaser" style="height:20.0%" /><figcaption>Phaser</figcaption>
 </figure>
 </section><section id="scripts-y-despliegue-1" class="slide level2">
 <h2>Scripts y despliegue</h2>
@@ -419,18 +437,18 @@ Y se verá que sale el mismo resultado.</code></pre>
 </section><section class="slide level2">
 
 <figure>
-<img src="trabajo_curso.dot.svg" alt="Proceso con las herramientas del curso" /><figcaption>Proceso con las herramientas del curso</figcaption>
+<img data-src="trabajo_curso.dot.svg" alt="Proceso con las herramientas del curso" /><figcaption>Proceso con las herramientas del curso</figcaption>
 </figure>
 </section></section>
-<section><section id="cómo-empezar-a-programar" class="titleslide slide level1"><h1>Cómo empezar a programar</h1></section><section id="plantilla-para-la-asignatura" class="slide level2">
+<section><section id="cómo-empezar-a-programar" class="title-slide slide level1"><h1>Cómo empezar a programar</h1></section><section id="plantilla-para-la-asignatura" class="slide level2">
 <h2>Plantilla para la asignatura</h2>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">npm</span> install yo <span class="co"># instalar &#39;yeoman&#39;</span>
-$ <span class="ex">npm</span> install generator-gamejam <span class="co"># &#39;instalar el generador de juegos hecho por Belén Albeza (Mozilla)</span>
-$ <span class="ex">npm</span> install jslint <span class="co"># &#39;instalar el generador de juegos hecho por Belén</span>
-$ <span class="ex">node_modules/.bin/yo</span> <span class="co"># arrancar el generador</span>
-$ <span class="ex">npm</span> install <span class="co"># instalar dependencias</span>
-$ <span class="ex">node_modules/.bin/jslint</span> src/js/play_scene.js
-$ <span class="ex">node_modules/.bin/gulp</span> run <span class="co"># arrancar &#39;gulp&#39;, haciendo que recargue la página al guardar</span></code></pre></div>
+<pre class="sourceCode bash" id="cb6"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1">$ <span class="ex">npm</span> install yo <span class="co"># instalar &#39;yeoman&#39;</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">$ <span class="ex">npm</span> install generator-gamejam <span class="co"># &#39;instalar el generador de juegos hecho por Belén Albeza (Mozilla)</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">$ <span class="ex">npm</span> install jslint <span class="co"># &#39;instalar el generador de juegos hecho por Belén</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">$ <span class="ex">node_modules/.bin/yo</span> <span class="co"># arrancar el generador</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">$ <span class="ex">npm</span> install <span class="co"># instalar dependencias</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">$ <span class="ex">node_modules/.bin/jslint</span> src/js/play_scene.js</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">$ <span class="ex">node_modules/.bin/gulp</span> run <span class="co"># arrancar &#39;gulp&#39;, haciendo que recargue la página al guardar</span></a></code></pre>
 </section><section class="slide level2">
 
 <p>Belén Albeza (Mozilla) ha creado una plantilla de Yeoman para juegos, <code>generator-gamejam</code></p>

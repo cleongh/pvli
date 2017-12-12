@@ -1,103 +1,125 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Depurar con node.js y Chrome</title>
-  <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="../shared/docs.css" type="text/css" />
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <style type="text/css">
+a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="../shared/docs.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<div id="header">
+<header>
 <h1 class="title">Depurar con <code>node.js</code> y Chrome</h1>
-</div>
+</header>
 <p>Encontrar fallos en el código puede ser muy difícil. Usar <code class="sourceCode javascript"><span class="va">console</span>.<span class="at">log</span></code>, a pesar de ser rápido, no suele ser lo más efectivo. Os ofrece</p>
 <h1 id="depurar-con-node.js">Depurar con <code>node.js</code></h1>
 <h2 id="node.js-versión-4"><code>node.js</code> versión 4</h2>
 <p>Para depurar con <code>node.js</code> usando la versión 4, debéis instalar el paquete <code class="sourceCode bash"><span class="ex">node-inspector</span></code>. Podéis hacerlo como usuarios normales, desde la raíz de vuestro proyecto, de la misma forma que instaláis cualquier otro paquete:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">npm</span> install node-inspector</code></pre></div>
+<pre class="sourceCode bash" id="cb1"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">npm</span> install node-inspector</a></code></pre>
 <p>Una vez hecho eso, os habrá instalado en la carpeta <code>node_modules</code> un ejecutable que lanza un entorno en Chrome para depurar.</p>
 <p>Con esto, ya podemos arrancar nuestro programa en depuración:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">node_modules/.bin/node-inspector</span> <span class="va">$nombre_del_script</span>.js</code></pre></div>
+<pre class="sourceCode bash" id="cb2"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ex">node_modules/.bin/node-inspector</span> <span class="va">$nombre_del_script</span>.js</a></code></pre>
 <p>Al hacerlo, veremos esto en la consola (cuidado, tenemos que tener el puerto 8080 sin usar):</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">Node</span> Inspector v0.12.8
-<span class="ex">Visit</span> http://127.0.0.1:8080/?port=5858 to start debugging.</code></pre></div>
+<pre class="sourceCode bash" id="cb3"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">Node</span> Inspector v0.12.8</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="ex">Visit</span> http://127.0.0.1:8080/?port=5858 to start debugging.</a></code></pre>
 <p>Desde Chrome, en la dirección <code>http://127.0.0.1:8080/?port=5858</code>, veremos una sesión de depuración.</p>
 <h2 id="node.js-versión-6"><code>node.js</code> versión &gt;=6</h2>
 <p>Las últimas versiones de <code>node.js</code> tienen integrado soporte para <a href="https://developer.chrome.com/devtools">Chrome DevTools</a>. Esto quiere decir que podemos tener depuración gráfica sin necesidad de instalar ningún paquete adicional.</p>
 <p>Para depurar con versiones “nuevas”, hay que arrancar <code>node.js</code> en modo depuración:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">node</span> --inspect <span class="va">$nombre_del_script</span>.js</code></pre></div>
+<pre class="sourceCode bash" id="cb4"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ex">node</span> --inspect <span class="va">$nombre_del_script</span>.js</a></code></pre>
 <p>O, si queremos que pare directamente en la primera línea:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">node</span> --inspect --debug-brk <span class="va">$nombre_del_script</span>.js</code></pre></div>
+<pre class="sourceCode bash" id="cb5"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">node</span> --inspect --debug-brk <span class="va">$nombre_del_script</span>.js</a></code></pre>
 <p>En ambos casos, aparecerá información sobre la URL que usar para ver el entorno gráfico de depuración:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">To</span> start debugging, open the following URL in Chrome:
-    <span class="ex">chrome-devtools</span>://devtools/bundled/inspector.html?experiments=true<span class="kw">&amp;</span><span class="va">v8only=</span>true<span class="kw">&amp;</span><span class="va">ws=</span>127.0.0.1:9229/e534159e-47e1-47f4-9a7c-0b5f3cb98c50</code></pre></div>
+<pre class="sourceCode bash" id="cb6"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">To</span> start debugging, open the following URL in Chrome:</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">    <span class="ex">chrome-devtools</span>://devtools/bundled/inspector.html?experiments=true<span class="kw">&amp;</span><span class="va">v8only=</span>true<span class="kw">&amp;</span><span class="va">ws=</span>127.0.0.1:9229/e534159e-47e1-47f4-9a7c-0b5f3cb98c50</a></code></pre>
 <p>Yendo a esa URL, veremos la interfaz de depuración. Ahora, veamos cómo usar esa interfaz.</p>
 <h1 id="depurar-con-chrome">Depurar con Chrome</h1>
 <p>Una vez que hemos llegado a lanzar el navegador desde <code>node.js</code>, podemos empezar a depurar gráficamente. Es importante tener en cuenta que esto no sólo se puede hacer desde <code>node.js</code>, sino desde Chrome directamente accediendo a las <em>DevTools</em> (<code>F12</code>, o desde el menú de Chrome). Es decir, que tanto con archivos cargados desde <code>node.js</code> como para archivos JavaScript que estemos ejecutando, siempre podemos ir a la interfaz de depuración. Tiene este aspecto:</p>
-<div class="figure">
-<img src="imgs/depuracion.png" alt="Depuración en Chrome" />
-<p class="caption">Depuración en Chrome</p>
-</div>
+<figure>
+<img src="imgs/depuracion.png" alt="Depuración en Chrome" /><figcaption>Depuración en Chrome</figcaption>
+</figure>
 <p>Esta ventana es muy similar a cómo funciona un depurador en aplicaciones como Visual Studio. A la derecha, arriba, tenéis los controles de depuración para ejecución paso a paso:</p>
-<div class="figure">
-<img src="imgs/controles.png" alt="Controles de depuración" />
-<p class="caption">Controles de depuración</p>
-</div>
+<figure>
+<img src="imgs/controles.png" alt="Controles de depuración" /><figcaption>Controles de depuración</figcaption>
+</figure>
 <p>También tenéis la pila de llamadas, para ver y acceder al contexto que os ha llevado hasta el punto actual:</p>
-<div class="figure">
-<img src="imgs/pila.png" alt="Pila de llamadas" />
-<p class="caption">Pila de llamadas</p>
-</div>
+<figure>
+<img src="imgs/pila.png" alt="Pila de llamadas" /><figcaption>Pila de llamadas</figcaption>
+</figure>
 <p>Y la lista de variables, cada una de las cuales podéis desplegar y examinar con detalle:</p>
-<div class="figure">
-<img src="imgs/variables.png" alt="Lista de variables" />
-<p class="caption">Lista de variables</p>
-</div>
+<figure>
+<img src="imgs/variables.png" alt="Lista de variables" /><figcaption>Lista de variables</figcaption>
+</figure>
 <p>Para poner un punto de interrupción, sólo tenéis que hacer clic en un número de línea, y éste se marcará en azul. Cuando la ejecución llegue a la línea, se detendrá para que podáis examinar el estado:</p>
-<div class="figure">
-<img src="imgs/puntointerrupcion.png" alt="Establecer un punto de interrupción" />
-<p class="caption">Establecer un punto de interrupción</p>
-</div>
+<figure>
+<img src="imgs/puntointerrupcion.png" alt="Establecer un punto de interrupción" /><figcaption>Establecer un punto de interrupción</figcaption>
+</figure>
 <p>Hay muchas más opciones y técnicas para depurar JavaScript. A partir de esta información, no debería ser difícil encontrar lo que buscáis en Internet o preguntando en el foro de la asignatura.</p>
 </body>
 </html>

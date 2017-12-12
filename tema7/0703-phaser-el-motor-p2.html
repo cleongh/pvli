@@ -22,41 +22,59 @@
 
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
 <!--  -->
 <!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
@@ -73,7 +91,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <!--[if lt IE 9]>
   <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
   <![endif]-->
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
 
 <!-- FIXME megahack because `pandoc` only generates h1's. -->
@@ -119,11 +136,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <h1 class="title">El Motor Físico de Phaser: Fuerzas Físicas, el motor P2</h1>
 </section>
 
-<section><section id="introducción" class="titleslide slide level1"><h1>Introducción</h1></section><section id="hasta-ahora" class="slide level2">
+<section><section id="introducción" class="title-slide slide level1"><h1>Introducción</h1></section><section id="hasta-ahora" class="slide level2">
 <h2>Hasta ahora…</h2>
 <p>Hemos visto colisiones. Ahora veremos una variante de las colisiones que denominamos <strong>Triggers</strong>. Los triggers son un método muy utilizado en videojuegos para generar eventos durante el juego.</p>
 </section></section>
-<section><section id="triggers-sensor" class="titleslide slide level1"><h1>Triggers (sensor)</h1></section><section id="qué-es-un-trigger" class="slide level2">
+<section><section id="triggers-sensor" class="title-slide slide level1"><h1>Triggers (sensor)</h1></section><section id="qué-es-un-trigger" class="slide level2">
 <h2>¿Qué es un trigger?</h2>
 <p>Podemos definir un <strong>trigger</strong> (disparador) como una zona del juego en la que se chequea que objetos entran y salen de ella, informando de ambos eventos a quienes esten interesados. Normalmente un trigger provoca una invocación a un método asíncrono (evento) asociado a dicho trigger.</p>
 </section><section class="slide level2">
@@ -133,10 +150,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section class="slide level2">
 
 <p>Para establecer que un collider es un sensor, hay que modificar la shape de la física.</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">sprite</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">shapes</span>[<span class="dv">0</span>].<span class="at">sensor</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> <span class="co">// Establece que la shape 0 es un sensor.</span></code></pre></div>
+<pre class="sourceCode js" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="va">sprite</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">shapes</span>[<span class="dv">0</span>].<span class="at">sensor</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> <span class="co">// Establece que la shape 0 es un sensor.</span></a></code></pre>
 <p>o bien</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    triggerShape <span class="op">=</span> <span class="va">trigger</span>.<span class="va">body</span>.<span class="at">addRectangle</span>(<span class="dv">10</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">0</span><span class="op">,-</span><span class="dv">54</span>)<span class="op">;</span> <span class="co">//añade un sensor al objeto. Devuelve un shape.</span>
-    <span class="va">triggerShape</span>.<span class="at">sensor</span><span class="op">=</span><span class="kw">true</span><span class="op">;</span> <span class="co">// modificamos la shape marcándola como sensor.</span></code></pre></div>
+<pre class="sourceCode js" id="cb2"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1">    triggerShape <span class="op">=</span> <span class="va">trigger</span>.<span class="va">body</span>.<span class="at">addRectangle</span>(<span class="dv">10</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">0</span><span class="op">,-</span><span class="dv">54</span>)<span class="op">;</span> <span class="co">//añade un sensor al objeto. Devuelve un shape.</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    <span class="va">triggerShape</span>.<span class="at">sensor</span><span class="op">=</span><span class="kw">true</span><span class="op">;</span> <span class="co">// modificamos la shape marcándola como sensor.</span></a></code></pre>
 </section><section class="slide level2">
 
 <!-- https://codepen.io/codevinsky/pen/JAoHa -->
@@ -144,24 +161,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section class="slide level2">
 
 <p>Pero podemos seguir escuchando los eventos de contacto</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    <span class="va">trigger</span>.<span class="va">body</span>.<span class="va">onBeginContact</span>.<span class="at">add</span>(checkSensorsBegin<span class="op">,</span><span class="kw">this</span>)<span class="op">;</span>
-    <span class="va">trigger</span>.<span class="va">body</span>.<span class="va">onEndContact</span>.<span class="at">add</span>(checkSensorsEnd<span class="op">,</span><span class="kw">this</span>)<span class="op">;</span>
-    
-<span class="kw">function</span> <span class="at">checkSensorsBegin</span>(bodyA<span class="op">,</span>shapeA<span class="op">,</span>shapeB)<span class="op">{</span>
-    <span class="va">game</span>.<span class="va">debug</span>.<span class="at">text</span>(<span class="st">&quot;Collision detected!&quot;</span><span class="op">,</span> <span class="dv">32</span><span class="op">,</span> <span class="dv">32</span>)<span class="op">;</span>
-<span class="op">}</span>
-
-<span class="kw">function</span> <span class="at">checkSensorsEnd</span>(bodyA<span class="op">,</span>shapeA<span class="op">,</span>shapeB)<span class="op">{</span>
-    <span class="va">game</span>.<span class="va">debug</span>.<span class="at">text</span>(<span class="st">&quot;Collision leaved!&quot;</span><span class="op">,</span> <span class="dv">32</span><span class="op">,</span> <span class="dv">32</span>)<span class="op">;</span>
-<span class="op">}</span></code></pre></div>
+<pre class="sourceCode js" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1">    <span class="va">trigger</span>.<span class="va">body</span>.<span class="va">onBeginContact</span>.<span class="at">add</span>(checkSensorsBegin<span class="op">,</span><span class="kw">this</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    <span class="va">trigger</span>.<span class="va">body</span>.<span class="va">onEndContact</span>.<span class="at">add</span>(checkSensorsEnd<span class="op">,</span><span class="kw">this</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    </a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">function</span> <span class="at">checkSensorsBegin</span>(bodyA<span class="op">,</span>shapeA<span class="op">,</span>shapeB)<span class="op">{</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">    <span class="va">game</span>.<span class="va">debug</span>.<span class="at">text</span>(<span class="st">&quot;Collision detected!&quot;</span><span class="op">,</span> <span class="dv">32</span><span class="op">,</span> <span class="dv">32</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="op">}</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="kw">function</span> <span class="at">checkSensorsEnd</span>(bodyA<span class="op">,</span>shapeA<span class="op">,</span>shapeB)<span class="op">{</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">    <span class="va">game</span>.<span class="va">debug</span>.<span class="at">text</span>(<span class="st">&quot;Collision leaved!&quot;</span><span class="op">,</span> <span class="dv">32</span><span class="op">,</span> <span class="dv">32</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="op">}</span></a></code></pre>
 </section></section>
-<section><section id="velocidad" class="titleslide slide level1"><h1>Velocidad</h1></section><section id="qué-es-la-velocidad" class="slide level2">
+<section><section id="velocidad" class="title-slide slide level1"><h1>Velocidad</h1></section><section id="qué-es-la-velocidad" class="slide level2">
 <h2>¿Qué es la velocidad?</h2>
 <!-- https://www.codeandweb.com/physicseditor/tutorials/phaser-p2-physics-example-tutorial -->
 <p>La <strong>velocidad</strong> es una magnitud física vectorial que expresa la distancia recorrida de un objeto por unidad de tiempo.</p>
 <p>Se puede modificar en Phaser directamente en el body físico.</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">sprite</span>.<span class="va">body</span>.<span class="va">velocity</span>.<span class="at">x</span>
-<span class="va">sprite</span>.<span class="va">body</span>.<span class="va">velocity</span>.<span class="at">y</span></code></pre></div>
+<pre class="sourceCode js" id="cb4"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="va">sprite</span>.<span class="va">body</span>.<span class="va">velocity</span>.<span class="at">x</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="va">sprite</span>.<span class="va">body</span>.<span class="va">velocity</span>.<span class="at">y</span></a></code></pre>
 <p>Si aplicamos una velocidad a un objeto físico este se moverá hacia la dirección indicada con la magnitud indicada.</p>
 </section><section id="aplicando-fuerzas" class="slide level2">
 <h2>Aplicando fuerzas</h2>
@@ -191,16 +208,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section id="gravedad" class="slide level2">
 <h2>Gravedad</h2>
 <p>La gravedad es un tipo de fuerza constante hacia una dirección. Normalmente hacia abajo:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="va">gravity</span>.<span class="at">y</span> <span class="op">=</span> <span class="dv">300</span><span class="op">;</span></code></pre></div>
+<pre class="sourceCode js" id="cb5"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="va">gravity</span>.<span class="at">y</span> <span class="op">=</span> <span class="dv">300</span><span class="op">;</span></a></code></pre>
 </section><section class="slide level2">
 
 <p>Podemos modificar la fuerza de la gravedad relativa a cada objeto usando <strong>gravityScale</strong></p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">    <span class="va">sprite1</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">gravityScale</span> <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-    <span class="va">sprite2</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">gravityScale</span> <span class="op">=</span> <span class="fl">0.5</span><span class="op">;</span>
-    <span class="va">sprite3</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">gravityScale</span> <span class="op">=</span> <span class="fl">0.25</span><span class="op">;</span></code></pre></div>
+<pre class="sourceCode js" id="cb6"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1">    <span class="va">sprite1</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">gravityScale</span> <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">    <span class="va">sprite2</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">gravityScale</span> <span class="op">=</span> <span class="fl">0.5</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="va">sprite3</span>.<span class="va">body</span>.<span class="va">data</span>.<span class="at">gravityScale</span> <span class="op">=</span> <span class="fl">0.25</span><span class="op">;</span></a></code></pre>
 <p><a href="http://phaser.io/examples/v2/p2-physics/gravity-scale">gravityScale</a></p>
 </section></section>
-<section><section id="aceleración" class="titleslide slide level1"><h1>Aceleración</h1></section><section id="qué-es-la-aceleración" class="slide level2">
+<section><section id="aceleración" class="title-slide slide level1"><h1>Aceleración</h1></section><section id="qué-es-la-aceleración" class="slide level2">
 <h2>¿Qué es la aceleración?</h2>
 <p>La aceleración es una magnitud vectorial que nos indica la variación de velocidad por unidad de tiempo.</p>
 </section><section id="velocidad-uniformemente-acelerada" class="slide level2">
@@ -216,7 +233,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <p>El desplazamiento:</p>
 <figure>
-<img src="imgs/aceleracion.svg" alt="Aceleración" /><figcaption>Aceleración</figcaption>
+<img data-src="imgs/aceleracion.svg" alt="Aceleración" /><figcaption>Aceleración</figcaption>
 </figure>
 <ul>
 <li class="fragment">e(t): posición</li>
@@ -248,12 +265,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section class="slide level2">
 
 <p>Veamos un ejemplo de aceleración usando force.</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">accelerateToObject</span>(obj1<span class="op">,</span> obj2<span class="op">,</span> speed) <span class="op">{</span>
-    <span class="kw">var</span> angle <span class="op">=</span> <span class="va">Math</span>.<span class="at">atan2</span>(<span class="va">obj2</span>.<span class="at">y</span> <span class="op">-</span> <span class="va">obj1</span>.<span class="at">y</span><span class="op">,</span> <span class="va">obj2</span>.<span class="at">x</span> <span class="op">-</span> <span class="va">obj1</span>.<span class="at">x</span>)<span class="op">;</span> <span class="co">//Ángulo de un vector (arcotangente).</span>
-    <span class="va">obj1</span>.<span class="va">body</span>.<span class="at">rotation</span> <span class="op">=</span> angle <span class="op">+</span> <span class="va">game</span>.<span class="va">math</span>.<span class="at">degToRad</span>(<span class="dv">90</span>)<span class="op">;</span>  <span class="co">// corrige el ángulo (-p1/2 a pi/2) =&gt; (0 a 2pi).</span>
-    <span class="va">obj1</span>.<span class="va">body</span>.<span class="va">force</span>.<span class="at">x</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">cos</span>(angle) <span class="op">*</span> speed<span class="op">;</span> <span class="co">// proyección del ángulo en x * módulo.</span>
-    <span class="va">obj1</span>.<span class="va">body</span>.<span class="va">force</span>.<span class="at">y</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">sin</span>(angle) <span class="op">*</span> speed<span class="op">;</span> <span class="co">// proyección del ángulo en y * módulo.</span>
-<span class="op">}</span></code></pre></div>
+<pre class="sourceCode js" id="cb7"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">function</span> <span class="at">accelerateToObject</span>(obj1<span class="op">,</span> obj2<span class="op">,</span> speed) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">    <span class="kw">var</span> angle <span class="op">=</span> <span class="va">Math</span>.<span class="at">atan2</span>(<span class="va">obj2</span>.<span class="at">y</span> <span class="op">-</span> <span class="va">obj1</span>.<span class="at">y</span><span class="op">,</span> <span class="va">obj2</span>.<span class="at">x</span> <span class="op">-</span> <span class="va">obj1</span>.<span class="at">x</span>)<span class="op">;</span> <span class="co">//Ángulo de un vector (arcotangente).</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">    <span class="va">obj1</span>.<span class="va">body</span>.<span class="at">rotation</span> <span class="op">=</span> angle <span class="op">+</span> <span class="va">game</span>.<span class="va">math</span>.<span class="at">degToRad</span>(<span class="dv">90</span>)<span class="op">;</span>  <span class="co">// corrige el ángulo (-p1/2 a pi/2) =&gt; (0 a 2pi).</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="va">obj1</span>.<span class="va">body</span>.<span class="va">force</span>.<span class="at">x</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">cos</span>(angle) <span class="op">*</span> speed<span class="op">;</span> <span class="co">// proyección del ángulo en x * módulo.</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    <span class="va">obj1</span>.<span class="va">body</span>.<span class="va">force</span>.<span class="at">y</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">sin</span>(angle) <span class="op">*</span> speed<span class="op">;</span> <span class="co">// proyección del ángulo en y * módulo.</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="op">}</span></a></code></pre>
 <p><a href="http://phaser.io/examples/v2/p2-physics/accelerate-to-object">Aceleración</a></p>
 </section><section class="slide level2">
 
@@ -264,11 +281,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="fragment">La rotación es instantánea. (En general no tiene por que serlo)</li>
 </ul>
 </section></section>
-<section><section id="constrains" class="titleslide slide level1"><h1>Constrains</h1></section><section id="qué-es-una-constraint" class="slide level2">
+<section><section id="constrains" class="title-slide slide level1"><h1>Constrains</h1></section><section id="qué-es-una-constraint" class="slide level2">
 <h2>¿Qué es una constraint?</h2>
 <p>Una <strong>Constraint</strong> es una restricción al movimiento.</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">var</span> constraint <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createDistanceConstraint</span>(sprite1<span class="op">,</span> sprite2<span class="op">,</span> <span class="dv">150</span>)<span class="op">;</span>
-<span class="kw">var</span> constraint1 <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createGearConstraint</span>(sprite<span class="op">,</span> sprite2<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></code></pre></div>
+<pre class="sourceCode js" id="cb8"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">var</span> constraint <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createDistanceConstraint</span>(sprite1<span class="op">,</span> sprite2<span class="op">,</span> <span class="dv">150</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">var</span> constraint1 <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createGearConstraint</span>(sprite<span class="op">,</span> sprite2<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></a></code></pre>
 <ul>
 <li class="fragment"><p><strong>Distance constraint</strong> afecta a la distancia a la que puede estar un objeto de otro. <a href="https://phaser.io/examples/v2/p2-physics/distance-constraint">Distancia</a></p></li>
 <li class="fragment"><p><strong>Gear constraint</strong> afecta a la velocidad de rotación a la que puede girar un objeto con respecto a otro. <a href="https://phaser.io/examples/v2/p2-physics/gear-constraint">Gear</a></p></li>
@@ -292,7 +309,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>Springs</h2>
 <p>Los <strong>Springs</strong> o muelles sirven para mantener una distancia flexible a un objeto. Los springs siguen la ley de Hooke donde la fuerza F:</p>
 <figure>
-<img src="imgs/hooke.svg" alt="Ley de Hooke" /><figcaption>Ley de Hooke</figcaption>
+<img data-src="imgs/hooke.svg" alt="Ley de Hooke" /><figcaption>Ley de Hooke</figcaption>
 </figure>
 <ul>
 <li class="fragment">k: constante de elasticidad <strong>stiffness</strong>.</li>
@@ -307,7 +324,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section class="slide level2">
 
 <p>En Phaser</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">spring <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createSpring</span>(bodya<span class="op">,</span> bodyb<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></code></pre></div>
+<pre class="sourceCode js" id="cb9"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1">spring <span class="op">=</span> <span class="va">game</span>.<span class="va">physics</span>.<span class="va">p2</span>.<span class="at">createSpring</span>(bodya<span class="op">,</span> bodyb<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></a></code></pre>
 <ul>
 <li class="fragment"><strong>restLength</strong>: La longitud del spring.</li>
 <li class="fragment"><strong>stiffness</strong>: Rigidez del spring. (costante de elasticidad)</li>
@@ -315,7 +332,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p><a href="https://phaser.io/examples/v2/p2-physics/mouse-spring">Springs</a></p>
 </section></section>
-<section><section id="kinematic-body" class="titleslide slide level1"><h1>Kinematic Body</h1></section><section id="cuerpos-kinemáticos-vs-cuerpos-físicos." class="slide level2">
+<section><section id="kinematic-body" class="title-slide slide level1"><h1>Kinematic Body</h1></section><section id="cuerpos-kinemáticos-vs-cuerpos-físicos." class="slide level2">
 <h2>Cuerpos Kinemáticos Vs Cuerpos Físicos.</h2>
 <p><strong>Kinematic bodies</strong> son cuerpos que están en la física, pero que queremos mover nosotros por código.</p>
 <p>Típicamente las plataformas de los juegos de plataforma. También se suelen incluir los enemigos que son controlados por la IA o el player si no modificamos su posición con la física.</p>
@@ -328,7 +345,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section id="cómo-establecemos-un-cuerpo-kinemático" class="slide level2">
 <h2>¿Cómo establecemos un cuerpo kinemático?</h2>
 <p>Podemos modificar la propiedad kinematic de body;</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">kinematic1</span>.<span class="va">body</span>.<span class="at">kinematic</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></code></pre></div>
+<pre class="sourceCode js" id="cb10"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="va">kinematic1</span>.<span class="va">body</span>.<span class="at">kinematic</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></a></code></pre>
 </section><section id="qué-cosas-afectan-a-un-kinemático" class="slide level2">
 <h2>¿Qué cosas afectan a un kinemático?</h2>
 <p>A un objeto kinemático no le afecta la gravedad</p>

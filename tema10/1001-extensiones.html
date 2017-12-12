@@ -22,41 +22,59 @@
 
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
 <!--  -->
 <!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
@@ -73,7 +91,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <!--[if lt IE 9]>
   <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
   <![endif]-->
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 
 
 <!-- FIXME megahack because `pandoc` only generates h1's. -->
@@ -119,7 +136,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <h1 class="title">Javascript como lenguaje de extensión</h1>
 </section>
 
-<section><section id="lenguajes-de-scripting" class="titleslide slide level1"><h1>Lenguajes de Scripting</h1></section><section id="qué-es-un-lenguaje-de-scripting" class="slide level2">
+<section><section id="lenguajes-de-scripting" class="title-slide slide level1"><h1>Lenguajes de Scripting</h1></section><section id="qué-es-un-lenguaje-de-scripting" class="slide level2">
 <h2>¿Qué es un lenguaje de scripting?</h2>
 <p>Los lenguajes de scripting, normalmente interpretados, son lenguajes que son concebidos para ser usados como parte de una herramienta. Javascript fue condebido como una forma de programar sobre el navegador web. Algunos lenguajes de scripting se crearon como lenguajes de propósito general, como Python, pero la mayoría de ellos surgieron como extensiones de herramientas específicas</p>
 </section><section id="ejemplo-firefox" class="slide level2">
@@ -149,7 +166,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul>
 </section></section>
-<section><section id="otros-lenguajes-de-scripting" class="titleslide slide level1"><h1>Otros lenguajes de scripting</h1></section><section id="php" class="slide level2">
+<section><section id="otros-lenguajes-de-scripting" class="title-slide slide level1"><h1>Otros lenguajes de scripting</h1></section><section id="php" class="slide level2">
 <h2>PHP</h2>
 <p>PHP es un lenguaje de scripting para permitir expandir la funcionalidad del servidor web Apache. Hoy en día se usa como lenguaje de propósito general para crear aplicaciones web del lado de servidor. Su motor, <strong>Zend Engine</strong>, está escrito en c y puede ser embebido en cualquier servidor web como lenguaje de scripting de forma fácil. También se puede extender su funcionalidad escribiendo extensiones en c</p>
 </section><section id="bash" class="slide level2">
@@ -200,7 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>El motor CryEngine de Cryteck utiliza LUA como lenguaje de scripting. Los programadores del engine pueden exponer funciones de sus clases creadas en C++ para que los programadores de scripting en LUA puedan usarlas</p>
 <p><a href="http://docs.cryengine.com/display/SDKDOC4/Lua+Scripting">Lua en CryEngine</a></p>
 </section></section>
-<section><section id="ejemplos-de-uso-de-javascript-como-lenguaje-de-extensión" class="titleslide slide level1"><h1>Ejemplos de uso de Javascript como lenguaje de extensión</h1></section><section id="introducción" class="slide level2">
+<section><section id="ejemplos-de-uso-de-javascript-como-lenguaje-de-extensión" class="title-slide slide level1"><h1>Ejemplos de uso de Javascript como lenguaje de extensión</h1></section><section id="introducción" class="slide level2">
 <h2>Introducción</h2>
 <p>También Javascript se está comenzado a utilizar como lenguaje de extensión de aplicaciones más allá de los navegadores</p>
 </section><section id="unity" class="slide level2">
@@ -213,7 +230,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Hay una versión de Cocos2d en javascript que es también multiplataforma y que añade soporte para Web: Cocos2d-JS</p>
 <p><a href="http://cocos2d-x.org/wiki/Cocos2d-JS">Cocos2d-JS</a></p>
 </section></section>
-<section><section id="construct-2" class="titleslide slide level1"><h1>Construct 2</h1></section><section id="javascript-para-extender-construct-2" class="slide level2">
+<section><section id="construct-2" class="title-slide slide level1"><h1>Construct 2</h1></section><section id="javascript-para-extender-construct-2" class="slide level2">
 <h2>Javascript para extender Construct 2</h2>
 <p>Construct 2 permite extender su funcionalidad usando add-ons en Javascript. Hay diferentes tipos de add-ons que podemos crear:</p>
 <ul>
@@ -228,32 +245,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section class="slide level2">
 
 <p>Para crear un plugin debemos crear una carpeta con el nombre del plugin en</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">.\exporters\html5\plugins</code></pre></div>
+<pre class="sourceCode js" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1">.\exporters\html5\plugins</a></code></pre>
 <p>y para hacer un behavior exactamente lo mismo en</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">.</span>\exporters\html5\behaviors</code></pre></div>
+<pre class="sourceCode bash" id="cb2"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ex">.</span>\exporters\html5\behaviors</a></code></pre>
 </section><section id="creando-plugins" class="slide level2">
 <h2>Creando plugins</h2>
 <p>En <strong>runtime.js</strong> podemos escribir el comportamiento del plugin Con el nombre del plugin, debemos renombrar <strong>cr.plugins_.MyPlugin</strong> y <strong>cr.plugins_.MyPlugin.prototype</strong> En <strong>edittime.js</strong> trabajaremos la interfaz de edición</p>
 <p>Si queremos añadir un elemento editable desde la interfaz, tendremos que añadirlo a <strong>property_list</strong> con su correspondiente tipo, por ejemplo para añadir un float:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">new</span> <span class="va">cr</span>.<span class="at">Property</span>(ept_float<span class="op">,</span> <span class="st">&quot;Fade in time&quot;</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="st">&quot;Duration in seconds of fade-in, or zero to skip.&quot;</span>)<span class="op">,</span></code></pre></div>
+<pre class="sourceCode js" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">new</span> <span class="va">cr</span>.<span class="at">Property</span>(ept_float<span class="op">,</span> <span class="st">&quot;Fade in time&quot;</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="st">&quot;Duration in seconds of fade-in, or zero to skip.&quot;</span>)<span class="op">,</span></a></code></pre>
 </section><section class="slide level2">
 
 <p>En runtime.js <strong>saveToJSON</strong> y <strong>loadFromJSON</strong> sirven para guardar los cambios de la interfaz cuando guardamos el objeto. Así pues, debemos guardar las variables que queramos conservar</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">saveToJSON <span class="op">=</span> <span class="kw">function</span>()
-<span class="op">{</span>
-<span class="cf">return</span> <span class="op">{</span>
-    <span class="st">&quot;fit&quot;</span><span class="op">:</span> <span class="kw">this</span>.<span class="at">fadeInTime</span><span class="op">,</span>
- <span class="op">}</span>
-<span class="op">}</span></code></pre></div>
+<pre class="sourceCode js" id="cb4"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1">saveToJSON <span class="op">=</span> <span class="kw">function</span>()</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="st">&quot;fit&quot;</span><span class="op">:</span> <span class="kw">this</span>.<span class="at">fadeInTime</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"> <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="op">}</span></a></code></pre>
 </section><section class="slide level2">
 
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">
-loadFromJSON <span class="op">=</span> <span class="kw">function</span> (o)
-<span class="op">{</span>
-    <span class="kw">this</span>.<span class="at">fadeInTime</span> <span class="op">=</span> o[<span class="st">&quot;fit&quot;</span>]<span class="op">;</span>
-<span class="op">}</span></code></pre></div>
+<pre class="sourceCode js" id="cb5"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">loadFromJSON <span class="op">=</span> <span class="kw">function</span> (o)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="op">{</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="kw">this</span>.<span class="at">fadeInTime</span> <span class="op">=</span> o[<span class="st">&quot;fit&quot;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="op">}</span></a></code></pre>
 <p>Para leer el parámetro del editor en el metódo <strong>OnCreate</strong> podemos acceder al array <strong>properties</strong></p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="at">fadeInTime</span> <span class="op">=</span> <span class="kw">this</span>.<span class="at">properties</span>[<span class="dv">0</span>]<span class="op">;</span> <span class="co">//lee el valor del primer parámetro</span></code></pre></div>
+<pre class="sourceCode js" id="cb6"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">this</span>.<span class="at">fadeInTime</span> <span class="op">=</span> <span class="kw">this</span>.<span class="at">properties</span>[<span class="dv">0</span>]<span class="op">;</span> <span class="co">//lee el valor del primer parámetro</span></a></code></pre>
 </section><section class="slide level2">
 
 <p>Y finalmente podemos modificar alguno de los siguientes métodos para cambiar el comportamiento del plugin</p>
@@ -267,9 +284,9 @@ loadFromJSON <span class="op">=</span> <span class="kw">function</span> (o)
 <h2>Creando Behaviors</h2>
 <p>Para editar un Behavior es similar pero no tenemos los métodos draw ni drawGl y se sustituyen por el método <strong>tick</strong> que es el encargado de ejecutar el comportamiento frame a frame</p>
 <p>Para leer el tiempo entre frames podéis usar GetDT dentro de runtime</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="va">runtime</span>.<span class="at">getDt</span>(<span class="kw">this</span>.<span class="at">inst</span>)<span class="op">;</span></code></pre></div>
+<pre class="sourceCode js" id="cb7"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">this</span>.<span class="va">runtime</span>.<span class="at">getDt</span>(<span class="kw">this</span>.<span class="at">inst</span>)<span class="op">;</span></a></code></pre>
 </section></section>
-<section><section id="embeber-javascript-en-c" class="titleslide slide level1"><h1>Embeber javascript en c++</h1></section><section class="slide level2">
+<section><section id="embeber-javascript-en-c" class="title-slide slide level1"><h1>Embeber javascript en c++</h1></section><section class="slide level2">
 
 <p>Como ya has podido deducir, se puede embeber Javascript en un programa en C++</p>
 <p>Tanto V8 <a href="https://github.com/v8/v8/wiki/Getting%20Started%20with%20Embedding">embeber V8</a></p>
@@ -279,8 +296,8 @@ loadFromJSON <span class="op">=</span> <span class="kw">function</span> (o)
 
 <p>Para hacerlo necesitamos el código fuente de V8 y compilarlo junto con nuestro programa. El código fuente podéis descargarlo aquí <a href="https://github.com/v8/v8/wiki/Checking%20out%20source">V8 Source Code</a></p>
 <p>Una vez compilado debemos incluir en nuestro programa las cabeceras:</p>
-<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&quot;include/libplatform/libplatform.h&quot;</span>
-<span class="pp">#include </span><span class="im">&quot;include/v8.h&quot;</span></code></pre></div>
+<pre class="sourceCode c" id="cb8"><code class="sourceCode c"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="pp">#include </span><span class="im">&quot;include/libplatform/libplatform.h&quot;</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="pp">#include </span><span class="im">&quot;include/v8.h&quot;</span></a></code></pre>
 <p>Y crear las estructuras necesarias para cargar el script a ejecutar desde C++ y ejecutarlo. Conseguir que el código javascript ejecutado pueda manejar objetos de c++ o que c++ pueda manejar objetos de javascript es algo más complicado, pero posible</p>
 </section></section>
     </div>

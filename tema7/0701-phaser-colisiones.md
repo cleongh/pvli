@@ -243,14 +243,14 @@ var collisionWithTilemap = this.game.physics.arcade.collide(this._rush, this.gro
 ## Colisión en un intervalo
 
 
+```js
+setCollisionBetween(start, stop, collides, layer);
+```
+
 * Colisiona con el rango de tiles que se indican en `start`--`stop`.
 * `collides`{.js} es un booleano que activa o desactiva la colisión
 * `layer` es donde opera → la capa del tilemap.
 
-
-```js
-setCollisionBetween(start, stop, collides, layer);
-```
 
 ---
 
