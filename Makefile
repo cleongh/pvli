@@ -16,7 +16,10 @@ PROYECTO3=proyecto/version3/especificacion.html
 PROYECTO=$(PROYECTO1) $(PROYECTO2) $(PROYECTO3) proyecto/criterios_evaluacion.html
 TEMAS=$(TEMA1) $(TEMA2) $(TEMA3) $(TEMA4) tema4/0403-ejercicios.html $(TEMA5) $(TEMA6) $(TEMA7) $(TEMA8) $(TEMA9) $(TEMA10)
 TODO=$(GENERAL) $(TEMAS) $(PROYECTO)
+# BASERUN=pandoc -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
+
 BASERUN=pandoc -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
+
 # BASERUN=pandoc  -s --mathjax -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
 
 all: $(TODO)
@@ -53,7 +56,9 @@ tema5/ejercicio/ejercicios_tema5.zip: tema5/ejercicio/ejercicios_tema5.html tema
 
 
 %.html: %.md shared/pvli-template-pandoc.html
-	$(BASERUN) -i --variable revealjs-url=../shared/lib/reveal -t revealjs+smart --template shared/pvli-template-pandoc.html $< -o $@
+	# $(BASERUN) --variable revealjs-url=../shared/lib/reveal -t revealjs+smart --template shared/pvli-template-pandoc.html $< -o $@
+	$(BASERUN) --variable revealjs-url=../shared/lib/reveal -Vtheme=beige -t revealjs+smart $< -o $@
+
 
 
 clean:

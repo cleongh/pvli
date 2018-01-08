@@ -195,10 +195,9 @@ Intentémoslo:
 
 ¿Pero qué pasa cuando queremos crear...
 
-- ... un enemigo *invisible*?
+- ... un personaje *invisible*?
 - ... un proyectil manejado por la red?
-- ... un enemigo que no tiene propiedades gráficas?
-
+- ... un enemigo que no se mueve?
 
 ---
 

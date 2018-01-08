@@ -7,24 +7,14 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-
-
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/../tabzilla/css/tabzilla.css"/> -->
-  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/mozilla-devrel-light.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/lib/css/solarized-light.css" />
-
-
-
-
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"> -->
-
-  <style type="text/css">code{white-space: pre;}</style>
-<!--  -->
-<!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
-<!--  -->
-<!--  -->
+  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/beige.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
@@ -36,48 +26,12 @@
   <!--[if lt IE 9]>
   <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
   <![endif]-->
-
-
-<!-- FIXME megahack because `pandoc` only generates h1's. -->
-<!-- <style type="text/css"> -->
-
-
-<!-- .inner { -->
-<!--     width: 100%; -->
-<!--     margin: 0 auto; --> 
-<!-- } -->
-
-<!--     h1{ --> 
-<!--     } -->
-
-<!--     .level2 h1 { -->
-        
-<!--     border-top: 0.1em solid #484848; -->
-<!--     border-bottom: 0.1em solid #484848; -->
-    
-<!--     padding: 1em 0; -->
-<!--     margin-bottom: 1em; -->
-<!--     font-size: 1.6em; -->
-<!--     margin: 0 0 20px 0; -->
-<!--     color: #484848; -->
-<!--     font-family: "Fira Sans", Helvetica, sans-serif; -->
-<!--     font-weight: 600; -->
-<!--     line-height: 1.2; -->
-<!--     letter-spacing: normal; -->
-<!--     text-transform: uppercase; -->
-<!--     text-shadow: none; -->
-<!--     word-wrap: break-word; -->
-<!-- } -->
-
-<!-- </style> -->
-
-
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
-<section>
+<section id="title-slide">
   <h1 class="title">PVLI: Introducción</h1>
 </section>
 
@@ -189,14 +143,31 @@ proyecto &amp; = funcionamiento\_correcto \times 0,2 \\
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
         // Optional reveal.js plugins
         dependencies: [
           { src: '../shared/lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: '../shared/lib/reveal/plugin/zoom-js/zoom.js', async: true },
-          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true },
-          { src: '../shared/lib/reveal/plugin/math/math.js' },
-
+          { src: '../shared/lib/reveal/plugin/math/math.js', async: true },
+          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true }
         ]
       });
     </script>

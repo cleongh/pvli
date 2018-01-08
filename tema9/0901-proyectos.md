@@ -231,9 +231,7 @@ En [esta página](https://www.truevalhalla.com/blog) podéis ver un ejemplo (¡c
 
 El autor hasta ha publicado [un libro](https://www.truevalhalla.com/blog/ebook)
 
-
 # Cómo empaquetar (para las entregas)
-
 
 ## Servidor
 

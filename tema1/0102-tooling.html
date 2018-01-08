@@ -7,31 +7,32 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-
-
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/../tabzilla/css/tabzilla.css"/> -->
-  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/mozilla-devrel-light.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/lib/css/solarized-light.css" />
-
-
-
-
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"> -->
-
-  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css">
   <style type="text/css">
-a.sourceLine { display: inline-block; min-height: 1.25em; }
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
 @media print {
 code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
   { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
     position: absolute; left: -5em; text-align: right; vertical-align: baseline;
@@ -43,43 +44,42 @@ pre.numberSource a.sourceLine::before
     color: #aaaaaa;
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
 @media screen {
-a.sourceLine::before { text-decoration: underline; color: initial; }
+a.sourceLine::before { text-decoration: underline; }
 }
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
 code span.dt { color: #902000; } /* DataType */
 code span.dv { color: #40a070; } /* DecVal */
-code span.bn { color: #40a070; } /* BaseN */
-code span.fl { color: #40a070; } /* Float */
-code span.ch { color: #4070a0; } /* Char */
-code span.st { color: #4070a0; } /* String */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.ot { color: #007020; } /* Other */
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.fu { color: #06287e; } /* Function */
 code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code span.cn { color: #880000; } /* Constant */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.im { } /* Import */
-code span.va { color: #19177c; } /* Variable */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.op { color: #666666; } /* Operator */
-code span.bu { } /* BuiltIn */
 code span.ex { } /* Extension */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.at { color: #7d9029; } /* Attribute */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-<!--  -->
-<!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
-<!--  -->
-<!--  -->
+  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/beige.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
@@ -91,48 +91,12 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
   <!--[if lt IE 9]>
   <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
   <![endif]-->
-
-
-<!-- FIXME megahack because `pandoc` only generates h1's. -->
-<!-- <style type="text/css"> -->
-
-
-<!-- .inner { -->
-<!--     width: 100%; -->
-<!--     margin: 0 auto; --> 
-<!-- } -->
-
-<!--     h1{ --> 
-<!--     } -->
-
-<!--     .level2 h1 { -->
-        
-<!--     border-top: 0.1em solid #484848; -->
-<!--     border-bottom: 0.1em solid #484848; -->
-    
-<!--     padding: 1em 0; -->
-<!--     margin-bottom: 1em; -->
-<!--     font-size: 1.6em; -->
-<!--     margin: 0 0 20px 0; -->
-<!--     color: #484848; -->
-<!--     font-family: "Fira Sans", Helvetica, sans-serif; -->
-<!--     font-weight: 600; -->
-<!--     line-height: 1.2; -->
-<!--     letter-spacing: normal; -->
-<!--     text-transform: uppercase; -->
-<!--     text-shadow: none; -->
-<!--     word-wrap: break-word; -->
-<!-- } -->
-
-<!-- </style> -->
-
-
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
-<section>
+<section id="title-slide">
   <h1 class="title">Herramientas</h1>
 </section>
 
@@ -145,14 +109,14 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 
 <p>También:</p>
 <ul>
-<li class="fragment">gestionamos archivos</li>
-<li class="fragment">gestionamos versiones</li>
-<li class="fragment">hacemos publicaciones</li>
-<li class="fragment">nos comunicamos con el resto del equipo</li>
-<li class="fragment">compilamos/cargamos en el intérprete</li>
-<li class="fragment">probamos</li>
-<li class="fragment">depuramos</li>
-<li class="fragment">…</li>
+<li>gestionamos archivos</li>
+<li>gestionamos versiones</li>
+<li>hacemos publicaciones</li>
+<li>nos comunicamos con el resto del equipo</li>
+<li>compilamos/cargamos en el intérprete</li>
+<li>probamos</li>
+<li>depuramos</li>
+<li>…</li>
 </ul>
 </section><section id="toolset-js" class="slide level2">
 <h2>Toolset JS</h2>
@@ -210,14 +174,14 @@ El objetivo es aprender cómo funcionan cada una de las piezas
 </section><section class="slide level2">
 
 <p>Las librerías son fragmentos de código que quedan disponibles para el programador:</p>
-<pre class="sourceCode javascript" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// usamos librerías para imprimir contenido</span></a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// usamos librerías para imprimir contenido</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;hola&quot;</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">// o para mejorar nuestro estilo de código</span></a>
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="va">_</span>.<span class="at">map</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> <span class="kw">function</span>(num)<span class="op">{</span> <span class="cf">return</span> num <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> <span class="op">}</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">// o para acceder a frameworks completos</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">var</span> game <span class="op">=</span> <span class="kw">new</span> <span class="va">Phaser</span>.<span class="at">Game</span>(<span class="dv">800</span><span class="op">,</span> <span class="dv">600</span><span class="op">,</span> <span class="va">Phaser</span>.<span class="at">CANVAS</span><span class="op">,</span> <span class="st">&#39;phaser-example&#39;</span><span class="op">,</span> <span class="op">{</span> <span class="dt">create</span><span class="op">:</span> create <span class="op">}</span>)<span class="op">;</span></a></code></pre>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">var</span> game <span class="op">=</span> <span class="kw">new</span> <span class="va">Phaser</span>.<span class="at">Game</span>(<span class="dv">800</span><span class="op">,</span> <span class="dv">600</span><span class="op">,</span> <span class="va">Phaser</span>.<span class="at">CANVAS</span><span class="op">,</span> <span class="st">&#39;phaser-example&#39;</span><span class="op">,</span> <span class="op">{</span> <span class="dt">create</span><span class="op">:</span> create <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
 </section><section id="análisis-estático-y-testing-automático" class="slide level2">
 <h2>Análisis estático y testing automático</h2>
 <p>Herramientas como <code>jslint</code> analizan el código de forma estática y hacen recomendaciones sobre su calidad</p>
@@ -242,9 +206,9 @@ El objetivo es aprender cómo funcionan cada una de las piezas
 
 <p>Los scripts de despliegue tienen muchas grandes ventajas:</p>
 <ul>
-<li class="fragment">Ahorra mucho tiempo</li>
-<li class="fragment">Hacen que no ocurran fallos humanos en las tareas repetitivas</li>
-<li class="fragment">Evitan la necesidad de tener que recordar cómo preparar el código para su ejecución (esto, a veces, es complejo)</li>
+<li>Ahorra mucho tiempo</li>
+<li>Hacen que no ocurran fallos humanos en las tareas repetitivas</li>
+<li>Evitan la necesidad de tener que recordar cómo preparar el código para su ejecución (esto, a veces, es complejo)</li>
 </ul>
 </section><section id="gestión-de-versiones" class="slide level2">
 <h2>Gestión de versiones</h2>
@@ -258,13 +222,13 @@ El objetivo es aprender cómo funcionan cada una de las piezas
 
 <p>Las versiones de código, bien usadas, permiten:</p>
 <ul>
-<li class="fragment">flexibilidad</li>
-<li class="fragment">seguridad</li>
-<li class="fragment">trabajo en grupo</li>
-<li class="fragment">histórico y revisiones</li>
-<li class="fragment">análisis de evolución</li>
-<li class="fragment">aceptar contribuciones externas</li>
-<li class="fragment">libertad de experimentación</li>
+<li>flexibilidad</li>
+<li>seguridad</li>
+<li>trabajo en grupo</li>
+<li>histórico y revisiones</li>
+<li>análisis de evolución</li>
+<li>aceptar contribuciones externas</li>
+<li>libertad de experimentación</li>
 </ul>
 </section><section id="esquema-general-de-trabajo" class="slide level2">
 <h2>Esquema general de trabajo</h2>
@@ -288,46 +252,46 @@ El objetivo es aprender cómo funcionan cada una de las piezas
 
 <p>Es importante (al menos muy útil) usar un editor profesional:</p>
 <ul>
-<li class="fragment"><a href="https://code.visualstudio.com">VS Code</a></li>
-<li class="fragment"><a href="https://atom.io/">Atom</a></li>
-<li class="fragment"><a href="https://www.sublimetext.com/">Sublime</a></li>
-<li class="fragment"><a href="http://www.vim.org/">Vim</a></li>
-<li class="fragment"><a href="https://www.gnu.org/software/emacs/">Emacs</a></li>
+<li><a href="https://code.visualstudio.com">VS Code</a></li>
+<li><a href="https://atom.io/">Atom</a></li>
+<li><a href="https://www.sublimetext.com/">Sublime</a></li>
+<li><a href="http://www.vim.org/">Vim</a></li>
+<li><a href="https://www.gnu.org/software/emacs/">Emacs</a></li>
 </ul>
 </section><section class="slide level2">
 
 <p>Características deseables:</p>
 <ul>
-<li class="fragment">Coloreado de sintaxis</li>
-<li class="fragment">Indentación apropiada</li>
-<li class="fragment">Ayudas a la edición:
+<li>Coloreado de sintaxis</li>
+<li>Indentación apropiada</li>
+<li>Ayudas a la edición:
 <ul>
-<li class="fragment">Completado de paréntesis</li>
-<li class="fragment">Autocompletado de código</li>
+<li>Completado de paréntesis</li>
+<li>Autocompletado de código</li>
 </ul></li>
-<li class="fragment">Autocompletado semántico</li>
+<li>Autocompletado semántico</li>
 </ul>
 </section><section id="consolashell" class="slide level2">
 <h2>Consola/Shell</h2>
 <p>La consola por defecto de Windows es muy pobre</p>
 <p>Hay alternativas:</p>
 <ul>
-<li class="fragment"><a href="http://cmder.net/">Cmder</a></li>
-<li class="fragment"><a href="https://conemu.github.io/">Conemu</a></li>
-<li class="fragment"><a href="https://www.iterm2.com/">iTerm2</a></li>
-<li class="fragment">Casi cualquiera en GNU/Linux (<a href="https://es.wikipedia.org/wiki/GNOME_Terminal">GNOME Terminal</a>, <a href="https://www.kde.org/applications/system/konsole/">Konsole</a>)</li>
+<li><a href="http://cmder.net/">Cmder</a></li>
+<li><a href="https://conemu.github.io/">Conemu</a></li>
+<li><a href="https://www.iterm2.com/">iTerm2</a></li>
+<li>Casi cualquiera en GNU/Linux (<a href="https://es.wikipedia.org/wiki/GNOME_Terminal">GNOME Terminal</a>, <a href="https://www.kde.org/applications/system/konsole/">Konsole</a>)</li>
 </ul>
 </section><section class="slide level2">
 
 <p>La <em>shell</em> es el programa que se ejecuta en la terminal (que es la ventana)</p>
-<pre class="sourceCode bash" id="cb2"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">npm</span> install <span class="co"># instala en local todas las dependencias, que están en &quot;package.json&quot;</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">$ <span class="ex">node</span> node_modules/gulp/bin/gulp.js <span class="co"># lanza todas ls tareas </span></a></code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">npm</span> install <span class="co"># instala en local todas las dependencias, que están en &quot;package.json&quot;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">$ <span class="ex">node</span> node_modules/gulp/bin/gulp.js <span class="co"># lanza todas ls tareas </span></a></code></pre></div>
 </section><section id="alternativas-típicas-para-la-shell" class="slide level2">
 <h2>Alternativas típicas para la shell</h2>
 <ul>
-<li class="fragment"><a href="https://www.cygwin.com/">Cygwin</a>, o para más comodidad <a href="https://msys2.github.io/">MSYS2</a>, permiten correr shell UNIX en Windows</li>
-<li class="fragment"><a href="https://es.wikipedia.org/wiki/Bash">Bash</a></li>
-<li class="fragment"><a href="http://www.zsh.org/">Zsh</a></li>
+<li><a href="https://www.cygwin.com/">Cygwin</a>, o para más comodidad <a href="https://msys2.github.io/">MSYS2</a>, permiten correr shell UNIX en Windows</li>
+<li><a href="https://es.wikipedia.org/wiki/Bash">Bash</a></li>
+<li><a href="http://www.zsh.org/">Zsh</a></li>
 </ul>
 </section><section id="intérprete-1" class="slide level2">
 <h2>Intérprete</h2>
@@ -349,7 +313,7 @@ El objetivo es aprender cómo funcionan cada una de las piezas
 <p>Así, no hace falta buscar una librería en Internet, encontrar la carpeta donde descargarla, probar la versión, ver que falla y tener que buscar la dependencia…</p>
 </section><section class="slide level2">
 
-<pre class="sourceCode bash" id="cb3"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1">$ <span class="ex">npm</span> install http-server</a></code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1">$ <span class="ex">npm</span> install http-server</a></code></pre></div>
 </section><section class="slide level2">
 
 <p>Los paquetes tienen <a href="http://npm.anvaka.com/">dependencias</a>. Por ejemplo, <a href="http://npm.anvaka.com/#/view/2d/browserify"><code>browserify</code></a></p>
@@ -371,8 +335,8 @@ El objetivo es aprender cómo funcionan cada una de las piezas
 <p>Para probar, podéis instalar <code>http-server</code>, es un “one-liner”:</p>
 </section><section class="slide level2">
 
-<pre class="sourceCode bash" id="cb4"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1">$ <span class="ex">npm</span> install http-server <span class="co"># para instalarlo</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">$ <span class="ex">http-server</span> <span class="co"># para ejecutarlo</span></a></code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1">$ <span class="ex">npm</span> install http-server <span class="co"># para instalarlo</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">$ <span class="ex">http-server</span> <span class="co"># para ejecutarlo</span></a></code></pre></div>
 <p class="fragment">
 Esa instrucción lo descarga, crea una carpeta para instalarlo y lo instala en local junto con sus dependencias
 </p>
@@ -408,11 +372,11 @@ Esa instrucción lo descarga, crea una carpeta para instalarlo y lo instala en l
 
 <p>Consistirán en un texto corto con:</p>
 <ul>
-<li class="fragment">Un enlace al repositorio (commit <strong>exacto</strong>)</li>
-<li class="fragment">Los miembros del equipo</li>
-<li class="fragment">Lo que ha hecho cada miembro</li>
-<li class="fragment">Una descripción de todo lo <em>relevante</em> (por favor, sólo lo <em>relevante</em>)</li>
-<li class="fragment">En el repositorio git todo estará en <a href="http://stackoverflow.com/questions/2241348/what-is-unicode-utf-8-utf-16">UTF-8</a>, a no ser que haya una buena razón (que habrá que explicar en el texto)</li>
+<li>Un enlace al repositorio (commit <strong>exacto</strong>)</li>
+<li>Los miembros del equipo</li>
+<li>Lo que ha hecho cada miembro</li>
+<li>Una descripción de todo lo <em>relevante</em> (por favor, sólo lo <em>relevante</em>)</li>
+<li>En el repositorio git todo estará en <a href="http://stackoverflow.com/questions/2241348/what-is-unicode-utf-8-utf-16">UTF-8</a>, a no ser que haya una buena razón (que habrá que explicar en el texto)</li>
 </ul>
 </section><section class="slide level2">
 
@@ -442,13 +406,13 @@ Y se verá que sale el mismo resultado.</code></pre>
 </section></section>
 <section><section id="cómo-empezar-a-programar" class="title-slide slide level1"><h1>Cómo empezar a programar</h1></section><section id="plantilla-para-la-asignatura" class="slide level2">
 <h2>Plantilla para la asignatura</h2>
-<pre class="sourceCode bash" id="cb6"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1">$ <span class="ex">npm</span> install yo <span class="co"># instalar &#39;yeoman&#39;</span></a>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1">$ <span class="ex">npm</span> install yo <span class="co"># instalar &#39;yeoman&#39;</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">$ <span class="ex">npm</span> install generator-gamejam <span class="co"># &#39;instalar el generador de juegos hecho por Belén Albeza (Mozilla)</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3">$ <span class="ex">npm</span> install jslint <span class="co"># &#39;instalar el generador de juegos hecho por Belén</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">$ <span class="ex">node_modules/.bin/yo</span> <span class="co"># arrancar el generador</span></a>
 <a class="sourceLine" id="cb6-5" data-line-number="5">$ <span class="ex">npm</span> install <span class="co"># instalar dependencias</span></a>
 <a class="sourceLine" id="cb6-6" data-line-number="6">$ <span class="ex">node_modules/.bin/jslint</span> src/js/play_scene.js</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">$ <span class="ex">node_modules/.bin/gulp</span> run <span class="co"># arrancar &#39;gulp&#39;, haciendo que recargue la página al guardar</span></a></code></pre>
+<a class="sourceLine" id="cb6-7" data-line-number="7">$ <span class="ex">node_modules/.bin/gulp</span> run <span class="co"># arrancar &#39;gulp&#39;, haciendo que recargue la página al guardar</span></a></code></pre></div>
 </section><section class="slide level2">
 
 <p>Belén Albeza (Mozilla) ha creado una plantilla de Yeoman para juegos, <code>generator-gamejam</code></p>
@@ -462,11 +426,11 @@ Y se verá que sale el mismo resultado.</code></pre>
 </section><section class="slide level2">
 
 <ol>
-<li class="fragment">Abrid el editor</li>
-<li class="fragment">Escribid algo</li>
-<li class="fragment">Guardad</li>
-<li class="fragment">Probad</li>
-<li class="fragment">Volver al paso 2</li>
+<li>Abrid el editor</li>
+<li>Escribid algo</li>
+<li>Guardad</li>
+<li>Probad</li>
+<li>Volver al paso 2</li>
 </ol>
 </section></section>
     </div>
@@ -480,14 +444,31 @@ Y se verá que sale el mismo resultado.</code></pre>
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
         // Optional reveal.js plugins
         dependencies: [
           { src: '../shared/lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: '../shared/lib/reveal/plugin/zoom-js/zoom.js', async: true },
-          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true },
-          { src: '../shared/lib/reveal/plugin/math/math.js' },
-
+          { src: '../shared/lib/reveal/plugin/math/math.js', async: true },
+          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true }
         ]
       });
     </script>

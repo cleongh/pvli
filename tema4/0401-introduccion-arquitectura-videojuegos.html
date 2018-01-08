@@ -7,31 +7,32 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-
-
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/../tabzilla/css/tabzilla.css"/> -->
-  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/mozilla-devrel-light.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/lib/css/solarized-light.css" />
-
-
-
-
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"> -->
-
-  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css">
   <style type="text/css">
-a.sourceLine { display: inline-block; min-height: 1.25em; }
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
 @media print {
 code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
   { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
     position: absolute; left: -5em; text-align: right; vertical-align: baseline;
@@ -43,43 +44,42 @@ pre.numberSource a.sourceLine::before
     color: #aaaaaa;
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
 @media screen {
-a.sourceLine::before { text-decoration: underline; color: initial; }
+a.sourceLine::before { text-decoration: underline; }
 }
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
 code span.dt { color: #902000; } /* DataType */
 code span.dv { color: #40a070; } /* DecVal */
-code span.bn { color: #40a070; } /* BaseN */
-code span.fl { color: #40a070; } /* Float */
-code span.ch { color: #4070a0; } /* Char */
-code span.st { color: #4070a0; } /* String */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.ot { color: #007020; } /* Other */
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.fu { color: #06287e; } /* Function */
 code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code span.cn { color: #880000; } /* Constant */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.im { } /* Import */
-code span.va { color: #19177c; } /* Variable */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.op { color: #666666; } /* Operator */
-code span.bu { } /* BuiltIn */
 code span.ex { } /* Extension */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.at { color: #7d9029; } /* Attribute */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-<!--  -->
-<!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
-<!--  -->
-<!--  -->
+  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/beige.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
@@ -91,48 +91,12 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
   <!--[if lt IE 9]>
   <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
   <![endif]-->
-
-
-<!-- FIXME megahack because `pandoc` only generates h1's. -->
-<!-- <style type="text/css"> -->
-
-
-<!-- .inner { -->
-<!--     width: 100%; -->
-<!--     margin: 0 auto; --> 
-<!-- } -->
-
-<!--     h1{ --> 
-<!--     } -->
-
-<!--     .level2 h1 { -->
-        
-<!--     border-top: 0.1em solid #484848; -->
-<!--     border-bottom: 0.1em solid #484848; -->
-    
-<!--     padding: 1em 0; -->
-<!--     margin-bottom: 1em; -->
-<!--     font-size: 1.6em; -->
-<!--     margin: 0 0 20px 0; -->
-<!--     color: #484848; -->
-<!--     font-family: "Fira Sans", Helvetica, sans-serif; -->
-<!--     font-weight: 600; -->
-<!--     line-height: 1.2; -->
-<!--     letter-spacing: normal; -->
-<!--     text-transform: uppercase; -->
-<!--     text-shadow: none; -->
-<!--     word-wrap: break-word; -->
-<!-- } -->
-
-<!-- </style> -->
-
-
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
-<section>
+<section id="title-slide">
   <h1 class="title">Introducción a la arquitectura de videojuegos</h1>
 </section>
 
@@ -167,11 +131,11 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 
 <p>Cada parte de un motor de juego como Unity tiene que:</p>
 <ul>
-<li class="fragment">Ser modificable</li>
-<li class="fragment">Ser ampliable</li>
-<li class="fragment">Ser independiente</li>
-<li class="fragment">Comunicarse con las demás</li>
-<li class="fragment">Hacer todo esto de forma que los <em>programadores</em> empleen el mínimo esfuerzo</li>
+<li>Ser modificable</li>
+<li>Ser ampliable</li>
+<li>Ser independiente</li>
+<li>Comunicarse con las demás</li>
+<li>Hacer todo esto de forma que los <em>programadores</em> empleen el mínimo esfuerzo</li>
 </ul>
 </section></section>
 <section><section id="por-qué-pensar-en-la-arquitectura" class="title-slide slide level1"><h1>Por qué pensar en la arquitectura</h1></section><section class="slide level2">
@@ -202,8 +166,8 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </section><section class="slide level2">
 
 <p>Aquí, <code class="sourceCode cpp">player</code> y <code class="sourceCode cpp">enemy</code> son instancias de <code class="sourceCode cpp">Player</code> y <code class="sourceCode cpp">Enemy</code> respectivamente:</p>
-<pre class="sourceCode cpp" id="cb1"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1">Player player(<span class="st">&quot;player&quot;</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">100</span>);</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">Enemy enemy(<span class="st">&quot;enemy&quot;</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="dv">0</span>, <span class="dv">0</span>, &amp;player);</a></code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1">Player player(<span class="st">&quot;player&quot;</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">100</span>);</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">Enemy enemy(<span class="st">&quot;enemy&quot;</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="dv">0</span>, <span class="dv">0</span>, &amp;player);</a></code></pre></div>
 </section><section id="relaciones" class="slide level2">
 <h2>Relaciones</h2>
 </section><section class="slide level2">
@@ -240,8 +204,8 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 
 <p>Entre otros, los videojuegos son razonablemente complejos y manejan dos aspectos que hay que gestionar:</p>
 <ul>
-<li class="fragment">Modelo de datos (orco, espada, mundo…)</li>
-<li class="fragment">Modelo de sistemas (gráficos, sonido, entrada…)</li>
+<li>Modelo de datos (orco, espada, mundo…)</li>
+<li>Modelo de sistemas (gráficos, sonido, entrada…)</li>
 </ul>
 </section><section class="slide level2">
 
@@ -262,9 +226,9 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 
 <p>Muchas veces:</p>
 <ul>
-<li class="fragment">todos los <code>Enemigos</code> son <code>Movibles</code></li>
-<li class="fragment">todos los <code>Jugadores</code> son <code>Personajes</code></li>
-<li class="fragment">todos los proyectiles son objetos <code>Físicos</code></li>
+<li>todos los <code>Enemigos</code> son <code>Movibles</code></li>
+<li>todos los <code>Jugadores</code> son <code>Personajes</code></li>
+<li>todos los proyectiles son objetos <code>Físicos</code></li>
 </ul>
 </section><section class="slide level2">
 
@@ -279,9 +243,9 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 
 <p>¿Pero qué pasa cuando queremos crear…</p>
 <ul>
-<li class="fragment">… un enemigo <em>invisible</em>?</li>
-<li class="fragment">… un proyectil manejado por la red?</li>
-<li class="fragment">… un enemigo que no tiene propiedades gráficas?</li>
+<li>… un personaje <em>invisible</em>?</li>
+<li>… un proyectil manejado por la red?</li>
+<li>… un enemigo que no se mueve?</li>
 </ul>
 </section><section class="slide level2">
 
@@ -358,15 +322,15 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </section><section class="slide level2">
 
 <ul>
-<li class="fragment">Un personaje (“player”) será una entidad</li>
-<li class="fragment">Un <em>trigger</em>, también</li>
-<li class="fragment">Un botón</li>
-<li class="fragment">Los enemigos</li>
+<li>Un personaje (“player”) será una entidad</li>
+<li>Un <em>trigger</em>, también</li>
+<li>Un botón</li>
+<li>Los enemigos</li>
 </ul>
 </section><section class="slide level2">
 
 <p>Es decir, una entidad es algo genérico que <em>sólo tiene una lista de componentes</em></p>
-<pre class="sourceCode js" id="cb2"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">var</span> entidad <span class="op">=</span> <span class="op">{</span></a>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">var</span> entidad <span class="op">=</span> <span class="op">{</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">   <span class="dt">id          </span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">   <span class="dt">componentes </span><span class="op">:</span> [</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">        drawable<span class="op">,</span></a>
@@ -374,30 +338,30 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <a class="sourceLine" id="cb2-6" data-line-number="6">        movable<span class="op">,</span></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7">        physics</a>
 <a class="sourceLine" id="cb2-8" data-line-number="8">   ]</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="op">}</span></a></code></pre>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="op">}</span></a></code></pre></div>
 </section><section class="slide level2">
 
 <p>La entidad <strong>delega</strong> en sus componentes todo el comportamiento:</p>
-<pre class="sourceCode js" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// en cada ciclo (tick), la entidad simplemente </span></a>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// en cada ciclo (tick), la entidad simplemente </span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">// delega en sus componentes</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="va">Entity</span>.<span class="va">prototype</span>.<span class="at">tick</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">    <span class="kw">this</span>.<span class="va">components</span>.<span class="at">forEach</span>(<span class="kw">function</span>(component) <span class="op">{</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">        <span class="va">component</span>.<span class="at">tick</span>()<span class="op">;</span></a>
 <a class="sourceLine" id="cb3-6" data-line-number="6">    <span class="op">}</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="op">}</span></a></code></pre>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="op">}</span></a></code></pre></div>
 </section></section>
 <section><section id="sistemas-de-entidades" class="title-slide slide level1"><h1>Sistemas de entidades</h1></section><section class="slide level2">
 
 <p>Cada componente tiene información sobre un aspecto del juego</p>
 <ul>
-<li class="fragment">Física</li>
-<li class="fragment">Gráficos</li>
-<li class="fragment">Sonido</li>
-<li class="fragment">Entrada</li>
-<li class="fragment">Colisiones</li>
-<li class="fragment">Bandos</li>
-<li class="fragment">Inventario</li>
-<li class="fragment">…</li>
+<li>Física</li>
+<li>Gráficos</li>
+<li>Sonido</li>
+<li>Entrada</li>
+<li>Colisiones</li>
+<li>Bandos</li>
+<li>Inventario</li>
+<li>…</li>
 </ul>
 </section><section id="sistemas" class="slide level2">
 <h2>Sistemas</h2>
@@ -447,14 +411,31 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
         // Optional reveal.js plugins
         dependencies: [
           { src: '../shared/lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: '../shared/lib/reveal/plugin/zoom-js/zoom.js', async: true },
-          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true },
-          { src: '../shared/lib/reveal/plugin/math/math.js' },
-
+          { src: '../shared/lib/reveal/plugin/math/math.js', async: true },
+          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true }
         ]
       });
     </script>

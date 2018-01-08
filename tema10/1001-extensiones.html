@@ -3,35 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>Javascript como lenguaje de extensión</title>
+  <title>JavaScript como lenguaje de extensión</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-
-
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/../tabzilla/css/tabzilla.css"/> -->
-  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/mozilla-devrel-light.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/lib/css/solarized-light.css" />
-
-
-
-
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"> -->
-
-  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css">
   <style type="text/css">
-a.sourceLine { display: inline-block; min-height: 1.25em; }
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
 @media print {
 code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
   { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
     position: absolute; left: -5em; text-align: right; vertical-align: baseline;
@@ -43,43 +44,42 @@ pre.numberSource a.sourceLine::before
     color: #aaaaaa;
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
 @media screen {
-a.sourceLine::before { text-decoration: underline; color: initial; }
+a.sourceLine::before { text-decoration: underline; }
 }
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
 code span.dt { color: #902000; } /* DataType */
 code span.dv { color: #40a070; } /* DecVal */
-code span.bn { color: #40a070; } /* BaseN */
-code span.fl { color: #40a070; } /* Float */
-code span.ch { color: #4070a0; } /* Char */
-code span.st { color: #4070a0; } /* String */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.ot { color: #007020; } /* Other */
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.fu { color: #06287e; } /* Function */
 code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code span.cn { color: #880000; } /* Constant */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.im { } /* Import */
-code span.va { color: #19177c; } /* Variable */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.op { color: #666666; } /* Operator */
-code span.bu { } /* BuiltIn */
 code span.ex { } /* Extension */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.at { color: #7d9029; } /* Attribute */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-<!--  -->
-<!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
-<!--  -->
-<!--  -->
+  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/beige.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
@@ -91,214 +91,142 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
   <!--[if lt IE 9]>
   <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
   <![endif]-->
-
-
-<!-- FIXME megahack because `pandoc` only generates h1's. -->
-<!-- <style type="text/css"> -->
-
-
-<!-- .inner { -->
-<!--     width: 100%; -->
-<!--     margin: 0 auto; --> 
-<!-- } -->
-
-<!--     h1{ --> 
-<!--     } -->
-
-<!--     .level2 h1 { -->
-        
-<!--     border-top: 0.1em solid #484848; -->
-<!--     border-bottom: 0.1em solid #484848; -->
-    
-<!--     padding: 1em 0; -->
-<!--     margin-bottom: 1em; -->
-<!--     font-size: 1.6em; -->
-<!--     margin: 0 0 20px 0; -->
-<!--     color: #484848; -->
-<!--     font-family: "Fira Sans", Helvetica, sans-serif; -->
-<!--     font-weight: 600; -->
-<!--     line-height: 1.2; -->
-<!--     letter-spacing: normal; -->
-<!--     text-transform: uppercase; -->
-<!--     text-shadow: none; -->
-<!--     word-wrap: break-word; -->
-<!-- } -->
-
-<!-- </style> -->
-
-
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
-<section>
-  <h1 class="title">Javascript como lenguaje de extensión</h1>
+<section id="title-slide">
+  <h1 class="title">JavaScript como lenguaje de extensión</h1>
 </section>
 
-<section><section id="lenguajes-de-scripting" class="title-slide slide level1"><h1>Lenguajes de Scripting</h1></section><section id="qué-es-un-lenguaje-de-scripting" class="slide level2">
+<section><section id="lenguajes-de-scripting" class="title-slide slide level1"><h1>Lenguajes de scripting</h1></section><section id="qué-es-un-lenguaje-de-scripting" class="slide level2">
 <h2>¿Qué es un lenguaje de scripting?</h2>
-<p>Los lenguajes de scripting, normalmente interpretados, son lenguajes que son concebidos para ser usados como parte de una herramienta. Javascript fue condebido como una forma de programar sobre el navegador web. Algunos lenguajes de scripting se crearon como lenguajes de propósito general, como Python, pero la mayoría de ellos surgieron como extensiones de herramientas específicas</p>
+<p>Los lenguajes de scripting, normalmente interpretados, son lenguajes que son concebidos para ser usados como parte de una herramienta</p>
+</section><section class="slide level2">
+
+<p>JavaScript fue concebido como una forma de programar sobre el navegador web</p>
+<p>Algunos lenguajes de scripting se crearon como lenguajes de propósito general, como Python, pero la mayoría de ellos surgieron como extensiones de herramientas específicas</p>
 </section><section id="ejemplo-firefox" class="slide level2">
 <h2>Ejemplo: Firefox</h2>
-<p><img src="imgs/firefox_architecture.png" alt="Ejemplo: Arquitectura Firefox"  height="550px" width="550px"/></p>
+<figure>
+<img data-src="imgs/firefox_architecture.png" alt="Ejemplo: arquitectura Firefox" style="width:30.0%" /><figcaption>Ejemplo: arquitectura Firefox</figcaption>
+</figure>
+<!-- <img src="imgs/firefox_architecture.png" alt="Ejemplo: Arquitectura Firefox"  height="550px" width="550px"/> -->
 </section><section id="ejemplo-firefox-1" class="slide level2">
 <h2>Ejemplo: Firefox</h2>
 <ul>
-<li class="fragment">Gecko: Es el núcleo de Firefox y está escrito en C/C++
+<li>Gecko: Es el núcleo de Firefox y está escrito en C/C++
 <ul>
-<li class="fragment">Tiene un motor Web</li>
-<li class="fragment">Y un engine de renderización</li>
+<li>Tiene un motor Web</li>
+<li>Y un engine de renderización</li>
 </ul></li>
-<li class="fragment">El motor usa un interprete de javascript: Spider-Monkey</li>
-<li class="fragment">El interprete de javascript se comunica con Gecko</li>
-<li class="fragment">Lo que programas en javascript afecta al comportamiento del engine de Firefox</li>
+<li>El motor usa un interprete de JavaScript: Spider-Monkey</li>
+<li>El interprete de JavaScript se comunica con Gecko</li>
+<li>Lo que programas en JavaScript afecta al comportamiento del engine de Firefox</li>
 </ul>
 </section><section id="cómo-se-consigue" class="slide level2">
 <h2>¿Cómo se consigue?</h2>
+</section><section class="slide level2">
+
 <ul>
-<li class="fragment">Hay que crear una API en c/c++ a la que invocar desde javascript</li>
-<li class="fragment">Hay que crear las llamadas en javascript que invocan el api en c/c++ para poderlas manejar desde javascript
+<li>Hay que crear una API en C/C++ a la que invocar desde JavaScript</li>
+<li>Hay que crear las llamadas en JavaScript que invocan el api en c/C++ para poderlas manejar desde JavaScript
 <ul>
-<li class="fragment">Por ejemplo el objeto window sólo puede ser usado en javascript cuando estamos en el navegador, no existe en node</li>
-<li class="fragment">Tampoco existe DOM en node</li>
-<li class="fragment">Porque window y DOM son la API que proporciona Firefox para manejar el engine desde javascript</li>
+<li>Por ejemplo el objeto window sólo puede ser usado en JavaScript cuando estamos en el navegador, no existe en node</li>
+<li>Tampoco existe DOM en node</li>
+<li>Porque window y DOM son la API que proporciona Firefox para manejar el engine desde JavaScript</li>
 </ul></li>
 </ul>
 </section></section>
 <section><section id="otros-lenguajes-de-scripting" class="title-slide slide level1"><h1>Otros lenguajes de scripting</h1></section><section id="php" class="slide level2">
 <h2>PHP</h2>
-<p>PHP es un lenguaje de scripting para permitir expandir la funcionalidad del servidor web Apache. Hoy en día se usa como lenguaje de propósito general para crear aplicaciones web del lado de servidor. Su motor, <strong>Zend Engine</strong>, está escrito en c y puede ser embebido en cualquier servidor web como lenguaje de scripting de forma fácil. También se puede extender su funcionalidad escribiendo extensiones en c</p>
+<p>PHP es un lenguaje de scripting para permitir expandir la funcionalidad del servidor web Apache</p>
+<p>Hoy en día se usa como lenguaje de propósito general para crear aplicaciones web de servidor</p>
+</section><section class="slide level2">
+
+<p>Su motor, <strong>Zend Engine</strong>, está escrito en C y puede ser usado desde cualquier servidor web como lenguaje de scripting de forma fácil</p>
+<p>También se puede extender su funcionalidad escribiendo extensiones en C</p>
 </section><section id="bash" class="slide level2">
 <h2>Bash</h2>
 <p>La consola de comandos Bash, consola principal de los sistemas Linux/Unix, tiene un lenguaje de scripting que permite programar sobre ella</p>
 </section><section id="python" class="slide level2">
 <h2>Python</h2>
 <p>Python es un lenguaje de propósito general creado para que fuese fácil de aprender y de usar por usuarios con un nivel de alfabetización básico en lenguajes de programación</p>
-<p>Necesita un interprete que debemos instalar en el sistema para poder usarlo (similar a node con javascript) y se ha usado mucho como sustituto de los lenguajes de scripting clásicos para sistemas operativos como Bash o la consola de MS-Dos/Windows</p>
+<p>Necesita un interprete que debemos instalar en el sistema para poder usarlo (similar a node con JavaScript) y se ha usado mucho como sustituto de los lenguajes de scripting clásicos para sistemas operativos como Bash o la consola de MS-DOS/Windows</p>
 </section><section class="slide level2">
 
 <p>Actualmente el uso de Python se ha extendido enormemente, no sólo como lenguaje de propósito general, si no como lenguaje de <strong>scripting de propósito general</strong></p>
-<p>Es relativamente fácil embeber Phyton dentro de una aplicación en otro lenguaje (típicamente c/c++) por lo que se ha usado como lenguaje de scripting en muchas aplicaciones. Por ejemplo el motor open source <strong>Ogre3D</strong> tiene una versión en la que se usa Python como scripting</p>
-<p><a href="https://docs.python.org/3/extending/embedding.html">Embeber Python en una aplicación</a></p>
+<p>Es relativamente fácil usar Phyton en de una aplicación en otro lenguaje (típicamente C/C++) por lo que se ha usado como lenguaje de scripting en muchas aplicaciones</p>
+<p>Por ejemplo el motor open source <strong>Ogre3D</strong> tiene una versión en la que se usa Python como scripting</p>
+<p><a href="https://docs.python.org/3/extending/embedding.html">Python en una aplicación</a></p>
 </section><section id="python-en-blender" class="slide level2">
 <h2>Python en Blender</h2>
 <p>Blender es una herramienta de código libre para crear y renderizar objetos 3D</p>
 <p>Blender utiliza Phyton como lenguaje de extensión de su herramienta. Con Python se pueden crear macros y extender la funcionalidad de Blender</p>
-<p><a href="https://www.blender.org/api/blender_python_api_2_78a_release/">Phyton en blender</a></p>
+<p><a href="https://www.blender.org/api/blender_python_api_2_78a_release/">Phyton en Blender</a></p>
 </section><section class="slide level2">
 
-<p>Internamente Blender utiliza Phyton para crear su interfaz y algunas de sus herramientas internas. Aunque Blender está escrito en C/C++ ha embebido Phyton como lenguaje de scripting para facilitar la creación de macros y add-ons por parte de los usuarios</p>
+<p>Internamente Blender utiliza Phyton para crear su interfaz y algunas de sus herramientas internas</p>
+<p>Aunque Blender está escrito en C/C++ usa Phyton como lenguaje de scripting para facilitar la creación de macros y add-ons por parte de los usuarios</p>
 </section><section id="lua" class="slide level2">
 <h2>Lua</h2>
-<p>Lua es el lenguaje de scripting más usuado en motores de juegos gracias a su facilidad de vinculación con c/c++ y a su relativa velocidad de ejecución</p>
-<p><a href="https://www.lua.org/">Lua</a></p>
+<p><a href="https://www.lua.org/">Lua</a> es el lenguaje de scripting más usuado en motores de juegos gracias a su facilidad de vinculación con c/C++ y a su relativa velocidad de ejecución</p>
 </section><section class="slide level2">
 
-<p>Lua fue expresamente diseñado para ser embebido como lenguaje de scripting en otros lenguajes</p>
-<p><a href="https://en.wikipedia.org/wiki/Category:Lua-scripted_video_games">Lista de juegos que han utilizado Lua como lenguaje de scripting</a></p>
+<p>Lua fue expresamente diseñado para ser usado como lenguaje de scripting en otros lenguajes</p>
+<p>Hay una gran <a href="https://en.wikipedia.org/wiki/Category:Lua-scripted_video_games">lista de juegos que han utilizado Lua como lenguaje de scripting</a></p>
+</section><section class="slide level2">
+
 <p>Pero también se usa en aplicaciones. Por ejemplo, el reproductor multimedia VLC utiliza LUA para que los usuarios puedan crear sus propias extensiones</p>
-<p><a href="https://forum.videolan.org/viewforum.php?f=29">scripting vlc in lua</a></p>
+<p><a href="https://forum.videolan.org/viewforum.php?f=29">Scripts para VLC en Lua</a></p>
 </section><section id="luabind" class="slide level2">
 <h2>Luabind</h2>
-<p>Luabind es una librería que ayuda a embeber Lua en c++. Simplifica la tarea y permite hacer entre otras cosas:</p>
+<p><a href="http://www.rasterbar.com/products/luabind.html">Luabind</a> es una librería que ayuda a usar Lua desde C++. Simplifica la tarea y permite hacer entre otras cosas:</p>
 <ul>
-<li class="fragment">Tener clases de c++ en Lua</li>
-<li class="fragment">Tener funciones y clases de Lua en c++</li>
-<li class="fragment">Polimorfismo de los métodos de una clase base en c++ desde una clase derivada en Lua</li>
+<li>Tener clases de C++ en Lua</li>
+<li>Tener funciones y clases de Lua en C++</li>
+<li>Polimorfismo de los métodos de una clase base en C++ desde una clase derivada en Lua</li>
 </ul>
-<p><a href="http://www.rasterbar.com/products/luabind.html">Luabind</a></p>
 </section><section id="lua-en-cocos2d-x" class="slide level2">
 <h2>Lua en Cocos2d-x</h2>
-<p>Cocos2d-X es uno de los motores más usados para crear juegos para móviles. Su principal ventaja es que es multiplataforma. Se programa en C++ y permite compilar a Android, Windows 10, IOs etc. Cocos2d-x permite hacer scripting usando LUA, pudiendo programar el juego en LUA llamando al motor desarrollado en c++</p>
-<p><a href="http://cocos2d-x.org/wiki/Lua">Lua en cocos2d-x</a></p>
+<p>Cocos2d-X es uno de los motores más usados para crear juegos para móviles. Su principal ventaja es que es multiplataforma. Se programa en C++ y permite compilar</p>
+<p>a Android, Windows 10, IOs etc. Cocos2d-x permite hacer scripting usando LUA, pudiendo programar el juego en LUA llamando al motor desarrollado en C++</p>
+<p><a href="http://cocos2d-x.org/wiki/Lua">Lua en Cocos2d-x</a></p>
 </section><section id="lua-en-cryengine" class="slide level2">
 <h2>Lua en CryEngine</h2>
 <p>El motor CryEngine de Cryteck utiliza LUA como lenguaje de scripting. Los programadores del engine pueden exponer funciones de sus clases creadas en C++ para que los programadores de scripting en LUA puedan usarlas</p>
 <p><a href="http://docs.cryengine.com/display/SDKDOC4/Lua+Scripting">Lua en CryEngine</a></p>
 </section></section>
-<section><section id="ejemplos-de-uso-de-javascript-como-lenguaje-de-extensión" class="title-slide slide level1"><h1>Ejemplos de uso de Javascript como lenguaje de extensión</h1></section><section id="introducción" class="slide level2">
+<section><section id="ejemplos-de-uso-de-javascript-como-lenguaje-de-extensión" class="title-slide slide level1"><h1>Ejemplos de uso de JavaScript como lenguaje de extensión</h1></section><section id="introducción" class="slide level2">
 <h2>Introducción</h2>
-<p>También Javascript se está comenzado a utilizar como lenguaje de extensión de aplicaciones más allá de los navegadores</p>
+<p>También JavaScript se está comenzado a utilizar como lenguaje de extensión de aplicaciones más allá de los navegadores</p>
 </section><section id="unity" class="slide level2">
 <h2>Unity</h2>
-<p>Unity implementó una versión customizada de Javascript con tipos para integrarlo en su motor. Apostaron muy fuerte por él al principio, pero los usuarios preferian usar C# en vez de la libre interpretación de Unity de Javascript. Actualmente la mayor parte del código escrito para Unity está en C# y Javascript poco a poco va quedando relegado.</p>
+<p>Unity implementó una versión customizada de JavaScript con tipos para integrarlo en su motor</p>
+<p>Apostaron muy fuerte por él al principio, pero los usuarios preferian usar C# en vez de la libre interpretación de Unity de JavaScript</p>
+<p>Actualmente la mayor parte del código escrito para Unity está en C# y JavaScript poco a poco va quedando relegado</p>
 </section><section id="cocos2d-x-y-cocos2d-js" class="slide level2">
 <h2>Cocos2d-x y Cocos2d-JS</h2>
-<p>Cocos2D-x soporta no sólo scripting en LUA si no también scripting en Javascript</p>
-<p><a href="http://cocos2d-x.org/wiki/Javascript_Binding">Cocos2d-x JSB</a></p>
-<p>Hay una versión de Cocos2d en javascript que es también multiplataforma y que añade soporte para Web: Cocos2d-JS</p>
+<p>Cocos2D-x soporta no sólo scripting en LUA si no también scripting en JavaScript</p>
+<p><a href="http://cocos2d-x.org/wiki/JavaScript_Binding">Cocos2d-x JSB</a></p>
+<p>Hay una versión de Cocos2d en JavaScript que es también multiplataforma y que añade soporte para Web: Cocos2d-JS</p>
 <p><a href="http://cocos2d-x.org/wiki/Cocos2d-JS">Cocos2d-JS</a></p>
 </section></section>
-<section><section id="construct-2" class="title-slide slide level1"><h1>Construct 2</h1></section><section id="javascript-para-extender-construct-2" class="slide level2">
-<h2>Javascript para extender Construct 2</h2>
-<p>Construct 2 permite extender su funcionalidad usando add-ons en Javascript. Hay diferentes tipos de add-ons que podemos crear:</p>
-<ul>
-<li class="fragment">Behaviors: comportamientos para Construct</li>
-<li class="fragment">Plugins: plugins que permiten aumentar las posibilidades de Construct con nuevas herramientas</li>
-<li class="fragment">Los efectos funcionan de otra forma</li>
-</ul>
-</section><section class="slide level2">
+<section><section id="usar-javascript-desde-c" class="title-slide slide level1"><h1>Usar JavaScript desde C++</h1></section><section class="slide level2">
 
-<p>Para ayudarnos a crear nuestros add-ons, Scirra nos ofrece unas templates que podremos utilizar para crear el contenido</p>
-<p><a href="https://www.scirra.com/manual/15/sdk">Templates</a></p>
-</section><section class="slide level2">
-
-<p>Para crear un plugin debemos crear una carpeta con el nombre del plugin en</p>
-<pre class="sourceCode js" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1">.\exporters\html5\plugins</a></code></pre>
-<p>y para hacer un behavior exactamente lo mismo en</p>
-<pre class="sourceCode bash" id="cb2"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ex">.</span>\exporters\html5\behaviors</a></code></pre>
-</section><section id="creando-plugins" class="slide level2">
-<h2>Creando plugins</h2>
-<p>En <strong>runtime.js</strong> podemos escribir el comportamiento del plugin Con el nombre del plugin, debemos renombrar <strong>cr.plugins_.MyPlugin</strong> y <strong>cr.plugins_.MyPlugin.prototype</strong> En <strong>edittime.js</strong> trabajaremos la interfaz de edición</p>
-<p>Si queremos añadir un elemento editable desde la interfaz, tendremos que añadirlo a <strong>property_list</strong> con su correspondiente tipo, por ejemplo para añadir un float:</p>
-<pre class="sourceCode js" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">new</span> <span class="va">cr</span>.<span class="at">Property</span>(ept_float<span class="op">,</span> <span class="st">&quot;Fade in time&quot;</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="st">&quot;Duration in seconds of fade-in, or zero to skip.&quot;</span>)<span class="op">,</span></a></code></pre>
-</section><section class="slide level2">
-
-<p>En runtime.js <strong>saveToJSON</strong> y <strong>loadFromJSON</strong> sirven para guardar los cambios de la interfaz cuando guardamos el objeto. Así pues, debemos guardar las variables que queramos conservar</p>
-<pre class="sourceCode js" id="cb4"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1">saveToJSON <span class="op">=</span> <span class="kw">function</span>()</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="op">{</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="cf">return</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="st">&quot;fit&quot;</span><span class="op">:</span> <span class="kw">this</span>.<span class="at">fadeInTime</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"> <span class="op">}</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="op">}</span></a></code></pre>
-</section><section class="slide level2">
-
-<pre class="sourceCode js" id="cb5"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">loadFromJSON <span class="op">=</span> <span class="kw">function</span> (o)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="op">{</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="kw">this</span>.<span class="at">fadeInTime</span> <span class="op">=</span> o[<span class="st">&quot;fit&quot;</span>]<span class="op">;</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="op">}</span></a></code></pre>
-<p>Para leer el parámetro del editor en el metódo <strong>OnCreate</strong> podemos acceder al array <strong>properties</strong></p>
-<pre class="sourceCode js" id="cb6"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">this</span>.<span class="at">fadeInTime</span> <span class="op">=</span> <span class="kw">this</span>.<span class="at">properties</span>[<span class="dv">0</span>]<span class="op">;</span> <span class="co">//lee el valor del primer parámetro</span></a></code></pre>
-</section><section class="slide level2">
-
-<p>Y finalmente podemos modificar alguno de los siguientes métodos para cambiar el comportamiento del plugin</p>
-<ul>
-<li class="fragment">instanceProto.onCreate = function(): Método que es llamado cuando se crea el objeto</li>
-<li class="fragment">instanceProto.onDestroy = function (): Método que es llamado cuando se destruye el objeto para liberar recursos</li>
-<li class="fragment">instanceProto.draw = function(ctx) : Método que es llamado cuando se dibuja sobre un layout 2D</li>
-<li class="fragment">instanceProto.drawGL = function (glw) : Método que es llamado cuando se dibuja sobre un layaout WebGl</li>
-</ul>
-</section><section id="creando-behaviors" class="slide level2">
-<h2>Creando Behaviors</h2>
-<p>Para editar un Behavior es similar pero no tenemos los métodos draw ni drawGl y se sustituyen por el método <strong>tick</strong> que es el encargado de ejecutar el comportamiento frame a frame</p>
-<p>Para leer el tiempo entre frames podéis usar GetDT dentro de runtime</p>
-<pre class="sourceCode js" id="cb7"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">this</span>.<span class="va">runtime</span>.<span class="at">getDt</span>(<span class="kw">this</span>.<span class="at">inst</span>)<span class="op">;</span></a></code></pre>
-</section></section>
-<section><section id="embeber-javascript-en-c" class="title-slide slide level1"><h1>Embeber javascript en c++</h1></section><section class="slide level2">
-
-<p>Como ya has podido deducir, se puede embeber Javascript en un programa en C++</p>
-<p>Tanto V8 <a href="https://github.com/v8/v8/wiki/Getting%20Started%20with%20Embedding">embeber V8</a></p>
-<p>Como SpiderMonkey <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/How_to_embed_the_JavaScript_engine">embeber SpiderMonkey</a></p>
-<p>pueden ser embebidos en una aplicación en c++</p>
+<p>Como ya has podido deducir, se puede usar JavaScript desde un programa en C++</p>
+<p>Tanto <a href="https://github.com/v8/v8/wiki/Getting%20Started%20with%20Embedding">V8</a> como <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/How_to_embed_the_JavaScript_engine">SpiderMonkey</a> pueden ser usados en una aplicación en C++</p>
 </section><section class="slide level2">
 
 <p>Para hacerlo necesitamos el código fuente de V8 y compilarlo junto con nuestro programa. El código fuente podéis descargarlo aquí <a href="https://github.com/v8/v8/wiki/Checking%20out%20source">V8 Source Code</a></p>
 <p>Una vez compilado debemos incluir en nuestro programa las cabeceras:</p>
-<pre class="sourceCode c" id="cb8"><code class="sourceCode c"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="pp">#include </span><span class="im">&quot;include/libplatform/libplatform.h&quot;</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="pp">#include </span><span class="im">&quot;include/v8.h&quot;</span></a></code></pre>
-<p>Y crear las estructuras necesarias para cargar el script a ejecutar desde C++ y ejecutarlo. Conseguir que el código javascript ejecutado pueda manejar objetos de c++ o que c++ pueda manejar objetos de javascript es algo más complicado, pero posible</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="pp">#include </span><span class="im">&quot;include/libplatform/libplatform.h&quot;</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="pp">#include </span><span class="im">&quot;include/v8.h&quot;</span></a></code></pre></div>
+</section><section class="slide level2">
+
+<p>Y crear las estructuras necesarias para cargar el script a ejecutar desde C++ y ejecutarlo</p>
+<p>Conseguir que el código JavaScript ejecutado pueda manejar objetos de C++ o que C++ pueda manejar objetos de JavaScript es algo más complicado, pero posible</p>
 </section></section>
     </div>
   </div>
@@ -311,14 +239,31 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
         // Optional reveal.js plugins
         dependencies: [
           { src: '../shared/lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: '../shared/lib/reveal/plugin/zoom-js/zoom.js', async: true },
-          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true },
-          { src: '../shared/lib/reveal/plugin/math/math.js' },
-
+          { src: '../shared/lib/reveal/plugin/math/math.js', async: true },
+          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true }
         ]
       });
     </script>

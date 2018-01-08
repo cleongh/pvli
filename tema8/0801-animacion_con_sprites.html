@@ -7,31 +7,32 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-
-
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/../tabzilla/css/tabzilla.css"/> -->
-  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/mozilla-devrel-light.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/lib/css/solarized-light.css" />
-
-
-
-
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"> -->
-
-  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css">
   <style type="text/css">
-a.sourceLine { display: inline-block; min-height: 1.25em; }
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
 @media print {
 code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
   { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
     position: absolute; left: -5em; text-align: right; vertical-align: baseline;
@@ -43,43 +44,42 @@ pre.numberSource a.sourceLine::before
     color: #aaaaaa;
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
 @media screen {
-a.sourceLine::before { text-decoration: underline; color: initial; }
+a.sourceLine::before { text-decoration: underline; }
 }
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
 code span.dt { color: #902000; } /* DataType */
 code span.dv { color: #40a070; } /* DecVal */
-code span.bn { color: #40a070; } /* BaseN */
-code span.fl { color: #40a070; } /* Float */
-code span.ch { color: #4070a0; } /* Char */
-code span.st { color: #4070a0; } /* String */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.ot { color: #007020; } /* Other */
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.fu { color: #06287e; } /* Function */
 code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code span.cn { color: #880000; } /* Constant */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.im { } /* Import */
-code span.va { color: #19177c; } /* Variable */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.op { color: #666666; } /* Operator */
-code span.bu { } /* BuiltIn */
 code span.ex { } /* Extension */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.at { color: #7d9029; } /* Attribute */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-<!--  -->
-<!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
-<!--  -->
-<!--  -->
+  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/beige.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
@@ -91,48 +91,12 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
   <!--[if lt IE 9]>
   <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
   <![endif]-->
-
-
-<!-- FIXME megahack because `pandoc` only generates h1's. -->
-<!-- <style type="text/css"> -->
-
-
-<!-- .inner { -->
-<!--     width: 100%; -->
-<!--     margin: 0 auto; --> 
-<!-- } -->
-
-<!--     h1{ --> 
-<!--     } -->
-
-<!--     .level2 h1 { -->
-        
-<!--     border-top: 0.1em solid #484848; -->
-<!--     border-bottom: 0.1em solid #484848; -->
-    
-<!--     padding: 1em 0; -->
-<!--     margin-bottom: 1em; -->
-<!--     font-size: 1.6em; -->
-<!--     margin: 0 0 20px 0; -->
-<!--     color: #484848; -->
-<!--     font-family: "Fira Sans", Helvetica, sans-serif; -->
-<!--     font-weight: 600; -->
-<!--     line-height: 1.2; -->
-<!--     letter-spacing: normal; -->
-<!--     text-transform: uppercase; -->
-<!--     text-shadow: none; -->
-<!--     word-wrap: break-word; -->
-<!-- } -->
-
-<!-- </style> -->
-
-
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
-<section>
+<section id="title-slide">
   <h1 class="title">Animación con sprites</h1>
 </section>
 
@@ -238,20 +202,20 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 
 <p>Estos requisitos los cumplimos manteniendo propiedades básicas entre las imágenes:</p>
 <ul>
-<li class="fragment">Mismo tiempo por fotograma</li>
-<li class="fragment">Mismo tamaño de fotogramas</li>
-<li class="fragment">Mismo fondo</li>
-<li class="fragment">Misma paleta de colores</li>
-<li class="fragment">Misma información de transparencia</li>
-<li class="fragment">Misma localización relativa del sprite en el recuadro</li>
-<li class="fragment">Misma escala</li>
+<li>Mismo tiempo por fotograma</li>
+<li>Mismo tamaño de fotogramas</li>
+<li>Mismo fondo</li>
+<li>Misma paleta de colores</li>
+<li>Misma información de transparencia</li>
+<li>Misma localización relativa del sprite en el recuadro</li>
+<li>Misma escala</li>
 </ul>
 </section><section class="slide level2">
 
 <p>Si mantenemos esos requisitos (lo cual no es <em>técnicamente</em> necesario), el programa que procese la información para representarla por pantalla podrá ser sencillo</p>
 </section><section class="slide level2">
 
-<pre class="sourceCode javascript" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// asumimos tiempo fijo entre frames</span></a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// asumimos tiempo fijo entre frames</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">// el tamaño y la posición del personaje: fijos</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">var</span> width <span class="op">=</span> <span class="dv">10</span><span class="op">,</span> height <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">var</span> x <span class="op">=</span> <span class="dv">10</span><span class="op">,</span> y <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></a>
@@ -265,7 +229,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <a class="sourceLine" id="cb1-12" data-line-number="12">        <span class="at">pintar_frame</span>(frame_que_pinto<span class="op">,</span> width<span class="op">,</span> height<span class="op">,</span> x<span class="op">,</span> y)<span class="op">;</span></a>
 <a class="sourceLine" id="cb1-13" data-line-number="13">        <span class="at">esperar</span>(tiempo_entre_frames)<span class="op">;</span></a>
 <a class="sourceLine" id="cb1-14" data-line-number="14">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="op">}</span></a></code></pre>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="op">}</span></a></code></pre></div>
 </section></section>
 <section><section id="spritesheets" class="title-slide slide level1"><h1>Spritesheets</h1></section><section class="slide level2">
 
@@ -293,10 +257,10 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </section><section class="slide level2">
 
 <ul>
-<li class="fragment">Andar</li>
-<li class="fragment">Saltar</li>
-<li class="fragment">Agacharse</li>
-<li class="fragment">Disparar</li>
+<li>Andar</li>
+<li>Saltar</li>
+<li>Agacharse</li>
+<li>Disparar</li>
 </ul>
 </section><section class="slide level2">
 
@@ -306,8 +270,8 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 
 <p>Los ciclos pueden ser:</p>
 <ul>
-<li class="fragment">Cíclicos: diseñados para que, cuando se acabe el último frame, empiece el siguiente (andar)</li>
-<li class="fragment">Simples: diseñados para que se quede en un estado estacionario (morir)</li>
+<li>Cíclicos: diseñados para que, cuando se acabe el último frame, empiece el siguiente (andar)</li>
+<li>Simples: diseñados para que se quede en un estado estacionario (morir)</li>
 </ul>
 </section><section id="combinando-frames-y-ciclos" class="slide level2">
 <h2>Combinando frames y ciclos</h2>
@@ -327,9 +291,9 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>Es importante notar que los ciclos no tienen que tener todos los mismos frames</p>
 <p>Desde <em>el código</em>, o exportando datos adicionales, se carga la información de:</p>
 <ul>
-<li class="fragment">El tamaño de cada frame</li>
-<li class="fragment">Qué ciclos hay</li>
-<li class="fragment">Los frames de cada ciclo</li>
+<li>El tamaño de cada frame</li>
+<li>Qué ciclos hay</li>
+<li>Los frames de cada ciclo</li>
 </ul>
 </section><section class="slide level2">
 
@@ -363,15 +327,15 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </section><section class="slide level2">
 
 <ul>
-<li class="fragment">se dibujan los principios y finales de las ciclos de manera que sean “neutros” (el personaje en una postura que dé lugar a otros ciclos)</li>
-<li class="fragment">se asume un estilo de sprite animado en el que la transición se muestra muy bruscamente</li>
-<li class="fragment">se hacen diferentes ciclos de transición:
+<li>se dibujan los principios y finales de las ciclos de manera que sean “neutros” (el personaje en una postura que dé lugar a otros ciclos)</li>
+<li>se asume un estilo de sprite animado en el que la transición se muestra muy bruscamente</li>
+<li>se hacen diferentes ciclos de transición:
 <ul>
-<li class="fragment">se activa andar</li>
-<li class="fragment">cuando se deja de andar, se pasa a un ciclo de “parándose”, que no es cíclico</li>
-<li class="fragment">cuando se termina el estado “parándose”, se puede activar la animación de “quieto” de forma natural</li>
+<li>se activa andar</li>
+<li>cuando se deja de andar, se pasa a un ciclo de “parándose”, que no es cíclico</li>
+<li>cuando se termina el estado “parándose”, se puede activar la animación de “quieto” de forma natural</li>
 </ul></li>
-<li class="fragment">se anima por huesos (no lo veremos hoy) y se hace la transición de otra forma</li>
+<li>se anima por huesos (no lo veremos hoy) y se hace la transición de otra forma</li>
 </ul>
 </section></section>
 <section><section id="animación-en-phaser" class="title-slide slide level1"><h1>Animación en Phaser</h1></section><section class="slide level2">
@@ -380,14 +344,14 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </section><section id="cargar-un-spritesheet" class="slide level2">
 <h2>Cargar un spritesheet</h2>
 <p>Con <a href="https://phaser.io/docs/2.3.0/Phaser.Loader.html#spritesheet"><code class="sourceCode javascript">spritesheet</code></a>:</p>
-<pre class="sourceCode javascript" id="cb2"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// se le da el ancho, alto y cuántos frames</span></a>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// se le da el ancho, alto y cuántos frames</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="va">game</span>.<span class="va">load</span>.<span class="at">spritesheet</span>(<span class="st">&#39;mummy&#39;</span><span class="op">,</span> <span class="st">&#39;assets/sprites/imagen.png&#39;</span><span class="op">,</span> <span class="dv">37</span><span class="op">,</span> <span class="dv">45</span><span class="op">,</span> <span class="dv">18</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">mummy <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">360</span><span class="op">,</span> <span class="st">&#39;mummy&#39;</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span> <span class="co">// &#39;5&#39; es el número de frame</span></a></code></pre>
+<a class="sourceLine" id="cb2-3" data-line-number="3">mummy <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">360</span><span class="op">,</span> <span class="st">&#39;mummy&#39;</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span> <span class="co">// &#39;5&#39; es el número de frame</span></a></code></pre></div>
 </section><section id="establecer-un-ciclo-de-animación" class="slide level2">
 <h2>Establecer un ciclo de animación</h2>
 <p>Se pueden modificar las propiedades de la animación con <a href="http://www.phaser.io/docs/2.6.2/Phaser.AnimationManager.html"><code class="sourceCode javascript">AnimationManager</code></a></p>
-<pre class="sourceCode javascript" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// animations en un AnimationManager</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">anim <span class="op">=</span> <span class="va">mummy</span>.<span class="va">animations</span>.<span class="at">add</span>(<span class="st">&#39;walk&#39;</span>)<span class="op">;</span></a></code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// animations en un AnimationManager</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">anim <span class="op">=</span> <span class="va">mummy</span>.<span class="va">animations</span>.<span class="at">add</span>(<span class="st">&#39;walk&#39;</span>)<span class="op">;</span></a></code></pre></div>
 </section><section id="comenzar-y-detener-la-animación" class="slide level2">
 <h2>Comenzar y detener la animación</h2>
 </section><section class="slide level2">
@@ -395,23 +359,23 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>Con <code class="sourceCode javascript">play</code> se ejecuta una animación</p>
 <p>El primer parámetro es el framerate (frames por segundo, <code class="sourceCode javascript"><span class="kw">null</span></code> para usar el de la animación por defecto)</p>
 <p>El segundo parámetro es para hacer “loop”</p>
-<pre class="sourceCode javascript" id="cb4"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="va">phoenix</span>.<span class="at">play</span>(<span class="kw">null</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></a></code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="va">phoenix</span>.<span class="at">play</span>(<span class="kw">null</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></a></code></pre></div>
 </section><section class="slide level2">
 
 <p>Para parar una animación, con <code class="sourceCode javascript">stop</code>:</p>
-<pre class="sourceCode javascript" id="cb5"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="va">phoenix</span>.<span class="at">stop</span>()<span class="op">;</span></a></code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="va">phoenix</span>.<span class="at">stop</span>()<span class="op">;</span></a></code></pre></div>
 </section><section id="eventos-en-animaciones" class="slide level2">
 <h2>Eventos en animaciones</h2>
 </section><section class="slide level2">
 
 <p>Es posible hacer “callbacks” para ser informados de cuándo una animación se pone en marcha o se detiene:</p>
-<pre class="sourceCode javascript" id="cb6"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="va">anim</span>.<span class="va">onStart</span>.<span class="at">add</span>(animationStarted<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span></a>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="va">anim</span>.<span class="va">onStart</span>.<span class="at">add</span>(animationStarted<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="va">anim</span>.<span class="va">onLoop</span>.<span class="at">add</span>(animationLooped<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="va">anim</span>.<span class="va">onComplete</span>.<span class="at">add</span>(animationStopped<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span></a></code></pre>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="va">anim</span>.<span class="va">onComplete</span>.<span class="at">add</span>(animationStopped<span class="op">,</span> <span class="kw">this</span>)<span class="op">;</span></a></code></pre></div>
 </section><section class="slide level2">
 
 <p>Con esto, podemos controlar, sin necesidad de conteo de frames a mano, el estado de la animación y actuar en consecuencia:</p>
-<pre class="sourceCode javascript" id="cb7"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">function</span> <span class="at">animationLooped</span>(sprite<span class="op">,</span> animation) <span class="op">{</span></a>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">function</span> <span class="at">animationLooped</span>(sprite<span class="op">,</span> animation) <span class="op">{</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3">    <span class="cf">if</span> (<span class="va">animation</span>.<span class="at">loopCount</span> <span class="op">===</span> <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="op">{</span></a>
@@ -423,24 +387,24 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <a class="sourceLine" id="cb7-10" data-line-number="10">        <span class="va">animation</span>.<span class="at">loop</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb7-11" data-line-number="11">    <span class="op">}</span></a>
 <a class="sourceLine" id="cb7-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="op">}</span></a></code></pre>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="op">}</span></a></code></pre></div>
 </section><section id="más-cosas-con-animaciones-por-frames" class="slide level2">
 <h2>Más cosas con animaciones por frames</h2>
 </section><section class="slide level2">
 
 <p>Saber si la animación sigue funcionando</p>
-<pre class="sourceCode javascript" id="cb8"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">function</span> <span class="at">update</span>() <span class="op">{</span></a>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">function</span> <span class="at">update</span>() <span class="op">{</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="cf">if</span> (<span class="va">anim</span>.<span class="at">isPlaying</span>)</a>
 <a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="op">{</span></a>
 <a class="sourceLine" id="cb8-5" data-line-number="5">        <span class="va">back</span>.<span class="at">x</span> <span class="op">-=</span> <span class="dv">1</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb8-6" data-line-number="6">    <span class="op">}</span></a>
 <a class="sourceLine" id="cb8-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="op">}</span></a></code></pre>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
 </section><section class="slide level2">
 
 <p>Controlar su condición de “loop”</p>
-<pre class="sourceCode javascript" id="cb9"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="va">animation</span>.<span class="at">loop</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></a></code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="va">animation</span>.<span class="at">loop</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></a></code></pre></div>
 </section></section>
     </div>
   </div>
@@ -453,14 +417,31 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
         // Optional reveal.js plugins
         dependencies: [
           { src: '../shared/lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: '../shared/lib/reveal/plugin/zoom-js/zoom.js', async: true },
-          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true },
-          { src: '../shared/lib/reveal/plugin/math/math.js' },
-
+          { src: '../shared/lib/reveal/plugin/math/math.js', async: true },
+          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true }
         ]
       });
     </script>

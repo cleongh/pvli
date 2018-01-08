@@ -7,24 +7,14 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-
-
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/../tabzilla/css/tabzilla.css"/> -->
-  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/mozilla-devrel-light.css"/>
-  <link rel="stylesheet" href="../shared/lib/reveal/lib/css/solarized-light.css" />
-
-
-
-
-  <!-- <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"> -->
-
-  <style type="text/css">code{white-space: pre;}</style>
-<!--  -->
-<!--   <link rel="stylesheet" href="../shared/lib/reveal/css/theme/black.css" id="theme"> -->
-<!--  -->
-<!--  -->
+  <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../shared/lib/reveal/css/theme/beige.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
@@ -36,48 +26,12 @@
   <!--[if lt IE 9]>
   <script src="../shared/lib/reveal/lib/js/html5shiv.js"></script>
   <![endif]-->
-
-
-<!-- FIXME megahack because `pandoc` only generates h1's. -->
-<!-- <style type="text/css"> -->
-
-
-<!-- .inner { -->
-<!--     width: 100%; -->
-<!--     margin: 0 auto; --> 
-<!-- } -->
-
-<!--     h1{ --> 
-<!--     } -->
-
-<!--     .level2 h1 { -->
-        
-<!--     border-top: 0.1em solid #484848; -->
-<!--     border-bottom: 0.1em solid #484848; -->
-    
-<!--     padding: 1em 0; -->
-<!--     margin-bottom: 1em; -->
-<!--     font-size: 1.6em; -->
-<!--     margin: 0 0 20px 0; -->
-<!--     color: #484848; -->
-<!--     font-family: "Fira Sans", Helvetica, sans-serif; -->
-<!--     font-weight: 600; -->
-<!--     line-height: 1.2; -->
-<!--     letter-spacing: normal; -->
-<!--     text-transform: uppercase; -->
-<!--     text-shadow: none; -->
-<!--     word-wrap: break-word; -->
-<!-- } -->
-
-<!-- </style> -->
-
-
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
-<section>
+<section id="title-slide">
   <h1 class="title">Proyectos en la Web</h1>
 </section>
 
@@ -152,12 +106,12 @@
 
 <p>Esto no sólo se centra en el <em>servidor de juego</em>, sino también en:</p>
 <ul>
-<li class="fragment">El servidor web</li>
-<li class="fragment">La página web</li>
-<li class="fragment">Las conexiones con servicios externos</li>
-<li class="fragment">El alojamiento de nuestro código</li>
-<li class="fragment">Información de usuarios y clientes</li>
-<li class="fragment">Publicación de código</li>
+<li>El servidor web</li>
+<li>La página web</li>
+<li>Las conexiones con servicios externos</li>
+<li>El alojamiento de nuestro código</li>
+<li>Información de usuarios y clientes</li>
+<li>Publicación de código</li>
 </ul>
 </section><section class="slide level2">
 
@@ -182,10 +136,10 @@
 </section><section class="slide level2">
 
 <ul>
-<li class="fragment">Corrección de errores</li>
-<li class="fragment">Añadido de características demandadas</li>
-<li class="fragment">Ajuste de parámetros</li>
-<li class="fragment">Adaptación de precios</li>
+<li>Corrección de errores</li>
+<li>Añadido de características demandadas</li>
+<li>Ajuste de parámetros</li>
+<li>Adaptación de precios</li>
 </ul>
 </section></section>
 <section><section id="cómo-aprovechar-las-particularidades" class="title-slide slide level1"><h1>Cómo <strong>aprovechar</strong> las particularidades</h1></section><section class="slide level2">
@@ -203,9 +157,9 @@
 
 <p>El cliente <strong>no</strong> tiene que:</p>
 <ul>
-<li class="fragment">Instalar software</li>
-<li class="fragment">Ir a la tienda</li>
-<li class="fragment">Descargar (activamente) nada</li>
+<li>Instalar software</li>
+<li>Ir a la tienda</li>
+<li>Descargar (activamente) nada</li>
 </ul>
 </section><section id="es-crucial-recibir-realimentación" class="slide level2">
 <h2>Es crucial recibir realimentación</h2>
@@ -246,10 +200,10 @@
 
 <p>No es difícil (más o menos) crear un juego aceptable al que mucha gente juege, lo complicado es vivir de ello</p>
 <ul>
-<li class="fragment">Vender el juego (la licencia) a un <em>publisher</em></li>
-<li class="fragment">Publicidad</li>
-<li class="fragment">Vender capacidad de hacer juegos (no juegos)</li>
-<li class="fragment">Fundraising (de muchos tipos)</li>
+<li>Vender el juego (la licencia) a un <em>publisher</em></li>
+<li>Publicidad</li>
+<li>Vender capacidad de hacer juegos (no juegos)</li>
+<li>Fundraising (de muchos tipos)</li>
 </ul>
 </section><section class="slide level2">
 
@@ -274,9 +228,9 @@
 
 <p>Tened cuidado con los recursos:</p>
 <ul>
-<li class="fragment">Referenciadlos con rutas relativas a vuestros <code>.html</code> y <code>.js</code> (<code>imgs/bullet.png</code>) en vez de (<code>http://mi.servidor.que/cambiara/seguro/imgs/bullet.png</code>)</li>
-<li class="fragment">Aseguraos de que están cargados antes de iniciar su uso</li>
-<li class="fragment">Aseguraos de que están siempre disponibles</li>
+<li>Referenciadlos con rutas relativas a vuestros <code>.html</code> y <code>.js</code> (<code>imgs/bullet.png</code>) en vez de (<code>http://mi.servidor.que/cambiara/seguro/imgs/bullet.png</code>)</li>
+<li>Aseguraos de que están cargados antes de iniciar su uso</li>
+<li>Aseguraos de que están siempre disponibles</li>
 </ul>
 </section><section id="página-en-la-que-incluir-el-juego" class="slide level2">
 <h2>Página en la que incluir el juego</h2>
@@ -299,14 +253,31 @@
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
         // Optional reveal.js plugins
         dependencies: [
           { src: '../shared/lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: '../shared/lib/reveal/plugin/zoom-js/zoom.js', async: true },
-          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true },
-          { src: '../shared/lib/reveal/plugin/math/math.js' },
-
+          { src: '../shared/lib/reveal/plugin/math/math.js', async: true },
+          { src: '../shared/lib/reveal/plugin/notes/notes.js', async: true }
         ]
       });
     </script>
