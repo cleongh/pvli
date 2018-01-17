@@ -113,3 +113,5 @@ archivos), se deberá incluir un texto de este tipo:
     $ node entscheidungsproblem.js
 
     Y se verá que sale el mismo resultado.
+
+En la última versión que se entregue, aparte de este texto, habrá que incluir un comprimido con todo el material de la versión final.
