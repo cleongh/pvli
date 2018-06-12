@@ -39,7 +39,11 @@ presentación, al ser obligatorias durante la evaluación continua. -->
 Si el proyecto o el examen final tienen, cualquiera de ellos, menos de un $5,0$, la
 evaluación se considerará suspensa.
 
-Los criterios de evaluación en convocatoria ordinaria y extraordinaria son los mismos (es decir, hay que entregar también un proyecto y hacer un examen en la convocatoria extraordinaria). La parte de evaluación continua que se hace durante el curso se conserva para la convocatoria extraordinaria. Si no se ha realizado la contribución de la evaluación continua, esta se considera perdida para la convocatoria extraordinaria.
+## Convocatoria extraordinaria
+
+Los criterios de evaluación en convocatoria ordinaria y extraordinaria son los mismos (es decir, hay que entregar también un proyecto y hacer un examen en la convocatoria extraordinaria). El proyecto puede ser realizado de forma individual o por grupos, en cuyo caso hay que avisar al equipo docente con la formación del grupo, y todos los miembros deben presentarse a la convocatoria extraordinaria.
+
+La parte de evaluación continua que se hace durante el curso se conserva para la convocatoria extraordinaria. Si no se ha realizado la contribución de la evaluación continua, esta se considera perdida para la convocatoria extraordinaria.
 
 <!-- La nota de $contribución$ es un valor basado en la percepción de los docentes
 sobre la implicación y la colaboración del alumno en la asignatura. Si bien se
