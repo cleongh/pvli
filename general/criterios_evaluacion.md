@@ -1,8 +1,5 @@
 ---
 title: Criterios de evaluación PVLI
-#author: Carlos León
-#date: 06/10/2016
-#vim: spelllang=es
 ---
 
 Dado el carácter práctico de la asignatura de *Programación de Videojuegos en
@@ -33,24 +30,20 @@ mantendrá la última nota, incluso si esta es más baja que la primera*.
   formato de envío, carpetas, tipo de compresión, nombres de archivos), la
   entrega estará suspensa con un $0$.
 
-<!-- En la convocatoria de septiembre no se repetirán ni el examen parcial ni la
-presentación, al ser obligatorias durante la evaluación continua. -->
-
 Si el proyecto o el examen final tienen, cualquiera de ellos, menos de un $5,0$, la
 evaluación se considerará suspensa.
 
-## Convocatoria extraordinaria
+## Convocatoria extraordinaria
 
-Los criterios de evaluación en convocatoria ordinaria y extraordinaria son los mismos (es decir, hay que entregar también un proyecto y hacer un examen en la convocatoria extraordinaria). El proyecto puede ser realizado de forma individual o por grupos, en cuyo caso hay que avisar al equipo docente con la formación del grupo, y todos los miembros deben presentarse a la convocatoria extraordinaria.
+Los criterios de evaluación en convocatoria ordinaria y extraordinaria son los
+ mismos (es decir, hay que entregar también un proyecto y hacer un examen en la 
+ convocatoria extraordinaria). El proyecto puede ser realizado de forma individual
+  o por grupos, en cuyo caso hay que avisar al equipo docente con la formación del
+   grupo, y todos los miembros deben presentarse a la convocatoria extraordinaria.
 
-La parte de evaluación continua que se hace durante el curso se conserva para la convocatoria extraordinaria. Si no se ha realizado la contribución de la evaluación continua, esta se considera perdida para la convocatoria extraordinaria.
-
-<!-- La nota de $contribución$ es un valor basado en la percepción de los docentes
-sobre la implicación y la colaboración del alumno en la asignatura. Si bien se
-intentará ser completamente objetivo, en esta parte de la nota es inevitable
-una parte de subjetividad. Por tanto, si bien el valor de esta parte podrá ser
-discutido por el alumno, queda a discreción del profesor la evaluación en este
-aspecto. -->
+La parte de evaluación continua que se hace durante el curso se conserva para la
+ convocatoria extraordinaria. Si no se ha realizado la contribución de la evaluación
+  continua, esta se considera perdida para la convocatoria extraordinaria.
 
 ## Copias
 
@@ -69,10 +62,6 @@ presencial, y está diseñado como tal. La intención es que el trabajo en clase
 sea suficiente para que, junto con la realización de los ejercicios
 y prácticas, se adquiera todo el conocimiento necesario para la asignatura.
 
-<!-- La evaluación de la asistencia se hará con hojas de firmas. La nota de
-asistencia se calculará como el porcentaje de asistencia ($asistencia = \text{hojas-asistencia}
-- faltas$) multiplicado por el peso de la asistencia de la fórmula
-@eq:formulaeval . -->
 
 ## Entregas
 
