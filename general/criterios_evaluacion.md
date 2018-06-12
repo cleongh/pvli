@@ -25,17 +25,9 @@ Todas las notas serán mantenidas hasta el final de la evaluación. Es decir, si
 se suspende en la convocatoria de febrero, todo aquello que haya tenido más de
 un 5 será mantenido como parte de la nota final, siempre y cuando no haya una
 entrega adicional posterior, en cuyo caso se corregirá esta última y *se
-mantendrá la última nota, incluso si esta es más baja que la primera*^[la
-intención es evitar envíos aleatorios y la consiguiente sobrecarga innecesaria
-del equipo docente].
+mantendrá la última nota, incluso si esta es más baja que la primera*.
 
-- Las correcciones podrán tendrán una parte de evaluación automática basada en
-  análisis automático de código y tests, y una parte de evaluación cualitativa
-  manual.
-- Si se supera la parte de la evaluación automática, en su caso, se procederá a la manual.
-  En caso contrario, se habrá suspendido la entrega (examen o práctica).
-<!-- - En la publicación de cada práctica se detallará el peso de cada parte de la práctica. -->
-- Si una entrega (práctica o examen) no carga correctamente o no se puede
+- Si una entrega (proyecto o examen) no carga correctamente o no se puede
   ejecutar completamente **sin errores**, la entrega se considerará suspensa con un $0$.
 - Si no se siguen **exactamente** los criterios de envío (número de archivos,
   formato de envío, carpetas, tipo de compresión, nombres de archivos), la
@@ -46,6 +38,8 @@ presentación, al ser obligatorias durante la evaluación continua. -->
 
 Si el proyecto o el examen final tienen, cualquiera de ellos, menos de un $5,0$, la
 evaluación se considerará suspensa.
+
+Los criterios de evaluación en convocatoria ordinaria y extraordinaria son los mismos (es decir, hay que entregar también un proyecto y hacer un examen en la convocatoria extraordinaria). La parte de evaluación continua que se hace durante el curso se conserva para la convocatoria extraordinaria. Si no se ha realizado la contribución de la evaluación continua, esta se considera perdida para la convocatoria extraordinaria.
 
 <!-- La nota de $contribución$ es un valor basado en la percepción de los docentes
 sobre la implicación y la colaboración del alumno en la asignatura. Si bien se
