@@ -17,7 +17,7 @@
     "gulp-gh-pages": "*", 
     "gulp-util": "*",
     "merge-stream": "*",
-    "phaser": "*",
+    "phaser": "2.6.0",
     "vinyl-source-stream": "*",
     "watchify": "*"
   }

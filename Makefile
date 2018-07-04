@@ -15,7 +15,7 @@ PROYECTO3=proyecto/version3/especificacion.html
 
 PROYECTO=$(PROYECTO1) $(PROYECTO2) $(PROYECTO3) proyecto/criterios_evaluacion.html
 TEMAS=$(TEMA1) $(TEMA2) $(TEMA3) $(TEMA4) tema4/0403-ejercicios.html $(TEMA5) $(TEMA6) $(TEMA7) $(TEMA8) $(TEMA9) $(TEMA10)
-TODO=$(GENERAL) $(TEMAS) $(PROYECTO)
+TODO=$(GENERAL) $(TEMAS) $(PROYECTO)zz
 # BASERUN=pandoc -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
 
 BASERUN=pandoc -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
