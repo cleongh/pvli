@@ -1,8 +1,5 @@
 ---
-title: 'Tema 1: Programación de aplicaciones en HTML5'
-#author: Carlos León, Ismael Sagredo
-#date: 22/09/16
-#vim: spelllang=es
+title: 'Lenguajes interpretados y dinámicos'
 ...
 
 # Lenguajes interpretados
@@ -40,6 +37,72 @@ Comenzó como un pequeño lenguaje que se interpretaba dentro de
 
 ![Logo
 Netscape](https://upload.wikimedia.org/wikipedia/commons/6/66/Netscape_logo.svg)\
+
+# Lenguajes dinámicos
+
+## ¿Qué nos los lenguajes dinámicos?
+
+Son lenguajes *diseñados para* hacer durante la ejecución lo que otros hacen cuando compilan
+
+Aunque no es una clasificación perfectamente formal, se esperan ciertos atributos en estos lenguajes
+
+## Evaluación
+
+Los lenguajes dinámicos suelen ser capaces de evaluar código generado dinámicamente, con una función de tipo `eval`
+
+## Objetos dinámicos
+
+Los lenguajes dinámicos pueden cambiar los campos de sus estructuras de datos en tiempo de ejecución:
+
+```javascript
+var a = {};       // se define el objeto sin campos
+a.campo = 'hola'; // se añade un campo nuevo
+```
+
+
+## Reflexión
+
+Otra característica típica es la *reflexión*, o conocer y cambiar las propiedades del programa en sí
+
+
+
+
+# Tipado dinámico y estático
+
+
+## Tipado estático
+
+Los lenguajes de tipado estático tienen sistemas para declarar y fijar el tipo de las variables, estructuras de datos y funciones
+
+Por ejemplo, a través de la declaración de tipos:
+
+```c
+int a = 5;
+int suma(int x, int y) { return x + y; }
+```
+
+
+## Compilado de tipos estáticos
+
+El compilador tiene mecanismos para saber si una expresión tiene el tipo correcto, *durante la compilación*:
+
+```cpp
+int suma(int x, int y) { return x + y; } 
+
+suma(4, "juan"); // el compilador lanza un error
+```
+
+## Tipado dinámico
+
+Los lenguajes de tipado dinámico, por el contrario, no tienen compiladores que comprueben el tipo
+
+Así que la corrección será comprobado más tarde, *durante la ejecución*
+
+```javascript
+function suma(x, y) { return x + y; } 
+
+suma(4, "juan"); // el intérprete no da error hasta que esto no se ejecuta
+```
 
 
 # JavaScript

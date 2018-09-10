@@ -45,36 +45,35 @@ Proponer cosas, intentar cosas nuevas
 <p class="fragment">(Soltar sermón motivador)</p>
 
 
-
 # Equipo docente
 
-## Equipo UCM
+## Coordinación
 
-![Carlos León](http://nil.fdi.ucm.es/sites/default/files/carlos_leon_0.jpg){width=20%}
+**Carlos León**
 
 Despacho 420bis (4ª planta), tlf. 7606 \
-<cleon@ucm.es>\
-*Coordinador*
+<cleon@ucm.es>
+
+## Desdobles
+
+**Antonio Tenorio**
+
+<antoniotenorio@ucm.es>
 
 
-## Equipo Mozilla
+## Desarrollo de la asignatura
 
-Contaremos con **Mozilla** apara impartir esta asignatura
+El material de la asignatura se ha creado en colaboración con **Mozilla**
 
 Son expertos internacionales en tecnologías web y videojuegos
-
-La gestión de la asignatura la haremos los profesores UCM
 
 ![Mozilla](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Mozilla_dinosaur_head_logo.png/1280px-Mozilla_dinosaur_head_logo.png){width=20%}\
 
 
-
 ## Equipo Mozilla
 
-![Salvador de la Puente](https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/4/000/14d/227/288f065.jpg){width=20%}
-
-<sdelapuente@mozilla.com>
-
+- Salvador de la Puente
+- Belén Albeza
 
 
 # Evaluación

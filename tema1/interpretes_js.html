@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>Tema 1: Programación de aplicaciones en HTML5</title>
+  <title>Lenguajes interpretados y dinámicos</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -97,7 +97,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Tema 1: Programación de aplicaciones en HTML5</h1>
+  <h1 class="title">Lenguajes interpretados y dinámicos</h1>
 </section>
 
 <section><section id="lenguajes-interpretados" class="title-slide slide level1"><h1>Lenguajes interpretados</h1></section><section id="qué-son-lenguajes-interpretados" class="slide level2">
@@ -126,17 +126,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img data-src="https://upload.wikimedia.org/wikipedia/commons/6/66/Netscape_logo.svg" alt="Logo Netscape" /><br />
 </p>
 </section></section>
+<section><section id="lenguajes-dinámicos" class="title-slide slide level1"><h1>Lenguajes dinámicos</h1></section><section id="qué-nos-los-lenguajes-dinámicos" class="slide level2">
+<h2>¿Qué nos los lenguajes dinámicos?</h2>
+<p>Son lenguajes <em>diseñados para</em> hacer durante la ejecución lo que otros hacen cuando compilan</p>
+<p>Aunque no es una clasificación perfectamente formal, se esperan ciertos atributos en estos lenguajes</p>
+</section><section id="evaluación" class="slide level2">
+<h2>Evaluación</h2>
+<p>Los lenguajes dinámicos suelen ser capaces de evaluar código generado dinámicamente, con una función de tipo <code>eval</code></p>
+</section><section id="objetos-dinámicos" class="slide level2">
+<h2>Objetos dinámicos</h2>
+<p>Los lenguajes dinámicos pueden cambiar los campos de sus estructuras de datos en tiempo de ejecución:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">var</span> a <span class="op">=</span> <span class="op">{};</span>       <span class="co">// se define el objeto sin campos</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="va">a</span>.<span class="at">campo</span> <span class="op">=</span> <span class="st">&#39;hola&#39;</span><span class="op">;</span> <span class="co">// se añade un campo nuevo</span></a></code></pre></div>
+</section><section id="reflexión" class="slide level2">
+<h2>Reflexión</h2>
+<p>Otra característica típica es la <em>reflexión</em>, o conocer y cambiar las propiedades del programa en sí</p>
+</section></section>
+<section><section id="tipado-dinámico-y-estático" class="title-slide slide level1"><h1>Tipado dinámico y estático</h1></section><section id="tipado-estático" class="slide level2">
+<h2>Tipado estático</h2>
+<p>Los lenguajes de tipado estático tienen sistemas para declarar y fijar el tipo de las variables, estructuras de datos y funciones</p>
+<p>Por ejemplo, a través de la declaración de tipos:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="dt">int</span> a = <span class="dv">5</span>;</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="dt">int</span> suma(<span class="dt">int</span> x, <span class="dt">int</span> y) { <span class="cf">return</span> x + y; }</a></code></pre></div>
+</section><section id="compilado-de-tipos-estáticos" class="slide level2">
+<h2>Compilado de tipos estáticos</h2>
+<p>El compilador tiene mecanismos para saber si una expresión tiene el tipo correcto, <em>durante la compilación</em>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="dt">int</span> suma(<span class="dt">int</span> x, <span class="dt">int</span> y) { <span class="cf">return</span> x + y; } </a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">suma(<span class="dv">4</span>, <span class="st">&quot;juan&quot;</span>); <span class="co">// el compilador lanza un error</span></a></code></pre></div>
+</section><section id="tipado-dinámico" class="slide level2">
+<h2>Tipado dinámico</h2>
+<p>Los lenguajes de tipado dinámico, por el contrario, no tienen compiladores que comprueben el tipo</p>
+<p>Así que la corrección será comprobado más tarde, <em>durante la ejecución</em></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">function</span> <span class="at">suma</span>(x<span class="op">,</span> y) <span class="op">{</span> <span class="cf">return</span> x <span class="op">+</span> y<span class="op">;</span> <span class="op">}</span> </a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="at">suma</span>(<span class="dv">4</span><span class="op">,</span> <span class="st">&quot;juan&quot;</span>)<span class="op">;</span> <span class="co">// el intérprete no da error hasta que esto no se ejecuta</span></a></code></pre></div>
+</section></section>
 <section><section id="javascript" class="title-slide slide level1"><h1>JavaScript</h1></section><section id="javascript-1" class="slide level2">
 <h2>JavaScript</h2>
 <p>JavaScript es un dialecto de <a href="https://es.wikipedia.org/wiki/ECMAScript">ECMAScript</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">var</span> variable <span class="op">=</span> <span class="dv">6</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="cf">if</span>(variable <span class="op">===</span> <span class="dv">5</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Sí, es igual a 5.&quot;</span>)</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="op">}</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="cf">else</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Pues no, vale &quot;</span> <span class="op">+</span> variable <span class="op">+</span> <span class="st">&quot;.&quot;</span>)</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">var</span> variable <span class="op">=</span> <span class="dv">6</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="cf">if</span>(variable <span class="op">===</span> <span class="dv">5</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Sí, es igual a 5.&quot;</span>)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Pues no, vale &quot;</span> <span class="op">+</span> variable <span class="op">+</span> <span class="st">&quot;.&quot;</span>)</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
 </section><section id="javascript-2" class="slide level2">
 <h2>JavaScript</h2>
 <p>Su sintaxis es parecida a la de C/C++/Java (intencionadamente)</p>
@@ -179,9 +215,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section><section id="usando-node.js" class="slide level2">
 <h2>Usando Node.js</h2>
 <p><code>Node.js</code> se puede usar desde línea de comandos:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ex">node</span> script.js</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># Pues no, vale 6. </span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">node</span> script.js</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># Pues no, vale 6. </span></a></code></pre></div>
 </section><section id="git" class="slide level2">
 <h2>Git</h2>
 <p><a href="https://git-scm.com/">Git</a> es el sistema de control de versiones que usaremos para la asignatura</p>

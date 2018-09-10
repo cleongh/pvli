@@ -9,5 +9,3 @@ proyecto & = funcionamiento\_correcto \times 0,2 \\
          & + presentaci\acute{o}n \times 0,2 \\
          & + calidad\_c\acute{o}digo \times 0,2
 \end{aligned}$${#eq:formulaeval}
-
-La puntuación de cada parte se hará de forma objetiva e informada, pero estará a discreción del criterio del equipo docente según los estándares exigidos en la asignatura

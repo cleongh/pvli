@@ -18,6 +18,8 @@ La evaluación en PVLI se hará en función de la fórmula @eq:formulaeval:
 general/auxiliary/formula_evaluacion.md
 ```
 
+La puntuación de cada parte se hará de forma objetiva e informada, pero estará a discreción del criterio del equipo docente según los estándares exigidos en la asignatura
+
 Todas las notas serán mantenidas hasta el final de la evaluación. Es decir, si
 se suspende en la convocatoria de febrero, todo aquello que haya tenido más de
 un 5 será mantenido como parte de la nota final, siempre y cuando no haya una

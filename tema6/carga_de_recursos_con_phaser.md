@@ -43,10 +43,10 @@ de lanzamiento de la aplicación.
 
 Ejemplos:
 
-* ftp://rediris.com/resourcea - URL y URN
-* +34555555555 - URN
-* urn:isbn:0451450523 - URN
-* http://es.wikipedia.org/wiki/Wikipedia:Portada URN y URL
+* `ftp://rediris.com/resourcea` - URL y URN
+* `+34555555555` - URN
+* `urn:isbn:0451450523` - URN
+* `http://es.wikipedia.org/wiki/Wikipedia:Portada` - URN y URL
 
 
 ---

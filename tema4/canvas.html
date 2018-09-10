@@ -4,9 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>El modelo de ejecución de JavaScript</title>
-    <meta name="description" content="La lección enseña conceptos relacionados con el ámbito de las funciones, el hoisting, closures y programación asíncrona.">
-    <meta name="author" content="Salvador de la Puente González">
+    <title>JavaScript en el navegador</title>
 
     <link rel="stylesheet" href="../shared/lib/tabzilla/css/tabzilla.css"/>
     <link rel="stylesheet" href="../shared/lib/reveal/css/reveal.css"/>
@@ -31,7 +29,7 @@
 
 		<div class="reveal">
       <div class="slides">
-        <section data-markdown="0204-javascript-execution-model.md"
+				<section data-markdown="canvas.md"
                  data-separator="^\n\n\n"
                  data-separator-vertical="^\n\n">
         </section>
@@ -56,5 +54,24 @@
 				]
 			});
 		</script>
+
+	<style>
+	.reveal h3 + pre {
+		font-size: 0.7em;
+	}
+
+	.reveal pre {
+		font-size: 0.8em;
+		width: auto;
+	}
+	.reveal pre code {
+		padding-left: 0.5em;
+		padding-right: 0.5em;
+	}
+	.reveal section img {
+		border: none;
+		box-shadow: none;
+	}
+	</style>
   </body>
 </html>

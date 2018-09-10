@@ -1,7 +1,7 @@
 # Introducción a las Tecnologías de Videojuegos en Internet
 
 
-
+<!-- 
 ## Quiénes somos
 
 
@@ -16,7 +16,7 @@
 
 salva@mozilla.com
 
-[@salvadelapuente](https://twitter.com/salvadelapuente)
+[@salvadelapuente](https://twitter.com/salvadelapuente) -->
 
 
 <!-- ### Belén
