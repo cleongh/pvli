@@ -1,21 +1,21 @@
 GENERAL=general/criterios_evaluacion.html general/grupos.html general/programa.html general/reportar.html general/depurar.html
-TEMA1=tema1/0101-1-introduccion-pvli.html tema1/0101-2-interpretes_js.html tema1/0102-tooling.html tema1/compilado.dot.svg  tema1/instrucciones.dot.svg  tema1/interpretes.dot.svg  tema1/trabajo_curso.dot.svg  tema1/trabajo_general.dot.svg  tema1/trabajo_manual.dot.svg
+TEMA1=tema1/introduccion-pvli.html tema1/interpretes_js.html tema1/tooling.html tema1/compilado.dot.svg  tema1/instrucciones.dot.svg  tema1/interpretes.dot.svg  tema1/trabajo_curso.dot.svg  tema1/trabajo_general.dot.svg  tema1/trabajo_manual.dot.svg
 TEMA2=
 TEMA3=
-TEMA4=tema4/0401-introduccion-arquitectura-videojuegos.html tema4/0402-ejemplo-componentes-completo.html tema4/imgs/umlbasico.pu.svg tema4/imgs/herencia.pu.svg tema4/imgs/asociacion.pu.svg tema4/imgs/composicion.pu.svg tema4/imgs/herenciacorrecta.pu.svg  tema4/imgs/herenciaproblema.pu.svg tema4/imgs/sistemascomponentes.pu.svg tema4/imgs/arquitectura.pu.svg
-TEMA5=tema5/0501_carga_de_recursos_con_phaser.html tema5/ejercicio/ejercicios_tema5.zip
-TEMA6=tema6/0603_tiles.html tema6/0604-texto-en-phaser.html tema6/0605-webaudio.html tema6/nodos.dot.svg tema6/0606-audio-en-phaser.html
-TEMA7=tema7/0701-phaser-colisiones.html tema7/0702-phaser-colisiones-ninja.html tema7/0703-phaser-el-motor-p2.html
-TEMA8=tema8/0801-animacion_con_sprites.html
-TEMA9=tema9/0901-proyectos.html
-TEMA10=tema10/1001-extensiones.html
+TEMA5=tema5/introduccion-arquitectura-videojuegos.html tema5/ejemplo-componentes-completo.html tema5/imgs/umlbasico.pu.svg tema5/imgs/herencia.pu.svg tema5/imgs/asociacion.pu.svg tema5/imgs/composicion.pu.svg tema5/imgs/herenciacorrecta.pu.svg  tema5/imgs/herenciaproblema.pu.svg tema5/imgs/sistemascomponentes.pu.svg tema5/imgs/arquitectura.pu.svg tema5/ejercicios.html
+TEMA6=tema6/carga_de_recursos_con_phaser.html tema6/ejercicio/ejercicios_carga.zip
+TEMA7=tema7/tiles.html tema7/texto-en-phaser.html tema7/webaudio.html tema7/nodos.dot.svg tema7/audio-en-phaser.html
+TEMA8=tema8/phaser-colisiones.html tema8/phaser-colisiones-ninja.html tema8/phaser-el-motor-p2.html
+TEMA9=tema9/animacion_con_sprites.html
+TEMA10=tema10/proyectos.html
+TEMA11=tema11/extensiones.html
 PROYECTO1=proyecto/version1/especificacion.html
 PROYECTO2=proyecto/version2/especificacion.html
 PROYECTO3=proyecto/version3/especificacion.html
 
 PROYECTO=$(PROYECTO1) $(PROYECTO2) $(PROYECTO3) proyecto/criterios_evaluacion.html
-TEMAS=$(TEMA1) $(TEMA2) $(TEMA3) $(TEMA4) tema4/0403-ejercicios.html $(TEMA5) $(TEMA6) $(TEMA7) $(TEMA8) $(TEMA9) $(TEMA10)
-TODO=$(GENERAL) $(TEMAS) $(PROYECTO)zz
+TEMAS=$(TEMA1) $(TEMA2) $(TEMA3) $(TEMA4) $(TEMA5) $(TEMA6) $(TEMA7) $(TEMA8) $(TEMA9) $(TEMA10) $(TEMA11)
+TODO=$(GENERAL) $(TEMAS) $(PROYECTO)
 # BASERUN=pandoc -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
 
 BASERUN=pandoc -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
@@ -39,17 +39,17 @@ proyecto/version2/%.html: proyecto/version2/%.md shared/docs.css
 proyecto/version3/%.html: proyecto/version3/%.md shared/docs.css
 	$(BASERUN) --css ../../shared/docs.css -t html+smart $< -o $@
 
-tema4/0403-ejercicios.html: tema4/0403-ejercicios.md shared/docs.css
+tema5/ejercicios.html: tema5/ejercicios.md shared/docs.css
 	$(BASERUN) --css ../shared/docs.css -t html+smart $< -o $@
 
 %.dot.svg: %.dot
 	dot -T svg $< -O
 
-tema5/ejercicio/ejercicios_tema5.html: tema5/ejercicio/ejercicios_tema5.md
+tema6/ejercicio/ejercicios_carga.html: tema6/ejercicio/ejercicios_carga.md
 	$(BASERUN) --css ../../shared/docs.css -t html+smart $< -o $@
 
-tema5/ejercicio/ejercicios_tema5.zip: tema5/ejercicio/ejercicios_tema5.html tema5/ejercicio/gulpfile.js tema5/ejercicio/package.json tema5/ejercicio/README.md tema5/ejercicio/.jshintrc tema5/ejercicio/src/*
-	cd tema5/ejercicio/ && zip -r $(notdir $@) src ejercicios_tema5.html gulpfile.js package.json README.md .jshintrc
+tema6/ejercicio/ejercicios_carga.zip: tema6/ejercicio/ejercicios_carga.html tema6/ejercicio/gulpfile.js tema6/ejercicio/package.json tema6/ejercicio/README.md tema6/ejercicio/.jshintrc tema6/ejercicio/src/*
+	cd tema6/ejercicio/ && zip -r $(notdir $@) src ejercicios_carga.html gulpfile.js package.json README.md .jshintrc
 
 %.pu.svg: %.pu
 	cat $< | plantuml -p -tsvg > $@
