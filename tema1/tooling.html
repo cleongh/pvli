@@ -406,6 +406,7 @@ Y se verá que sale el mismo resultado.</code></pre>
 </section></section>
 <section><section id="cómo-empezar-a-programar" class="title-slide slide level1"><h1>Cómo empezar a programar</h1></section><section id="plantilla-para-la-asignatura" class="slide level2">
 <h2>Plantilla para la asignatura</h2>
+<p>En <code class="sourceCode bash"><span class="fu">bash</span></code>, podéis usar estos comandos (en la consola por defecto Windows será distinto, ved más adelante)</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1">$ <span class="ex">npm</span> install yo <span class="co"># instalar &#39;yeoman&#39;</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">$ <span class="ex">npm</span> install generator-gamejam <span class="co"># &#39;instalar el generador de juegos hecho por Belén Albeza (Mozilla)</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3">$ <span class="ex">npm</span> install jslint <span class="co"># &#39;instalar el generador de juegos hecho por Belén</span></a>
@@ -415,11 +416,18 @@ Y se verá que sale el mismo resultado.</code></pre>
 <a class="sourceLine" id="cb6-7" data-line-number="7">$ <span class="ex">node_modules/.bin/gulp</span> run <span class="co"># arrancar &#39;gulp&#39;, haciendo que recargue la página al guardar</span></a></code></pre></div>
 </section><section class="slide level2">
 
-<p>Belén Albeza (Mozilla) ha creado una plantilla de Yeoman para juegos, <code>generator-gamejam</code></p>
+<p>Belén Albeza ha creado una plantilla de Yeoman para juegos, <code>generator-gamejam</code></p>
 <p>No es obligatorio ni necesario usarla, pero puede ahorraros mucho, mucho tiempo</p>
 <p class="fragment">
 (Por otro lado, no está de más cacharrear y hacerlo vosotros mismos)
 </p>
+</section><section id="ejecutando-en-windows" class="slide level2">
+<h2>Ejecutando en Windows</h2>
+<p>Como muchos usaréis Windows, y la plantilla ya está hecha, podéis simplificar el proceso</p>
+<p>Tras bajar la plantilla:</p>
+<pre><code>&gt; cd plantilla-juego
+&gt; npm install
+&gt; node_modules\.bin\gulp run</code></pre>
 </section><section id="pero" class="slide level2">
 <h2>Pero…</h2>
 <p>Realmente ahora no es necesario tanto despliegue</p>

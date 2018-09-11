@@ -369,6 +369,8 @@ En las entregas, poned un texto así:
 
 ## Plantilla para la asignatura
 
+En `bash`{.sh}, podéis usar estos comandos (en la consola por defecto Windows será distinto, ved más adelante)
+
 ```bash
 $ npm install yo # instalar 'yeoman'
 $ npm install generator-gamejam # 'instalar el generador de juegos hecho por Belén Albeza (Mozilla)
@@ -381,11 +383,23 @@ $ node_modules/.bin/gulp run # arrancar 'gulp', haciendo que recargue la página
 
 ---
 
-Belén Albeza (Mozilla) ha creado una plantilla de Yeoman para juegos, `generator-gamejam`
+Belén Albeza ha creado una plantilla de Yeoman para juegos, `generator-gamejam`
 
 No es obligatorio ni necesario usarla, pero puede ahorraros mucho, mucho tiempo
 
 <p class="fragment">(Por otro lado, no está de más cacharrear y hacerlo vosotros mismos)</p>
+
+## Ejecutando en Windows
+
+Como muchos usaréis Windows, y la plantilla ya está hecha, podéis simplificar el proceso
+
+Tras bajar la plantilla:
+
+```
+> cd plantilla-juego
+> npm install
+> node_modules\.bin\gulp run
+```
 
 ## Pero...
 
