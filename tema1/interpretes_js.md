@@ -170,7 +170,9 @@ JavaScript hoy en día se usa para:
 Por lo tanto, `Node.js` contiene una máquina virtual capaz de leer, entender y
 ejecutar JS
 
-Esta máquina^[una MV es sólo código, un programa que "simula" ser un ordenador] se llama [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine))
+Una MV es sólo código, un programa que "simula" ser un ordenador
+
+Esta máquina se llama [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine))
 
 <p class="fragment">**V8** es el motor de [Chrome](https://www.google.com/chrome/browser/desktop/index.html).<p>
 
