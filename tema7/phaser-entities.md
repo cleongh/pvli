@@ -13,14 +13,21 @@ están ocultas. Podéis buscar en las versiones 2.5 y 2.4 también).
 
 
 Una vez hayas copiado la plantilla y ejecutado `npm install` en la raíz, lanza
-el siguiente comando:
+el siguiente comando en `bash`{.bash}
 
 ```bash
-$ node ./node_modules/gulp/bin/gulp run
+$ node_modules/.bin/gulp run
 ```
 
+Y éste en el `cmd` de Windows
+
+```bash
+$ node_modules\.bin\gulp run
+```
 
 Con ello lanzarás un navegador que cargará la plantilla proporcionada.
+
+---
 
 
 Fíjate en la URL del navegador. Indica `localhost:3000` que es el nombre de la
