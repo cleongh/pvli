@@ -113,6 +113,8 @@ Se hará un control de copias **estricto**
 
 ## Fórmula
 
+La evaluación en PVLI se hará en función de la fórmula @eq:formulaeval:
+
 ```include
 general/auxiliary/formula_evaluacion.md
 ```

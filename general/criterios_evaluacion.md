@@ -76,7 +76,7 @@ de los profesores.
 
 ### Cómo entregar
 
-Las entregas consistirán en un texto corto con:
+Las entregas consistirán en un archivo comprimido con la versión del repositorio que se envía, y un texto corto con:
 
 - Un enlace al repositorio (commit **exacto**)
 - Los miembros del equipo
@@ -84,8 +84,7 @@ Las entregas consistirán en un texto corto con:
 - Una descripción de todo lo *relevante* (por favor, sólo lo *relevante*)
 - En el repositorio git todo estará en [UTF-8](http://stackoverflow.com/questions/2241348/what-is-unicode-utf-8-utf-16), a no ser que haya una buena razón (que habrá que explicar en el texto)
 
-En las entregas, que serán de tipo texto (es decir, no se podrán subir
-archivos), se deberá incluir un texto de este tipo:
+Por ejemplo:
 
     entrega: Versión 2 del proyecto
     miembros: Alan Turing y Alonzo Church
@@ -102,5 +101,3 @@ archivos), se deberá incluir un texto de este tipo:
     $ node entscheidungsproblem.js
 
     Y se verá que sale el mismo resultado.
-
-En la última versión que se entregue, aparte de este texto, habrá que incluir un comprimido con todo el material de la versión final.

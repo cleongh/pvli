@@ -1,5 +1,3 @@
-La nota final de la asignatura se calculará en función de la siguiente fórmula:
-
 $$ \begin{aligned}
 nota_{final} & = proyecto \times 0,4 \\
              & + examen_{final} \times 0,6 \\
