@@ -18,6 +18,8 @@ La evaluación en PVLI se hará en función de la fórmula @eq:formulaeval:
 general/auxiliary/formula_evaluacion.md
 ```
 
+**El proyecto tiene que ser aceptable globalmente para aprobar**. El juego tiene que funcionar correctamente y cumplir los requsitos, independientemente de la posible nota numérica, para ser apto. Es decir, la nota se pondrá a partir de un proyecto jugable, aceptable visualmente, sin errores graves de jugabilidad y *terminado*. Si algún requisito básico no se cumple, el proyecto estará suspenso con un 0.
+
 La puntuación de cada parte se hará de forma objetiva e informada, pero estará a discreción del criterio del equipo docente según los estándares exigidos en la asignatura
 
 Todas las notas serán mantenidas hasta el final de la evaluación. Es decir, si

@@ -119,6 +119,13 @@ La evaluación en PVLI se hará en función de la fórmula @eq:formulaeval:
 general/auxiliary/formula_evaluacion.md
 ```
 
+## Proyecto
+
+> Independientemente de sus partes, el proyecto tiene que ser aceptable globalmente
+
+El proyecto tiene que **funcionar**, ser jugable completamente, tener un aspecto visual y gráfico aceptable y no tener errores graves
+
+A partir de esa premisa se pondrá la nota
 
 # Otra información
 
