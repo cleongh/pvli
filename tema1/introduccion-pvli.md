@@ -119,7 +119,7 @@ La evaluación en PVLI se hará en función de la fórmula @eq:formulaeval:
 general/auxiliary/formula_evaluacion.md
 ```
 
-## Proyecto
+## Proyecto
 
 > Independientemente de sus partes, el proyecto tiene que ser aceptable globalmente
 

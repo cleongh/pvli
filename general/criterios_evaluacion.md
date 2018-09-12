@@ -47,7 +47,7 @@ Los criterios de evaluación en convocatoria ordinaria y extraordinaria son los
 
 La parte de evaluación continua que se hace durante el curso se conserva para la
  convocatoria extraordinaria. Si no se ha realizado la contribución de la evaluación
-  continua, esta se considera perdida para la convocatoria extraordinaria.
+  continua, esta se considera perdida para la convocatoria extraordinaria (esto incluye, por ejemplo, las presentaciones).
 
 ## Copias
 
