@@ -1,32 +1,6 @@
 # Introducción a las Tecnologías de Videojuegos en Internet
 
 
-<!-- 
-## Quiénes somos
-
-
-### Mozilla
-
-- Fundación sin ánimo de lucro
-- Valores: open source, transparencia, privacidad… https://www.mozilla.org/en-US/about/manifesto/
-- Creadores de Firefox, Let's Encrypt, MDN
-
-
-### Salva
-
-salva@mozilla.com
-
-[@salvadelapuente](https://twitter.com/salvadelapuente) -->
-
-
-<!-- ### Belén
-
-belen@mozilla.com
-
-[@ladybenko](https://twitter.com/ladybenko) -->
-
-
-
 ## Videojuegos en la Web
 
 
