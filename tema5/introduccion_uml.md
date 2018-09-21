@@ -132,3 +132,12 @@ Es decir, no hay todo sin las partes
 ---
 
 ![Composición](imgs/composicionuml.pu.svg)
+
+
+# Más...
+
+---
+
+UML es mucho, mucho más complejo, y se puede usar para representar mucho más que una estructura de clases
+
+Hay [muchos recursos en Internet](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/) a través de los cuales podéis aprender más detalles
