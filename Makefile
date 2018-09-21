@@ -2,7 +2,9 @@ GENERAL=general/criterios_evaluacion.html general/grupos.html general/programa.h
 TEMA1=tema1/introduccion-pvli.html tema1/interpretes_js.html tema1/tooling.html tema1/compilado.dot.svg  tema1/instrucciones.dot.svg  tema1/interpretes.dot.svg  tema1/trabajo_curso.dot.svg  tema1/trabajo_general.dot.svg  tema1/trabajo_manual.dot.svg
 TEMA2=
 TEMA3=
-TEMA5=tema5/introduccion-arquitectura-videojuegos.html tema5/ejemplo-componentes-completo.html tema5/imgs/umlbasico.pu.svg tema5/imgs/herencia.pu.svg tema5/imgs/asociacion.pu.svg tema5/imgs/composicion.pu.svg tema5/imgs/herenciacorrecta.pu.svg  tema5/imgs/herenciaproblema.pu.svg tema5/imgs/sistemascomponentes.pu.svg tema5/imgs/arquitectura.pu.svg tema5/ejercicios.html
+TEMA5=tema5/introduccion-arquitectura-videojuegos.html tema5/ejemplo-componentes-completo.html tema5/imgs/umlbasico.pu.svg tema5/imgs/herencia.pu.svg tema5/imgs/asociacion.pu.svg tema5/imgs/composicion.pu.svg tema5/imgs/herenciacorrecta.pu.svg  tema5/imgs/herenciaproblema.pu.svg tema5/imgs/sistemascomponentes.pu.svg tema5/imgs/arquitectura.pu.svg tema5/ejercicios.html tema5/introduccion_uml.html tema5/imgs/interface.pu.svg tema5/imgs/composicionuml.pu.svg tema5/imgs/agregacionuml.pu.svg tema5/imgs/herenciafrutas.pu.svg tema5/imgs/muchos.pu.svg tema5/imgs/metodos.pu.svg tema5/imgs/atributos.pu.svg tema5/imgs/frutas.pu.svg
+
+
 TEMA6=tema6/carga_de_recursos_con_phaser.html tema6/ejercicio/ejercicios_carga.zip
 TEMA7=tema7/tiles.html tema7/texto-en-phaser.html tema7/webaudio.html tema7/nodos.dot.svg tema7/audio-en-phaser.html
 TEMA8=tema8/phaser-colisiones.html tema8/phaser-colisiones-ninja.html tema8/phaser-el-motor-p2.html

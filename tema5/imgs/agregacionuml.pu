@@ -1,0 +1,5 @@
+@startuml Agregación
+
+Frutero "1" o-- "*" Fruta
+
+@enduml
