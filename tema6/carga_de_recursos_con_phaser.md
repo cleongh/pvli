@@ -123,7 +123,7 @@ mayoritariamente, estas propiedades son formas de acceder a los subsistemas de P
 * **physics**: el sistema de físicas.
 
 
-#Ejemplo básico de un juego con Phaser
+# Ejemplo básico de un juego con Phaser
 
 ---
 
