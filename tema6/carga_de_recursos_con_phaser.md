@@ -243,7 +243,7 @@ hecho para nada. -->
 		</script>
 ```
 
-#Localización de los recursos
+# Localización de los recursos
 
 <!-- Es de vital importancia que los alumnos aprendan a configurar un servidor
 local de donde obtener los recursos. Esta parece la sección ideal puesto que
@@ -290,7 +290,7 @@ function preload() {
 }
 ```
 
-#Carga de recursos en memoria
+# Carga de recursos en memoria
 
 <!-- Sería conveniente hacer referencia a la caché. Sobre todo porque
 después nos referiremos a ella durante la liberación de recursos. -->
@@ -302,6 +302,7 @@ del ejemplo anterior. O proveer de nuevos ejemplos de estados completos.
 Personalmente me inclino más por esta última opción. -->
 
 Una vez que tenemos el origen de los recursos podemos cargarlos en memoria.
+
 Se le añade una _key_ (clave o nombre) al recurso para poder identificarlo.
 
 ```js
@@ -331,7 +332,7 @@ function preload() {
 ---
 
 
-podemos cargar diferentes recursos como: imágenes, archivos JSON, atlas de texturas, video, sonido, tilemaps...
+Podemos cargar diferentes recursos como: imágenes, archivos JSON, atlas de texturas, video, sonido, tilemaps...
 
 La función **onLoadComplete** nos informa de la finalización de la carga.
 
@@ -349,7 +350,7 @@ onLoadComplete: function() {
 <!-- De nuevo, habría que especificar el contexto. En este caso el tipo al
 que pertenece la propiedad. -->
 
-#Liberación de recursos
+# Liberación de recursos
 
 ---
 
@@ -364,7 +365,7 @@ cache.removeXML(key)
 <!-- Aqué el contexto es muy relevante puesto que no hemos explicado la caché.
 Hay que indicar que `cache` es una propiedad del objeto juego. -->
 
-#Sprites en Phaser
+# Sprites en Phaser
 
 ---
 
@@ -380,7 +381,7 @@ player = game.add.sprite(100, 200, 'player');
 
 Hay que usar la key que se le puso en la carga. El objeto, obviamente, debe estar cargado memoria.
 
-#Spritesheet o atlas de sprites
+# Spritesheet o atlas de sprites
 
 ---
 
@@ -418,3 +419,4 @@ function create() {
 ---
 
 ![Animation](imgs/mummy.gif)
+

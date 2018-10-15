@@ -100,19 +100,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <h1 class="title">Carga de recursos con Phaser</h1>
 </section>
 
-<section><section id="introducción" class="title-slide slide level1"><h1>Introducción</h1></section><section id="qué-es-phaser" class="slide level2">
-<h2>Qué es Phaser</h2>
+<section id="introducción" class="slide level1">
+<h1>Introducción</h1>
+<h2 id="qué-es-phaser">Qué es Phaser</h2>
 <p><strong>Phaser</strong> es un framework que nos permite construir juegos en HTML5 para equipos de escritorio y dispositivos móviles. Es bastante nuevo, pero tiene involucrada una apasionada comunidad en el proceso de desarrollo, por lo que crece rápidamente</p>
 <p>El juego se renderiza sobre un <em>Canvas</em>, luego no está directamente pensado par ser ejecutado en Node, aunque podemos <em>“apañarlo”</em>.</p>
-</section><section id="urls-vs-uris" class="slide level2">
-<h2>URLs vs URIs</h2>
-</section><section class="slide level2">
+<h2 id="urls-vs-uris">URLs vs URIs</h2>
+</section>
+<section class="slide level1">
 
 <p>Las URIs son un superconjunto de las URLs.</p>
 <figure>
 <img data-src="imgs/URIvsURL.png" alt="URL vs URI" width="400" height="400" /><figcaption>URL vs URI</figcaption>
 </figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <p>Podemos ver la definición de URI en la RFC de <em>Tim Berners-Lee</em> <a href="https://tools.ietf.org/html/rfc3986">RFC 3986: Uniform Resource Identifier (URI)</a></p>
 <p>“Uniform Resources Identifier (URI) es una secuencia compacta de caracteres que identifica un recurso abstracto o físico”.</p>
@@ -121,7 +123,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- Aclararía que las URNs son también un subconjunto de las URIs. Aunque no
 hemos hablado de ellas antes y convendría introducirlas en la diapositiva
 anterior. -->
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <p>El directorio especial ../ indica el directorio padre del que se lanzó la aplicación. El directorio ./ indica el directorio de lanzamiento de la aplicación.</p>
 <p>Ejemplos:</p>
@@ -131,17 +134,18 @@ anterior. -->
 <li><code>urn:isbn:0451450523</code> - URN</li>
 <li><code>http://es.wikipedia.org/wiki/Wikipedia:Portada</code> - URN y URL</li>
 </ul>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <p>Cómo se crea una URI:</p>
 <figure>
 <img data-src="imgs/uri.png" alt="Partes de una URI" /><figcaption>Partes de una URI</figcaption>
 </figure>
-</section><section id="game-states" class="slide level2">
-<h2>Game States</h2>
+<h2 id="game-states">Game States</h2>
 <p>Los estados de Phaser son la unidad mínima que maneja el framework para crear una escena de juego. Podríamos decir que es equivalente a la <em>Scene</em> de Unity.</p>
 <p>Piensa en un State como en un capítulo de un libro. Pero <em>sólo un State está activo al mismo tiempo</em>. Podemos cambiar entre estados, pero sólo uno puede estar activo.</p>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <!-- Explicaría más la confusión. Supongo que se quiere hacer hincapié en
 que los estados no representan individuos. Haría explícito que esta es la
@@ -150,26 +154,29 @@ muy bien. -->
 <p>Es decir no podemos declarar un player state, o un Power Up state. Eso son entidades, no states.</p>
 <p>Los states no tiene propiedades de visualización. Los States no son objetos renderizables. Son los objetos del State los que son renderizables.</p>
 <p>Los States sirven para controlar el flujo de juego.</p>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <figure>
 <img data-src="imgs/States.png" alt="Ejemplo de State" style="width:50.0%" /><figcaption>Ejemplo de State</figcaption>
 </figure>
-</section><section id="estructura-de-un-state" class="slide level2">
-<h2>Estructura de un State</h2>
-</section><section class="slide level2">
+<h2 id="estructura-de-un-state">Estructura de un State</h2>
+</section>
+<section class="slide level1">
 
 <p>Un State es un objeto de JavaScript que contiene una serie de métodos ya definidos.</p>
 <p>Un estado es válido si hay, al menos, uno de estos métodos: <strong>preload</strong>, <strong>create</strong>, <strong>update</strong> o <strong>render</strong>. Si no existe alguno de estos métodos, Phaser no carga el State.</p>
 <!-- Esto es contradictorio. Creo que se ha querido decir que "si no existe
 ninguno de estos métodos, Phaser no carga el state". -->
 <p>La gestión del State la realiza el <strong>StateManager</strong>. El StateManager es el encargado de gestionar los states. Si no se va a usar un método no es necesario re-declararlo.</p>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <figure>
 <img data-src="imgs/TimelinePhaser.png" alt="Flujo de ejecución de los métodos de un State" style="width:50.0%" /><figcaption>Flujo de ejecución de los métodos de un State</figcaption>
 </figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <p>Además, Phaser proporciona una serie de propiedades que podemos utilizar en nuestro juego, mayoritariamente, estas propiedades son formas de acceder a los subsistemas de Phaser:</p>
 <ul>
@@ -179,7 +186,8 @@ ninguno de estos métodos, Phaser no carga el state". -->
 <li><strong>input</strong>: La entrada de Phaser.</li>
 <li><strong>load</strong>: el cargador de recursos.</li>
 </ul>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <ul>
 <li><strong>sound</strong>: el sistema de sonido</li>
@@ -188,8 +196,11 @@ ninguno de estos métodos, Phaser no carga el state". -->
 <li><strong>particles</strong>: el sistema de partículas.</li>
 <li><strong>physics</strong>: el sistema de físicas.</li>
 </ul>
-</section></section>
-<section><section id="ejemplo-básico-de-un-juego-con-phaser" class="title-slide slide level1"><h1>Ejemplo básico de un juego con Phaser</h1></section><section class="slide level2">
+</section>
+<section id="ejemplo-básico-de-un-juego-con-phaser" class="slide level1">
+<h1>Ejemplo básico de un juego con Phaser</h1>
+</section>
+<section class="slide level1">
 
 <div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="dt">&lt;!doctype </span>html<span class="dt">&gt;</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">&lt;html&gt;</span></a>
@@ -208,7 +219,8 @@ ninguno de estos métodos, Phaser no carga el state". -->
 <a class="sourceLine" id="cb1-15" data-line-number="15">          <span class="dt">preload</span><span class="op">:</span> preload<span class="op">,</span> <span class="co">// carga los recursos del estado.</span></a>
 <a class="sourceLine" id="cb1-16" data-line-number="16">          <span class="dt">create</span><span class="op">:</span> create    <span class="co">// configura la escena.</span></a>
 <a class="sourceLine" id="cb1-17" data-line-number="17">        <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1">        <span class="kw">function</span> <span class="at">preload</span> () <span class="op">{</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">          <span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&#39;logo&#39;</span><span class="op">,</span> <span class="st">&#39;phaser.png&#39;</span>)<span class="op">;</span></a>
@@ -222,7 +234,8 @@ ninguno de estos métodos, Phaser no carga el state". -->
 <a class="sourceLine" id="cb2-10" data-line-number="10">    &lt;/script<span class="op">&gt;</span></a>
 <a class="sourceLine" id="cb2-11" data-line-number="11">    &lt;/body<span class="op">&gt;</span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12">&lt;/html<span class="op">&gt;</span></a></code></pre></div>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <p>Ejemplo de states:</p>
 <!-- En mi opinión, este ejemplo es demasiado complicado. Hemos establecido
@@ -244,7 +257,8 @@ objetos. -->
 <a class="sourceLine" id="cb3-13" data-line-number="13">        <span class="kw">this</span>.<span class="va">game</span>.<span class="va">state</span>.<span class="at">start</span>(<span class="st">&quot;Preload&quot;</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb3-14" data-line-number="14">    <span class="op">}</span></a>
 <a class="sourceLine" id="cb3-15" data-line-number="15"><span class="op">}</span></a></code></pre></div>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <!-- Este objeto es muy confuso puesto que se llama como uno de los métodos
 del estado. Intentaría buscar un sinónimo. -->
@@ -265,7 +279,8 @@ del estado. Intentaría buscar un sinónimo. -->
 <a class="sourceLine" id="cb4-15" data-line-number="15">        <span class="kw">this</span>.<span class="va">game</span>.<span class="va">state</span>.<span class="at">start</span>(<span class="st">&quot;GameTitle&quot;</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-16" data-line-number="16">    <span class="op">}</span></a>
 <a class="sourceLine" id="cb4-17" data-line-number="17"><span class="op">}</span></a></code></pre></div>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <p>¿Cómo cargamos esto en la página Web?</p>
 <!-- No hemos definido el estado gameTitle y el elemento del DOM "game" no
@@ -283,21 +298,26 @@ hecho para nada. -->
 <a class="sourceLine" id="cb5-10" data-line-number="10">                <span class="va">game</span>.<span class="va">state</span>.<span class="at">add</span>(<span class="st">&quot;GameTitle&quot;</span><span class="op">,</span>gameTitle)<span class="op">;</span></a>
 <a class="sourceLine" id="cb5-11" data-line-number="11">            <span class="op">};</span>    </a>
 <a class="sourceLine" id="cb5-12" data-line-number="12">        <span class="kw">&lt;/script&gt;</span></a></code></pre></div>
-<p>#Localización de los recursos</p>
+</section>
+<section id="localización-de-los-recursos" class="slide level1">
+<h1>Localización de los recursos</h1>
 <!-- Es de vital importancia que los alumnos aprendan a configurar un servidor
 local de donde obtener los recursos. Esta parece la sección ideal puesto que
 esto será lo que pase la mayor parte de las veces: que los recursos estarán en
 su propio servidor. Explicar CORS es conveniente una vez nos aseguremos que
 podemos cargar nuestros propios recursos. -->
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <p>Para localizar los recursos podemos usar <strong>baseURL</strong> y <em>crossOrigin</em> del subsistema load.</p>
 <p><strong>BaseURL</strong> es el lugar donde están los recursos. Si los recursos no están en el mismo sitio que el código podemos establecer aquí la url base para no tener que escribirla constantemente en el método de carga concreto.</p>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <p><strong>Cross-origin resource sharing (CORS)</strong> es el mecanismo de control y restricción de recursos que emplean los navegadores cuando un recurso es solicitado por otro dominio. CORS define la forma en la que el navegador debe interactuar con el servidor.</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes">MDN de Cross Origin</a></p>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <p><strong>anonymous</strong> significa que no hay ningún intercambio de credenciales entre cliente y servidor.</p>
 <p><strong>use-credentials</strong> significa que para acceder al recurso hay que tener credenciales.</p>
@@ -312,22 +332,27 @@ podemos cargar nuestros propios recursos. -->
 <a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="va">game</span>.<span class="va">load</span>.<span class="at">baseURL</span> <span class="op">=</span> <span class="st">&#39;http://examples.phaser.io/assets/&#39;</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb7-5" data-line-number="5">    <span class="va">game</span>.<span class="va">load</span>.<span class="at">crossOrigin</span> <span class="op">=</span> <span class="st">&#39;anonymous&#39;</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb7-6" data-line-number="6"><span class="op">}</span></a></code></pre></div>
-<p>#Carga de recursos en memoria</p>
+</section>
+<section id="carga-de-recursos-en-memoria" class="slide level1">
+<h1>Carga de recursos en memoria</h1>
 <!-- Sería conveniente hacer referencia a la caché. Sobre todo porque
 después nos referiremos a ella durante la liberación de recursos. -->
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <!-- Convendría recordar que esta función es la misma función `preload`
 del ejemplo anterior. O proveer de nuevos ejemplos de estados completos.
 Personalmente me inclino más por esta última opción. -->
-<p>Una vez que tenemos el origen de los recursos podemos cargarlos en memoria. Se le añade una <em>key</em> (clave o nombre) al recurso para poder identificarlo.</p>
+<p>Una vez que tenemos el origen de los recursos podemos cargarlos en memoria.</p>
+<p>Se le añade una <em>key</em> (clave o nombre) al recurso para poder identificarlo.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">function</span> <span class="at">preload</span>() <span class="op">{</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">    <span class="va">game</span>.<span class="va">load</span>.<span class="at">baseURL</span> <span class="op">=</span> <span class="st">&#39;http://examples.phaser.io/assets/&#39;</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="va">game</span>.<span class="va">load</span>.<span class="at">crossOrigin</span> <span class="op">=</span> <span class="st">&#39;anonymous&#39;</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb8-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb8-5" data-line-number="5">    <span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&#39;phaser&#39;</span><span class="op">,</span> <span class="st">&#39;sprites/phaser-dude.png&#39;</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb8-6" data-line-number="6"><span class="op">}</span></a></code></pre></div>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">function</span> <span class="at">preload</span>() <span class="op">{</span></a>
 <a class="sourceLine" id="cb9-2" data-line-number="2">    <span class="va">game</span>.<span class="va">stage</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;#85b5e1&#39;</span><span class="op">;</span></a>
@@ -338,9 +363,10 @@ Personalmente me inclino más por esta última opción. -->
 <a class="sourceLine" id="cb9-7" data-line-number="7">    <span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&#39;player&#39;</span><span class="op">,</span> <span class="st">&#39;sprites/phaser-dude.png&#39;</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb9-8" data-line-number="8">    <span class="va">game</span>.<span class="va">load</span>.<span class="at">image</span>(<span class="st">&#39;platform&#39;</span><span class="op">,</span> <span class="st">&#39;sprites/platform.png&#39;</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb9-9" data-line-number="9"><span class="op">}</span></a></code></pre></div>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
-<p>podemos cargar diferentes recursos como: imágenes, archivos JSON, atlas de texturas, video, sonido, tilemaps…</p>
+<p>Podemos cargar diferentes recursos como: imágenes, archivos JSON, atlas de texturas, video, sonido, tilemaps…</p>
 <p>La función <strong>onLoadComplete</strong> nos informa de la finalización de la carga.</p>
 <!-- Creo que esto es una señal, no una función. De todas formas, convendría
 aclarar en qué contexto hay que usarlo y proveer un ejemplo preciso. -->
@@ -350,35 +376,47 @@ aclarar en qué contexto hay que usarlo y proveer un ejemplo preciso. -->
 <p><strong>isLoading</strong> nos informa de que aún estamos cargando recursos.</p>
 <!-- De nuevo, habría que especificar el contexto. En este caso el tipo al
 que pertenece la propiedad. -->
-<p>#Liberación de recursos</p>
-</section><section class="slide level2">
+</section>
+<section id="liberación-de-recursos" class="slide level1">
+<h1>Liberación de recursos</h1>
+</section>
+<section class="slide level1">
 
 <p>Si cambiamos de state y no vamos a volver al mismo, es muy probable que haya recursos que ya no utilizaremos nunca. En este caso podemos eliminarlos de la caché. Hay que usar la key asignada en la carga.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="va">cache</span>.<span class="at">removeImage</span>(key)</a>
 <a class="sourceLine" id="cb11-2" data-line-number="2"><span class="va">cache</span>.<span class="at">removeXML</span>(key)</a></code></pre></div>
 <!-- Aqué el contexto es muy relevante puesto que no hemos explicado la caché.
 Hay que indicar que `cache` es una propiedad del objeto juego. -->
-<p>#Sprites en Phaser</p>
-</section><section class="slide level2">
+</section>
+<section id="sprites-en-phaser" class="slide level1">
+<h1>Sprites en Phaser</h1>
+</section>
+<section class="slide level1">
 
 <p>Son las imágenes 2D que sirven para visualizar los objetos en un juego 2D. En Phaser se instancian así:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" data-line-number="1">player <span class="op">=</span> <span class="va">game</span>.<span class="va">add</span>.<span class="at">sprite</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="st">&#39;player&#39;</span>)<span class="op">;</span></a></code></pre></div>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <figure>
 <img data-src="imgs/mariosprite.jpg" alt="Sprite" style="height:75.0%" /><figcaption>Sprite</figcaption>
 </figure>
 <p>Hay que usar la key que se le puso en la carga. El objeto, obviamente, debe estar cargado memoria.</p>
-<p>#Spritesheet o atlas de sprites</p>
-</section><section class="slide level2">
+</section>
+<section id="spritesheet-o-atlas-de-sprites" class="slide level1">
+<h1>Spritesheet o atlas de sprites</h1>
+</section>
+<section class="slide level1">
 
 <figure>
 <img data-src="imgs/mario_spritesheet.gif" alt="Spritesheet o Atlas de Sprites" width="400" height="300" /><figcaption>Spritesheet o Atlas de Sprites</figcaption>
 </figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <p>Sirven para optimizar recursos: * Reduce el número de accesos al servidor (no es lo mismo traerse una imagen grande con muchas imágenes pequeñas que muchas imágenes pequeñas individuales). * Es más eficiente en memoria.</p>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <p>Sirve también para crear animaciones por frames.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">function</span> <span class="at">preload</span>() <span class="op">{</span></a>
@@ -396,12 +434,13 @@ Hay que indicar que `cache` es una propiedad del objeto juego. -->
 <a class="sourceLine" id="cb13-13" data-line-number="13">    <span class="kw">var</span> walk <span class="op">=</span> <span class="va">mummy</span>.<span class="va">animations</span>.<span class="at">add</span>(<span class="st">&#39;walk&#39;</span>)<span class="op">;</span> <span class="co">//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ...]</span></a>
 <a class="sourceLine" id="cb13-14" data-line-number="14">    <span class="va">mummy</span>.<span class="va">animations</span>.<span class="at">play</span>(<span class="st">&#39;walk&#39;</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb13-15" data-line-number="15"><span class="op">}</span></a></code></pre></div>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <figure>
 <img data-src="imgs/mummy.gif" alt="Animation" /><figcaption>Animation</figcaption>
 </figure>
-</section></section>
+</section>
     </div>
   </div>
 
