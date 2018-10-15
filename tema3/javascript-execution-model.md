@@ -456,9 +456,7 @@ text;
 Esta sección presenta la característica _módulos_ que es específica de node.
 
 
-Una de las principales desventajas de JavaScript ([hasta la próxima versión](
-https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/import))
-es que no hay forma de organizar el código en módulos.
+Una de las principales desventajas de JavaScript (aunque en las últimas versiones esto ya se puede hacer) es que no hay forma de organizar el código en módulos.
 
 
 Los módulos sirven para aglomerar funcionalidad relacionada: tipos, funciones,
