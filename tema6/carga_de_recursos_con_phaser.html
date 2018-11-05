@@ -310,17 +310,19 @@ podemos cargar nuestros propios recursos. -->
 <section class="slide level1">
 
 <p>Para localizar los recursos podemos usar <strong>baseURL</strong> y <em>crossOrigin</em> del subsistema load.</p>
-<p><strong>BaseURL</strong> es el lugar donde están los recursos. Si los recursos no están en el mismo sitio que el código podemos establecer aquí la url base para no tener que escribirla constantemente en el método de carga concreto.</p>
+<p><strong>BaseURL</strong> es el lugar donde están los recursos. Si los recursos no están en el mismo sitio que el código.</p>
+<p>Podemos establecer aquí la url base para no tener que escribirla constantemente en el método de carga concreto.</p>
 </section>
 <section class="slide level1">
 
-<p><strong>Cross-origin resource sharing (CORS)</strong> es el mecanismo de control y restricción de recursos que emplean los navegadores cuando un recurso es solicitado por otro dominio. CORS define la forma en la que el navegador debe interactuar con el servidor.</p>
+<p><strong>Cross-origin resource sharing (CORS)</strong> es el mecanismo de control y restricción de recursos que emplean los navegadores cuando un recurso es solicitado por otro dominio.</p>
+<p>CORS define la forma en la que el navegador debe interactuar con el servidor.</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes">MDN de Cross Origin</a></p>
 </section>
 <section class="slide level1">
 
-<p><strong>anonymous</strong> significa que no hay ningún intercambio de credenciales entre cliente y servidor.</p>
-<p><strong>use-credentials</strong> significa que para acceder al recurso hay que tener credenciales.</p>
+<p><code>anonymous</code> significa que no hay ningún intercambio de credenciales entre cliente y servidor.</p>
+<p><code>use-credentials</code> significa que para acceder al recurso hay que tener credenciales.</p>
 <p>Algunos ejemplos:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">function</span> <span class="at">preload</span>() <span class="op">{</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">    <span class="va">game</span>.<span class="va">load</span>.<span class="at">baseURL</span> <span class="op">=</span> <span class="st">&#39;http://examples.phaser.io/assets/&#39;</span><span class="op">;</span></a>

@@ -255,22 +255,25 @@ podemos cargar nuestros propios recursos. -->
 
 Para localizar los recursos podemos usar **baseURL** y *crossOrigin* del subsistema load.
 
-**BaseURL** es el lugar donde están los recursos. Si los recursos no están en el mismo sitio que el código
-podemos establecer aquí la url base para no tener que escribirla constantemente en el método de carga concreto.
+**BaseURL** es el lugar donde están los recursos. Si los recursos no están en el mismo sitio que el código.
+
+Podemos establecer aquí la url base para no tener que escribirla constantemente en el método de carga concreto.
 
 ---
 
 **Cross-origin resource sharing (CORS)** es el mecanismo de control y restricción de recursos que emplean los navegadores cuando un
-recurso es solicitado por otro dominio. CORS define la forma en la que el navegador debe interactuar con el servidor.
+recurso es solicitado por otro dominio.
+
+CORS define la forma en la que el navegador debe interactuar con el servidor.
 
 [MDN de Cross Origin](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes)
 
 ---
 
 
-**anonymous** significa que no hay ningún intercambio de credenciales entre cliente y servidor.
+`anonymous` significa que no hay ningún intercambio de credenciales entre cliente y servidor.
 
-**use-credentials** significa que para acceder al recurso hay que tener credenciales.
+`use-credentials` significa que para acceder al recurso hay que tener credenciales.
 
 Algunos ejemplos:
 

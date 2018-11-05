@@ -5,7 +5,7 @@ Los ejemplos de esta lección pueden probarse en la [sandbox de
 Phaser](https://phaser.io/sandbox)
 
 
-(Atención: hay un bug en la documentación de Phaser, y algunas propiedades
+(Atención: hay algún bug en la documentación de Phaser 2.6, y algunas propiedades
 están ocultas. Podéis buscar en las versiones 2.5 y 2.4 también).
 
 
@@ -13,7 +13,7 @@ están ocultas. Podéis buscar en las versiones 2.5 y 2.4 también).
 
 
 Una vez hayas copiado la plantilla y ejecutado `npm install` en la raíz, lanza
-el siguiente comando en `bash`{.bash}
+el siguiente comando en `bash`:
 
 ```bash
 $ node_modules/.bin/gulp run
