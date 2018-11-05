@@ -88,7 +88,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 <h1 id="introducción">Introducción</h1>
 <p>Hemos desarrollado un prototipo de un juego de plataformas con los Sprites de un famoso videojuego de la Nes y Super Nes: Battletoads. Pero a nuestro despistado programador se le han quedado algunas tareas por resolver. El ejercicio consiste en completar los <code>TODOs</code> que se indican en cada apartado para hacer que el juego funcione.</p>
-<p>##Descripción general del juego</p>
+<h2 id="descripción-general-del-juego">Descripción general del juego</h2>
 <p>El juego está basado en la plantilla de Phaser proporcionada en clase y consta de los siguientes ficheros:</p>
 <ul>
 <li><code>index.html</code>: página de inicio del juego.</li>
@@ -103,39 +103,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><code>js/gameover_scene.js</code>: Escena donde se muestra el texto de GameOver y un botón para reiniciar el nivel.</li>
 </ul>
-<p>#Instalación</p>
+<h1 id="instalación">Instalación</h1>
 <p>Es necesario <a href="ejercicios_tema5.zip">descargar la plantilla del juego</a>. Se trabajará a partir de ella.</p>
 <p>Para instalar ejecutar desde la consola:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">npm</span> install</a></code></pre></div>
-<p>#Ejecución</p>
+<h1 id="ejecución">Ejecución</h1>
 <p>Desde dentro de la carpeta del enunciado ejecutar:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">node</span> ./node_modules/gulp/bin/gulp run</a></code></pre></div>
 <h1 id="ejercicios">Ejercicios</h1>
-<p>##Ejercicio 1: Configurar game con los diferentes States del juego</p>
+<h2 id="ejercicio-1-configurar-game-con-los-diferentes-states-del-juego">Ejercicio 1: Configurar game con los diferentes States del juego</h2>
 <p>En el fichero Main, completar los <code>TODOs</code> 1.1, 1.2 y 1.3 sobre la gestión de states en el juego y cómo ejecutar el state de inicio.</p>
-<p>##Ejercicio 2: Pantalla de carga</p>
+<h2 id="ejercicio-2-pantalla-de-carga">Ejercicio 2: Pantalla de carga</h2>
 <p>Realizar el <code>TODO</code> 2.1 y 2.2 sobre la carga en la escena de carga. Debemos cargar:</p>
 <ul>
 <li>La imagen <code>images/simples_pimples.png</code> con el nombre de la cache <code>tiles</code></li>
 <li>El atlasJSONHash con <code>images/rush_spritesheet.png</code> como imagen y <code>images/rush_spritesheet.json</code></li>
 <li>Escuchar el evento <code class="sourceCode javascript">onLoadComplete</code> (<code>TODO</code> a) y esperar el callback <code class="sourceCode javascript"><span class="at">loadComplete</span>()</code> para cargar la escena ‘play’. Hay que implementar también el método (<code>TODO</code> b).</li>
 </ul>
-<p>##Ejercicio 3: Carga de la Google Font</p>
+<h2 id="ejercicio-3-carga-de-la-google-font">Ejercicio 3: Carga de la Google Font</h2>
 <ul>
 <li>Cargar en raw.htm el Google Font usando <code>//ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js</code> (<code>TODO</code> 3.1)</li>
 <li>Usars <code class="sourceCode javascript"><span class="va">WebFont</span>.<span class="at">load</span>()</code> con el objeto wfconfig ya creado, para solicitar la fuente a Google. Nótese que el método <strong>active</strong> invoca a un método init() no definido que es el que verdaderamente crea el juego en Phaser que ahora mismo está siendo creado en el <strong>onload</strong>. Sin embargo, el método onload realmente debe ser utilziado para iniciar la carga de la fuente. (<code>TODOS</code> 3.2, 3.3)</li>
 </ul>
-<p>##Ejercicio 4: Crear el Tilemap en el state de juego</p>
+<h2 id="ejercicio-4-crear-el-tilemap-en-el-state-de-juego">Ejercicio 4: Crear el Tilemap en el state de juego</h2>
 <p>Crear el Tilemap ‘tilemap’ y guardarlo en el attributo <strong>map</strong> como miembro de la clase PlayScene en el archivo play_scene.js (Notese que la variable ya se usa mas adelante en el código con ese mismo nombre. Si, no peta, esto es javascript :P) y asignarle al tileset ‘patrones’ la imagen de sprites llamada ‘tiles’ cargada en la state <code class="sourceCode javascript">PreloaderScene</code>.</p>
-<p>##Ejercicio 5: Crear el sprite de Rush, el avatar del player</p>
+<h2 id="ejercicio-5-crear-el-sprite-de-rush-el-avatar-del-player">Ejercicio 5: Crear el sprite de Rush, el avatar del player</h2>
 <p>Creamos a <strong>rush</strong> con el sprite ‘rush’ previamente cargado en la cache en la posición (10, 10) con el frame por defecto ‘rush_idle01’</p>
-<p>##Ejercicio 6: Cargar GameOver y descargar los recursos del juego</p>
+<h2 id="ejercicio-6-cargar-gameover-y-descargar-los-recursos-del-juego">Ejercicio 6: Cargar GameOver y descargar los recursos del juego</h2>
 <p>Cuando el personaje colisione con el plano de muerte dibujado en la capa <code class="sourceCode javascript">Death</code>, invocará a <code class="sourceCode javascript">onPlayerFell</code>. En ese momento, hay que poner la pantalla de GameOver.</p>
-<p>##Ejercicio 7: Recargar el juego al perder pulsando el boton Reset Game del state GameOver</p>
+<h2 id="ejercicio-7-recargar-el-juego-al-perder-pulsando-el-boton-reset-game-del-state-gameover">Ejercicio 7: Recargar el juego al perder pulsando el boton Reset Game del state GameOver</h2>
 <p>Implementar el <code>TODO</code> 7 de gameover_scene con el callback del botón <code class="sourceCode javascript"><span class="kw">var</span> button</code>.</p>
-<p>##Ejercicio 8: Crear un botón que nos devuelva al menú de juego en la ventana de GameOver</p>
+<h2 id="ejercicio-8-crear-un-botón-que-nos-devuelva-al-menú-de-juego-en-la-ventana-de-gameover">Ejercicio 8: Crear un botón que nos devuelva al menú de juego en la ventana de GameOver</h2>
 <p>Implementa el <code>TODO</code> 8 creando el botón ‘Return Main Menu’ que cargue el menú de inicio.</p>
-<p>##Ejercicio 9: Destruir los recursos ‘Tilemap’, ‘tiles’ y <del>‘logo’</del> al terminar el state PlayScene</p>
+<h2 id="ejercicio-9-destruir-los-recursos-tilemap-tiles-y-logo-al-terminar-el-state-playscene">Ejercicio 9: Destruir los recursos ‘Tilemap’, ‘tiles’ y <del>‘logo’</del> al terminar el state PlayScene</h2>
 <p>No hay que eliminar el logo porque se necesita en el ejercicio anterior (return main menu). Y hay que reestablecer el tamaño del mundo al ambiar el state usando <code class="sourceCode javascript"><span class="kw">this</span>.<span class="va">game</span>.<span class="va">world</span>.<span class="at">setBounds</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">800</span><span class="op">,</span><span class="dv">600</span>)<span class="op">;</span></code> para reestablecer el tamaño del mundo.</p>
 </body>
 </html>
