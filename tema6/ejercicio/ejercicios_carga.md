@@ -22,7 +22,7 @@ El juego está basado en la plantilla de Phaser proporcionada en clase y consta 
 
 # Instalación
 
-Es necesario [descargar la plantilla del juego](ejercicios_tema5.zip). Se trabajará a partir de ella.
+Es necesario [descargar la plantilla del juego](ejercicios_carga.zip). Se trabajará a partir de ella.
 
 Para instalar ejecutar desde la consola:
 
