@@ -211,7 +211,7 @@ Hoy en día las tecnologías web permiten reproducir audio desde el navegador
 
 ---
 
-Web Audio es una forma (aún experimental) de reproducir audio en el navegador a
+Web Audio es una forma de reproducir audio en el navegador a
 bajo nivel
 
 ---
