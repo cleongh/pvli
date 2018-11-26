@@ -239,11 +239,13 @@ El autor hasta ha publicado [un libro](https://www.truevalhalla.com/blog/ebook)
 
 Hay que alojar el juego de vuestro proyecto en un sitio web
 
-Todos, a través del servicio de páginas públicas en GitHub ([`gh-pages`](https://pages.github.com/)) podéis simplemente hacer un commit del juego y servir la URL
+Todos, a través del [servicio de páginas públicas en GitHub](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/) podéis simplemente hacer un commit del juego y servir la URL
 
 ---
 
-Sólo tenéis que crear una rama que se llame `gh-pages` en un repositorio, y tener ahí el archivo `index.html` apropiado (los servidores web usar `index.html` por defecto)
+Sólo tenéis que crear una rama `master` en un repositorio, y tener ahí el archivo `index.html` apropiado (los servidores web usar `index.html` por defecto)
+
+También podéis hacerlo desde la carpeta `docs` de `master` (tenéis que configurarlo en "Settings")
 
 ## Rutas
 
@@ -255,7 +257,7 @@ Tened en cuenta que Phaser no sirve bien desde local, hace falta hacerlo a trav�
 
 Tened cuidado con los recursos:
 
-- Referenciadlos con rutas relativas a vuestros `.html` y `.js` (`imgs/bullet.png`) en vez de (`http://mi.servidor.que/cambiara/seguro/imgs/bullet.png`)
+- Referenciadlos con rutas relativas a vuestros `.html` y `.js` (`imgs/bullet.png`) en vez de `http://mi.servidor.que/cambiara/imgs/bullet.png`
 - Aseguraos de que están cargados antes de iniciar su uso
 - Aseguraos de que están siempre disponibles
 
@@ -270,3 +272,13 @@ Hay que modificarlo, hacer que tenga el título del juego, el GDD (una versión 
 ---
 
 Además, hay que poner la licencia del mismo e información de la asignatura
+
+---
+
+Tened en cuenta que el script:
+
+```bash
+./node_modules/.bin/gulp dist
+```
+
+Os crea el directorio `dist` que contiene el `.js` y los `.html` que necesitáis publicar (con el `bundle.js`), sólo tenéis que añadir los directorios de recursos que uséis (como `assets`)
