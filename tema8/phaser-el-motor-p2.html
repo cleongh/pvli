@@ -189,8 +189,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section><section id="ejemplos-con-p2" class="slide level2">
 <h2>Ejemplos con P2</h2>
 <p><a href="https://phaser.io/examples/v2/category/p2-physics">Ejemplos con P2 Engine</a></p>
-</section><section class="slide level2">
-
 </section></section>
 <section><section id="triggers-sensor" class="title-slide slide level1"><h1>Triggers (sensor)</h1></section><section class="slide level2">
 
@@ -293,8 +291,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section><section class="slide level2">
 
 <p><a href="http://phaser.io/examples/v2/p2-physics/gravity-scale">gravityScale</a></p>
-</section><section class="slide level2">
-
 </section></section>
 <section><section id="aceleración" class="title-slide slide level1"><h1>Aceleración</h1></section><section id="qué-es-la-aceleración" class="slide level2">
 <h2>¿Qué es la aceleración?</h2>
@@ -359,8 +355,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Se usa <code class="sourceCode javascript">thrust</code> para acelerar (al ser un impulso, se aplica la aceleración por física) o force en el caso de los objetos</li>
 <li>La rotación es instantánea (en general no tiene por que serlo)</li>
 </ul>
-</section><section class="slide level2">
-
 </section></section>
 <section><section id="constrains" class="title-slide slide level1"><h1>Constrains</h1></section><section id="qué-es-una-constraint" class="slide level2">
 <h2>¿Qué es una constraint?</h2>
@@ -399,7 +393,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://phaser.io/examples/v2/p2-physics/chain">Chains</a></p>
 </section><section id="springs" class="slide level2">
 <h2>Springs</h2>
-<p>Los <strong>Springs</strong> o muelles sirven para mantener una distancia flexible a un objeto Los springs siguen la ley de Hooke donde la fuerza <span class="math inline">\(F\)</span>:</p>
+<p>Los <strong>Springs</strong> o muelles sirven para mantener una distancia flexible a un objeto</p>
+<p>Los muelles siguen la ley de <a href="https://es.wikipedia.org/wiki/Ley_de_elasticidad_de_Hooke">Hooke</a> donde la fuerza <span class="math inline">\(F\)</span>:</p>
 </section><section class="slide level2">
 
 <!-- ![Ley de Hooke](imgs/hooke.svg) -->
@@ -421,15 +416,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section><section class="slide level2">
 
 <ul>
-<li><strong>restLength</strong>: la longitud del spring</li>
-<li><strong>stiffness</strong>: rigidez del spring (costante de elasticidad)</li>
-<li><strong>damping</strong>: amortiguación (rebote o fuerza contraria al movimiento)</li>
+<li><code class="sourceCode javascript">restLength</code>: la longitud del spring</li>
+<li><code class="sourceCode javascript">stiffness</code>: rigidez del spring (constante de elasticidad)</li>
+<li><code class="sourceCode javascript">damping</code>: amortiguación (rebote o fuerza contraria al movimiento)</li>
 </ul>
 </section><section class="slide level2">
 
 <p><a href="https://phaser.io/examples/v2/p2-physics/mouse-spring">Springs</a></p>
-</section><section class="slide level2">
-
 </section></section>
 <section><section id="kinematic-body" class="title-slide slide level1"><h1>Kinematic Body</h1></section><section id="cuerpos-kinemáticos-vs-cuerpos-físicos" class="slide level2">
 <h2>Cuerpos Kinemáticos Vs Cuerpos Físicos</h2>
@@ -439,7 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section><section class="slide level2">
 
 <p>En un juego normal, no queremos usar la física para mover un objeto controlado por el jugador o por la IA ya que esto puede provocar muchos problemas</p>
-<p>La física es dificil de controlar y produce errores de redondeo</p>
+<p>La física es difícil de controlar y produce errores de redondeo</p>
 <p>Lo más razonable para garantizar las mecánicas es moverlo nosotros con la lógica del juego</p>
 </section><section class="slide level2">
 

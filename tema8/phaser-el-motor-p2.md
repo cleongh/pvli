@@ -167,8 +167,6 @@ Si queremos ajustar la forma hay que pasar la información del editor de shape a
 
 [Ejemplos con P2 Engine](https://phaser.io/examples/v2/category/p2-physics)
 
----
-
 # Triggers (sensor)
 
 ---
@@ -239,7 +237,6 @@ function checkSensorsEnd(bodyA,shapeA,shapeB){
 
 # Velocidad
 
----
 
 ## ¿Qué es la velocidad?
 <!-- https://www.codeandweb.com/physicseditor/tutorials/phaser-p2-physics-example-tutorial -->
@@ -315,7 +312,6 @@ game.physics.p2.gravity.y = 300;
 
 ---
 
-
 Podemos modificar la fuerza de la gravedad relativa a cada objeto usando `gravityScale`{.js}:
 
 ```js
@@ -327,8 +323,6 @@ sprite3.body.data.gravityScale = 0.25;
 ---
 
 [gravityScale](http://phaser.io/examples/v2/p2-physics/gravity-scale)
-
----
 
 # Aceleración
 
@@ -366,9 +360,7 @@ $$e(t) = \frac{1}{2} a t^2 + v_0 t + e_0$$
 - $a$: aceleración
 - $v_0$: velocidad inicial
 
-
 ---
-
 
 Una buena aproximación en videojuegos es hacer lo siguiente:
 
@@ -420,8 +412,6 @@ function accelerateToObject(obj1, obj2, speed) {
 - Si queremos calcular la cantidad de movimiento aplicable a cada componente, debemos proyectar el ángulo a los diferentes componentes
 - Se usa `thrust`{.js} para acelerar (al ser un impulso, se aplica la aceleración por física) o force en el caso de los objetos
 - La rotación es instantánea (en general no tiene por que serlo)
-
----
 
 # Constrains
 
@@ -480,7 +470,8 @@ game.physics.p2.createRevoluteConstraint(bodyA, pivotA, bodyB, pivotB, fuerza);
 ## Springs
 
 Los **Springs** o muelles sirven para mantener una distancia flexible a un objeto
-Los springs siguen la ley de Hooke donde la fuerza $F$:
+
+Los muelles siguen la ley de [Hooke](https://es.wikipedia.org/wiki/Ley_de_elasticidad_de_Hooke) donde la fuerza $F$:
 
 ---
 
@@ -511,15 +502,13 @@ spring = game.physics.p2.createSpring(bodya, bodyb, 0, 30, 1);
 
 ---
 
-- **restLength**: la longitud del spring
-- **stiffness**: rigidez del spring (costante de elasticidad)
-- **damping**: amortiguación (rebote o fuerza contraria al movimiento)
+- `restLength`{.javascript}: la longitud del spring
+- `stiffness`{.javascript}: rigidez del spring (constante de elasticidad)
+- `damping`{.javascript}: amortiguación (rebote o fuerza contraria al movimiento)
 
 ---
 
 [Springs](https://phaser.io/examples/v2/p2-physics/mouse-spring)
-
----
 
 # Kinematic Body
 
@@ -537,7 +526,7 @@ También se suelen incluir los enemigos que son controlados por la IA o el playe
 
 En un juego normal, no queremos usar la física para mover un objeto controlado por el jugador o por la IA ya que esto puede provocar muchos problemas
 
-La física es dificil de controlar y produce errores de redondeo
+La física es difícil de controlar y produce errores de redondeo
 
 Lo más razonable para garantizar las mecánicas es moverlo nosotros con la lógica del juego
 
