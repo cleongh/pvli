@@ -278,7 +278,7 @@ map.setCollisionByExclusion([93, 94, 95, 96], true);
 ### Colisión con toda la capa del tilemap
 
 ```js
-setCollision(collides, layer);
+setCollision(indexes, collides, layer);
 
 this.map.setCollision(true, 'GroundLayer');
 ```
