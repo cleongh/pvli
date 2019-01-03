@@ -17,7 +17,7 @@ PROYECTO3=proyecto/version3/especificacion.html
 
 PROYECTO=$(PROYECTO1) $(PROYECTO2) $(PROYECTO3) proyecto/criterios_evaluacion.html
 TEMAS=$(TEMA1) $(TEMA2) $(TEMA3) $(TEMA4) $(TEMA5) $(TEMA6) $(TEMA7) $(TEMA8) $(TEMA9) $(TEMA10) $(TEMA11)
-TODO=$(GENERAL) $(TEMAS) $(PROYECTO)
+TODO=$(GENERAL) $(TEMAS) $(PROYECTO) plantilla-juego.zip
 # BASERUN=pandoc -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
 
 BASERUN=pandoc -s --mathjax --filter pandoc-include -M secPrefix= -M figPrefix= -M eqnPrefix= -M tblPrefix= --filter pandoc-crossref
@@ -49,6 +49,10 @@ tema5/ejercicios.html: tema5/ejercicios.md shared/docs.css
 
 tema6/ejercicio/ejercicios_carga.html: tema6/ejercicio/ejercicios_carga.md
 	$(BASERUN) --css ../../shared/docs.css -t html+smart $< -o $@
+
+plantilla-juego.zip: plantilla-juego/gulpfile.js plantilla-juego/package.json plantilla-juego/README.md plantilla-juego/src/*
+	zip -r $(notdir $@) $^
+
 
 tema6/ejercicio/ejercicios_carga.zip: tema6/ejercicio/ejercicios_carga.html tema6/ejercicio/gulpfile.js tema6/ejercicio/package.json tema6/ejercicio/README.md tema6/ejercicio/.jshintrc tema6/ejercicio/src/*
 	cd tema6/ejercicio/ && zip -r $(notdir $@) src ejercicios_carga.html gulpfile.js package.json README.md .jshintrc
